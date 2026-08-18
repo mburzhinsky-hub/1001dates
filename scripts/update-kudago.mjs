@@ -69,9 +69,18 @@ function parsePrice(text="", isFree=false) {
 async function fetchJSON(path, params) {
   const url = new URL(API + path);
   for (const [key,value] of Object.entries(params)) if (value !== undefined && value !== null && value !== "") url.searchParams.set(key, String(value));
-  const response = await fetch(url, { headers:{ "User-Agent":"1001-Dates-MVP/1.0" } });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
-  return response.json();
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, { headers:{ "User-Agent":"1001-Dates/1.0" } });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
+      return response.json();
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await new Promise((resolveDelay) => setTimeout(resolveDelay, attempt * 1200));
+    }
+  }
+  throw lastError;
 }
 
 async function fetchPages(path, baseParams, pages) {
@@ -100,6 +109,7 @@ function normalizePlace(p) {
     vibes:vibesFor(category, `${p.title || ""} ${p.description || ""}`),
     quality:Math.min(9.5, 7 + Math.log10(1 + (p.favorites_count || 0))*.55),
     image:p.images?.[0]?.image || null,
+    coords:p.coords || null,
     source:"KudaGo API",
     sourceUrl:p.site_url || null
   };
@@ -143,6 +153,7 @@ function normalizeEvent(e) {
     quality:Math.min(9.7, 7.2 + Math.log10(1 + (e.favorites_count || 0))*.55),
     ...normalizeDates(e.dates || []),
     image:e.images?.[0]?.image || null,
+    coords:place.coords || null,
     source:"KudaGo API",
     sourceUrl:e.site_url || null
   };

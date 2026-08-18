@@ -2,6 +2,10 @@ name: Refresh KudaGo data
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "data/kudago.generated.js"
   schedule:
     - cron: "17 4 * * *"
 
