@@ -1,0 +1,39 @@
+name: Build Full DB Artifact
+
+on:
+  push:
+    branches: [build-full-db-20260818]
+
+permissions:
+  contents: read
+
+actions:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build full Moscow snapshot
+        env:
+          KUDAGO_PLACE_PAGES: 20
+          KUDAGO_EVENT_PAGES: 8
+          KUDAGO_PER_CATEGORY: 280
+          KUDAGO_PER_SUBTYPE: 90
+        run: node scripts/update-kudago.mjs
+      - name: Validate snapshot
+        run: node scripts/validate-data.mjs --strict
+      - name: Audit planner
+        run: |
+          node scripts/audit-scenarios.mjs
+          node scripts/smoke-test.mjs
+          node scripts/audit-filters.mjs
+      - name: Upload generated database
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-database
+          path: data/kudago.generated.js
+          retention-days: 1
