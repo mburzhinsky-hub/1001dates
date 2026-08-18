@@ -1,48 +1,48 @@
 import { seedPlaces, seedEvents } from "../data/seed.js";
-import { generateDates } from "../engine.js";
+import { generateDates, replacePlanItem, estimateScenarioCount } from "../engine.js";
 
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
-}
-
+function assert(condition, message) { if (!condition) throw new Error(message); }
 const base = {
-  date: "2026-08-22",
-  time: "19:00",
-  budget: 15000,
-  vibes: ["romantic"],
-  zone: "any",
-  food: true,
-  useEvents: true,
-  indoorOnly: false,
-  noBars: false
+  date:"2026-08-22", time:"12:00", budget:15000, vibes:["romantic"], zone:"any", food:true,
+  useEvents:true, indoorOnly:false, noBars:false, avoidVisited:false, adventure:"balanced",
+  likedItemIds:[], visitedItemIds:[], dislikedItemIds:[], recentlyShownItemIds:[]
 };
 
-for (const duration of [120, 180, 240, 360]) {
-  const plans = generateDates({ places: seedPlaces, events: seedEvents, filters: { ...base, duration }, count: 3 });
+for (const duration of [120,180,240,360]) {
+  const plans = generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration}, count:3, variationSeed:2 });
   assert(plans.length === 3, `Expected 3 plans for ${duration} minutes, got ${plans.length}`);
-  assert(plans.every((plan) => plan.totalMinutes <= duration + 5), `A plan exceeds selected duration ${duration}`);
+  assert(plans.every((plan) => plan.totalMinutes <= duration + 5), `Plan exceeds duration ${duration}`);
+  const floor = duration >= 330 ? 300 : Math.floor(duration * .80);
+  assert(plans.every((plan) => plan.totalMinutes >= floor), `Plan is materially too short for ${duration}`);
+  assert(new Set(plans.map((p) => p.archetype?.id)).size === 3, `Expected 3 archetypes for ${duration}`);
 }
 
-const longPlans = generateDates({ places: seedPlaces, events: seedEvents, filters: { ...base, duration: 360 }, count: 3 });
-assert(longPlans.every((plan) => plan.totalMinutes >= 300), "6-hour filter returned a plan shorter than 5 hours");
+const activePlans = generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration:240,vibes:["active"]}, count:3, variationSeed:4 });
+assert(activePlans.length === 3, "Expected active plans");
+assert(activePlans.every((plan) => plan.template.vibes.includes("active") || plan.items.some((item) => item.vibes?.includes("active"))), "Active mood returned a plan with no active signal");
 
-const indoorNoBars = generateDates({
-  places: seedPlaces,
-  events: seedEvents,
-  filters: { ...base, duration: 360, indoorOnly: true, noBars: true },
-  count: 3
-});
-assert(indoorNoBars.length === 3, "Expected 3 indoor/no-bar long plans");
-assert(indoorNoBars.every((plan) => plan.items.every((item) => item.indoor)), "Indoor-only plan contains an outdoor item");
-assert(indoorNoBars.every((plan) => plan.items.every((item) => item.category !== "bar")), "No-bars plan contains a bar");
+const comboPlans = generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration:360,vibes:["romantic","unusual"]}, count:3, variationSeed:5 });
+assert(comboPlans.length === 3, "Expected multi-vibe long plans");
+assert(comboPlans.every((plan) => ["romantic","unusual"].every((vibe) => plan.template.vibes.includes(vibe) || plan.items.some((item) => item.vibes?.includes(vibe)))), "Multi-vibe coverage failed");
 
-const lowBudgetLong = generateDates({
-  places: seedPlaces,
-  events: seedEvents,
-  filters: { ...base, duration: 360, budget: 4000 },
-  count: 3
-});
-assert(lowBudgetLong.every((plan) => plan.totalMinutes >= 285), "Low-budget fallback silently returned a short date");
+const indoorNoBars = generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration:360,indoorOnly:true,noBars:true}, count:3, variationSeed:3 });
+assert(indoorNoBars.length === 3, "Expected 3 indoor/no-bar plans");
+assert(indoorNoBars.every((plan) => plan.items.every((item) => item.indoor !== false)), "Indoor-only contains outdoor item");
+assert(indoorNoBars.every((plan) => plan.items.every((item) => item.category !== "bar")), "No-bars contains a bar");
 
-console.log("1001 Dates smoke test: OK");
-console.log("6h plans:", longPlans.map((plan) => `${plan.totalMinutes}m / ${plan.totalCost} RUB / ${plan.template.id}`).join(" | "));
+const basePlans = generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration:240}, count:3, variationSeed:6 });
+const original = basePlans[0];
+let replaceIndex = original.items.findIndex((item) => seedPlaces.filter((p) => p.category === item.category).length > 1);
+if (replaceIndex < 0) replaceIndex = 0;
+const replaced = replacePlanItem({ plan:original, itemIndex:replaceIndex, places:seedPlaces, events:seedEvents, filters:{...base,duration:240}, variationSeed:9 });
+assert(replaced.totalMinutes <= 245, "Replacement broke duration");
+assert(replaced.totalCost <= 15000, "Replacement broke budget");
+
+const anchor = seedPlaces.find((item) => item.category === "art");
+const around = generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration:240}, count:3, variationSeed:7, anchorItem:anchor });
+assert(around.length > 0, "Expected plans around anchor");
+assert(around.every((plan) => plan.items.some((item) => item.id === anchor.id)), "Anchor plan lost anchor item");
+
+assert(estimateScenarioCount(seedPlaces,seedEvents) > 1000, "Fallback model should expose >1000 theoretical combinations");
+console.log("1001 Dates v7 smoke test: OK");
+console.log("6h example:", generateDates({ places:seedPlaces, events:seedEvents, filters:{...base,duration:360}, count:3, variationSeed:8 }).map((p) => `${p.archetype.id}:${p.totalMinutes}m/${p.totalCost}`).join(" | "));

@@ -1,53 +1,886 @@
+// Curated fallback data. Generic catalogue URLs are deliberately omitted; the UI only exposes concrete place/event pages.
 export const seedPlaces = [
-  { id:"seed-zaryadye", title:"Парк «Зарядье»", category:"walk", zone:"center", address:"ул. Варварка, д. 6", costForTwo:0, duration:55, indoor:false, vibes:["romantic","calm","unusual"], quality:9.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/recreation/parks/" },
-  { id:"seed-vorobyovy", title:"Воробьёвы горы", category:"viewpoint", zone:"west", address:"Ленинские горы, вл. 1", costForTwo:0, duration:50, indoor:false, vibes:["romantic","calm"], quality:9.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/activity/turisticheskaya-moskva/" },
-  { id:"seed-ran", title:"Смотровая площадка РАН", category:"viewpoint", zone:"west", address:"Ленинский просп., д. 32, лит. А, стр. 1", costForTwo:0, duration:40, indoor:false, vibes:["romantic","calm","unusual"], quality:8.5, source:"KudaGo", sourceUrl:"https://kudago.com/msk/activity/turisticheskaya-moskva/" },
-  { id:"seed-patriarshy", title:"Патриарший мост", category:"walk", zone:"center", address:"Пречистенская / Берсеневская набережная", costForTwo:0, duration:40, indoor:false, vibes:["romantic","calm"], quality:8.8, source:"KudaGo", sourceUrl:"https://kudago.com/msk/activity/turisticheskaya-moskva/" },
-  { id:"seed-kolomenskoe", title:"Музей-заповедник «Коломенское»", category:"walk", zone:"south", address:"просп. Андропова, д. 39", costForTwo:0, duration:70, indoor:false, vibes:["romantic","calm","active"], quality:8.8, source:"KudaGo", sourceUrl:"https://kudago.com/msk/activity/turisticheskaya-moskva/" },
-  { id:"seed-tsaritsyno", title:"Музей-заповедник «Царицыно»", category:"walk", zone:"south", address:"ул. Дольская, д. 1", costForTwo:0, duration:75, indoor:false, vibes:["romantic","calm","active"], quality:9.0, source:"KudaGo API", sourceUrl:"https://kudago.com/msk/place/caricyno/" },
-  { id:"seed-panorama360", title:"PANORAMA360", category:"viewpoint", zone:"city", address:"Пресненская наб., д. 12, башня «Федерация. Восток», 89 этаж", costForTwo:4000, duration:70, indoor:true, vibes:["romantic","unusual"], quality:9.1, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/interesnoe-mesto-panorama-360/" },
-  { id:"seed-highport", title:"Смотровая «Выше Только Любовь»", category:"viewpoint", zone:"city", address:"1-й Красногвардейский пр-д, д. 21/2", costForTwo:3600, costEstimated:true, duration:60, indoor:false, vibes:["romantic","unusual"], quality:9.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/fotomesto-high-port-354/" },
-  { id:"seed-moscow-city", title:"Прогулка по Москва-Сити", category:"walk", zone:"city", address:"Пресненская набережная", costForTwo:0, duration:45, indoor:false, vibes:["romantic","unusual","active"], quality:8.4, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/moscow-city/" },
-  { id:"seed-red-presnya", title:"Парк «Красная Пресня»", category:"walk", zone:"city", address:"ул. Мантулинская, д. 5", costForTwo:0, duration:50, indoor:false, vibes:["romantic","calm","active"], quality:8.1, source:"KudaGo", sourceUrl:"https://kudago.com/msk/p/parks/" },
-  { id:"seed-ekaterininsky", title:"Екатерининский парк", category:"walk", zone:"center", address:"ул. Большая Екатерининская, д. 27", costForTwo:0, duration:55, indoor:false, vibes:["calm","romantic"], quality:8.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/p/parks/" },
-  { id:"seed-vorontsovo", title:"Воронцовский парк", category:"walk", zone:"south", address:"Воронцовский парк, д. 3", costForTwo:0, duration:60, indoor:false, vibes:["calm","romantic","active"], quality:8.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/p/parks/" },
-  { id:"seed-kuzminki", title:"Парк «Кузьминки»", category:"walk", zone:"east", address:"природно-исторический парк «Кузьминки-Люблино»", costForTwo:0, duration:65, indoor:false, vibes:["calm","active"], quality:8.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/p/parks/" },
-  { id:"seed-izmailovo", title:"Измайловский парк", category:"walk", zone:"east", address:"Измайловский парк", costForTwo:0, duration:65, indoor:false, vibes:["calm","active","romantic"], quality:8.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/p/parks/" },
-  { id:"seed-kosino", title:"Косинский парк", category:"walk", zone:"east", address:"ул. Большая Косинская", costForTwo:0, duration:70, indoor:false, vibes:["calm","active","unusual"], quality:7.9, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/kosinskij-park/" },
-
-  { id:"seed-kings", title:"King’s Gallery", category:"art", zone:"center", address:"Большой Палашёвский пер., д. 10", costForTwo:1200, costEstimated:true, duration:65, indoor:true, vibes:["calm","unusual","romantic"], quality:7.8, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/galereya-kings-gallery/" },
-  { id:"seed-gost", title:"Галерея «Г.О.С.Т.»", category:"art", zone:"center", address:"ул. Пречистенка, д. 30/2", costForTwo:1200, costEstimated:true, duration:60, indoor:true, vibes:["calm","unusual"], quality:7.8, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/galereya-gost/" },
-  { id:"seed-clear-gallery", title:"Галерея на Чистых Прудах", category:"art", zone:"center", address:"Чистопрудный б-р, д. 5/10", costForTwo:1200, costEstimated:true, duration:60, indoor:true, vibes:["calm","romantic"], quality:7.7, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/galereya-na-chistyh-prudah/" },
-  { id:"seed-east-gallery", title:"Галерея «Восточная заграница»", category:"art", zone:"center", address:"ул. Садовая-Кудринская, д. 25", costForTwo:1200, costEstimated:true, duration:60, indoor:true, vibes:["unusual","calm"], quality:7.6, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/galereya-vostochnaya-zagranica/" },
-  { id:"seed-davydkovo", title:"Галерея Давыдково", category:"art", zone:"west", address:"ул. Кременчугская, д. 22", costForTwo:900, costEstimated:true, duration:60, indoor:true, vibes:["calm","unusual"], quality:7.3, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/galereya-xxi-veka/" },
-  { id:"seed-tereteli", title:"Галерея искусств Зураба Церетели", category:"art", zone:"center", address:"ул. Пречистенка", costForTwo:1600, costEstimated:true, duration:80, indoor:true, vibes:["calm","unusual","romantic"], quality:8.3, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/rah/" },
-
-  { id:"seed-zdraste", title:"Кофейня «Здрасте»", category:"cafe", zone:"vdnh", address:"2-я Останкинская ул., д. 3", costForTwo:1800, costEstimated:true, duration:55, indoor:true, vibes:["calm","romantic"], quality:8.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-  { id:"seed-casaleone", title:"Casa Leone", category:"dessert", zone:"center", address:"Лубянский пр-д, д. 15, стр. 2", costForTwo:1800, costEstimated:true, duration:50, indoor:true, vibes:["romantic","calm","fun"], quality:8.3, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-  { id:"seed-teaheight", title:"«Чайная высота»", category:"dessert", zone:"center", address:"несколько адресов в центре", costForTwo:1000, duration:60, indoor:true, vibes:["calm","unusual","romantic"], quality:8.6, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-  { id:"seed-coffeebean", title:"Coffee Bean", category:"cafe", zone:"center", address:"Москва, несколько кофеен", costForTwo:1600, costEstimated:true, duration:50, indoor:true, vibes:["calm"], quality:7.6, source:"KudaGo", sourceUrl:"https://kudago.com/msk/place/coffee-bean/" },
-  { id:"seed-apartment44", title:"Пиано-бар «Квартира 44»", category:"bar", zone:"center", address:"Москва, несколько адресов", costForTwo:3200, costEstimated:true, duration:75, indoor:true, vibes:["romantic","fun","calm"], quality:8.5, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-  { id:"seed-halfpromille", title:"Гастробар «0,5 Промилле»", category:"bar", zone:"center", address:"Большая Сухаревская пл., д. 9", costForTwo:4200, costEstimated:true, duration:75, indoor:true, vibes:["fun","romantic"], quality:8.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/banquet_hall/" },
-  { id:"seed-lastochka", title:"Ресторан-яхта «Ласточка»", category:"dinner", zone:"west", address:"Лужнецкая наб., д. 6, стр. 1", costForTwo:5000, duration:90, indoor:true, vibes:["romantic","unusual"], quality:8.8, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-  { id:"seed-restaurant360", title:"Панорамный ресторан «360»", category:"dinner", zone:"city", address:"Пресненская наб., д. 12, башня «Федерация. Восток», 89 этаж", costForTwo:6500, costEstimated:true, duration:95, indoor:true, vibes:["romantic","unusual"], quality:9.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/activity/place-for-date/" },
-  { id:"seed-m2", title:"«М2 Органик Клуб»", category:"dinner", zone:"center", address:"Москва, несколько адресов", costForTwo:4500, costEstimated:true, duration:90, indoor:true, vibes:["calm","romantic"], quality:8.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-  { id:"seed-rovesnik", title:"Бар «Ровесник»", category:"bar", zone:"center", address:"Тверской район", costForTwo:3500, costEstimated:true, duration:80, indoor:true, vibes:["fun","active"], quality:8.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/restaurants/" },
-
-  { id:"seed-recordium", title:"Музей «Рекордиум»", category:"activity", zone:"vdnh", address:"Москва", costForTwo:3600, costEstimated:true, duration:75, indoor:true, vibes:["fun","unusual"], quality:8.4, source:"KudaGo", sourceUrl:"https://kudago.com/msk/" },
-  { id:"seed-magic", title:"Музей Магии на Новом Арбате", category:"activity", zone:"center", address:"Новый Арбат", costForTwo:3000, costEstimated:true, duration:70, indoor:true, vibes:["fun","unusual"], quality:8.2, source:"KudaGo", sourceUrl:"https://kudago.com/msk/" },
-  { id:"seed-labyrinth", title:"Клуб «Лабиринт»", category:"activity", zone:"center", address:"Москва", costForTwo:2400, costEstimated:true, duration:75, indoor:true, vibes:["active","fun","unusual"], quality:8.0, source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-21" },
-  { id:"seed-mars", title:"Центр современного искусства М’АРС", category:"art", zone:"center", address:"Москва, центр", costForTwo:2400, costEstimated:true, duration:80, indoor:true, vibes:["unusual","romantic","calm"], quality:8.6, source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-03-2026-08-16" }
+  {
+    "id": "seed-zaryadye",
+    "title": "Парк «Зарядье»",
+    "category": "walk",
+    "zone": "center",
+    "address": "ул. Варварка, д. 6",
+    "costForTwo": 0,
+    "duration": 55,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm",
+      "unusual"
+    ],
+    "quality": 9.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-vorobyovy",
+    "title": "Воробьёвы горы",
+    "category": "viewpoint",
+    "zone": "west",
+    "address": "Ленинские горы, вл. 1",
+    "costForTwo": 0,
+    "duration": 50,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm"
+    ],
+    "quality": 9,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-ran",
+    "title": "Смотровая площадка РАН",
+    "category": "viewpoint",
+    "zone": "west",
+    "address": "Ленинский просп., д. 32, лит. А, стр. 1",
+    "costForTwo": 0,
+    "duration": 40,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm",
+      "unusual"
+    ],
+    "quality": 8.5,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-patriarshy",
+    "title": "Патриарший мост",
+    "category": "walk",
+    "zone": "center",
+    "address": "Пречистенская / Берсеневская набережная",
+    "costForTwo": 0,
+    "duration": 40,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm"
+    ],
+    "quality": 8.8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-kolomenskoe",
+    "title": "Музей-заповедник «Коломенское»",
+    "category": "walk",
+    "zone": "south",
+    "address": "просп. Андропова, д. 39",
+    "costForTwo": 0,
+    "duration": 70,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm",
+      "active"
+    ],
+    "quality": 8.8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-tsaritsyno",
+    "title": "Музей-заповедник «Царицыно»",
+    "category": "walk",
+    "zone": "south",
+    "address": "ул. Дольская, д. 1",
+    "costForTwo": 0,
+    "duration": 75,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm",
+      "active"
+    ],
+    "quality": 9,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/place/caricyno/"
+  },
+  {
+    "id": "seed-panorama360",
+    "title": "PANORAMA360",
+    "category": "viewpoint",
+    "zone": "city",
+    "address": "Пресненская наб., д. 12, башня «Федерация. Восток», 89 этаж",
+    "costForTwo": 4000,
+    "duration": 70,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "unusual"
+    ],
+    "quality": 9.1,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/interesnoe-mesto-panorama-360/"
+  },
+  {
+    "id": "seed-highport",
+    "title": "Смотровая «Выше Только Любовь»",
+    "category": "viewpoint",
+    "zone": "city",
+    "address": "1-й Красногвардейский пр-д, д. 21/2",
+    "costForTwo": 3600,
+    "costEstimated": true,
+    "duration": 60,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "unusual"
+    ],
+    "quality": 9,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/fotomesto-high-port-354/"
+  },
+  {
+    "id": "seed-moscow-city",
+    "title": "Прогулка по Москва-Сити",
+    "category": "walk",
+    "zone": "city",
+    "address": "Пресненская набережная",
+    "costForTwo": 0,
+    "duration": 45,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "unusual",
+      "active"
+    ],
+    "quality": 8.4,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/moscow-city/"
+  },
+  {
+    "id": "seed-red-presnya",
+    "title": "Парк «Красная Пресня»",
+    "category": "walk",
+    "zone": "city",
+    "address": "ул. Мантулинская, д. 5",
+    "costForTwo": 0,
+    "duration": 50,
+    "indoor": false,
+    "vibes": [
+      "romantic",
+      "calm",
+      "active"
+    ],
+    "quality": 8.1,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-ekaterininsky",
+    "title": "Екатерининский парк",
+    "category": "walk",
+    "zone": "center",
+    "address": "ул. Большая Екатерининская, д. 27",
+    "costForTwo": 0,
+    "duration": 55,
+    "indoor": false,
+    "vibes": [
+      "calm",
+      "romantic"
+    ],
+    "quality": 8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-vorontsovo",
+    "title": "Воронцовский парк",
+    "category": "walk",
+    "zone": "south",
+    "address": "Воронцовский парк, д. 3",
+    "costForTwo": 0,
+    "duration": 60,
+    "indoor": false,
+    "vibes": [
+      "calm",
+      "romantic",
+      "active"
+    ],
+    "quality": 8.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-kuzminki",
+    "title": "Парк «Кузьминки»",
+    "category": "walk",
+    "zone": "east",
+    "address": "природно-исторический парк «Кузьминки-Люблино»",
+    "costForTwo": 0,
+    "duration": 65,
+    "indoor": false,
+    "vibes": [
+      "calm",
+      "active"
+    ],
+    "quality": 8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-izmailovo",
+    "title": "Измайловский парк",
+    "category": "walk",
+    "zone": "east",
+    "address": "Измайловский парк",
+    "costForTwo": 0,
+    "duration": 65,
+    "indoor": false,
+    "vibes": [
+      "calm",
+      "active",
+      "romantic"
+    ],
+    "quality": 8.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-kosino",
+    "title": "Косинский парк",
+    "category": "walk",
+    "zone": "east",
+    "address": "ул. Большая Косинская",
+    "costForTwo": 0,
+    "duration": 70,
+    "indoor": false,
+    "vibes": [
+      "calm",
+      "active",
+      "unusual"
+    ],
+    "quality": 7.9,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/kosinskij-park/"
+  },
+  {
+    "id": "seed-kings",
+    "title": "King’s Gallery",
+    "category": "art",
+    "zone": "center",
+    "address": "Большой Палашёвский пер., д. 10",
+    "costForTwo": 1200,
+    "costEstimated": true,
+    "duration": 65,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.8,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/galereya-kings-gallery/"
+  },
+  {
+    "id": "seed-gost",
+    "title": "Галерея «Г.О.С.Т.»",
+    "category": "art",
+    "zone": "center",
+    "address": "ул. Пречистенка, д. 30/2",
+    "costForTwo": 1200,
+    "costEstimated": true,
+    "duration": 60,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "unusual"
+    ],
+    "quality": 7.8,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/galereya-gost/"
+  },
+  {
+    "id": "seed-clear-gallery",
+    "title": "Галерея на Чистых Прудах",
+    "category": "art",
+    "zone": "center",
+    "address": "Чистопрудный б-р, д. 5/10",
+    "costForTwo": 1200,
+    "costEstimated": true,
+    "duration": 60,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "romantic"
+    ],
+    "quality": 7.7,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/galereya-na-chistyh-prudah/"
+  },
+  {
+    "id": "seed-east-gallery",
+    "title": "Галерея «Восточная заграница»",
+    "category": "art",
+    "zone": "center",
+    "address": "ул. Садовая-Кудринская, д. 25",
+    "costForTwo": 1200,
+    "costEstimated": true,
+    "duration": 60,
+    "indoor": true,
+    "vibes": [
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.6,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/galereya-vostochnaya-zagranica/"
+  },
+  {
+    "id": "seed-davydkovo",
+    "title": "Галерея Давыдково",
+    "category": "art",
+    "zone": "west",
+    "address": "ул. Кременчугская, д. 22",
+    "costForTwo": 900,
+    "costEstimated": true,
+    "duration": 60,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "unusual"
+    ],
+    "quality": 7.3,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/galereya-xxi-veka/"
+  },
+  {
+    "id": "seed-tereteli",
+    "title": "Галерея искусств Зураба Церетели",
+    "category": "art",
+    "zone": "center",
+    "address": "ул. Пречистенка",
+    "costForTwo": 1600,
+    "costEstimated": true,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 8.3,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/rah/"
+  },
+  {
+    "id": "seed-zdraste",
+    "title": "Кофейня «Здрасте»",
+    "category": "cafe",
+    "zone": "vdnh",
+    "address": "2-я Останкинская ул., д. 3",
+    "costForTwo": 1800,
+    "costEstimated": true,
+    "duration": 55,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "romantic"
+    ],
+    "quality": 8.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-casaleone",
+    "title": "Casa Leone",
+    "category": "dessert",
+    "zone": "center",
+    "address": "Лубянский пр-д, д. 15, стр. 2",
+    "costForTwo": 1800,
+    "costEstimated": true,
+    "duration": 50,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "calm",
+      "fun"
+    ],
+    "quality": 8.3,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-teaheight",
+    "title": "«Чайная высота»",
+    "category": "dessert",
+    "zone": "center",
+    "address": "несколько адресов в центре",
+    "costForTwo": 1000,
+    "duration": 60,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 8.6,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-coffeebean",
+    "title": "Coffee Bean",
+    "category": "cafe",
+    "zone": "center",
+    "address": "Москва, несколько кофеен",
+    "costForTwo": 1600,
+    "costEstimated": true,
+    "duration": 50,
+    "indoor": true,
+    "vibes": [
+      "calm"
+    ],
+    "quality": 7.6,
+    "source": "KudaGo",
+    "sourceUrl": "https://kudago.com/msk/place/coffee-bean/"
+  },
+  {
+    "id": "seed-apartment44",
+    "title": "Пиано-бар «Квартира 44»",
+    "category": "bar",
+    "zone": "center",
+    "address": "Москва, несколько адресов",
+    "costForTwo": 3200,
+    "costEstimated": true,
+    "duration": 75,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "fun",
+      "calm"
+    ],
+    "quality": 8.5,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-halfpromille",
+    "title": "Гастробар «0,5 Промилле»",
+    "category": "bar",
+    "zone": "center",
+    "address": "Большая Сухаревская пл., д. 9",
+    "costForTwo": 4200,
+    "costEstimated": true,
+    "duration": 75,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "romantic"
+    ],
+    "quality": 8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-lastochka",
+    "title": "Ресторан-яхта «Ласточка»",
+    "category": "dinner",
+    "zone": "west",
+    "address": "Лужнецкая наб., д. 6, стр. 1",
+    "costForTwo": 5000,
+    "duration": 90,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "unusual"
+    ],
+    "quality": 8.8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-restaurant360",
+    "title": "Панорамный ресторан «360»",
+    "category": "dinner",
+    "zone": "city",
+    "address": "Пресненская наб., д. 12, башня «Федерация. Восток», 89 этаж",
+    "costForTwo": 6500,
+    "costEstimated": true,
+    "duration": 95,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "unusual"
+    ],
+    "quality": 9,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-m2",
+    "title": "«М2 Органик Клуб»",
+    "category": "dinner",
+    "zone": "center",
+    "address": "Москва, несколько адресов",
+    "costForTwo": 4500,
+    "costEstimated": true,
+    "duration": 90,
+    "indoor": true,
+    "vibes": [
+      "calm",
+      "romantic"
+    ],
+    "quality": 8.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-rovesnik",
+    "title": "Бар «Ровесник»",
+    "category": "bar",
+    "zone": "center",
+    "address": "Тверской район",
+    "costForTwo": 3500,
+    "costEstimated": true,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "active"
+    ],
+    "quality": 8.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-recordium",
+    "title": "Музей «Рекордиум»",
+    "category": "activity",
+    "zone": "vdnh",
+    "address": "Москва",
+    "costForTwo": 3600,
+    "costEstimated": true,
+    "duration": 75,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.4,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-magic",
+    "title": "Музей Магии на Новом Арбате",
+    "category": "activity",
+    "zone": "center",
+    "address": "Новый Арбат",
+    "costForTwo": 3000,
+    "costEstimated": true,
+    "duration": 70,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.2,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-labyrinth",
+    "title": "Клуб «Лабиринт»",
+    "category": "activity",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2400,
+    "costEstimated": true,
+    "duration": 75,
+    "indoor": true,
+    "vibes": [
+      "active",
+      "fun",
+      "unusual"
+    ],
+    "quality": 8,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "seed-mars",
+    "title": "Центр современного искусства М’АРС",
+    "category": "art",
+    "zone": "center",
+    "address": "Москва, центр",
+    "costForTwo": 2400,
+    "costEstimated": true,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "unusual",
+      "romantic",
+      "calm"
+    ],
+    "quality": 8.6,
+    "source": "KudaGo",
+    "sourceUrl": null
+  }
 ];
 
 export const seedEvents = [
-  { id:"event-big-standup", title:"Большой стендап-концерт", category:"event", eventType:"standup", zone:"center", address:"Москва", costForTwo:1980, duration:100, indoor:true, vibes:["fun"], quality:9.2, activeFrom:"2026-08-01", activeUntil:"2026-08-31", startTimes:["19:30","21:30"], source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-21" },
-  { id:"event-standup-jazz", title:"Стендап + джаз: два концерта в один вечер", category:"event", eventType:"concert", zone:"center", address:"Москва", costForTwo:1980, duration:115, indoor:true, vibes:["fun","romantic","unusual"], quality:9.0, activeFrom:"2026-08-01", activeUntil:"2026-08-31", startTimes:["19:30"], source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-21" },
-  { id:"event-bosch", title:"Выставка «Загадочные миры Иеронима Босха»", category:"event", eventType:"exhibition", zone:"center", address:"Креативное пространство «Люмьер-Холл»", costForTwo:2000, duration:80, indoor:true, vibes:["unusual","calm"], quality:8.7, activeFrom:"2026-04-08", activeUntil:"2026-09-13", openFrom:"11:00", openUntil:"23:00", source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=august" },
-  { id:"event-dali", title:"Выставка Сальвадора Дали «Женщины-цветы»", category:"event", eventType:"exhibition", zone:"center", address:"Усадьба Голицыных в саду имени Баумана", costForTwo:1200, duration:75, indoor:true, vibes:["romantic","unusual","calm"], quality:8.6, activeFrom:"2026-01-01", activeUntil:"2027-01-24", openFrom:"12:00", openUntil:"19:00", source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-21" },
-  { id:"event-euphoria", title:"Мультимедийная выставка «Эйфория»", category:"event", eventType:"exhibition", zone:"center", address:"Арт-пространство «Эйфория»", costForTwo:4400, duration:90, indoor:true, vibes:["romantic","unusual","fun"], quality:9.0, activeFrom:"2026-08-01", activeUntil:"2026-08-24", startTimes:["18:00","19:30","21:00"], source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-03-2026-08-23" },
-  { id:"event-dream-museum", title:"Мультисенсорная выставка «Сон в музее»", category:"event", eventType:"exhibition", zone:"center", address:"Центр современного искусства М’АРС", costForTwo:1400, duration:80, indoor:true, vibes:["romantic","unusual","calm"], quality:8.8, activeFrom:"2026-08-01", activeUntil:"2026-08-31", openFrom:"12:00", openUntil:"22:00", source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-03-2026-08-16" },
-  { id:"event-mermaid", title:"Шоу «Русалочка. Любовь двух миров»", category:"event", eventType:"show", zone:"vdnh", address:"Москвариум", costForTwo:3500, duration:100, indoor:true, vibes:["romantic","fun","unusual"], quality:8.7, activeFrom:"2026-08-01", activeUntil:"2026-09-06", allowedWeekdays:[0,3,4,5,6], startTimes:["18:00"], source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-21" },
-  { id:"event-gastros", title:"Гастростендап с ужином от шефа", category:"event", eventType:"standup", zone:"center", address:"Москва, старинный особняк", costForTwo:6500, costEstimated:true, duration:150, indoor:true, vibes:["romantic","fun","unusual"], quality:9.1, exactDates:["2026-08-22"], startTimes:["19:30"], includesFood:true, source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-01-2026-08-14" },
-  { id:"event-musical", title:"Спектакль «Призрак мюзикла, или Что опять не так?»", category:"event", eventType:"theater", zone:"center", address:"Театр на Цветном", costForTwo:3000, duration:130, indoor:true, vibes:["fun","romantic"], quality:8.5, activeFrom:"2026-08-08", activeUntil:"2026-08-30", startTimes:["19:00"], source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-16" },
-  { id:"event-coins-knights", title:"Выставка «Монеты и рыцари. Серебро и сталь»", category:"event", eventType:"exhibition", zone:"center", address:"Музей Международного нумизматического клуба", costForTwo:1200, duration:70, indoor:true, vibes:["unusual","calm"], quality:8.1, activeFrom:"2026-08-01", activeUntil:"2026-12-31", allowedWeekdays:[0,2,3,4,6], openFrom:"12:00", openUntil:"19:00", source:"KudaGo", sourceUrl:"https://kudago.com/msk/events/?date=2026-08-16" }
+  {
+    "id": "event-big-standup",
+    "title": "Большой стендап-концерт",
+    "category": "event",
+    "eventType": "standup",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 1980,
+    "duration": 100,
+    "indoor": true,
+    "vibes": [
+      "fun"
+    ],
+    "quality": 9.2,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-08-31",
+    "startTimes": [
+      "19:30",
+      "21:30"
+    ],
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-standup-jazz",
+    "title": "Стендап + джаз: два концерта в один вечер",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 1980,
+    "duration": 115,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "romantic",
+      "unusual"
+    ],
+    "quality": 9,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-08-31",
+    "startTimes": [
+      "19:30"
+    ],
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-bosch",
+    "title": "Выставка «Загадочные миры Иеронима Босха»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "Креативное пространство «Люмьер-Холл»",
+    "costForTwo": 2000,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "unusual",
+      "calm"
+    ],
+    "quality": 8.7,
+    "activeFrom": "2026-04-08",
+    "activeUntil": "2026-09-13",
+    "openFrom": "11:00",
+    "openUntil": "23:00",
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-dali",
+    "title": "Выставка Сальвадора Дали «Женщины-цветы»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "Усадьба Голицыных в саду имени Баумана",
+    "costForTwo": 1200,
+    "duration": 75,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "unusual",
+      "calm"
+    ],
+    "quality": 8.6,
+    "activeFrom": "2026-01-01",
+    "activeUntil": "2027-01-24",
+    "openFrom": "12:00",
+    "openUntil": "19:00",
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-euphoria",
+    "title": "Мультимедийная выставка «Эйфория»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "Арт-пространство «Эйфория»",
+    "costForTwo": 4400,
+    "duration": 90,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "unusual",
+      "fun"
+    ],
+    "quality": 9,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-08-24",
+    "startTimes": [
+      "18:00",
+      "19:30",
+      "21:00"
+    ],
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-dream-museum",
+    "title": "Мультисенсорная выставка «Сон в музее»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "Центр современного искусства М’АРС",
+    "costForTwo": 1400,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "unusual",
+      "calm"
+    ],
+    "quality": 8.8,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-08-31",
+    "openFrom": "12:00",
+    "openUntil": "22:00",
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-mermaid",
+    "title": "Шоу «Русалочка. Любовь двух миров»",
+    "category": "event",
+    "eventType": "show",
+    "zone": "vdnh",
+    "address": "Москвариум",
+    "costForTwo": 3500,
+    "duration": 100,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.7,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-09-06",
+    "allowedWeekdays": [
+      0,
+      3,
+      4,
+      5,
+      6
+    ],
+    "startTimes": [
+      "18:00"
+    ],
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-gastros",
+    "title": "Гастростендап с ужином от шефа",
+    "category": "event",
+    "eventType": "standup",
+    "zone": "center",
+    "address": "Москва, старинный особняк",
+    "costForTwo": 6500,
+    "costEstimated": true,
+    "duration": 150,
+    "indoor": true,
+    "vibes": [
+      "romantic",
+      "fun",
+      "unusual"
+    ],
+    "quality": 9.1,
+    "exactDates": [
+      "2026-08-22"
+    ],
+    "startTimes": [
+      "19:30"
+    ],
+    "includesFood": true,
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-musical",
+    "title": "Спектакль «Призрак мюзикла, или Что опять не так?»",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Театр на Цветном",
+    "costForTwo": 3000,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "romantic"
+    ],
+    "quality": 8.5,
+    "activeFrom": "2026-08-08",
+    "activeUntil": "2026-08-30",
+    "startTimes": [
+      "19:00"
+    ],
+    "source": "KudaGo",
+    "sourceUrl": null
+  },
+  {
+    "id": "event-coins-knights",
+    "title": "Выставка «Монеты и рыцари. Серебро и сталь»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "Музей Международного нумизматического клуба",
+    "costForTwo": 1200,
+    "duration": 70,
+    "indoor": true,
+    "vibes": [
+      "unusual",
+      "calm"
+    ],
+    "quality": 8.1,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-12-31",
+    "allowedWeekdays": [
+      0,
+      2,
+      3,
+      4,
+      6
+    ],
+    "openFrom": "12:00",
+    "openUntil": "19:00",
+    "source": "KudaGo",
+    "sourceUrl": null
+  }
 ];

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#f7f1e8" />
+    <meta name="theme-color" content="#f5efe7" />
     <meta name="description" content="1001 Dates — три готовых сценария свидания под ваше время, бюджет и настроение." />
     <meta name="color-scheme" content="light" />
     <link rel="manifest" href="./manifest.webmanifest" />
@@ -11,30 +11,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=6" />
-    <title>1001 Dates — придумай вечер за минуту</title>
+    <link rel="stylesheet" href="./styles.css?v=7" />
+    <title>1001 Dates — свидание уже придумано</title>
   </head>
   <body>
     <div class="ambient ambient-one" aria-hidden="true"></div>
     <div class="ambient ambient-two" aria-hidden="true"></div>
 
     <header class="topbar shell">
-      <a class="brand" href="#top" aria-label="1001 Dates">
-        <span class="brand-mark">1001</span>
-        <span class="brand-name">Dates</span>
-      </a>
-      <div class="top-actions">
-        <span class="city-pill">Москва</span>
-        <button class="text-button" id="surpriseButton" type="button">Удиви меня</button>
-      </div>
+      <a class="brand" href="#top" aria-label="1001 Dates"><span>1001</span> Dates</a>
+      <nav class="top-actions" aria-label="Быстрые действия">
+        <button class="icon-text-button" id="libraryButton" type="button"><span>♡</span><span>Мои свидания</span><b id="libraryCount" hidden>0</b></button>
+      </nav>
     </header>
 
     <main id="top">
       <section class="hero shell">
         <div class="hero-copy-wrap">
-          <div class="eyebrow">DATE PLANNER</div>
-          <h1>Вечер вдвоём.<br /><em>Без планирования.</em></h1>
-          <p class="hero-copy">Выбери время, бюджет и настроение. 1001 Dates соберёт три цельных сценария — останется выбрать один.</p>
+          <div class="eyebrow">1001 DATES · MOSCOW</div>
+          <h1>Выбери настроение.<br /><em>Вечер мы соберём сами.</em></h1>
+          <p class="hero-copy">Время, бюджет и пара пожеланий — всё, что нужно. В ответ будут три действительно разных сценария, а не список заведений.</p>
         </div>
 
         <form id="plannerForm" class="planner" novalidate>
@@ -51,12 +47,10 @@
                 <option value="east">Восток</option>
               </select>
             </label>
-
             <label class="control">
               <span class="control-label">Когда</span>
               <input id="dateInput" name="date" type="date" required />
             </label>
-
             <label class="control control-time">
               <span class="control-label">Начать</span>
               <input id="timeInput" name="time" type="time" value="19:00" required />
@@ -64,11 +58,8 @@
           </div>
 
           <section class="choice-block" aria-labelledby="durationLabel">
-            <div class="choice-heading">
-              <span id="durationLabel">Сколько времени на свидание?</span>
-              <strong id="durationSummary">3 часа</strong>
-            </div>
-            <div class="choice-strip" id="durationControl" role="radiogroup" aria-label="Сколько времени на свидание">
+            <div class="choice-heading"><span id="durationLabel">Сколько времени на свидание?</span><strong id="durationSummary">3 часа</strong></div>
+            <div class="choice-strip four" id="durationControl" role="radiogroup" aria-label="Сколько времени на свидание">
               <button type="button" data-duration="120">2 ч</button>
               <button type="button" data-duration="180" class="active">3 ч</button>
               <button type="button" data-duration="240">4 ч</button>
@@ -77,16 +68,13 @@
           </section>
 
           <section class="choice-block" aria-labelledby="budgetLabel">
-            <div class="choice-heading">
-              <span id="budgetLabel">Бюджет на двоих</span>
-              <strong id="budgetSummary">до 7 000 ₽</strong>
-            </div>
-            <div class="choice-strip budget-strip" id="budgetControl" role="radiogroup" aria-label="Бюджет на двоих">
-              <button type="button" data-budget="4000">до 4 000</button>
-              <button type="button" data-budget="7000" class="active">до 7 000</button>
-              <button type="button" data-budget="10000">до 10 000</button>
-              <button type="button" data-budget="15000">до 15 000</button>
-              <button type="button" data-budget="999999">неважно</button>
+            <div class="choice-heading"><span id="budgetLabel">Бюджет на двоих</span><strong id="budgetSummary">до 7 000 ₽</strong></div>
+            <div class="choice-strip five budget-strip" id="budgetControl" role="radiogroup" aria-label="Бюджет на двоих">
+              <button type="button" data-budget="4000">4 000</button>
+              <button type="button" data-budget="7000" class="active">7 000</button>
+              <button type="button" data-budget="10000">10 000</button>
+              <button type="button" data-budget="15000">15 000</button>
+              <button type="button" data-budget="999999">∞</button>
             </div>
           </section>
 
@@ -95,6 +83,7 @@
               <span id="vibeLabel">Как хочется провести время?</span>
               <strong id="vibeSummary">Романтично</strong>
             </div>
+            <p class="choice-hint">Можно выбрать два настроения.</p>
             <div class="mood-grid" id="vibeControl">
               <button type="button" class="mood active" data-vibe="romantic"><span>♡</span>Романтично</button>
               <button type="button" class="mood" data-vibe="fun"><span>☺</span>Весело</button>
@@ -105,64 +94,89 @@
           </section>
 
           <div class="planner-bottom">
-            <button class="preferences-toggle" id="preferencesToggle" type="button" aria-expanded="false" aria-controls="preferencesPanel">
-              <span>+ Пожелания</span>
-              <span id="preferenceCount" class="preference-count" hidden>0</span>
-            </button>
-            <button class="primary-button planner-submit" type="submit">
-              <span>Подобрать 3 свидания</span><span aria-hidden="true">→</span>
-            </button>
+            <button class="preferences-toggle" id="preferencesToggle" type="button" aria-expanded="false" aria-controls="preferencesPanel"><span>+ Пожелания</span><span id="preferenceCount" class="preference-count" hidden>0</span></button>
           </div>
 
           <div id="preferencesPanel" class="preferences-panel" hidden>
-            <label class="preference"><input id="foodInput" type="checkbox" checked /><span class="check"></span><span><strong>С едой</strong><small>кафе, ресторан или десерт</small></span></label>
-            <label class="preference"><input id="eventsInput" type="checkbox" checked /><span class="check"></span><span><strong>События</strong><small>афиша на выбранную дату</small></span></label>
-            <label class="preference"><input id="indoorInput" type="checkbox" /><span class="check"></span><span><strong>Только внутри</strong><small>без парков и прогулок</small></span></label>
-            <label class="preference"><input id="noBarsInput" type="checkbox" /><span class="check"></span><span><strong>Без баров</strong><small>не предлагать бар как часть вечера</small></span></label>
+            <div class="preference-grid">
+              <label class="preference"><input id="foodInput" type="checkbox" checked /><span class="check"></span><span><strong>С едой</strong><small>в сценарии будет кафе, ресторан или десерт</small></span></label>
+              <label class="preference"><input id="eventsInput" type="checkbox" checked /><span class="check"></span><span><strong>События</strong><small>можно использовать актуальную афишу</small></span></label>
+              <label class="preference"><input id="indoorInput" type="checkbox" /><span class="check"></span><span><strong>Только внутри</strong><small>без парков и открытых площадок</small></span></label>
+              <label class="preference"><input id="noBarsInput" type="checkbox" /><span class="check"></span><span><strong>Без баров</strong><small>никакого алкоголя как обязательной главы</small></span></label>
+              <label class="preference"><input id="avoidVisitedInput" type="checkbox" checked /><span class="check"></span><span><strong>Не повторять выбранное</strong><small>места из прошлых свиданий будут исключаться</small></span></label>
+            </div>
+            <div class="adventure-setting">
+              <div><strong>Насколько экспериментируем?</strong><small>Это влияет на характер вариантов, но не ломает время и бюджет.</small></div>
+              <div class="choice-strip three" id="adventureControl">
+                <button type="button" data-adventure="safe">Проверенное</button>
+                <button type="button" data-adventure="balanced" class="active">Баланс</button>
+                <button type="button" data-adventure="wild">Смелее</button>
+              </div>
+            </div>
           </div>
+
+          <div class="planner-cta-row">
+            <button class="primary-button planner-submit" type="submit"><span>Подобрать 3 свидания</span><span aria-hidden="true">→</span></button>
+            <button class="secondary-button surprise-button" id="surpriseButton" type="button"><span>⚄</span> Удиви меня</button>
+          </div>
+          <p class="planner-footnote">«Удиви меня» сохраняет выбранные время, бюджет и ограничения — меняется только сам сценарий.</p>
         </form>
       </section>
 
       <section id="resultsSection" class="results shell" hidden>
         <div class="results-head">
-          <div>
-            <div class="eyebrow">3 ГОТОВЫХ СЦЕНАРИЯ</div>
-            <h2>Выбери настроение вечера.</h2>
-          </div>
+          <div><div class="eyebrow">ТРИ РАЗНЫХ ПОДХОДА</div><h2>Не сравнивай места.<br /><em>Выбери вечер.</em></h2></div>
           <div class="filter-recap" id="filterRecap"></div>
         </div>
-
         <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
-
         <div class="results-actions">
           <button class="secondary-button" id="moreDatesButton" type="button">Показать другие 3</button>
           <button class="text-button" id="editFiltersButton" type="button">Изменить параметры</button>
         </div>
-        <p class="data-note">Стоимость ориентировочная. Для событий и заведений лучше проверить актуальную цену и наличие мест перед бронированием.</p>
+        <p class="data-note">Цены ориентировочные. Ссылки показываются только на конкретные страницы места/события или официальный сайт — общие страницы каталогов скрываются.</p>
       </section>
     </main>
 
-    <footer class="footer shell">
-      <span>1001 Dates</span>
-      <span id="dataStatus">Собрано для Москвы</span>
-    </footer>
+    <footer class="footer shell"><span>1001 Dates</span><span id="dataStatus">Готовим базу Москвы</span></footer>
 
-    <dialog id="inviteDialog" class="invite-dialog">
-      <div class="dialog-shell">
-        <button class="dialog-close" id="closeInvite" aria-label="Закрыть">×</button>
-        <div class="invite-toolbar" aria-label="Стиль приглашения">
-          <button type="button" data-invite-theme="warm" class="active">Терракота</button>
-          <button type="button" data-invite-theme="night">После полуночи</button>
-          <button type="button" data-invite-theme="minimal">Editorial</button>
+    <dialog id="detailDialog" class="sheet-dialog detail-dialog">
+      <div class="sheet-shell">
+        <button class="sheet-close" id="closeDetail" aria-label="Закрыть">×</button>
+        <div id="detailContent"></div>
+      </div>
+    </dialog>
+
+    <dialog id="inviteDialog" class="sheet-dialog invite-dialog">
+      <div class="sheet-shell invite-shell">
+        <button class="sheet-close sheet-close-dark" id="closeInvite" aria-label="Закрыть">×</button>
+        <div class="invite-controls">
+          <div class="invite-control-row">
+            <span>Стиль</span>
+            <div class="micro-tabs"><button type="button" data-invite-theme="warm" class="active">Терракота</button><button type="button" data-invite-theme="night">Ночь</button><button type="button" data-invite-theme="minimal">Editorial</button></div>
+          </div>
+          <div class="invite-control-row">
+            <span>Что раскрыть</span>
+            <div class="micro-tabs"><button type="button" data-invite-reveal="secret" class="active">Сюрприз</button><button type="button" data-invite-reveal="full">Показать план</button></div>
+          </div>
+          <label class="invite-note-field"><span>Личное сообщение</span><input id="inviteNoteInput" maxlength="90" placeholder="Например: просто освободи вечер ♡" /></label>
         </div>
         <div id="inviteCard" class="invite-card theme-warm"></div>
-        <div class="dialog-actions">
-          <button id="copyInvite" class="secondary-button" type="button">Скопировать текст</button>
-          <button id="shareInvite" class="primary-button compact" type="button">Поделиться приглашением</button>
+        <div class="dialog-actions three-actions">
+          <button id="calendarInvite" class="secondary-button" type="button">В календарь</button>
+          <button id="copyInvite" class="secondary-button" type="button">Скопировать</button>
+          <button id="shareInvite" class="primary-button compact" type="button">Поделиться</button>
         </div>
       </div>
     </dialog>
 
-    <script type="module" src="./app.js?v=6"></script>
+    <dialog id="libraryDialog" class="sheet-dialog library-dialog">
+      <div class="sheet-shell library-shell">
+        <button class="sheet-close" id="closeLibrary" aria-label="Закрыть">×</button>
+        <div class="library-head"><div class="eyebrow">ВАША ИСТОРИЯ</div><h2>Мои свидания</h2><p>Избранное, выбранные сценарии и то, что сервис уже знает о ваших предпочтениях.</p></div>
+        <div id="libraryContent"></div>
+      </div>
+    </dialog>
+
+    <script type="module" src="./app.js?v=7"></script>
   </body>
 </html>

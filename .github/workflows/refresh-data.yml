@@ -1,4 +1,4 @@
-name: Refresh KudaGo data
+name: Refresh 1001 Dates data
 
 on:
   workflow_dispatch:
@@ -18,7 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Refresh Moscow places and events
+        env:
+          KUDAGO_PLACE_PAGES: 12
+          KUDAGO_EVENT_PAGES: 5
+          KUDAGO_PER_CATEGORY: 170
         run: node scripts/update-kudago.mjs
+      - name: Validate imported data
+        run: node scripts/validate-data.mjs --strict
+      - name: Test planner engine
+        run: node scripts/smoke-test.mjs
       - name: Commit changed snapshot
         run: |
           if git diff --quiet -- data/kudago.generated.js; then
@@ -28,5 +36,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/kudago.generated.js
-          git commit -m "chore: refresh KudaGo data"
+          git commit -m "chore: refresh 1001 Dates city data"
           git push

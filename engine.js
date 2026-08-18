@@ -10,52 +10,67 @@ const CATEGORY_GROUPS = {
   event: ["event"]
 };
 
-const TEMPLATES = [
-  { id:"coffee-art", label:"Легко начать", slots:["cafe","art"], vibes:["calm","romantic"], hasFood:true, summary:"Кофе или десерт, а потом место, где само собой появляется тема для разговора." },
-  { id:"art-dessert", label:"Тихо и красиво", slots:["art","dessert"], vibes:["romantic","calm","unusual"], hasFood:true, summary:"Немного искусства и сладкий финал без перегруженного плана." },
-  { id:"view-dessert", label:"Короткий вау", slots:["view","dessert"], vibes:["romantic","unusual"], hasFood:true, summary:"Одна эффектная точка и спокойное продолжение — просто, но ощущается как свидание." },
-  { id:"activity-dessert", label:"Больше эмоций", slots:["activity","dessert"], vibes:["fun","active","unusual"], hasFood:true, summary:"Сначала совместное впечатление, потом место, где можно обсудить всё за десертом." },
-  { id:"dinner-view", label:"Красивый вечер", slots:["dinner","view"], vibes:["romantic","unusual"], hasFood:true, summary:"Ужин и эффектный финал — классический сценарий, который не ощущается скучным." },
-  { id:"art-dinner", label:"Неспешно", slots:["art","dinner"], vibes:["calm","romantic","unusual"], hasFood:true, summary:"Выставка или галерея, а после — нормальный ужин и время поговорить." },
-  { id:"walk-dinner", label:"Просто хорошо", slots:["walk","dinner"], vibes:["romantic","calm","active"], hasFood:true, summary:"Прогулка задаёт настроение, ужин оставляет вечер без ощущения гонки по точкам." },
-  { id:"activity-dinner", label:"С приключением", slots:["activity","dinner"], vibes:["fun","active","unusual"], hasFood:true, summary:"Сначала что-то сделать вместе, потом спокойно поесть — хороший вариант, когда не хочется просто сидеть." },
-  { id:"dinner-bar", label:"Продолжить вечер", slots:["dinner","bar"], vibes:["romantic","fun"], hasFood:true, hasBar:true, summary:"Ужин и место для продолжения, если хочется чуть больше вечернего города." },
-  { id:"event-dessert", label:"Сегодня в городе", slots:["event","dessert"], vibes:["fun","unusual","romantic"], hasFood:true, usesEvents:true, summary:"Актуальное событие становится центром свидания, а после остаётся красивый финал." },
-  { id:"dinner-event", label:"Вокруг события", slots:["dinner","event"], vibes:["romantic","fun","unusual"], hasFood:true, usesEvents:true, summary:"Вечер собран вокруг конкретного события: сначала ужин, затем то, ради чего стоит выйти из дома." },
-  { id:"event-bar", label:"Ночной вариант", slots:["event","bar"], vibes:["fun","unusual"], hasFood:false, hasBar:true, usesEvents:true, summary:"Событие и короткое продолжение — для вечера, которому не хочется ставить точку сразу." },
-  { id:"art-walk", label:"Без стола", slots:["art","walk"], vibes:["calm","romantic","active"], hasFood:false, summary:"Посмотреть что-то интересное и просто побыть вдвоём, не привязывая вечер к ресторану." },
-  { id:"view-walk", label:"Город на двоих", slots:["view","walk"], vibes:["romantic","active","calm"], hasFood:false, summary:"Красивый вид и прогулка — почти ничего лишнего, только сам вечер." },
-  { id:"activity-art", label:"Не как обычно", slots:["activity","art"], vibes:["unusual","fun","active"], hasFood:false, summary:"Две разные эмоции подряд — для тех, кому хочется не очередного ресторана." },
+const FOOD_SLOTS = new Set(["cafe", "dessert", "dinner"]);
 
-  { id:"long-romantic", label:"Целый вечер", slots:["art","dinner","dessert"], vibes:["romantic","calm"], hasFood:true, minDuration:210, summary:"Три спокойных главы: впечатление, ужин и маленький финал, который не хочется торопить." },
-  { id:"long-fun", label:"Вечер с историей", slots:["activity","dinner","bar"], vibes:["fun","unusual","active"], hasFood:true, hasBar:true, minDuration:220, summary:"Активность, ужин и продолжение — сценарий, после которого есть что вспоминать." },
-  { id:"long-event", label:"Большой план", slots:["dinner","event","dessert"], vibes:["romantic","unusual","fun"], hasFood:true, usesEvents:true, minDuration:220, summary:"Полноценный вечер вокруг события с нормальным началом и красивым завершением." },
-  { id:"long-city", label:"Город как сценарий", slots:["art","dinner","view","dessert"], vibes:["romantic","unusual","calm"], hasFood:true, minDuration:250, summary:"Четыре главы без случайных остановок: впечатление, ужин, красивый вид и небольшой финал." },
-  { id:"long-play", label:"Сначала впечатления", slots:["activity","art","dinner","dessert"], vibes:["fun","unusual","active"], hasFood:true, minDuration:250, summary:"Вечер начинается с эмоций, потом становится спокойнее и заканчивается чем-то вкусным." },
-  { id:"long-event-night", label:"Событие + продолжение", slots:["dinner","event","bar"], vibes:["fun","romantic","unusual"], hasFood:true, hasBar:true, usesEvents:true, minDuration:260, summary:"Не просто сходить на событие: вокруг него уже собраны начало и достойное продолжение." },
+const TEMPLATE_BLUEPRINTS = [
+  // Short: 2 hours.
+  ["cafe","art"], ["art","dessert"], ["view","dessert"], ["activity","dessert"],
+  ["art","walk"], ["view","walk"], ["activity","cafe"], ["event","dessert"],
+  ["cafe","event"], ["activity","view"], ["walk","dessert"], ["art","cafe"],
 
-  // 5–6 hour plans. These exist specifically so a long-date filter means a genuinely long date.
-  { id:"grand-romantic", label:"Большое свидание", slots:["art","dinner","view","dessert","bar"], vibes:["romantic","unusual"], hasFood:true, hasBar:true, minDuration:300, summary:"Пять разных глав: посмотреть, поужинать, увидеть город сверху, взять десерт и решить, что вечер ещё не закончен." },
-  { id:"grand-soft", label:"Долго и неспешно", slots:["cafe","art","dinner","dessert","walk"], vibes:["romantic","calm"], hasFood:true, minDuration:300, summary:"Большой, но не шумный сценарий: лёгкое начало, искусство, ужин, десерт и спокойный финал." },
-  { id:"grand-adventure", label:"Почти мини-путешествие", slots:["activity","art","dinner","dessert","walk"], vibes:["fun","unusual","active"], hasFood:true, minDuration:300, summary:"Много разных ощущений за один вечер — от совместной активности до финальной прогулки." },
-  { id:"grand-city", label:"Весь город на двоих", slots:["walk","art","dinner","view","dessert"], vibes:["romantic","active","calm"], hasFood:true, minDuration:300, summary:"Прогулка, впечатление, ужин и красивый финал — полноценное свидание, а не две точки подряд." },
-  { id:"grand-indoor", label:"Большой вечер внутри", slots:["cafe","art","dinner","activity","dessert"], vibes:["romantic","fun","unusual","calm"], hasFood:true, minDuration:300, summary:"Пять насыщенных глав полностью в помещении: лёгкое начало, искусство, ужин, совместная активность и десерт." },
-  { id:"grand-event-indoor", label:"Афиша на весь вечер", slots:["art","dinner","event","dessert"], vibes:["romantic","fun","unusual"], hasFood:true, usesEvents:true, minDuration:300, summary:"Выставка, ужин, событие из афиши и десерт — длинный сценарий, который не зависит от погоды." },
-  { id:"grand-event", label:"Главное событие вечера", slots:["dinner","event","dessert","bar"], vibes:["romantic","fun","unusual"], hasFood:true, hasBar:true, usesEvents:true, minDuration:300, summary:"Ужин, актуальное событие и ещё две главы после него — вечер действительно занимает выбранное время." },
-  { id:"grand-nofood", label:"Долго без ресторана", slots:["activity","art","event","walk"], vibes:["unusual","fun","active"], hasFood:false, usesEvents:true, minDuration:300, summary:"Несколько впечатлений подряд без обязательного ресторана — для тех, кому важнее делать, смотреть и обсуждать." }
+  // Medium: 3 hours.
+  ["art","dinner"], ["walk","dinner"], ["activity","dinner"], ["dinner","view"],
+  ["dinner","bar"], ["event","dinner"], ["dinner","event"], ["activity","art"],
+  ["art","bar"], ["cafe","activity","dessert"], ["art","view","dessert"], ["walk","cafe","art"],
+  ["view","dinner","dessert"], ["activity","cafe","walk"], ["event","cafe","dessert"], ["art","cafe","walk"],
+
+  // Long: 4 hours.
+  ["art","dinner","dessert"], ["activity","dinner","bar"], ["dinner","event","dessert"],
+  ["walk","dinner","view"], ["cafe","art","dinner"], ["activity","art","dinner"],
+  ["event","dinner","bar"], ["art","event","dessert"], ["activity","dinner","view"],
+  ["walk","art","dinner"], ["art","dinner","bar"], ["cafe","activity","dinner"],
+  ["view","dinner","bar"], ["activity","event","dessert"], ["event","art","dinner"], ["walk","event","dinner"],
+
+  // Grand: 6 hours.
+  ["art","dinner","view","dessert","bar"], ["cafe","art","dinner","dessert","walk"],
+  ["activity","art","dinner","dessert","walk"], ["walk","art","dinner","view","dessert"],
+  ["cafe","art","dinner","activity","dessert"], ["art","dinner","event","dessert"],
+  ["dinner","event","dessert","bar"], ["activity","art","event","walk"],
+  ["activity","dinner","event","dessert"], ["walk","activity","dinner","view","dessert"],
+  ["cafe","activity","art","dinner","bar"], ["art","event","dinner","dessert"],
+  ["view","art","dinner","bar","dessert"], ["walk","cafe","art","dinner","dessert"],
+  ["activity","event","dinner","bar"], ["art","activity","dinner","view","dessert"]
+];
+
+const SLOT_VIBES = {
+  art:["calm","unusual","romantic"], walk:["calm","active","romantic"], view:["romantic","unusual"],
+  cafe:["calm","romantic"], dessert:["romantic","calm","fun"], dinner:["romantic","calm"],
+  bar:["fun","romantic"], activity:["active","fun","unusual"], event:["fun","unusual"]
+};
+
+const TEMPLATE_LABELS = {
+  reliable:["Красивый вечер","Легко выбрать","Хороший план","Без лишнего риска"],
+  discovery:["Не как обычно","Чуть интереснее","Новый сценарий","С приключением"],
+  wow:["Главный план","Вечер с историей","Большое свидание","Тот самый вариант"]
+};
+
+const ARCHETYPES = [
+  { id:"reliable", label:"Надёжный", kicker:"Красиво, удобно и без экспериментов ради эксперимента." },
+  { id:"discovery", label:"Необычный", kicker:"Есть хотя бы одна идея, которую легко было бы не придумать самому." },
+  { id:"wow", label:"Вау", kicker:"Самый насыщенный и эмоциональный вариант в ваших условиях." }
 ];
 
 const TITLE_POOLS = {
-  romantic: ["Только для двоих", "Город после семи", "Вечер без спешки", "Красивый повод", "Пятничный побег", "Ещё один хороший вечер"],
-  fun: ["План: не скучать", "Два билета на вечер", "Выйти из сценария", "Смеяться до закрытия", "Нормально придумали", "Вечер пошёл не по плану"],
-  unusual: ["Чуть левее привычного", "Секретный сценарий", "Не как обычно", "Другой вечер", "Операция «Свидание»", "Проверим одну идею"],
-  calm: ["Медленный вечер", "Никуда не спешим", "Пауза на двоих", "Разговор подольше", "Тихий город", "Просто побыть вместе"],
-  active: ["Не сидим дома", "В движении", "Поймать вечер", "Дальше интереснее", "План с характером", "С места в карьер"]
+  romantic:["Вечер искусства и вкуса","Только для двоих","Город после семи","Красивый повод","Пятничный побег","До самого финала"],
+  fun:["План: не скучать","Два билета на вечер","Городское приключение","Выйти из сценария","Нормально придумали","После этого будет что вспомнить"],
+  unusual:["Секретный маршрут","Чуть левее привычного","Не как обычно","Другой вечер","Операция «Свидание»","Сценарий с поворотом"],
+  calm:["Атмосферный вечер","Медленный вечер","Никуда не спешим","Пауза на двоих","Тихий город","Долго разговаривать"],
+  active:["Город в движении","Не сидим дома","Поймать вечер","Дальше интереснее","План с характером","С места в карьер"]
 };
 
 const CATEGORY_LABELS = {
   art:"Искусство", walk:"Прогулка", viewpoint:"Красивый вид", cafe:"Кофе", dessert:"Десерт",
-  dinner:"Ужин", bar:"Продолжение", activity:"Активность", event:"Событие"
+  dinner:"Ужин", bar:"Бар", activity:"Активность", event:"Событие"
 };
 
 const CATEGORY_SYMBOLS = {
@@ -63,144 +78,170 @@ const CATEGORY_SYMBOLS = {
 };
 
 const EVENT_TYPE_LABELS = {
-  standup:"стендап", concert:"концерт", exhibition:"выставка", show:"шоу", theater:"спектакль"
+  standup:"стендап", concert:"концерт", exhibition:"выставка", show:"шоу", theater:"спектакль", festival:"фестиваль", quest:"квест", event:"событие"
 };
 
 const ITEM_DESCRIPTIONS = {
-  art:"Можно спокойно смотреть, спорить о понравившемся и не искать тему для разговора — она уже вокруг вас.",
-  walk:"Свободная глава свидания без программы: идти рядом, разговаривать и останавливаться там, где хочется.",
-  viewpoint:"Точка ради ощущения «мы сегодня действительно куда-то выбрались» — хороший визуальный акцент вечера.",
-  cafe:"Лёгкое начало или пауза: кофе, чай и возможность настроиться друг на друга без длинного ужина.",
-  dessert:"Маленький финал, который превращает набор мест в законченное свидание — взять десерт и ещё немного не расходиться.",
-  dinner:"Главная спокойная часть вечера: полноценный ужин и достаточно времени, чтобы нормально поговорить.",
-  bar:"Необязательная, но приятная последняя глава — остаться ещё на один напиток и не обрывать вечер резко.",
-  activity:"Здесь вы не просто сидите друг напротив друга: совместное действие даёт эмоцию и общий сюжет на весь вечер.",
+  art:"Место, где тема для разговора появляется сама: можно смотреть, спорить и выбирать любимое.",
+  walk:"Свободная глава без программы — побыть рядом, разговаривать и не смотреть на часы.",
+  viewpoint:"Визуальный акцент вечера: тот момент, ради которого кажется, что вы действительно куда-то выбрались.",
+  cafe:"Лёгкая пауза без длинного застолья — настроиться друг на друга за кофе или чаем.",
+  dessert:"Небольшой вкусный финал, чтобы не заканчивать свидание резко.",
+  dinner:"Спокойная центральная глава — полноценный ужин и время нормально поговорить.",
+  bar:"Продолжение для вечера, который не хочется заканчивать сразу после основной программы.",
+  activity:"Здесь вы делаете что-то вместе. Совместное действие даёт эмоцию и общий сюжет на весь вечер.",
   event:"Конкретный повод выйти из дома: событие из афиши становится центральным впечатлением свидания."
 };
 
 const STORY_PHRASES = {
-  art:"посмотреть что-то новое вместе",
-  walk:"оставить время на прогулку и разговор",
-  viewpoint:"поймать красивый вид на город",
-  cafe:"начать с кофе и лёгкого разговора",
-  dessert:"закончить чем-то сладким",
-  dinner:"не спеша поужинать",
-  bar:"продолжить вечер ещё на один напиток",
-  activity:"сделать что-то вместе, а не просто сидеть",
-  event:"сходить на конкретное событие из афиши"
+  art:"посмотреть что-то новое вместе", walk:"оставить время на разговор", viewpoint:"поймать красивый вид на город",
+  cafe:"начать легко", dessert:"закончить чем-то вкусным", dinner:"не спеша поужинать", bar:"продолжить ещё немного",
+  activity:"сделать что-то вместе", event:"попасть на событие, которое происходит сейчас"
 };
 
+function unique(values) { return [...new Set(values)]; }
 function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
-function timeToMinutes(value) {
-  const [h, m] = String(value || "19:00").split(":").map(Number);
+function hashString(value="") {
+  let hash = 2166136261;
+  for (let i=0; i<value.length; i++) { hash ^= value.charCodeAt(i); hash = Math.imul(hash, 16777619); }
+  return hash >>> 0;
+}
+function timeToMinutes(value="00:00") {
+  const [h,m] = value.split(":").map(Number);
   return (h || 0) * 60 + (m || 0);
 }
-function minutesToTime(minutes) {
-  const total = ((Math.round(minutes) % 1440) + 1440) % 1440;
-  return `${String(Math.floor(total / 60)).padStart(2,"0")}:${String(total % 60).padStart(2,"0")}`;
+function minutesToTime(value) {
+  const day = 24 * 60;
+  const normalized = ((value % day) + day) % day;
+  return `${String(Math.floor(normalized/60)).padStart(2,"0")}:${String(normalized%60).padStart(2,"0")}`;
 }
-function hashString(value) {
-  let h = 2166136261;
-  for (const char of String(value)) { h ^= char.charCodeAt(0); h = Math.imul(h, 16777619); }
-  return Math.abs(h);
-}
-function dateISO(value) { return new Date(`${value}T12:00:00`).toISOString().slice(0, 10); }
-
 export function formatMoney(value) {
   if (!value) return "бесплатно";
-  if (value >= 900000) return "без лимита";
-  return new Intl.NumberFormat("ru-RU").format(Math.round(value / 100) * 100) + " ₽";
+  return `${new Intl.NumberFormat("ru-RU").format(Math.round(value))} ₽`;
 }
-
 export function formatDuration(minutes) {
-  const rounded = Math.max(0, Math.round(minutes));
-  const h = Math.floor(rounded / 60);
-  const m = rounded % 60;
+  const rounded = Math.max(0, Math.round(minutes / 5) * 5);
+  const h = Math.floor(rounded / 60), m = rounded % 60;
   if (!h) return `${m} мин`;
-  return m ? `${h} ч ${m} мин` : `${h} ч`;
+  if (!m) return `${h} ч`;
+  return `${h} ч ${m} мин`;
 }
-
-export function categoryLabel(category) {
-  return CATEGORY_LABELS[category] || "Место";
-}
-
 function targetFloor(duration) {
-  // A duration filter is a target, not merely a maximum.
-  // The longer the requested date, the more important it is to actually fill that time.
-  if (duration >= 330) return Math.max(300, duration - 45); // 6 h => at least 5 h 15 m
-  if (duration >= 240) return duration - 35;
-  if (duration >= 180) return duration - 30;
-  return Math.max(75, duration - 20);
+  const ratio = duration >= 330 ? .86 : duration >= 220 ? .84 : .83;
+  return Math.floor((duration * ratio) / 5) * 5;
+}
+function categoryForSlot(slot) { return CATEGORY_GROUPS[slot] || [slot]; }
+function placeMatchesSlot(item, slot) { return categoryForSlot(slot).includes(item.category); }
+function slotHasFood(slot) { return FOOD_SLOTS.has(slot); }
+function eventAvailable(event, date) {
+  if (event.exactDates?.length && !event.exactDates.includes(date)) return false;
+  if (event.activeFrom && date < event.activeFrom) return false;
+  if (event.activeUntil && date > event.activeUntil) return false;
+  if (event.allowedWeekdays?.length) {
+    const weekday = new Date(`${date}T12:00:00`).getDay();
+    if (!event.allowedWeekdays.includes(weekday)) return false;
+  }
+  return Boolean(event.exactDates?.length || event.activeFrom || event.activeUntil || event.startTimes?.length);
 }
 
-function relaxedFloor(duration) {
-  if (duration >= 330) return Math.max(285, duration - 75);
-  if (duration >= 240) return duration - 55;
-  if (duration >= 180) return duration - 45;
-  return Math.max(60, duration - 35);
+function blueprintVibes(slots) {
+  const scores = new Map();
+  for (const slot of slots) for (const vibe of SLOT_VIBES[slot] || []) scores.set(vibe, (scores.get(vibe) || 0) + 1);
+  return [...scores.entries()].sort((a,b) => b[1]-a[1]).map(([v]) => v).slice(0,4);
+}
+function templateTone(slots) {
+  if (slots.includes("event") || slots.includes("view")) return "wow";
+  if (slots.includes("activity") || slots.filter((slot) => slot === "art").length) return "discovery";
+  return "reliable";
+}
+function templateSummary(slots) {
+  const labels = slots.map((slot) => CATEGORY_LABELS[categoryForSlot(slot)[0]]?.toLowerCase() || slot);
+  if (labels.length === 2) return `${labels[0]} и ${labels[1]} — компактный сценарий без лишних остановок.`;
+  if (labels.length === 3) return `${labels.slice(0,-1).join(", ")} и ${labels.at(-1)} — три разные главы одного вечера.`;
+  return `${labels.slice(0,-1).join(", ")} и ${labels.at(-1)} — большой сценарий, который ощущается как настоящий выход из рутины.`;
 }
 
-function eventAvailable(event, selectedDate) {
-  const iso = dateISO(selectedDate);
-  if (event.exactDates?.length && !event.exactDates.includes(iso)) return false;
-  if (event.activeFrom && iso < event.activeFrom) return false;
-  if (event.activeUntil && iso > event.activeUntil) return false;
-  const weekday = new Date(`${iso}T12:00:00`).getDay();
-  if (event.allowedWeekdays?.length && !event.allowedWeekdays.includes(weekday)) return false;
+const TEMPLATES = TEMPLATE_BLUEPRINTS.map((slots, index) => {
+  const tone = templateTone(slots);
+  return {
+    id:`scenario-${String(index+1).padStart(2,"0")}`,
+    slots,
+    tone,
+    vibes:blueprintVibes(slots),
+    hasFood:slots.some(slotHasFood),
+    hasBar:slots.includes("bar"),
+    usesEvents:slots.includes("event"),
+    label:TEMPLATE_LABELS[tone][index % TEMPLATE_LABELS[tone].length],
+    summary:templateSummary(slots)
+  };
+});
+
+function templateEligible(template, filters) {
+  if (filters.food === false && template.hasFood) return false;
+  if (filters.food === true && !template.hasFood) return false;
+  if (!filters.useEvents && template.usesEvents) return false;
+  if (filters.noBars && template.hasBar) return false;
+  const slotCount = template.slots.length;
+  if (filters.duration <= 130 && slotCount > 2) return false;
+  if (filters.duration <= 200 && slotCount > 3) return false;
+  if (filters.duration <= 270 && slotCount > 4) return false;
+  if (filters.duration >= 330 && slotCount < 4) return false;
   return true;
-}
-
-function placeMatchesSlot(place, slot) {
-  return CATEGORY_GROUPS[slot]?.includes(place.category);
 }
 
 function itemFitsPreferences(item, filters) {
-  if (filters.indoorOnly && !item.indoor) return false;
+  if (filters.indoorOnly && item.indoor === false) return false;
   if (filters.noBars && item.category === "bar") return false;
-  if (filters.zone !== "any" && item.zone && item.zone !== filters.zone) return false;
-  return true;
-}
-
-function templateEligible(template, filters) {
-  if (template.usesEvents && !filters.useEvents) return false;
-  if (template.hasBar && filters.noBars) return false;
-  if (filters.food && !template.hasFood) return false;
-  if (!filters.food && template.hasFood) return false;
-  if (template.minDuration && filters.duration < template.minDuration) return false;
+  if (filters.food === false && item.includesFood) return false;
+  if (filters.zone !== "any" && item.zone !== filters.zone) return false;
+  if (filters.dislikedItemIds?.includes(item.id)) return false;
+  if (filters.avoidVisited && filters.visitedItemIds?.includes(item.id)) return false;
   return true;
 }
 
 function candidateScore(item, filters, template) {
-  let score = (item.quality ?? 7) * 7;
-  const vibeHits = filters.vibes.filter((v) => item.vibes?.includes(v)).length;
-  score += vibeHits * 13;
-  score += template.vibes.filter((v) => filters.vibes.includes(v)).length * 3;
-  if (filters.zone !== "any" && item.zone === filters.zone) score += 8;
-  if (item.costEstimated) score -= 1.2;
+  let score = (item.quality ?? 7) * 8;
+  const vibeHits = (filters.vibes || []).filter((v) => item.vibes?.includes(v)).length;
+  score += vibeHits * 14;
+  if (template.vibes.some((v) => item.vibes?.includes(v))) score += 4;
+  if (item.image) score += 3;
+  if (item.sourceUrl || item.officialUrl) score += 2;
+  if (item.costEstimated) score -= 1.5;
+  if (filters.likedItemIds?.includes(item.id)) score += 11;
+  if (filters.recentlyShownItemIds?.includes(item.id)) score -= 9;
+  if (filters.visitedItemIds?.includes(item.id)) score -= 7;
+
+  const adventure = filters.adventure || "balanced";
+  const unusual = item.vibes?.includes("unusual") ? 1 : 0;
+  if (adventure === "safe") score += unusual ? -3 : 5;
+  if (adventure === "wild") score += unusual ? 10 : -2;
   return score;
 }
 
-function buildPools(template, places, events, filters) {
-  return template.slots.map((slot) => {
+function buildPools(template, places, events, filters, anchorItem=null) {
+  const anchorSlot = anchorItem ? template.slots.findIndex((slot) => placeMatchesSlot(anchorItem, slot)) : -1;
+  if (anchorItem && anchorSlot < 0) return null;
+
+  return template.slots.map((slot, slotIndex) => {
+    if (anchorItem && slotIndex === anchorSlot) return [anchorItem];
     const source = slot === "event" ? events.filter((event) => eventAvailable(event, filters.date)) : places;
     return source
       .filter((item) => placeMatchesSlot(item, slot))
       .filter((item) => itemFitsPreferences(item, filters))
-      .sort((a, b) => candidateScore(b, filters, template) - candidateScore(a, filters, template))
-      .slice(0, 11);
+      .filter((item) => !anchorItem || item.id !== anchorItem.id)
+      .sort((a,b) => candidateScore(b, filters, template) - candidateScore(a, filters, template))
+      .slice(0, 18);
   });
 }
 
-function cartesianLimited(pools, limit = 260) {
+function cartesianLimited(pools, limit=520) {
   const result = [];
   function walk(index, acc) {
     if (result.length >= limit) return;
     if (index === pools.length) { result.push(acc.slice()); return; }
     for (const item of pools[index]) {
       if (acc.some((x) => x.id === item.id)) continue;
-      acc.push(item);
-      walk(index + 1, acc);
-      acc.pop();
+      acc.push(item); walk(index+1, acc); acc.pop();
       if (result.length >= limit) break;
     }
   }
@@ -210,31 +251,21 @@ function cartesianLimited(pools, limit = 260) {
 
 function schedulePlan(items, filters) {
   const startAt = timeToMinutes(filters.time);
-  let cursor = startAt;
-  let totalCost = 0;
-  let activityMinutes = 0;
-  let waitingMinutes = 0;
+  let cursor = startAt, totalCost = 0, activityMinutes = 0, waitingMinutes = 0;
   const timeline = [];
 
   for (const item of items) {
     if (item.category === "event" && item.startTimes?.length) {
-      const possible = item.startTimes
-        .map(timeToMinutes)
-        .filter((time) => time >= cursor)
-        .sort((a, b) => a - b);
+      const possible = item.startTimes.map(timeToMinutes).filter((time) => time >= cursor).sort((a,b) => a-b);
       if (!possible.length) return null;
-      const fixed = possible[0];
-      const wait = fixed - cursor;
-      if (wait > 45) return null;
-      waitingMinutes += wait;
-      cursor = fixed;
+      const fixed = possible[0], wait = fixed - cursor;
+      if (wait > 60) return null;
+      waitingMinutes += wait; cursor = fixed;
     }
-
     if (item.openFrom && cursor < timeToMinutes(item.openFrom)) {
       const wait = timeToMinutes(item.openFrom) - cursor;
-      if (wait > 45) return null;
-      waitingMinutes += wait;
-      cursor = timeToMinutes(item.openFrom);
+      if (wait > 60) return null;
+      waitingMinutes += wait; cursor = timeToMinutes(item.openFrom);
     }
     if (item.openUntil && cursor + item.duration > timeToMinutes(item.openUntil)) return null;
 
@@ -245,19 +276,19 @@ function schedulePlan(items, filters) {
     timeline.push({ type:"stop", start, end:cursor, item });
   }
 
-  // User-selected date duration counts the activities themselves. We intentionally do not add travel.
+  // Travel is deliberately not part of the product duration. Only the date activities count.
   const totalMinutes = activityMinutes;
   if (totalMinutes > filters.duration + 5) return null;
+  if (totalMinutes < targetFloor(filters.duration)) return null;
+  if (filters.budget < 900000 && totalCost > filters.budget) return null;
 
-  return {
-    timeline,
-    totalMinutes,
-    elapsedMinutes: cursor - startAt,
-    activityMinutes,
-    waitingMinutes,
-    finishTime: minutesToTime(cursor),
-    totalCost
-  };
+  return { timeline, totalMinutes, activityMinutes, waitingMinutes, elapsedMinutes:cursor-startAt, finishTime:minutesToTime(cursor), totalCost };
+}
+
+function moodCoverage(template, items, filters) {
+  const requested = filters.vibes || [];
+  if (!requested.length) return true;
+  return requested.every((vibe) => template.vibes.includes(vibe) || items.some((item) => item.vibes?.includes(vibe)));
 }
 
 function geographicCoherence(items) {
@@ -266,177 +297,229 @@ function geographicCoherence(items) {
   const counts = new Map();
   for (const zone of zones) counts.set(zone, (counts.get(zone) || 0) + 1);
   const max = Math.max(...counts.values());
-  return max === zones.length ? 8 : max >= zones.length - 1 ? 4 : -5;
+  if (max === zones.length) return 12;
+  if (max >= zones.length - 1) return 6;
+  if (new Set(zones).size >= 4) return -10;
+  return -2;
 }
 
-function planScore(template, items, schedule, filters, variationSeed) {
-  let score = 54;
-  score += template.vibes.filter((v) => filters.vibes.includes(v)).length * 10;
-  score += items.reduce((sum, item) => sum + candidateScore(item, filters, template), 0) / items.length * 0.48;
+function planBaseScore(template, items, schedule, filters, variationSeed) {
+  let score = 52;
+  const vibeHits = template.vibes.filter((v) => filters.vibes?.includes(v)).length;
+  score += vibeHits * 9;
+  score += items.reduce((sum,item) => sum + candidateScore(item, filters, template), 0) / Math.max(items.length,1) * .55;
   score += geographicCoherence(items);
 
-  const budgetRatio = schedule.totalCost / Math.max(filters.budget, 1);
-  if (filters.budget >= 900000) score += 6;
-  else if (budgetRatio <= 1) score += 13 - Math.abs(0.72 - budgetRatio) * 7;
-  else score -= 50 * (budgetRatio - 1);
+  if (filters.budget >= 900000) score += 4;
+  else {
+    const budgetRatio = schedule.totalCost / Math.max(filters.budget,1);
+    score += 14 - Math.abs(.72 - budgetRatio) * 9;
+  }
 
   const durationRatio = schedule.totalMinutes / filters.duration;
-  score += clamp(1 - Math.abs(0.94 - durationRatio), 0, 1) * 27;
-  if (schedule.totalMinutes < targetFloor(filters.duration)) score -= 24;
-  if (schedule.waitingMinutes > 25) score -= 3;
-  if (items.some((item) => item.category === "event")) score += 5;
-  if (items.some((item) => item.costEstimated)) score -= 1;
+  score += clamp(1 - Math.abs(.94 - durationRatio), 0, 1) * 30;
+  if (items.some((item) => item.category === "event")) score += 4;
+  if (schedule.waitingMinutes > 30) score -= 3;
+  if (items.every((item) => item.sourceUrl || item.officialUrl)) score += 3;
 
   const signature = `${template.id}|${items.map((x) => x.id).join("|")}|${variationSeed}`;
-  score += (hashString(signature) % 1000) / 1000 * 8;
+  score += (hashString(signature) % 1000) / 1000 * 7;
   return score;
 }
 
-function makeTitle(filters, items, index, variationSeed) {
-  const primary = filters.vibes[index % filters.vibes.length] || filters.vibes[0] || "romantic";
-  const pool = TITLE_POOLS[primary] || TITLE_POOLS.romantic;
-  const hash = hashString(`${items.map((x) => x.id).join("|")}|${variationSeed}|${index}`);
-  return pool[hash % pool.length];
-}
+function archetypeScore(plan, archetype, filters) {
+  const items = plan.items;
+  const avgQuality = items.reduce((sum,item) => sum + (item.quality ?? 7), 0) / items.length;
+  const unusualCount = items.filter((item) => item.vibes?.includes("unusual")).length;
+  const activeCount = items.filter((item) => item.vibes?.includes("active")).length;
+  const hasEvent = items.some((item) => item.category === "event");
+  const hasView = items.some((item) => item.category === "viewpoint");
+  const hasImage = items.some((item) => item.image);
+  const estimatedCount = items.filter((item) => item.costEstimated).length;
+  const budgetUse = filters.budget >= 900000 ? .7 : plan.totalCost / Math.max(filters.budget,1);
 
-function makeReason(plan, filters) {
-  const reasons = [];
-  reasons.push(`${formatDuration(plan.totalMinutes)} из выбранных ${formatDuration(filters.duration)}`);
-  if (filters.budget < 900000 && plan.totalCost <= filters.budget) reasons.push(`в бюджете до ${formatMoney(filters.budget)}`);
-  if (plan.items.some((x) => x.category === "event")) reasons.push("есть событие на выбранную дату");
-  const vibeHits = filters.vibes.filter((v) => plan.items.some((x) => x.vibes?.includes(v)));
-  if (vibeHits.length && reasons.length < 3) reasons.push("под выбранное настроение");
-  return reasons.slice(0, 3);
-}
-
-function coverFor(items) {
-  return items.find((item) => item.image)?.image || null;
-}
-
-function describeItem(item) {
-  if (item.description) return item.description;
-  if (item.category === "event") {
-    const eventType = EVENT_TYPE_LABELS[item.eventType] || "событие";
-    return `Центральное впечатление вечера — ${eventType} из актуальной афиши. Билеты и время лучше подтвердить перед выходом.`;
+  if (archetype === "reliable") {
+    return plan.baseScore + avgQuality * 4 - estimatedCount * 2 + (plan.template.tone === "reliable" ? 10 : 0) + (hasEvent ? -1 : 4);
   }
-  return ITEM_DESCRIPTIONS[item.category] || "Отдельная глава вечера, выбранная так, чтобы сценарий ощущался цельным.";
+  if (archetype === "discovery") {
+    return plan.baseScore + unusualCount * 12 + activeCount * 4 + (hasEvent ? 9 : 0) + (plan.template.tone === "discovery" ? 10 : 0);
+  }
+  return plan.baseScore + avgQuality * 3 + (hasEvent ? 10 : 0) + (hasView ? 8 : 0) + (hasImage ? 5 : 0) + clamp(budgetUse,.2,1) * 8 + items.length * 2;
 }
 
-function makeStory(items) {
-  const phrases = items.map((item) => STORY_PHRASES[item.category]).filter(Boolean);
-  if (!phrases.length) return "Несколько разных впечатлений, собранных в один цельный вечер.";
-  if (phrases.length === 1) return `План простой: ${phrases[0]}.`;
-  if (phrases.length === 2) return `Сначала ${phrases[0]}, а потом ${phrases[1]}.`;
-  const first = phrases[0];
-  const middle = phrases.slice(1, -1).join(", затем ");
-  const last = phrases[phrases.length - 1];
-  return `Сначала ${first}, затем ${middle}, а в финале — ${last}.`;
+function planSimilarity(a,b) {
+  const idsA = new Set(a.items.map((x) => x.id)), idsB = new Set(b.items.map((x) => x.id));
+  const sharedIds = [...idsA].filter((id) => idsB.has(id)).length / Math.max(idsA.size, idsB.size, 1);
+  const catsA = new Set(a.items.map((x) => x.category)), catsB = new Set(b.items.map((x) => x.category));
+  const sharedCats = [...catsA].filter((c) => catsB.has(c)).length;
+  const catUnion = new Set([...catsA,...catsB]).size || 1;
+  return sharedIds * .68 + (sharedCats / catUnion) * .32;
 }
 
-function makeInviteTeaser(items) {
-  const labels = items.map((item) => categoryLabel(item.category).toLowerCase());
-  if (labels.length === 1) return `${labels[0]} и один вечер только для вас двоих.`;
-  const visible = labels.slice(0, 3).join(" · ");
-  return `${visible}${labels.length > 3 ? " · и ещё один сюрприз" : ""}. Места пока можно оставить секретом.`;
-}
-
-function chooseDiverse(candidates, count) {
+function chooseArchetypes(candidates, count=3) {
   const chosen = [];
-  const templateIds = new Set();
-  const signatures = new Set();
-  const firstItems = new Set();
-
-  for (const plan of candidates) {
-    if (chosen.length >= count) break;
-    const signature = plan.items.map((x) => x.id).sort().join("|");
-    if (signatures.has(signature)) continue;
-    if (templateIds.has(plan.template.id)) continue;
-    if (firstItems.has(plan.items[0]?.id) && chosen.length < 2) continue;
-    chosen.push(plan);
-    signatures.add(signature);
-    templateIds.add(plan.template.id);
-    firstItems.add(plan.items[0]?.id);
+  for (const archetype of ARCHETYPES.slice(0,count)) {
+    const ranked = candidates
+      .filter((plan) => !chosen.includes(plan))
+      .map((plan) => ({ plan, score:archetypeScore(plan, archetype.id, plan.filters) - chosen.reduce((penalty,other) => penalty + planSimilarity(plan,other)*42,0) }))
+      .sort((a,b) => b.score-a.score);
+    const picked = ranked.find(({plan}) => chosen.every((other) => planSimilarity(plan,other) < .72))?.plan || ranked[0]?.plan;
+    if (!picked) continue;
+    picked.archetype = archetype;
+    chosen.push(picked);
   }
-
-  for (const plan of candidates) {
-    if (chosen.length >= count) break;
-    const signature = plan.items.map((x) => x.id).sort().join("|");
-    if (signatures.has(signature)) continue;
-    chosen.push(plan);
-    signatures.add(signature);
+  if (chosen.length < count) {
+    for (const plan of candidates) {
+      if (chosen.length >= count) break;
+      if (chosen.includes(plan)) continue;
+      plan.archetype = ARCHETYPES[chosen.length] || ARCHETYPES[0];
+      chosen.push(plan);
+    }
   }
   return chosen;
 }
 
-export function generateDates({ places, events, filters, count = 3, variationSeed = 0 }) {
-  const eligibleTemplates = TEMPLATES.filter((template) => templateEligible(template, filters));
+function categoryLabel(category) { return CATEGORY_LABELS[category] || category; }
+function describeItem(item) {
+  if (item.description && item.description.length >= 35) return item.description.slice(0,260);
+  if (item.category === "event") {
+    const eventType = EVENT_TYPE_LABELS[item.eventType] || "событие";
+    return `Центральное впечатление вечера — ${eventType} из актуальной афиши. Перед выходом лучше подтвердить билеты и расписание.`;
+  }
+  return ITEM_DESCRIPTIONS[item.category] || "Отдельная глава вечера, выбранная так, чтобы сценарий ощущался цельным.";
+}
+function makeStory(items) {
+  const phrases = items.map((item) => STORY_PHRASES[item.category]).filter(Boolean);
+  if (phrases.length <= 1) return phrases[0] ? `План простой: ${phrases[0]}.` : "Несколько впечатлений, собранных в один цельный вечер.";
+  if (phrases.length === 2) return `Сначала ${phrases[0]}, а потом ${phrases[1]}.`;
+  return `Сначала ${phrases[0]}, затем ${phrases.slice(1,-1).join(", затем ")}, а в финале — ${phrases.at(-1)}.`;
+}
+function makeInviteTeaser(items) {
+  const labels = items.map((item) => categoryLabel(item.category).toLowerCase());
+  const visible = labels.slice(0,3).join(" · ");
+  return `${visible}${labels.length > 3 ? " · и ещё кое-что" : ""}. Остальное можно оставить сюрпризом.`;
+}
+function makeWhy(plan, filters) {
+  if (plan.archetype?.id === "reliable") return "Самый понятный выбор: сильные места, цельный ритм и минимум случайностей.";
+  if (plan.archetype?.id === "discovery") {
+    if (plan.items.some((x) => x.category === "event")) return "Здесь есть актуальное событие и хотя бы одна глава, которую легко было бы не придумать самому.";
+    return "Здесь больше нового: сценарий специально уходит от обычного «поесть и разойтись».";
+  }
+  if (plan.items.some((x) => x.category === "event")) return "Самый насыщенный вариант: событие становится центром вечера, а остальные главы собирают вокруг него полноценное свидание.";
+  return "Самый выразительный вариант по атмосфере, качеству мест и насыщенности программы.";
+}
+function coverFor(items) { return items.find((item) => item.image)?.image || null; }
+function makeTitle(filters, plan, index, variationSeed) {
+  const preferred = filters.vibes?.[index % Math.max(filters.vibes.length,1)] || filters.vibes?.[0] || "romantic";
+  const pool = TITLE_POOLS[preferred] || TITLE_POOLS.romantic;
+  return pool[hashString(`${plan.template.id}|${plan.items.map((x)=>x.id).join("|")}|${variationSeed}|${index}`) % pool.length];
+}
+
+function enrichPlan(plan, filters, index, variationSeed, titleOverride=null, archetypeOverride=null) {
+  if (archetypeOverride) plan.archetype = archetypeOverride;
+  const title = titleOverride || makeTitle(filters, plan, index, variationSeed);
+  return {
+    ...plan,
+    title,
+    label:plan.template.label,
+    summary:plan.template.summary,
+    story:makeStory(plan.items),
+    why:makeWhy(plan, filters),
+    inviteTeaser:makeInviteTeaser(plan.items),
+    coverImage:coverFor(plan.items),
+    sourceUrls:unique(plan.items.flatMap((item) => [item.sourceUrl,item.officialUrl]).filter(Boolean))
+  };
+}
+
+function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null}) {
   const candidates = [];
-
-  for (const template of eligibleTemplates) {
-    const pools = buildPools(template, places, events, filters);
-    if (pools.some((pool) => !pool.length)) continue;
-
+  for (const template of TEMPLATES) {
+    if (!templateEligible(template, filters)) continue;
+    const pools = buildPools(template, places, events, filters, anchorItem);
+    if (!pools || pools.some((pool) => !pool.length)) continue;
     for (const items of cartesianLimited(pools)) {
+      if (!moodCoverage(template, items, filters)) continue;
       const schedule = schedulePlan(items, filters);
       if (!schedule) continue;
-      if (filters.budget < 900000 && schedule.totalCost > filters.budget) continue;
-      const score = planScore(template, items, schedule, filters, variationSeed);
-      candidates.push({ ...schedule, template, items, score });
+      const baseScore = planBaseScore(template, items, schedule, filters, variationSeed);
+      candidates.push({ ...schedule, template, items, baseScore, filters });
     }
   }
+  candidates.sort((a,b) => b.baseScore-a.baseScore);
+  return candidates;
+}
 
-  candidates.sort((a, b) => b.score - a.score);
-
-  const strict = candidates.filter((plan) => plan.totalMinutes >= targetFloor(filters.duration));
-  const relaxed = candidates.filter((plan) => plan.totalMinutes >= relaxedFloor(filters.duration));
-  // Never answer a 6-hour request with a 2–4 hour date just to fill three cards.
-  // If the budget/preferences make a long date impossible, the UI should ask to loosen constraints instead.
-  const source = strict.length >= count
-    ? strict
-    : relaxed.length
-      ? [...strict, ...relaxed.filter((plan) => !strict.includes(plan))]
-      : [];
-  const chosen = chooseDiverse(source, count);
-
+export function generateDates({ places, events, filters, count=3, variationSeed=0, anchorItem=null }) {
+  const candidates = makeCandidates({places,events,filters,variationSeed,anchorItem});
+  const chosen = chooseArchetypes(candidates,count);
   const usedTitles = new Set();
-  return chosen.map((plan, index) => {
-    let title = makeTitle(filters, plan.items, index, variationSeed);
-    if (usedTitles.has(title)) {
-      const primary = filters.vibes[index % filters.vibes.length] || filters.vibes[0] || "romantic";
-      const pool = TITLE_POOLS[primary] || TITLE_POOLS.romantic;
-      const baseHash = hashString(`${plan.items.map((x) => x.id).join("|")}|${variationSeed}|${index}`);
-      for (let offset = 1; offset < pool.length; offset++) {
-        const candidate = pool[(baseHash + offset) % pool.length];
-        if (!usedTitles.has(candidate)) { title = candidate; break; }
-      }
-    }
-    usedTitles.add(title);
-    return {
-      ...plan,
-      title,
-      label: plan.template.label,
-      summary: plan.template.summary,
-      story: makeStory(plan.items),
-      inviteTeaser: makeInviteTeaser(plan.items),
-      reasons: makeReason(plan, filters),
-      coverImage: coverFor(plan.items),
-      sourceUrls: [...new Set(plan.items.map((item) => item.sourceUrl).filter(Boolean))]
-    };
+  return chosen.map((plan,index) => {
+    let enriched = enrichPlan(plan,filters,index,variationSeed);
+    if (usedTitles.has(enriched.title)) enriched = enrichPlan(plan,filters,index+5,variationSeed);
+    usedTitles.add(enriched.title);
+    return enriched;
   });
 }
 
+export function replacePlanItem({ plan, itemIndex, places, events, filters, variationSeed=0 }) {
+  const slot = plan.template.slots[itemIndex];
+  if (!slot) return plan;
+  const source = slot === "event" ? events.filter((event) => eventAvailable(event,filters.date)) : places;
+  const currentItem = plan.items[itemIndex];
+  const otherIds = new Set(plan.items.filter((_,i) => i !== itemIndex).map((item) => item.id));
+  const alternatives = source
+    .filter((item) => placeMatchesSlot(item,slot))
+    .filter((item) => itemFitsPreferences(item,filters))
+    .filter((item) => item.id !== currentItem.id && !otherIds.has(item.id))
+    .sort((a,b) => candidateScore(b,filters,plan.template)-candidateScore(a,filters,plan.template));
+
+  let best = null;
+  for (const alternative of alternatives.slice(0,30)) {
+    const items = plan.items.slice(); items[itemIndex] = alternative;
+    if (!moodCoverage(plan.template,items,filters)) continue;
+    const schedule = schedulePlan(items,filters);
+    if (!schedule) continue;
+    const baseScore = planBaseScore(plan.template,items,schedule,filters,variationSeed+itemIndex+1);
+    const candidate = { ...schedule, template:plan.template, items, baseScore, filters, archetype:plan.archetype };
+    if (!best || baseScore > best.baseScore) best = candidate;
+  }
+  return best ? enrichPlan(best,filters,0,variationSeed,plan.title,plan.archetype) : plan;
+}
+
 export function planRows(plan) {
-  return plan.timeline.map((node, index) => ({
-    index: index + 1,
-    title: node.item.title,
-    detail: node.item.address || "Москва",
-    category: categoryLabel(node.item.category),
-    symbol: CATEGORY_SYMBOLS[node.item.category] || "•",
-    description: describeItem(node.item),
-    duration: formatDuration(node.item.duration),
-    cost: formatMoney(node.item.costForTwo || 0),
-    costEstimated: Boolean(node.item.costEstimated),
-    startTime: node.item.category === "event" && node.item.startTimes?.length ? minutesToTime(node.start) : null,
-    sourceUrl: node.item.sourceUrl || null
+  return plan.timeline.map((node,index) => ({
+    index:index+1,
+    itemId:node.item.id,
+    item:node.item,
+    title:node.item.title,
+    detail:node.item.address || "Москва",
+    category:categoryLabel(node.item.category),
+    symbol:CATEGORY_SYMBOLS[node.item.category] || "•",
+    description:describeItem(node.item),
+    duration:formatDuration(node.item.duration),
+    cost:formatMoney(node.item.costForTwo || 0),
+    costEstimated:Boolean(node.item.costEstimated),
+    startTime:node.item.category === "event" && node.item.startTimes?.length ? minutesToTime(node.start) : null,
+    sourceUrl:node.item.sourceUrl || null,
+    officialUrl:node.item.officialUrl || null,
+    image:node.item.image || null
   }));
 }
+
+export function estimateScenarioCount(places, events) {
+  const counts = new Map();
+  for (const item of [...places,...events]) counts.set(item.category,(counts.get(item.category)||0)+1);
+  let total = 0;
+  for (const template of TEMPLATES) {
+    let combinations = 1;
+    for (const slot of template.slots) {
+      const category = categoryForSlot(slot)[0];
+      combinations *= Math.max(0,counts.get(category)||0);
+      if (combinations > 250000) { combinations = 250000; break; }
+    }
+    total += combinations;
+  }
+  return Math.round(total);
+}
+
+export { TEMPLATES, ARCHETYPES };
