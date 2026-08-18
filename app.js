@@ -4,8 +4,8 @@ import { generateDates, replacePlanItem, planRows, formatMoney, formatDuration, 
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
-const FILTERS_KEY = "1001dates.filters.v7";
-const PROFILE_KEY = "1001dates.profile.v7";
+const FILTERS_KEY = "1001dates.filters.v8";
+const PROFILE_KEY = "1001dates.profile.v8";
 
 const DEFAULTS = {
   duration:180, budget:7000, vibes:["romantic"], zone:"any", time:"19:00",
@@ -324,7 +324,29 @@ function inviteText() {
   return `У меня есть план на нас двоих ♡\n\n${plan.title}\n${formatDateHuman(filters.date)}, ${filters.time}\nПримерно ${formatDuration(plan.totalMinutes)}.${note?`\n\n${note}`:""}${details}\n\n1001 Dates`;
 }
 $("#copyInvite").addEventListener("click",async()=>{await navigator.clipboard.writeText(inviteText());flashButton($("#copyInvite"),"Скопировано ✓");});
-$("#shareInvite").addEventListener("click",async()=>{const plan=latestPlans[activePlanIndex],text=inviteText();if(navigator.share){try{await navigator.share({title:plan?.title||"1001 Dates",text});}catch{}}else{await navigator.clipboard.writeText(text);flashButton($("#shareInvite"),"Скопировано ✓");}});
+$("#downloadInvite").addEventListener("click",async()=>{
+  const button=$("#downloadInvite");
+  try{ const blob=await ensureInviteBlob(); downloadBlob(blob,inviteFileName()); flashButton(button,"PNG сохранён ✓"); }
+  catch(error){ console.error(error); flashButton(button,"Не вышло"); }
+});
+$("#shareInvite").addEventListener("click",async()=>{
+  const button=$("#shareInvite");
+  const plan=latestPlans[activePlanIndex],text=inviteText();
+  try{
+    const blob=await ensureInviteBlob();
+    const file=new File([blob],inviteFileName(),{type:"image/png"});
+    if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+      await navigator.share({title:plan?.title||"1001 Dates",text,files:[file]});
+      return;
+    }
+    downloadBlob(blob,inviteFileName());
+    flashButton(button,"PNG скачан ✓");
+  }catch(error){
+    console.error(error);
+    if(navigator.share){ try { await navigator.share({title:plan?.title||"1001 Dates",text}); return; } catch {} }
+    await navigator.clipboard.writeText(text); flashButton(button,"Скопировано ✓");
+  }
+});
 $("#calendarInvite").addEventListener("click",()=>downloadCalendar());
 function downloadCalendar(){
   const plan=latestPlans[activePlanIndex],filters=activePlanFilters;if(!plan||!filters)return;
@@ -335,7 +357,26 @@ function downloadCalendar(){
   const blob=new Blob([ics],{type:"text/calendar;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="1001-dates.ics";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function escapeICS(value=""){return String(value).replace(/\\/g,"\\\\").replace(/\n/g,"\\n").replace(/,/g,"\\,").replace(/;/g,"\\;");}
-function flashButton(button,text){const old=button.textContent;button.textContent=text;setTimeout(()=>button.textContent=old,1400);}
+function flashButton(button,text){const old=button.textContent;button.textContent=text;setTimeout(()=>button.textContent=old,1600);} 
+async function ensureInviteBlob(){
+  const plan=latestPlans[activePlanIndex],filters=activePlanFilters;
+  if(!plan||!filters) throw new Error("Нет активного приглашения");
+  if(document.fonts?.ready) { try { await document.fonts.ready; } catch {} }
+  if(typeof window.html2canvas !== "function") throw new Error("html2canvas unavailable");
+  const canvas = await window.html2canvas(inviteCard,{backgroundColor:null,scale:Math.max(2,Math.min(3,window.devicePixelRatio||2)),useCORS:true,logging:false});
+  const blob = await new Promise((resolve,reject)=>canvas.toBlob((value)=>value?resolve(value):reject(new Error("PNG export failed")),"image/png"));
+  return blob;
+}
+function inviteFileName(){
+  const plan=latestPlans[activePlanIndex],filters=activePlanFilters;
+  const slug=(plan?.title||"1001-dates").toLowerCase().replace(/[^a-zа-я0-9]+/gi,"-").replace(/^-+|-+$/g,"");
+  return `${slug || "1001-dates"}-${filters?.date || "invite"}.png`;
+}
+function downloadBlob(blob,name){
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1200);
+}
 
 $("#libraryButton").addEventListener("click",()=>{renderLibrary();libraryDialog.showModal();});
 function updateLibraryCount(){const count=profile.favoritePlans.length+profile.history.length;const badge=$("#libraryCount");badge.hidden=count===0;badge.textContent=String(Math.min(count,99));}
@@ -358,4 +399,4 @@ function updateDataStatus(){
 }
 
 syncUI();updateDataStatus();updateLibraryCount();
-if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js",{updateViaCache:"none"}).catch(()=>{});
+if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=8",{updateViaCache:"none"}).catch(()=>{});

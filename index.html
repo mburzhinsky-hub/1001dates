@@ -161,10 +161,11 @@
           <label class="invite-note-field"><span>Личное сообщение</span><input id="inviteNoteInput" maxlength="90" placeholder="Например: просто освободи вечер ♡" /></label>
         </div>
         <div id="inviteCard" class="invite-card theme-warm"></div>
-        <div class="dialog-actions three-actions">
+        <div class="dialog-actions invite-actions">
           <button id="calendarInvite" class="secondary-button" type="button">В календарь</button>
-          <button id="copyInvite" class="secondary-button" type="button">Скопировать</button>
-          <button id="shareInvite" class="primary-button compact" type="button">Поделиться</button>
+          <button id="downloadInvite" class="secondary-button" type="button">Скачать PNG</button>
+          <button id="copyInvite" class="secondary-button" type="button">Скопировать текст</button>
+          <button id="shareInvite" class="primary-button compact" type="button">Поделиться картинкой</button>
         </div>
       </div>
     </dialog>
@@ -177,6 +178,7 @@
       </div>
     </dialog>
 
-    <script type="module" src="./app.js?v=7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script type="module" src="./app.js?v=8"></script>
   </body>
 </html>
