@@ -35,9 +35,10 @@ jobs:
         id: refresh
         continue-on-error: true
         env:
-          KUDAGO_PLACE_PAGES: 12
-          KUDAGO_EVENT_PAGES: 5
-          KUDAGO_PER_CATEGORY: 170
+          KUDAGO_PLACE_PAGES: 20
+          KUDAGO_EVENT_PAGES: 8
+          KUDAGO_PER_CATEGORY: 280
+          KUDAGO_PER_SUBTYPE: 90
         run: node scripts/update-kudago.mjs
 
       - name: Validate data
@@ -51,7 +52,10 @@ jobs:
           fi
 
       - name: Test planner engine
-        run: node scripts/smoke-test.mjs
+        run: |
+          node scripts/audit-scenarios.mjs
+          node scripts/smoke-test.mjs
+          node scripts/audit-filters.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

@@ -1,0 +1,1018 @@
+# 1001 Dates — полный каталог сценариев v11
+
+Всего: **1001 scenario blueprints** из **154 reviewed base flows**.
+
+Каталог генерируется из `data/scenarios.js`. Это технический audit-view: он показывает точный порядок и subtype каждой главы.
+
+## 2 часа — 200
+
+- **2-active-dessert-005** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:climbing → dessert
+- **2-view-walk-001** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint → walk
+- **2-art-coffee-001** — Искусство и разговор после · `culture` · mood: calm, romantic, unusual · route: `micro` · art → cafe
+- **2-brunch-art-001** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast|brunch → art
+- **2-coffee-slowactivity-001** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe → activity
+- **2-dessert-event-001** — Десерт перед культурным событием · `event` · mood: unusual, fun, romantic · route: `micro` · dessert → event:exhibition
+- **2-creative-coffee-001** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → cafe
+- **2-play-coffee-005** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:games → cafe
+- **2-coffee-walk-001** — Кофе и прогулка · `slow` · mood: calm, romantic · route: `micro` · cafe → walk
+- **2-active-dessert-006** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:climbing → dessert:pastry
+- **2-walk-view-001** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk → viewpoint
+- **2-art-dessert-001** — Выставка и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → dessert
+- **2-brunch-walk-001** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast|brunch → walk
+- **2-slowactivity-coffee-005** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:bookstore → cafe
+- **2-event-dessert-001** — Короткое событие и десерт · `event` · mood: unusual, fun, romantic · route: `micro` · event:exhibition → dessert
+- **2-creative-dessert-001** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → dessert
+- **2-play-dessert-005** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:games → dessert
+- **2-dessert-walk-001** — Десерт и прогулка · `slow` · mood: romantic, calm · route: `micro` · dessert → walk
+- **2-active-dessert-007** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:climbing → dessert:icecream
+- **2-view-walk-002** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint → walk:waterfront
+- **2-art-view-001** — Искусство и панорама · `culture` · mood: romantic, unusual, calm · route: `micro` · art → viewpoint
+- **2-walk-brunch-001** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk → dinner:breakfast|brunch
+- **2-coffee-slowactivity-002** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe → activity:bookstore
+- **2-event-walk-001** — Событие и короткая прогулка · `event` · mood: unusual, fun, calm, active · route: `micro` · event:exhibition → walk
+- **2-creative-coffee-002** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → cafe:coffee
+- **2-play-coffee-006** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:games → cafe:coffee
+- **2-walk-coffee-001** — Прогулка и кофе · `slow` · mood: calm, romantic, active · route: `micro` · walk → cafe
+- **2-active-dessert-008** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:climbing → dessert:chocolate
+- **2-walk-view-002** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk → viewpoint:observation
+- **2-art-walk-001** — Искусство и город · `culture` · mood: calm, romantic, unusual, active · route: `micro` · art → walk
+- **2-brunch-art-002** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast|brunch → art:gallery
+- **2-slowactivity-coffee-006** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:bookstore → cafe:coffee
+- **2-walk-event-001** — Прогулка перед событием · `event` · mood: unusual, fun, calm, active · route: `micro` · walk → event:exhibition
+- **2-creative-dessert-002** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → dessert:pastry
+- **2-play-dessert-006** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:games → dessert:pastry
+- **2-walk-dessert-001** — Прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → dessert
+- **2-active-dessert-009** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:skating → dessert
+- **2-view-walk-003** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint → walk:architecture
+- **2-coffee-art-001** — Кофе и небольшая выставка · `culture` · mood: calm, romantic, unusual · route: `micro` · cafe → art
+- **2-brunch-walk-002** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast|brunch → walk:waterfront
+- **2-coffee-slowactivity-003** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe → activity:vinyl
+- **2-dessert-event-002** — Десерт перед культурным событием · `event` · mood: unusual, fun, romantic · route: `micro` · dessert → event:lecture
+- **2-creative-coffee-003** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → cafe:tea
+- **2-play-coffee-007** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:games → cafe:tea
+- **2-coffee-walk-002** — Кофе и прогулка · `slow` · mood: calm, romantic · route: `micro` · cafe → walk:waterfront
+- **2-active-dessert-010** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:skating → dessert:pastry
+- **2-walk-view-003** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk → viewpoint:rooftop
+- **2-view-art-001** — Панорама и искусство · `culture` · mood: romantic, unusual, calm · route: `micro` · viewpoint → art
+- **2-walk-brunch-002** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk → dinner:breakfast
+- **2-slowactivity-coffee-007** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:bookstore → cafe:tea
+- **2-event-dessert-002** — Короткое событие и десерт · `event` · mood: unusual, fun, romantic · route: `micro` · event:exhibition → dessert:pastry
+- **2-creative-dessert-003** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → dessert:icecream
+- **2-play-dessert-007** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:games → dessert:icecream
+- **2-dessert-walk-002** — Десерт и прогулка · `slow` · mood: romantic, calm · route: `micro` · dessert → walk:waterfront
+- **2-active-dessert-011** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:skating → dessert:icecream
+- **2-view-walk-004** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint → walk:park
+- **2-walk-art-001** — Город и искусство · `culture` · mood: calm, romantic, unusual, active · route: `micro` · walk → art
+- **2-brunch-art-003** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast|brunch → art:contemporary
+- **2-coffee-slowactivity-004** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe → activity:market
+- **2-event-walk-002** — Событие и короткая прогулка · `event` · mood: unusual, fun, calm, active · route: `micro` · event:exhibition → walk:waterfront
+- **2-creative-coffee-004** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → cafe:bakery
+- **2-play-coffee-008** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:games → cafe:bakery
+- **2-walk-coffee-002** — Прогулка и кофе · `slow` · mood: calm, romantic, active · route: `micro` · walk → cafe:coffee
+- **2-active-dessert-012** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:skating → dessert:chocolate
+- **2-walk-view-004** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:waterfront → viewpoint
+- **2-art-coffee-002** — Искусство и разговор после · `culture` · mood: calm, romantic, unusual · route: `micro` · art → cafe:coffee
+- **2-brunch-walk-003** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast|brunch → walk:architecture
+- **2-slowactivity-coffee-008** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:bookstore → cafe:bakery
+- **2-walk-event-002** — Прогулка перед событием · `event` · mood: unusual, fun, calm, active · route: `micro` · walk → event:lecture
+- **2-creative-dessert-004** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity → dessert:chocolate
+- **2-play-dessert-008** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:games → dessert:chocolate
+- **2-walk-dessert-002** — Прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → dessert:pastry
+- **2-active-dessert-013** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:karting → dessert
+- **2-view-walk-005** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:observation → walk
+- **2-art-dessert-002** — Выставка и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → dessert:pastry
+- **2-walk-brunch-003** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk → dinner:brunch
+- **2-coffee-slowactivity-005** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe → activity:games
+- **2-dessert-event-005** — Десерт перед культурным событием · `event` · mood: unusual, fun, romantic · route: `micro` · dessert:pastry → event:exhibition
+- **2-creative-coffee-005** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → cafe
+- **2-play-coffee-009** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:bowling → cafe
+- **2-coffee-walk-003** — Кофе и прогулка · `slow` · mood: calm, romantic · route: `micro` · cafe → walk:architecture
+- **2-active-dessert-014** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:karting → dessert:pastry
+- **2-walk-view-005** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:waterfront → viewpoint:observation
+- **2-art-view-002** — Искусство и панорама · `culture` · mood: romantic, unusual, calm · route: `micro` · art → viewpoint:observation
+- **2-brunch-art-004** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast|brunch → art:photo
+- **2-slowactivity-coffee-009** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:vinyl → cafe
+- **2-event-dessert-003** — Короткое событие и десерт · `event` · mood: unusual, fun, romantic · route: `micro` · event:exhibition → dessert:icecream
+- **2-creative-dessert-005** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → dessert
+- **2-play-dessert-009** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:bowling → dessert
+- **2-dessert-walk-003** — Десерт и прогулка · `slow` · mood: romantic, calm · route: `micro` · dessert → walk:architecture
+- **2-active-dessert-015** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:karting → dessert:icecream
+- **2-view-walk-006** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:observation → walk:waterfront
+- **2-art-walk-002** — Искусство и город · `culture` · mood: calm, romantic, unusual, active · route: `micro` · art → walk:waterfront
+- **2-brunch-walk-004** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast|brunch → walk:park
+- **2-coffee-slowactivity-006** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:coffee → activity
+- **2-event-walk-003** — Событие и короткая прогулка · `event` · mood: unusual, fun, calm, active · route: `micro` · event:exhibition → walk:architecture
+- **2-creative-coffee-006** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → cafe:coffee
+- **2-play-coffee-010** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:bowling → cafe:coffee
+- **2-walk-coffee-003** — Прогулка и кофе · `slow` · mood: calm, romantic, active · route: `micro` · walk → cafe:tea
+- **2-active-dessert-016** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:karting → dessert:chocolate
+- **2-walk-view-006** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:waterfront → viewpoint:rooftop
+- **2-coffee-art-002** — Кофе и небольшая выставка · `culture` · mood: calm, romantic, unusual · route: `micro` · cafe → art:gallery
+- **2-walk-brunch-004** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk:waterfront → dinner:breakfast|brunch
+- **2-slowactivity-coffee-010** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:vinyl → cafe:coffee
+- **2-walk-event-005** — Прогулка перед событием · `event` · mood: unusual, fun, calm, active · route: `micro` · walk:waterfront → event:exhibition
+- **2-creative-dessert-006** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → dessert:pastry
+- **2-play-dessert-010** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:bowling → dessert:pastry
+- **2-walk-dessert-003** — Прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → dessert:icecream
+- **2-active-dessert-017** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:mini_golf → dessert
+- **2-view-walk-007** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:observation → walk:architecture
+- **2-view-art-002** — Панорама и искусство · `culture` · mood: romantic, unusual, calm · route: `micro` · viewpoint → art:gallery
+- **2-brunch-art-005** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast|brunch → art:digital
+- **2-coffee-slowactivity-007** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:coffee → activity:bookstore
+- **2-dessert-event-006** — Десерт перед культурным событием · `event` · mood: unusual, fun, romantic · route: `micro` · dessert:pastry → event:lecture
+- **2-creative-coffee-007** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → cafe:tea
+- **2-play-coffee-011** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:bowling → cafe:tea
+- **2-coffee-walk-004** — Кофе и прогулка · `slow` · mood: calm, romantic · route: `micro` · cafe → walk:park
+- **2-active-dessert-018** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:mini_golf → dessert:pastry
+- **2-walk-view-007** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:architecture → viewpoint
+- **2-walk-art-002** — Город и искусство · `culture` · mood: calm, romantic, unusual, active · route: `micro` · walk → art:gallery
+- **2-brunch-walk-005** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast → walk
+- **2-slowactivity-coffee-011** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:vinyl → cafe:tea
+- **2-event-dessert-004** — Короткое событие и десерт · `event` · mood: unusual, fun, romantic · route: `micro` · event:exhibition → dessert:chocolate
+- **2-creative-dessert-007** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → dessert:icecream
+- **2-play-dessert-011** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:bowling → dessert:icecream
+- **2-dessert-walk-004** — Десерт и прогулка · `slow` · mood: romantic, calm · route: `micro` · dessert → walk:park
+- **2-active-dessert-019** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:mini_golf → dessert:icecream
+- **2-view-walk-008** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:observation → walk:park
+- **2-art-coffee-003** — Искусство и разговор после · `culture` · mood: calm, romantic, unusual · route: `micro` · art → cafe:tea
+- **2-walk-brunch-005** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk:waterfront → dinner:breakfast
+- **2-coffee-slowactivity-008** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:coffee → activity:vinyl
+- **2-event-walk-004** — Событие и короткая прогулка · `event` · mood: unusual, fun, calm, active · route: `micro` · event:exhibition → walk:park
+- **2-creative-coffee-008** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → cafe:bakery
+- **2-play-coffee-012** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:bowling → cafe:bakery
+- **2-walk-coffee-004** — Прогулка и кофе · `slow` · mood: calm, romantic, active · route: `micro` · walk → cafe:bakery
+- **2-active-dessert-020** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:mini_golf → dessert:chocolate
+- **2-walk-view-008** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:architecture → viewpoint:observation
+- **2-art-dessert-003** — Выставка и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → dessert:icecream
+- **2-brunch-art-006** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast → art
+- **2-slowactivity-coffee-012** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:vinyl → cafe:bakery
+- **2-walk-event-006** — Прогулка перед событием · `event` · mood: unusual, fun, calm, active · route: `micro` · walk:waterfront → event:lecture
+- **2-creative-dessert-008** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:workshop → dessert:chocolate
+- **2-play-dessert-012** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:bowling → dessert:chocolate
+- **2-walk-dessert-004** — Прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → dessert:chocolate
+- **2-active-dessert-021** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:dance → dessert
+- **2-view-walk-009** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:rooftop → walk
+- **2-art-view-003** — Искусство и панорама · `culture` · mood: romantic, unusual, calm · route: `micro` · art → viewpoint:rooftop
+- **2-brunch-walk-006** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast → walk:waterfront
+- **2-coffee-slowactivity-009** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:coffee → activity:market
+- **2-dessert-event-009** — Десерт перед культурным событием · `event` · mood: unusual, fun, romantic · route: `micro` · dessert:icecream → event:exhibition
+- **2-creative-coffee-009** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:pottery → cafe
+- **2-play-coffee-013** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:billiards → cafe
+- **2-coffee-walk-005** — Кофе и прогулка · `slow` · mood: calm, romantic · route: `micro` · cafe:coffee → walk
+- **2-active-dessert-022** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:dance → dessert:pastry
+- **2-walk-view-009** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:architecture → viewpoint:rooftop
+- **2-art-walk-003** — Искусство и город · `culture` · mood: calm, romantic, unusual, active · route: `micro` · art → walk:architecture
+- **2-walk-brunch-006** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk:waterfront → dinner:brunch
+- **2-slowactivity-coffee-013** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:market → cafe
+- **2-event-dessert-005** — Короткое событие и десерт · `event` · mood: unusual, fun, romantic · route: `micro` · event:lecture → dessert
+- **2-creative-dessert-009** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:pottery → dessert
+- **2-play-dessert-013** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:billiards → dessert
+- **2-dessert-walk-005** — Десерт и прогулка · `slow` · mood: romantic, calm · route: `micro` · dessert:pastry → walk
+- **2-active-dessert-023** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:dance → dessert:icecream
+- **2-view-walk-010** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:rooftop → walk:waterfront
+- **2-coffee-art-003** — Кофе и небольшая выставка · `culture` · mood: calm, romantic, unusual · route: `micro` · cafe → art:museum
+- **2-brunch-art-007** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast → art:gallery
+- **2-coffee-slowactivity-010** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:coffee → activity:games
+- **2-event-walk-005** — Событие и короткая прогулка · `event` · mood: unusual, fun, calm, active · route: `micro` · event:lecture → walk
+- **2-creative-coffee-010** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:pottery → cafe:coffee
+- **2-play-coffee-014** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:billiards → cafe:coffee
+- **2-walk-coffee-005** — Прогулка и кофе · `slow` · mood: calm, romantic, active · route: `micro` · walk:waterfront → cafe
+- **2-active-dessert-024** — Подвигаться и взять десерт · `active` · mood: active, fun, romantic · route: `micro` · activity:dance → dessert:chocolate
+- **2-walk-view-010** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:park → viewpoint
+- **2-view-art-003** — Панорама и искусство · `culture` · mood: romantic, unusual, calm · route: `micro` · viewpoint → art:museum
+- **2-brunch-walk-007** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast → walk:architecture
+- **2-slowactivity-coffee-014** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:market → cafe:coffee
+- **2-walk-event-009** — Прогулка перед событием · `event` · mood: unusual, fun, calm, active · route: `micro` · walk:architecture → event:exhibition
+- **2-creative-dessert-010** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:pottery → dessert:pastry
+- **2-play-dessert-014** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:billiards → dessert:pastry
+- **2-walk-dessert-005** — Прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk:waterfront → dessert
+- **2-view-walk-011** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:rooftop → walk:architecture
+- **2-walk-art-003** — Город и искусство · `culture` · mood: calm, romantic, unusual, active · route: `micro` · walk → art:museum
+- **2-walk-brunch-007** — Прогулка и бранч · `daytime` · mood: calm, romantic, active · route: `micro` · walk:architecture → dinner:breakfast|brunch
+- **2-coffee-slowactivity-011** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:tea → activity
+- **2-dessert-event-010** — Десерт перед культурным событием · `event` · mood: unusual, fun, romantic · route: `micro` · dessert:icecream → event:lecture
+- **2-creative-coffee-011** — Сделать что-то вместе и выпить кофе · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:pottery → cafe:tea
+- **2-play-coffee-015** — Игра и кофе · `play` · mood: active, fun, unusual · route: `micro` · activity:billiards → cafe:tea
+- **2-coffee-walk-006** — Кофе и прогулка · `slow` · mood: calm, romantic · route: `micro` · cafe:coffee → walk:waterfront
+- **2-walk-view-011** — Прогулка к красивому виду · `city` · mood: romantic, calm, active · route: `micro` · walk:park → viewpoint:observation
+- **2-art-coffee-004** — Искусство и разговор после · `culture` · mood: calm, romantic, unusual · route: `micro` · art → cafe:bakery
+- **2-brunch-art-008** — Бранч и искусство · `daytime` · mood: calm, romantic, unusual · route: `micro` · dinner:breakfast → art:contemporary
+- **2-slowactivity-coffee-015** — Найти что-то новое и обсудить за кофе · `discover` · mood: calm, unusual, fun · route: `micro` · activity:market → cafe:tea
+- **2-event-dessert-006** — Короткое событие и десерт · `event` · mood: unusual, fun, romantic · route: `micro` · event:lecture → dessert:pastry
+- **2-creative-dessert-011** — Мастер-класс и десерт · `make` · mood: active, fun, unusual, romantic · route: `micro` · activity:pottery → dessert:icecream
+- **2-play-dessert-015** — Игра и сладкий финал · `play` · mood: active, fun, unusual, romantic · route: `micro` · activity:billiards → dessert:icecream
+- **2-dessert-walk-006** — Десерт и прогулка · `slow` · mood: romantic, calm · route: `micro` · dessert:pastry → walk:waterfront
+- **2-view-walk-012** — Панорама и прогулка · `city` · mood: romantic, calm, active, unusual · route: `micro` · viewpoint:rooftop → walk:park
+- **2-art-dessert-004** — Выставка и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → dessert:chocolate
+- **2-brunch-walk-008** — Бранч и прогулка · `daytime` · mood: calm, romantic, fun · route: `micro` · dinner:breakfast → walk:park
+- **2-coffee-slowactivity-012** — Кофе и маленькое исследование · `discover` · mood: calm, unusual, fun · route: `micro` · cafe:tea → activity:bookstore
+
+## 3 часа — 250
+
+- **3-active-dinner-005** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:climbing → dinner
+- **3-view-walk-art-001** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art
+- **3-art-coffee-dessert-001** — Искусство, разговор и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → cafe → dessert
+- **3-brunch-art-001** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast|brunch → art
+- **3-book-coffee-walk-001** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe → walk
+- **3-art-event-002** — Искусство и актуальное событие · `event` · mood: unusual, calm, fun · route: `compact` · art → event:lecture
+- **3-dinner-dessert-001** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner → dessert
+- **3-art-creative-001** — Посмотреть и сделать · `make` · mood: active, unusual, fun, calm · route: `compact` · art → activity
+- **3-art-bar-001** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → bar
+- **3-coffee-play-dessert-001** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity → dessert
+- **3-dinner-view-001** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner → viewpoint
+- **3-coffee-walk-dessert-001** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk → dessert
+- **3-active-view-walk-001** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint → walk
+- **3-view-walk-art-002** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art:gallery
+- **3-art-dinner-001** — Выставка и ужин · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner
+- **3-brunch-walk-coffee-001** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk → cafe
+- **3-book-coffee-walk-002** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe → walk:waterfront
+- **3-dinner-event-003** — Ужин перед событием · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event:standup
+- **3-dinner-dessert-002** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner → dessert:pastry
+- **3-creative-art-001** — Сделать и посмотреть · `make` · mood: active, unusual, fun, calm · route: `compact` · activity → art
+- **3-dinner-bar-001** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner → bar
+- **3-play-dinner-005** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner
+- **3-dinner-view-002** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner → viewpoint:observation
+- **3-walk-coffee-dessert-001** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe → dessert
+- **3-active-dinner-006** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:climbing → dinner:restaurant
+- **3-view-walk-art-003** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art:museum
+- **3-art-view-dessert-001** — Искусство, панорама и десерт · `culture` · mood: romantic, unusual, calm · route: `compact` · art → viewpoint → dessert
+- **3-brunch-art-002** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast|brunch → art:gallery|contemporary
+- **3-book-coffee-walk-003** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe → walk:architecture
+- **3-event-art-008** — Событие и ещё немного искусства · `event` · mood: unusual, calm, fun · route: `compact` · event:lecture → art
+- **3-dinner-dessert-003** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner → dessert:icecream
+- **3-creative-dinner-001** — Мастер-класс и ужин · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner
+- **3-play-bar-001** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity → bar
+- **3-coffee-play-dessert-002** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity → dessert:pastry
+- **3-dinner-view-003** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner → viewpoint:rooftop
+- **3-walk-dinner-001** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk → dinner
+- **3-active-view-walk-002** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint → walk:waterfront
+- **3-view-walk-art-004** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art:contemporary
+- **3-art-walk-dessert-001** — Искусство, прогулка и десерт · `culture` · mood: romantic, calm, unusual, active · route: `micro` · art → walk → dessert
+- **3-brunch-walk-coffee-002** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk → cafe:coffee
+- **3-book-coffee-walk-004** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe → walk:park
+- **3-event-dessert-001** — Событие и десерт после · `event` · mood: fun, unusual, romantic · route: `compact` · event:concert → dessert
+- **3-dinner-dessert-004** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner → dessert:chocolate
+- **3-walk-creative-view-001** — Прогулка, мастер-класс и вид · `make` · mood: active, unusual, romantic, calm · route: `compact` · walk → activity → viewpoint
+- **3-art-bar-002** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → bar:cocktail
+- **3-play-dinner-006** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:restaurant
+- **3-dinner-view-004** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:restaurant → viewpoint
+- **3-coffee-walk-dessert-002** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk → dessert:pastry
+- **3-active-dinner-007** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:climbing → dinner:casual
+- **3-view-walk-art-005** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art:digital
+- **3-coffee-art-dessert-001** — Кофе, искусство и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · cafe → art → dessert
+- **3-brunch-art-003** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast|brunch → art:museum
+- **3-book-coffee-walk-005** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:coffee → walk
+- **3-event-dinner-001** — Событие и ужин после · `event` · mood: fun, unusual, romantic · route: `compact` · event:exhibition → dinner
+- **3-dinner-dessert-005** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:restaurant → dessert
+- **3-art-creative-002** — Посмотреть и сделать · `make` · mood: active, unusual, fun, calm · route: `compact` · art → activity:workshop
+- **3-dinner-bar-002** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner → bar:cocktail
+- **3-coffee-play-dessert-003** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity → dessert:icecream
+- **3-dinner-view-005** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:restaurant → viewpoint:observation
+- **3-walk-coffee-dessert-002** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe → dessert:pastry
+- **3-active-view-walk-003** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint → walk:architecture
+- **3-view-walk-art-006** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art:photo
+- **3-view-art-dessert-001** — Панорама, искусство и десерт · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dessert
+- **3-brunch-walk-coffee-003** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk → cafe:tea
+- **3-book-coffee-walk-006** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:coffee → walk:waterfront
+- **3-event-walk-dessert-001** — Событие, прогулка и десерт · `event` · mood: fun, unusual, romantic, calm · route: `micro` · event:exhibition → walk → dessert
+- **3-dinner-dessert-006** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:restaurant → dessert:pastry
+- **3-creative-art-002** — Сделать и посмотреть · `make` · mood: active, unusual, fun, calm · route: `compact` · activity → art:gallery|contemporary
+- **3-play-bar-002** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity → bar:cocktail
+- **3-play-dinner-007** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:casual
+- **3-dinner-view-006** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:restaurant → viewpoint:rooftop
+- **3-walk-dinner-002** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk → dinner:restaurant
+- **3-active-dinner-008** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:climbing → dinner:gastropub
+- **3-view-walk-art-007** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk → art:science
+- **3-walk-art-dessert-001** — Прогулка, искусство и десерт · `culture` · mood: romantic, calm, unusual, active · route: `micro` · walk → art → dessert
+- **3-brunch-art-004** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast|brunch → art:digital
+- **3-book-coffee-walk-007** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:coffee → walk:architecture
+- **3-walk-event-dessert-001** — Прогулка, событие и десерт · `event` · mood: fun, unusual, romantic, calm · route: `micro` · walk → event:exhibition → dessert
+- **3-dinner-dessert-007** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:restaurant → dessert:icecream
+- **3-creative-dinner-002** — Мастер-класс и ужин · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:restaurant
+- **3-art-bar-003** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → bar:wine
+- **3-coffee-play-dessert-004** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity → dessert:chocolate
+- **3-dinner-view-007** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:casual → viewpoint
+- **3-coffee-walk-dessert-003** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk → dessert:icecream
+- **3-active-view-walk-004** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint → walk:park
+- **3-view-walk-art-008** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art
+- **3-art-coffee-dessert-002** — Искусство, разговор и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → cafe → dessert:pastry
+- **3-brunch-walk-coffee-004** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk → cafe:bakery
+- **3-book-coffee-walk-008** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:coffee → walk:park
+- **3-art-event-003** — Искусство и актуальное событие · `event` · mood: unusual, calm, fun · route: `compact` · art → event:excursion
+- **3-dinner-dessert-008** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:restaurant → dessert:chocolate
+- **3-walk-creative-view-002** — Прогулка, мастер-класс и вид · `make` · mood: active, unusual, romantic, calm · route: `compact` · walk → activity → viewpoint:observation
+- **3-dinner-bar-003** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner → bar:wine
+- **3-play-dinner-008** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:gastropub
+- **3-dinner-view-008** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:casual → viewpoint:observation
+- **3-walk-coffee-dessert-003** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe → dessert:icecream
+- **3-active-dinner-009** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:skating → dinner
+- **3-view-walk-art-009** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art:gallery
+- **3-art-dinner-002** — Выставка и ужин · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner:restaurant
+- **3-brunch-art-005** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast|brunch → art:photo
+- **3-book-coffee-walk-009** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:tea → walk
+- **3-dinner-event-005** — Ужин перед событием · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event:show
+- **3-dinner-dessert-009** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:casual → dessert
+- **3-art-creative-003** — Посмотреть и сделать · `make` · mood: active, unusual, fun, calm · route: `compact` · art → activity:pottery
+- **3-play-bar-003** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity → bar:wine
+- **3-coffee-play-dessert-005** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:games → dessert
+- **3-dinner-view-009** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:casual → viewpoint:rooftop
+- **3-walk-dinner-003** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk → dinner:casual
+- **3-active-view-walk-005** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:observation → walk
+- **3-view-walk-art-010** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art:museum
+- **3-art-view-dessert-002** — Искусство, панорама и десерт · `culture` · mood: romantic, unusual, calm · route: `compact` · art → viewpoint → dessert:pastry
+- **3-brunch-walk-coffee-005** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:waterfront → cafe
+- **3-book-coffee-walk-010** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:tea → walk:waterfront
+- **3-event-art-009** — Событие и ещё немного искусства · `event` · mood: unusual, calm, fun · route: `compact` · event:lecture → art:gallery
+- **3-dinner-dessert-010** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:casual → dessert:pastry
+- **3-creative-art-003** — Сделать и посмотреть · `make` · mood: active, unusual, fun, calm · route: `compact` · activity → art:museum
+- **3-art-bar-004** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → bar:jazz
+- **3-play-dinner-009** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:bowling → dinner
+- **3-dinner-view-010** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:gastropub → viewpoint
+- **3-coffee-walk-dessert-004** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk → dessert:chocolate
+- **3-active-dinner-010** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:skating → dinner:restaurant
+- **3-view-walk-art-011** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art:contemporary
+- **3-art-walk-dessert-002** — Искусство, прогулка и десерт · `culture` · mood: romantic, calm, unusual, active · route: `micro` · art → walk → dessert:pastry
+- **3-brunch-art-006** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast → art
+- **3-book-coffee-walk-011** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:tea → walk:architecture
+- **3-event-dessert-002** — Событие и десерт после · `event` · mood: fun, unusual, romantic · route: `compact` · event:concert → dessert:pastry
+- **3-dinner-dessert-011** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:casual → dessert:icecream
+- **3-creative-dinner-003** — Мастер-класс и ужин · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:casual
+- **3-dinner-bar-004** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner → bar:jazz
+- **3-coffee-play-dessert-006** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:games → dessert:pastry
+- **3-dinner-view-011** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:gastropub → viewpoint:observation
+- **3-walk-coffee-dessert-004** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe → dessert:chocolate
+- **3-active-view-walk-006** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:observation → walk:waterfront
+- **3-view-walk-art-012** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art:digital
+- **3-coffee-art-dessert-002** — Кофе, искусство и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · cafe → art → dessert:pastry
+- **3-brunch-walk-coffee-006** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:waterfront → cafe:coffee
+- **3-book-coffee-walk-012** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:tea → walk:park
+- **3-event-dinner-002** — Событие и ужин после · `event` · mood: fun, unusual, romantic · route: `compact` · event:exhibition → dinner:restaurant
+- **3-dinner-dessert-012** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:casual → dessert:chocolate
+- **3-walk-creative-view-003** — Прогулка, мастер-класс и вид · `make` · mood: active, unusual, romantic, calm · route: `compact` · walk → activity → viewpoint:rooftop
+- **3-play-bar-004** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity → bar:jazz
+- **3-play-dinner-010** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:bowling → dinner:restaurant
+- **3-dinner-view-012** — Ужин и красивый финал · `romance` · mood: romantic, calm, unusual · route: `compact` · dinner:gastropub → viewpoint:rooftop
+- **3-walk-dinner-004** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk → dinner:gastropub
+- **3-active-dinner-011** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:skating → dinner:casual
+- **3-view-walk-art-013** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art:photo
+- **3-view-art-dessert-002** — Панорама, искусство и десерт · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dessert:pastry
+- **3-brunch-art-007** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast → art:gallery|contemporary
+- **3-book-coffee-walk-013** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:bakery → walk
+- **3-event-walk-dessert-002** — Событие, прогулка и десерт · `event` · mood: fun, unusual, romantic, calm · route: `micro` · event:exhibition → walk → dessert:pastry
+- **3-dinner-dessert-013** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:gastropub → dessert
+- **3-art-creative-004** — Посмотреть и сделать · `make` · mood: active, unusual, fun, calm · route: `compact` · art → activity:painting
+- **3-art-bar-005** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art:gallery|contemporary → bar
+- **3-coffee-play-dessert-007** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:games → dessert:icecream
+- **3-coffee-walk-dessert-005** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk:waterfront → dessert
+- **3-active-view-walk-007** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:observation → walk:architecture
+- **3-view-walk-art-014** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:waterfront → art:science
+- **3-walk-art-dessert-002** — Прогулка, искусство и десерт · `culture` · mood: romantic, calm, unusual, active · route: `micro` · walk → art → dessert:pastry
+- **3-brunch-walk-coffee-007** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:waterfront → cafe:tea
+- **3-book-coffee-walk-014** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:bakery → walk:waterfront
+- **3-walk-event-dessert-002** — Прогулка, событие и десерт · `event` · mood: fun, unusual, romantic, calm · route: `micro` · walk → event:exhibition → dessert:pastry
+- **3-dinner-dessert-014** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:gastropub → dessert:pastry
+- **3-creative-art-004** — Сделать и посмотреть · `make` · mood: active, unusual, fun, calm · route: `compact` · activity → art:digital
+- **3-dinner-bar-005** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner:restaurant → bar
+- **3-play-dinner-011** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:bowling → dinner:casual
+- **3-walk-coffee-dessert-005** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe:coffee → dessert
+- **3-active-dinner-012** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:skating → dinner:gastropub
+- **3-view-walk-art-015** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art
+- **3-art-coffee-dessert-003** — Искусство, разговор и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → cafe → dessert:icecream
+- **3-brunch-art-008** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast → art:museum
+- **3-book-coffee-walk-015** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:bakery → walk:architecture
+- **3-art-event-004** — Искусство и актуальное событие · `event` · mood: unusual, calm, fun · route: `compact` · art → event
+- **3-dinner-dessert-015** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:gastropub → dessert:icecream
+- **3-creative-dinner-004** — Мастер-класс и ужин · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:gastropub
+- **3-play-bar-005** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity:games → bar
+- **3-coffee-play-dessert-008** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:games → dessert:chocolate
+- **3-walk-dinner-005** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner
+- **3-active-view-walk-008** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:observation → walk:park
+- **3-view-walk-art-016** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art:gallery
+- **3-art-dinner-003** — Выставка и ужин · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner:casual
+- **3-brunch-walk-coffee-008** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:waterfront → cafe:bakery
+- **3-book-coffee-walk-016** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity → cafe:bakery → walk:park
+- **3-dinner-event-006** — Ужин перед событием · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event
+- **3-dinner-dessert-016** — Ужин и отдельный десерт · `food` · mood: romantic, calm, fun · route: `compact` · dinner:gastropub → dessert:chocolate
+- **3-walk-creative-view-004** — Прогулка, мастер-класс и вид · `make` · mood: active, unusual, romantic, calm · route: `compact` · walk → activity:workshop → viewpoint
+- **3-art-bar-006** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art:gallery|contemporary → bar:cocktail
+- **3-play-dinner-012** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:bowling → dinner:gastropub
+- **3-coffee-walk-dessert-006** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk:waterfront → dessert:pastry
+- **3-active-dinner-013** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:karting → dinner
+- **3-view-walk-art-017** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art:museum
+- **3-art-view-dessert-003** — Искусство, панорама и десерт · `culture` · mood: romantic, unusual, calm · route: `compact` · art → viewpoint → dessert:icecream
+- **3-brunch-art-009** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast → art:digital
+- **3-book-coffee-walk-017** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity:bookstore → cafe → walk
+- **3-event-art-010** — Событие и ещё немного искусства · `event` · mood: unusual, calm, fun · route: `compact` · event:lecture → art:museum
+- **3-art-creative-005** — Посмотреть и сделать · `make` · mood: active, unusual, fun, calm · route: `compact` · art → activity:cooking
+- **3-dinner-bar-006** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner:restaurant → bar:cocktail
+- **3-coffee-play-dessert-009** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:bowling → dessert
+- **3-walk-coffee-dessert-006** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe:coffee → dessert:pastry
+- **3-active-view-walk-009** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:rooftop → walk
+- **3-view-walk-art-018** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art:contemporary
+- **3-art-walk-dessert-003** — Искусство, прогулка и десерт · `culture` · mood: romantic, calm, unusual, active · route: `micro` · art → walk → dessert:icecream
+- **3-brunch-walk-coffee-009** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:architecture → cafe
+- **3-book-coffee-walk-018** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity:bookstore → cafe → walk:waterfront
+- **3-event-dessert-003** — Событие и десерт после · `event` · mood: fun, unusual, romantic · route: `compact` · event:concert → dessert:icecream
+- **3-creative-art-005** — Сделать и посмотреть · `make` · mood: active, unusual, fun, calm · route: `compact` · activity → art:photo
+- **3-play-bar-006** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity:games → bar:cocktail
+- **3-play-dinner-013** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:billiards → dinner
+- **3-walk-dinner-006** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:restaurant
+- **3-active-dinner-014** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:karting → dinner:restaurant
+- **3-view-walk-art-019** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art:digital
+- **3-coffee-art-dessert-003** — Кофе, искусство и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · cafe → art → dessert:icecream
+- **3-brunch-art-010** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:breakfast → art:photo
+- **3-book-coffee-walk-019** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity:bookstore → cafe → walk:architecture
+- **3-event-dinner-003** — Событие и ужин после · `event` · mood: fun, unusual, romantic · route: `compact` · event:exhibition → dinner:casual
+- **3-creative-dinner-005** — Мастер-класс и ужин · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity:workshop → dinner
+- **3-art-bar-007** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art:gallery|contemporary → bar:wine
+- **3-coffee-play-dessert-010** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:bowling → dessert:pastry
+- **3-coffee-walk-dessert-007** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk:waterfront → dessert:icecream
+- **3-active-view-walk-010** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:rooftop → walk:waterfront
+- **3-view-walk-art-020** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art:photo
+- **3-view-art-dessert-003** — Панорама, искусство и десерт · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dessert:icecream
+- **3-brunch-walk-coffee-010** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:architecture → cafe:coffee
+- **3-book-coffee-walk-020** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity:bookstore → cafe → walk:park
+- **3-event-walk-dessert-003** — Событие, прогулка и десерт · `event` · mood: fun, unusual, romantic, calm · route: `micro` · event:exhibition → walk → dessert:icecream
+- **3-walk-creative-view-005** — Прогулка, мастер-класс и вид · `make` · mood: active, unusual, romantic, calm · route: `compact` · walk → activity:workshop → viewpoint:observation
+- **3-dinner-bar-007** — Ужин и один хороший бар · `night` · mood: romantic, fun · route: `compact` · dinner:restaurant → bar:wine
+- **3-play-dinner-014** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:billiards → dinner:restaurant
+- **3-walk-coffee-dessert-007** — Прогулка, кофе и десерт · `slow` · mood: romantic, calm, active · route: `micro` · walk → cafe:coffee → dessert:icecream
+- **3-active-dinner-015** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:karting → dinner:casual
+- **3-view-walk-art-021** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:architecture → art:science
+- **3-walk-art-dessert-003** — Прогулка, искусство и десерт · `culture` · mood: romantic, calm, unusual, active · route: `micro` · walk → art → dessert:icecream
+- **3-brunch-art-011** — Бранч и выставка · `daytime` · mood: calm, romantic, unusual · route: `compact` · dinner:brunch → art
+- **3-book-coffee-walk-021** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity:bookstore → cafe:coffee → walk
+- **3-walk-event-dessert-003** — Прогулка, событие и десерт · `event` · mood: fun, unusual, romantic, calm · route: `micro` · walk → event:exhibition → dessert:icecream
+- **3-art-creative-006** — Посмотреть и сделать · `make` · mood: active, unusual, fun, calm · route: `compact` · art → activity:dance
+- **3-play-bar-007** — Игра и бар · `night` · mood: active, fun, unusual · route: `compact` · activity:games → bar:wine
+- **3-coffee-play-dessert-011** — Кофе, игра и десерт · `play` · mood: fun, active, romantic · route: `micro` · cafe → activity:bowling → dessert:icecream
+- **3-walk-dinner-007** — Прогулка и ужин · `slow` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:casual
+- **3-active-view-walk-011** — Активность и городской маршрут · `active` · mood: active, unusual, fun, romantic · route: `compact` · activity → viewpoint:rooftop → walk:architecture
+- **3-view-walk-art-022** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:park → art
+- **3-art-coffee-dessert-004** — Искусство, разговор и десерт · `culture` · mood: romantic, calm, unusual · route: `micro` · art → cafe → dessert:chocolate
+- **3-brunch-walk-coffee-011** — Бранч, прогулка и кофе · `daytime` · mood: calm, romantic, active · route: `micro` · dinner:breakfast|brunch → walk:architecture → cafe:tea
+- **3-book-coffee-walk-022** — Маленькое исследование, кофе и прогулка · `discover` · mood: calm, unusual, fun, active · route: `micro` · activity:bookstore → cafe:coffee → walk:waterfront
+- **3-art-event-006** — Искусство и актуальное событие · `event` · mood: unusual, calm, fun · route: `compact` · art:gallery → event:lecture
+- **3-creative-art-006** — Сделать и посмотреть · `make` · mood: active, unusual, fun, calm · route: `compact` · activity:workshop → art
+- **3-art-bar-008** — Искусство и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art:gallery|contemporary → bar:jazz
+- **3-play-dinner-015** — Игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · activity:billiards → dinner:casual
+- **3-coffee-walk-dessert-008** — Кофе, прогулка и десерт · `slow` · mood: romantic, calm, active · route: `micro` · cafe → walk:waterfront → dessert:chocolate
+- **3-active-dinner-016** — Активность и ужин · `active` · mood: active, fun, romantic · route: `compact` · activity:karting → dinner:gastropub
+- **3-view-walk-art-023** — Панорама, прогулка и искусство · `city` · mood: romantic, calm, unusual, active · route: `compact` · viewpoint → walk:park → art:gallery
+
+## 4 часа — 275
+
+- **4-active-art-view-dessert-001** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint → dessert
+- **4-art-dinner-dessert-001** — Искусство, ужин и десерт · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner → dessert
+- **4-brunch-art-walk-001** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art → walk
+- **4-slowactivity-art-walk-view-085** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk → viewpoint
+- **4-art-event-dessert-009** — Искусство, событие и десерт · `event` · mood: unusual, fun, romantic, calm · route: `compact` · art → event:excursion → dessert
+- **4-art-creative-dinner-001** — Искусство, мастер-класс и ужин · `make` · mood: active, unusual, fun · route: `compact` · art → activity → dinner
+- **4-art-dinner-bar-001** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner → bar
+- **4-play-dinner-dessert-017** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner → dessert
+- **4-walk-dinner-view-001** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner → viewpoint
+- **4-walk-dinner-dessert-001** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner → dessert
+- **4-active-art-walk-view-001** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk → viewpoint
+- **4-art-walk-dinner-001** — Искусство, прогулка и ужин · `culture` · mood: romantic, calm, unusual, active · route: `compact` · art → walk → dinner
+- **4-brunch-creative-coffee-001** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity → cafe
+- **4-slowactivity-art-walk-view-086** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk → viewpoint:observation
+- **4-art-event-walk-009** — Искусство, событие и прогулка · `event` · mood: calm, unusual, fun, active · route: `compact` · art → event:excursion → walk
+- **4-coffee-creative-dinner-001** — Кофе, мастер-класс и ужин · `make` · mood: active, fun, romantic · route: `compact` · cafe → activity → dinner
+- **4-view-dinner-bar-001** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner → bar
+- **4-walk-play-dinner-001** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity → dinner
+- **4-walk-dinner-view-002** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner → viewpoint:observation
+- **4-walk-dinner-dessert-002** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner → dessert:pastry
+- **4-active-dinner-view-001** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → viewpoint
+- **4-coffee-art-dinner-001** — Кофе, искусство и ужин · `culture` · mood: calm, romantic, unusual · route: `compact` · cafe → art → dinner
+- **4-brunch-art-walk-002** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art → walk:waterfront
+- **4-slowactivity-art-walk-view-087** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk → viewpoint:rooftop
+- **4-coffee-event-dessert-005** — Кофе, событие и десерт · `event` · mood: fun, unusual, calm, romantic · route: `compact` · cafe → event:theater → dessert
+- **4-creative-art-dinner-001** — Мастер-класс, искусство и ужин · `make` · mood: active, unusual, romantic · route: `compact` · activity → art → dinner
+- **4-art-dinner-bar-002** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner → bar:cocktail
+- **4-play-dinner-dessert-018** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner → dessert:pastry
+- **4-walk-dinner-view-003** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner → viewpoint:rooftop
+- **4-walk-dinner-dessert-003** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner → dessert:icecream
+- **4-active-view-dinner-001** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint → dinner
+- **4-view-art-dinner-001** — Панорама, искусство и ужин · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dinner
+- **4-brunch-creative-coffee-002** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity → cafe:coffee
+- **4-slowactivity-art-walk-view-088** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:waterfront → viewpoint
+- **4-coffee-event-walk-001** — Кофе, событие и прогулка · `event` · mood: fun, unusual, calm, active · route: `compact` · cafe → event:concert → walk
+- **4-creative-dinner-bar-001** — Мастер-класс, ужин и бар · `make` · mood: active, fun, unusual, romantic · route: `compact` · activity → dinner → bar
+- **4-view-dinner-bar-002** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner → bar:cocktail
+- **4-walk-play-dinner-002** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity → dinner:restaurant
+- **4-walk-dinner-view-004** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:restaurant → viewpoint
+- **4-walk-dinner-dessert-004** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner → dessert:chocolate
+- **4-active-art-view-dessert-002** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint → dessert:pastry
+- **4-walk-art-dinner-001** — Прогулка, искусство и ужин · `culture` · mood: calm, romantic, unusual, active · route: `compact` · walk → art → dinner
+- **4-brunch-art-walk-003** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art → walk:architecture
+- **4-slowactivity-art-walk-view-089** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:waterfront → viewpoint:observation
+- **4-creative-event-walk-009** — Мастер-класс, событие и прогулка · `event` · mood: active, fun, unusual, calm · route: `compact` · activity → event:excursion → walk
+- **4-creative-dinner-dessert-001** — Мастер-класс, ужин и десерт · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → dessert
+- **4-art-dinner-bar-003** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner → bar:wine
+- **4-play-dinner-dessert-019** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner → dessert:icecream
+- **4-walk-dinner-view-005** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:restaurant → viewpoint:observation
+- **4-walk-dinner-dessert-005** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:restaurant → dessert
+- **4-active-art-walk-view-002** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk → viewpoint:observation
+- **4-art-dinner-dessert-002** — Искусство, ужин и десерт · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner → dessert:pastry
+- **4-brunch-creative-coffee-003** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity → cafe:tea
+- **4-slowactivity-art-walk-view-090** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:waterfront → viewpoint:rooftop
+- **4-dinner-event-bar-001** — Ужин, событие и бар · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event:concert → bar
+- **4-art-creative-dinner-002** — Искусство, мастер-класс и ужин · `make` · mood: active, unusual, fun · route: `compact` · art → activity → dinner:restaurant
+- **4-view-dinner-bar-003** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner → bar:wine
+- **4-walk-play-dinner-003** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity → dinner:casual
+- **4-walk-dinner-view-006** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:restaurant → viewpoint:rooftop
+- **4-walk-dinner-dessert-006** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:restaurant → dessert:pastry
+- **4-active-dinner-view-002** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → viewpoint:observation
+- **4-art-walk-dinner-002** — Искусство, прогулка и ужин · `culture` · mood: romantic, calm, unusual, active · route: `compact` · art → walk → dinner:restaurant
+- **4-brunch-art-walk-004** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art → walk:park
+- **4-slowactivity-art-walk-view-091** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:architecture → viewpoint
+- **4-dinner-event-dessert-001** — Ужин, событие и десерт · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event:concert → dessert
+- **4-coffee-creative-dinner-002** — Кофе, мастер-класс и ужин · `make` · mood: active, fun, romantic · route: `compact` · cafe → activity → dinner:restaurant
+- **4-art-dinner-bar-004** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner → bar:jazz
+- **4-play-dinner-dessert-020** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner → dessert:chocolate
+- **4-walk-dinner-view-007** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:casual → viewpoint
+- **4-walk-dinner-dessert-007** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:restaurant → dessert:icecream
+- **4-active-view-dinner-002** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint → dinner:restaurant
+- **4-coffee-art-dinner-002** — Кофе, искусство и ужин · `culture` · mood: calm, romantic, unusual · route: `compact` · cafe → art → dinner:restaurant
+- **4-brunch-creative-coffee-004** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity → cafe:bakery
+- **4-slowactivity-art-walk-view-092** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:architecture → viewpoint:observation
+- **4-event-art-dinner-001** — Событие, искусство и ужин · `event` · mood: unusual, calm, romantic · route: `compact` · event:exhibition → art → dinner
+- **4-creative-art-dinner-002** — Мастер-класс, искусство и ужин · `make` · mood: active, unusual, romantic · route: `compact` · activity → art → dinner:restaurant
+- **4-view-dinner-bar-004** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner → bar:jazz
+- **4-walk-play-dinner-004** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity → dinner:gastropub
+- **4-walk-dinner-view-008** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:casual → viewpoint:observation
+- **4-walk-dinner-dessert-008** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:restaurant → dessert:chocolate
+- **4-active-art-view-dessert-003** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint → dessert:icecream
+- **4-view-art-dinner-002** — Панорама, искусство и ужин · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dinner:restaurant
+- **4-brunch-art-walk-005** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:gallery → walk
+- **4-slowactivity-art-walk-view-093** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:architecture → viewpoint:rooftop
+- **4-event-dinner-bar-001** — Событие, ужин и бар · `event` · mood: fun, unusual, romantic · route: `compact` · event:concert → dinner → bar
+- **4-creative-dinner-bar-002** — Мастер-класс, ужин и бар · `make` · mood: active, fun, unusual, romantic · route: `compact` · activity → dinner → bar:cocktail
+- **4-art-dinner-bar-005** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:restaurant → bar
+- **4-play-dinner-dessert-021** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:restaurant → dessert
+- **4-walk-dinner-view-009** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:casual → viewpoint:rooftop
+- **4-walk-dinner-dessert-009** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:casual → dessert
+- **4-active-art-walk-view-003** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk → viewpoint:rooftop
+- **4-walk-art-dinner-002** — Прогулка, искусство и ужин · `culture` · mood: calm, romantic, unusual, active · route: `compact` · walk → art → dinner:restaurant
+- **4-brunch-creative-coffee-005** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:workshop → cafe
+- **4-slowactivity-art-walk-view-094** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:park → viewpoint
+- **4-event-dinner-dessert-001** — Событие, ужин и десерт · `event` · mood: fun, unusual, romantic · route: `compact` · event:exhibition → dinner → dessert
+- **4-creative-dinner-dessert-002** — Мастер-класс, ужин и десерт · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → dessert:pastry
+- **4-view-dinner-bar-005** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:restaurant → bar
+- **4-walk-play-dinner-005** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:games → dinner
+- **4-walk-dinner-view-010** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:gastropub → viewpoint
+- **4-walk-dinner-dessert-010** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:casual → dessert:pastry
+- **4-active-dinner-view-003** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → viewpoint:rooftop
+- **4-art-dinner-dessert-003** — Искусство, ужин и десерт · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner → dessert:icecream
+- **4-brunch-art-walk-006** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:gallery → walk:waterfront
+- **4-slowactivity-art-walk-view-095** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:park → viewpoint:observation
+- **4-walk-event-dessert-001** — Прогулка, событие и десерт · `event` · mood: fun, unusual, romantic, active · route: `compact` · walk → event:concert → dessert
+- **4-art-creative-dinner-003** — Искусство, мастер-класс и ужин · `make` · mood: active, unusual, fun · route: `compact` · art → activity → dinner:casual
+- **4-art-dinner-bar-006** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:restaurant → bar:cocktail
+- **4-play-dinner-dessert-022** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:restaurant → dessert:pastry
+- **4-walk-dinner-view-011** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:gastropub → viewpoint:observation
+- **4-walk-dinner-dessert-011** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:casual → dessert:icecream
+- **4-active-view-dinner-003** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint → dinner:casual
+- **4-art-walk-dinner-003** — Искусство, прогулка и ужин · `culture` · mood: romantic, calm, unusual, active · route: `compact` · art → walk → dinner:casual
+- **4-brunch-creative-coffee-006** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:workshop → cafe:coffee
+- **4-slowactivity-art-walk-view-096** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art → walk:park → viewpoint:rooftop
+- **4-walk-event-dinner-001** — Прогулка, событие и ужин · `event` · mood: fun, unusual, romantic, active · route: `compact` · walk → event:concert → dinner
+- **4-coffee-creative-dinner-003** — Кофе, мастер-класс и ужин · `make` · mood: active, fun, romantic · route: `compact` · cafe → activity → dinner:casual
+- **4-view-dinner-bar-006** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:restaurant → bar:cocktail
+- **4-walk-play-dinner-006** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:games → dinner:restaurant
+- **4-walk-dinner-view-012** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk → dinner:gastropub → viewpoint:rooftop
+- **4-walk-dinner-dessert-012** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:casual → dessert:chocolate
+- **4-active-art-view-dessert-004** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint → dessert:chocolate
+- **4-coffee-art-dinner-003** — Кофе, искусство и ужин · `culture` · mood: calm, romantic, unusual · route: `compact` · cafe → art → dinner:casual
+- **4-brunch-art-walk-007** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:gallery → walk:architecture
+- **4-slowactivity-art-walk-view-097** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk → viewpoint
+- **4-art-event-dessert-010** — Искусство, событие и десерт · `event` · mood: unusual, fun, romantic, calm · route: `compact` · art → event:excursion → dessert:pastry
+- **4-creative-art-dinner-003** — Мастер-класс, искусство и ужин · `make` · mood: active, unusual, romantic · route: `compact` · activity → art → dinner:casual
+- **4-art-dinner-bar-007** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:restaurant → bar:wine
+- **4-play-dinner-dessert-023** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:restaurant → dessert:icecream
+- **4-walk-dinner-view-013** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner → viewpoint
+- **4-walk-dinner-dessert-013** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:gastropub → dessert
+- **4-active-art-walk-view-004** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk:waterfront → viewpoint
+- **4-view-art-dinner-003** — Панорама, искусство и ужин · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dinner:casual
+- **4-brunch-creative-coffee-007** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:workshop → cafe:tea
+- **4-slowactivity-art-walk-view-098** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk → viewpoint:observation
+- **4-art-event-walk-010** — Искусство, событие и прогулка · `event` · mood: calm, unusual, fun, active · route: `compact` · art → event:excursion → walk:waterfront
+- **4-creative-dinner-bar-003** — Мастер-класс, ужин и бар · `make` · mood: active, fun, unusual, romantic · route: `compact` · activity → dinner → bar:wine
+- **4-view-dinner-bar-007** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:restaurant → bar:wine
+- **4-walk-play-dinner-007** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:games → dinner:casual
+- **4-walk-dinner-view-014** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner → viewpoint:observation
+- **4-walk-dinner-dessert-014** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:gastropub → dessert:pastry
+- **4-active-dinner-view-004** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:restaurant → viewpoint
+- **4-walk-art-dinner-003** — Прогулка, искусство и ужин · `culture` · mood: calm, romantic, unusual, active · route: `compact` · walk → art → dinner:casual
+- **4-brunch-art-walk-008** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:gallery → walk:park
+- **4-slowactivity-art-walk-view-099** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk → viewpoint:rooftop
+- **4-coffee-event-dessert-006** — Кофе, событие и десерт · `event` · mood: fun, unusual, calm, romantic · route: `compact` · cafe → event:theater → dessert:pastry
+- **4-creative-dinner-dessert-003** — Мастер-класс, ужин и десерт · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → dessert:icecream
+- **4-art-dinner-bar-008** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:restaurant → bar:jazz
+- **4-play-dinner-dessert-024** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:restaurant → dessert:chocolate
+- **4-walk-dinner-view-015** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner → viewpoint:rooftop
+- **4-walk-dinner-dessert-015** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:gastropub → dessert:icecream
+- **4-active-view-dinner-004** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint → dinner:gastropub
+- **4-art-dinner-dessert-004** — Искусство, ужин и десерт · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner → dessert:chocolate
+- **4-brunch-creative-coffee-008** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:workshop → cafe:bakery
+- **4-slowactivity-art-walk-view-100** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:waterfront → viewpoint
+- **4-coffee-event-walk-002** — Кофе, событие и прогулка · `event` · mood: fun, unusual, calm, active · route: `compact` · cafe → event:concert → walk:waterfront
+- **4-art-creative-dinner-004** — Искусство, мастер-класс и ужин · `make` · mood: active, unusual, fun · route: `compact` · art → activity → dinner:gastropub
+- **4-view-dinner-bar-008** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:restaurant → bar:jazz
+- **4-walk-play-dinner-008** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:games → dinner:gastropub
+- **4-walk-dinner-view-016** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:restaurant → viewpoint
+- **4-walk-dinner-dessert-016** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk → dinner:gastropub → dessert:chocolate
+- **4-active-art-view-dessert-005** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint:observation → dessert
+- **4-art-walk-dinner-004** — Искусство, прогулка и ужин · `culture` · mood: romantic, calm, unusual, active · route: `compact` · art → walk → dinner:gastropub
+- **4-brunch-art-walk-009** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:museum → walk
+- **4-slowactivity-art-walk-view-101** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:waterfront → viewpoint:observation
+- **4-creative-event-walk-010** — Мастер-класс, событие и прогулка · `event` · mood: active, fun, unusual, calm · route: `compact` · activity → event:excursion → walk:waterfront
+- **4-coffee-creative-dinner-004** — Кофе, мастер-класс и ужин · `make` · mood: active, fun, romantic · route: `compact` · cafe → activity → dinner:gastropub
+- **4-art-dinner-bar-009** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:casual → bar
+- **4-play-dinner-dessert-025** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:casual → dessert
+- **4-walk-dinner-view-017** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:restaurant → viewpoint:observation
+- **4-walk-dinner-dessert-017** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner → dessert
+- **4-active-art-walk-view-005** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk:waterfront → viewpoint:observation
+- **4-coffee-art-dinner-004** — Кофе, искусство и ужин · `culture` · mood: calm, romantic, unusual · route: `compact` · cafe → art → dinner:gastropub
+- **4-brunch-creative-coffee-009** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:pottery → cafe
+- **4-slowactivity-art-walk-view-102** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:waterfront → viewpoint:rooftop
+- **4-dinner-event-bar-002** — Ужин, событие и бар · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event:concert → bar:cocktail
+- **4-creative-art-dinner-004** — Мастер-класс, искусство и ужин · `make` · mood: active, unusual, romantic · route: `compact` · activity → art → dinner:gastropub
+- **4-view-dinner-bar-009** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:casual → bar
+- **4-walk-play-dinner-009** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:bowling → dinner
+- **4-walk-dinner-view-018** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:restaurant → viewpoint:rooftop
+- **4-walk-dinner-dessert-018** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner → dessert:pastry
+- **4-active-dinner-view-005** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:restaurant → viewpoint:observation
+- **4-view-art-dinner-004** — Панорама, искусство и ужин · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art → dinner:gastropub
+- **4-brunch-art-walk-010** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:museum → walk:waterfront
+- **4-slowactivity-art-walk-view-103** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:architecture → viewpoint
+- **4-dinner-event-dessert-002** — Ужин, событие и десерт · `event` · mood: fun, unusual, romantic · route: `compact` · dinner → event:concert → dessert:pastry
+- **4-creative-dinner-bar-004** — Мастер-класс, ужин и бар · `make` · mood: active, fun, unusual, romantic · route: `compact` · activity → dinner → bar:jazz
+- **4-art-dinner-bar-010** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:casual → bar:cocktail
+- **4-play-dinner-dessert-026** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:casual → dessert:pastry
+- **4-walk-dinner-view-019** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:casual → viewpoint
+- **4-walk-dinner-dessert-019** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner → dessert:icecream
+- **4-active-view-dinner-005** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint:observation → dinner
+- **4-walk-art-dinner-004** — Прогулка, искусство и ужин · `culture` · mood: calm, romantic, unusual, active · route: `compact` · walk → art → dinner:gastropub
+- **4-brunch-creative-coffee-010** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:pottery → cafe:coffee
+- **4-slowactivity-art-walk-view-104** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:architecture → viewpoint:observation
+- **4-event-art-dinner-002** — Событие, искусство и ужин · `event` · mood: unusual, calm, romantic · route: `compact` · event:exhibition → art → dinner:restaurant
+- **4-creative-dinner-dessert-004** — Мастер-класс, ужин и десерт · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner → dessert:chocolate
+- **4-view-dinner-bar-010** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:casual → bar:cocktail
+- **4-walk-play-dinner-010** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:bowling → dinner:restaurant
+- **4-walk-dinner-view-020** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:casual → viewpoint:observation
+- **4-walk-dinner-dessert-020** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner → dessert:chocolate
+- **4-active-art-view-dessert-006** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint:observation → dessert:pastry
+- **4-art-dinner-dessert-005** — Искусство, ужин и десерт · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner:restaurant → dessert
+- **4-brunch-art-walk-011** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:museum → walk:architecture
+- **4-slowactivity-art-walk-view-105** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:architecture → viewpoint:rooftop
+- **4-event-dinner-bar-002** — Событие, ужин и бар · `event` · mood: fun, unusual, romantic · route: `compact` · event:concert → dinner → bar:cocktail
+- **4-art-creative-dinner-005** — Искусство, мастер-класс и ужин · `make` · mood: active, unusual, fun · route: `compact` · art → activity:workshop → dinner
+- **4-art-dinner-bar-011** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:casual → bar:wine
+- **4-play-dinner-dessert-027** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:casual → dessert:icecream
+- **4-walk-dinner-view-021** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:casual → viewpoint:rooftop
+- **4-walk-dinner-dessert-021** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:restaurant → dessert
+- **4-active-art-walk-view-006** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk:waterfront → viewpoint:rooftop
+- **4-art-walk-dinner-005** — Искусство, прогулка и ужин · `culture` · mood: romantic, calm, unusual, active · route: `compact` · art → walk:waterfront → dinner
+- **4-brunch-creative-coffee-011** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:pottery → cafe:tea
+- **4-slowactivity-art-walk-view-106** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:park → viewpoint
+- **4-event-dinner-dessert-002** — Событие, ужин и десерт · `event` · mood: fun, unusual, romantic · route: `compact` · event:exhibition → dinner → dessert:pastry
+- **4-coffee-creative-dinner-005** — Кофе, мастер-класс и ужин · `make` · mood: active, fun, romantic · route: `compact` · cafe → activity:workshop → dinner
+- **4-view-dinner-bar-011** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:casual → bar:wine
+- **4-walk-play-dinner-011** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:bowling → dinner:casual
+- **4-walk-dinner-view-022** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:gastropub → viewpoint
+- **4-walk-dinner-dessert-022** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:restaurant → dessert:pastry
+- **4-active-dinner-view-006** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:restaurant → viewpoint:rooftop
+- **4-coffee-art-dinner-005** — Кофе, искусство и ужин · `culture` · mood: calm, romantic, unusual · route: `compact` · cafe → art:gallery → dinner
+- **4-brunch-art-walk-012** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:museum → walk:park
+- **4-slowactivity-art-walk-view-107** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:park → viewpoint:observation
+- **4-walk-event-dessert-002** — Прогулка, событие и десерт · `event` · mood: fun, unusual, romantic, active · route: `compact` · walk → event:concert → dessert:pastry
+- **4-creative-art-dinner-005** — Мастер-класс, искусство и ужин · `make` · mood: active, unusual, romantic · route: `compact` · activity → art:gallery → dinner
+- **4-art-dinner-bar-012** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:casual → bar:jazz
+- **4-play-dinner-dessert-028** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:casual → dessert:chocolate
+- **4-walk-dinner-view-023** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:gastropub → viewpoint:observation
+- **4-walk-dinner-dessert-023** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:restaurant → dessert:icecream
+- **4-active-view-dinner-006** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint:observation → dinner:restaurant
+- **4-view-art-dinner-005** — Панорама, искусство и ужин · `culture` · mood: romantic, unusual, calm · route: `compact` · viewpoint → art:gallery → dinner
+- **4-brunch-creative-coffee-012** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:pottery → cafe:bakery
+- **4-slowactivity-art-walk-view-108** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:gallery → walk:park → viewpoint:rooftop
+- **4-walk-event-dinner-002** — Прогулка, событие и ужин · `event` · mood: fun, unusual, romantic, active · route: `compact` · walk → event:concert → dinner:restaurant
+- **4-creative-dinner-bar-005** — Мастер-класс, ужин и бар · `make` · mood: active, fun, unusual, romantic · route: `compact` · activity → dinner:restaurant → bar
+- **4-view-dinner-bar-012** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:casual → bar:jazz
+- **4-walk-play-dinner-012** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:bowling → dinner:gastropub
+- **4-walk-dinner-view-024** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:waterfront → dinner:gastropub → viewpoint:rooftop
+- **4-walk-dinner-dessert-024** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:restaurant → dessert:chocolate
+- **4-active-art-view-dessert-007** — Активность, искусство, вид и десерт · `active` · mood: active, unusual, romantic · route: `compact` · activity → art → viewpoint:observation → dessert:icecream
+- **4-walk-art-dinner-005** — Прогулка, искусство и ужин · `culture` · mood: calm, romantic, unusual, active · route: `compact` · walk → art:gallery → dinner
+- **4-brunch-art-walk-013** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:contemporary → walk
+- **4-slowactivity-art-walk-view-109** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:museum → walk → viewpoint
+- **4-art-event-dessert-011** — Искусство, событие и десерт · `event` · mood: unusual, fun, romantic, calm · route: `compact` · art → event:excursion → dessert:icecream
+- **4-creative-dinner-dessert-005** — Мастер-класс, ужин и десерт · `make` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:restaurant → dessert
+- **4-art-dinner-bar-013** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:gastropub → bar
+- **4-play-dinner-dessert-029** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:gastropub → dessert
+- **4-walk-dinner-view-025** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:architecture → dinner → viewpoint
+- **4-walk-dinner-dessert-025** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:casual → dessert
+- **4-active-art-walk-view-007** — Активность, искусство, прогулка и вид · `active` · mood: active, unusual, romantic, calm · route: `compact` · activity → art → walk:architecture → viewpoint
+- **4-art-dinner-dessert-006** — Искусство, ужин и десерт · `culture` · mood: romantic, calm, unusual · route: `compact` · art → dinner:restaurant → dessert:pastry
+- **4-brunch-creative-coffee-013** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:painting → cafe
+- **4-slowactivity-art-walk-view-110** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:museum → walk → viewpoint:observation
+- **4-art-event-walk-011** — Искусство, событие и прогулка · `event` · mood: calm, unusual, fun, active · route: `compact` · art → event:excursion → walk:architecture
+- **4-art-creative-dinner-006** — Искусство, мастер-класс и ужин · `make` · mood: active, unusual, fun · route: `compact` · art → activity:workshop → dinner:restaurant
+- **4-view-dinner-bar-013** — Панорама, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · viewpoint → dinner:gastropub → bar
+- **4-walk-play-dinner-013** — Прогулка, игра и ужин · `play` · mood: active, fun, romantic · route: `compact` · walk → activity:billiards → dinner
+- **4-walk-dinner-view-026** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:architecture → dinner → viewpoint:observation
+- **4-walk-dinner-dessert-026** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:casual → dessert:pastry
+- **4-active-dinner-view-007** — Активность, ужин и красивый финал · `active` · mood: active, fun, romantic, unusual · route: `compact` · activity → dinner:casual → viewpoint
+- **4-art-walk-dinner-006** — Искусство, прогулка и ужин · `culture` · mood: romantic, calm, unusual, active · route: `compact` · art → walk:waterfront → dinner:restaurant
+- **4-brunch-art-walk-014** — Бранч, искусство и прогулка · `daytime` · mood: calm, romantic, unusual, active · route: `compact` · dinner:breakfast|brunch → art:contemporary → walk:waterfront
+- **4-slowactivity-art-walk-view-111** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:museum → walk → viewpoint:rooftop
+- **4-coffee-event-dessert-007** — Кофе, событие и десерт · `event` · mood: fun, unusual, calm, romantic · route: `compact` · cafe → event:theater → dessert:icecream
+- **4-coffee-creative-dinner-006** — Кофе, мастер-класс и ужин · `make` · mood: active, fun, romantic · route: `compact` · cafe → activity:workshop → dinner:restaurant
+- **4-art-dinner-bar-014** — Искусство, ужин и бар · `night` · mood: romantic, unusual, fun · route: `compact` · art → dinner:gastropub → bar:cocktail
+- **4-play-dinner-dessert-030** — Игра, ужин и десерт · `play` · mood: active, fun, romantic · route: `compact` · activity:games → dinner:gastropub → dessert:pastry
+- **4-walk-dinner-view-027** — Прогулка, ужин и красивый вид · `romance` · mood: romantic, calm, active · route: `compact` · walk:architecture → dinner → viewpoint:rooftop
+- **4-walk-dinner-dessert-027** — Прогулка, ужин и десерт · `slow` · mood: romantic, calm · route: `compact` · walk:waterfront → dinner:casual → dessert:icecream
+- **4-active-view-dinner-007** — Активность, панорама и ужин · `active` · mood: active, unusual, romantic · route: `compact` · activity → viewpoint:observation → dinner:casual
+- **4-coffee-art-dinner-006** — Кофе, искусство и ужин · `culture` · mood: calm, romantic, unusual · route: `compact` · cafe → art:gallery → dinner:restaurant
+- **4-brunch-creative-coffee-014** — Бранч, мастер-класс и кофе · `daytime` · mood: calm, romantic, fun, active · route: `compact` · dinner:breakfast|brunch → activity:painting → cafe:coffee
+- **4-slowactivity-art-walk-view-112** — Исследование, искусство, прогулка и вид · `discover` · mood: calm, unusual, active, romantic · route: `compact` · activity:bookstore → art:museum → walk:waterfront → viewpoint
+- **4-coffee-event-walk-003** — Кофе, событие и прогулка · `event` · mood: fun, unusual, calm, active · route: `compact` · cafe → event:concert → walk:architecture
+
+## 6 часов — 276
+
+- **6-active-art-walk-dinner-dessert-001** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner → dessert
+- **6-brunch-art-creative-walk-view-001** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-001** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity → dinner
+- **6-active-event-dinner-dessert-017** — Активность, событие, ужин и десерт · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:theater → dinner → dessert
+- **6-active-art-event-walk-slow-401** — Активность, искусство, событие и спокойный городской финал · `event-nofd` · mood: active, fun, unusual, calm · route: `district` · activity:climbing → art → event:exhibition → walk → activity
+- **6-active-view-art-dinner-bar-337** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner → bar
+- **6-active-art-walk-slow-creative-001** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk → activity
+- **6-active-art-walk-dinner-dessert-002** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner → dessert:pastry
+- **6-brunch-play-art-walk-dessert-001** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk → dessert
+- **6-coffee-slowactivity-art-creative-dinner-002** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity → dinner:restaurant
+- **6-art-creative-event-dinner-dessert-001** — Искусство, совместное дело, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → activity → event:exhibition → dinner → dessert
+- **6-active-walk-event-art-view-001** — Активность, город, событие, искусство и панорама · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → event:exhibition → art → viewpoint
+- **6-coffee-creative-art-dinner-bar-001** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner → bar
+- **6-art-walk-creative-slow-art-001** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity → art
+- **6-active-art-walk-dinner-dessert-003** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner → dessert:icecream
+- **6-brunch-walk-art-dinner-view-001** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-003** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity → dinner:casual
+- **6-art-event-creative-dinner-dessert-001** — Искусство, событие, мастер-класс, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → event:exhibition → activity → dinner → dessert
+- **6-art-creative-event-walk-view-001** — Искусство, мастер-класс, событие, прогулка и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → activity → event:exhibition → walk → viewpoint
+- **6-creative-walk-art-dinner-bar-001** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner → bar
+- **6-creative-art-walk-active-view-001** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity → viewpoint
+- **6-active-art-walk-dinner-dessert-004** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner → dessert:chocolate
+- **6-brunch-art-creative-walk-view-002** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-004** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity → dinner:gastropub
+- **6-art-event-walk-dinner-bar-065** — Искусство, событие, прогулка, ужин и бар · `event` · mood: fun, unusual, romantic, calm · route: `district` · art → event:lecture → walk → dinner → bar
+- **6-art-event-creative-walk-slow-001** — Искусство, событие, мастер-класс, прогулка и маленькое открытие · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → event:exhibition → activity → walk → activity
+- **6-play-view-art-dinner-bar-001** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner → bar
+- **6-creative-art-walk-play-slow-002** — Мастер-класс, искусство, прогулка, игра и маленькое исследование · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity → walk → activity:bookstore
+- **6-active-art-walk-dinner-dessert-005** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:restaurant → dessert
+- **6-brunch-play-art-walk-dessert-002** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk → dessert:pastry
+- **6-coffee-slowactivity-art-creative-dinner-005** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:workshop → dinner
+- **6-art-view-event-dinner-dessert-033** — Искусство, вид, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, calm · route: `district` · art → viewpoint → event:excursion → dinner → dessert
+- **6-creative-art-event-walk-slow-001** — Мастер-класс, искусство, событие, прогулка и исследование · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · activity → art → event:exhibition → walk → activity
+- **6-active-view-art-dinner-bar-338** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner → bar:cocktail
+- **6-play-art-walk-active-slow-021** — Игра, искусство, город и активная глава · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity:climbing → walk → activity
+- **6-active-art-walk-dinner-dessert-006** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:restaurant → dessert:pastry
+- **6-brunch-walk-art-dinner-view-002** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-006** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:workshop → dinner:restaurant
+- **6-coffee-art-event-walk-dinner-049** — Кофе, искусство, событие, прогулка и ужин · `event` · mood: calm, unusual, fun, romantic · route: `district` · cafe → art → event → walk → dinner
+- **6-view-art-event-play-walk-001** — Панорама, искусство, событие, игра и прогулка · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · viewpoint → art → event:exhibition → activity → walk
+- **6-coffee-creative-art-dinner-bar-002** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner → bar:cocktail
+- **6-walk-art-active-view-slowactivity-001** — Городской день без гастрономической части · `nofd` · mood: active, unusual, calm, romantic · route: `district` · walk → art → activity → viewpoint → activity
+- **6-active-art-walk-dinner-dessert-007** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:restaurant → dessert:icecream
+- **6-brunch-art-creative-walk-view-003** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-007** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:workshop → dinner:casual
+- **6-coffee-creative-event-art-dinner-001** — Кофе, мастер-класс, событие, искусство и ужин · `event` · mood: calm, unusual, fun, active, romantic · route: `district` · cafe → activity → event:exhibition → art → dinner
+- **6-walk-art-event-creative-view-001** — Город, искусство, событие, мастер-класс и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · walk → art → event:exhibition → activity → viewpoint
+- **6-creative-walk-art-dinner-bar-002** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner → bar:cocktail
+- **6-active-art-walk-slow-creative-002** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk → activity:workshop
+- **6-active-art-walk-dinner-dessert-008** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:restaurant → dessert:chocolate
+- **6-brunch-play-art-walk-dessert-003** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk → dessert:icecream
+- **6-coffee-slowactivity-art-creative-dinner-008** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:workshop → dinner:gastropub
+- **6-creative-art-event-dinner-001** — Мастер-класс, искусство, событие и ужин · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → art → event:concert → dinner
+- **6-walk-art-stage-play-001** — Прогулка, искусство, большой выход и игра после · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · walk → art → event:concert → activity
+- **6-play-view-art-dinner-bar-002** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner → bar:cocktail
+- **6-art-walk-creative-slow-art-002** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity → art:gallery|contemporary
+- **6-active-art-walk-dinner-dessert-009** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:casual → dessert
+- **6-brunch-walk-art-dinner-view-003** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-009** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:pottery → dinner
+- **6-creative-event-art-dinner-dessert-001** — Мастер-класс, событие, искусство, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · activity → event:exhibition → art → dinner → dessert
+- **6-active-art-event-walk-slow-402** — Активность, искусство, событие и спокойный городской финал · `event-nofd` · mood: active, fun, unusual, calm · route: `district` · activity:climbing → art → event:exhibition → walk → activity:bookstore
+- **6-active-view-art-dinner-bar-339** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner → bar:wine
+- **6-creative-art-walk-active-view-002** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity → viewpoint:observation
+- **6-active-art-walk-dinner-dessert-010** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:casual → dessert:pastry
+- **6-brunch-art-creative-walk-view-004** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:waterfront → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-010** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:pottery → dinner:restaurant
+- **6-creative-event-dinner-bar-001** — Совместное дело, событие, ужин и бар · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:concert → dinner → bar
+- **6-active-walk-event-art-view-002** — Активность, город, событие, искусство и панорама · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → event:exhibition → art → viewpoint:observation
+- **6-coffee-creative-art-dinner-bar-003** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner → bar:wine
+- **6-creative-art-walk-play-slow-003** — Мастер-класс, искусство, прогулка, игра и маленькое исследование · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity → walk → activity:vinyl
+- **6-active-art-walk-dinner-dessert-011** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:casual → dessert:icecream
+- **6-brunch-play-art-walk-dessert-004** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk → dessert:chocolate
+- **6-coffee-slowactivity-art-creative-dinner-011** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:pottery → dinner:casual
+- **6-walk-art-event-dinner-dessert-049** — Прогулка, искусство, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, calm · route: `district` · walk → art → event → dinner → dessert
+- **6-art-creative-event-walk-view-002** — Искусство, мастер-класс, событие, прогулка и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → activity → event:exhibition → walk → viewpoint:observation
+- **6-creative-walk-art-dinner-bar-003** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner → bar:wine
+- **6-play-art-walk-active-slow-022** — Игра, искусство, город и активная глава · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity:climbing → walk → activity:bookstore
+- **6-active-art-walk-dinner-dessert-012** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:casual → dessert:chocolate
+- **6-brunch-walk-art-dinner-view-004** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:restaurant → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-012** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:pottery → dinner:gastropub
+- **6-walk-play-event-dinner-005** — Город, игра, событие и ужин · `event` · mood: active, fun, unusual, romantic · route: `district` · walk → activity → event:theater → dinner
+- **6-art-event-creative-walk-slow-002** — Искусство, событие, мастер-класс, прогулка и маленькое открытие · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → event:exhibition → activity → walk → activity:bookstore
+- **6-play-view-art-dinner-bar-003** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner → bar:wine
+- **6-walk-art-active-view-slowactivity-002** — Городской день без гастрономической части · `nofd` · mood: active, unusual, calm, romantic · route: `district` · walk → art → activity → viewpoint → activity:bookstore
+- **6-active-art-walk-dinner-dessert-013** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:gastropub → dessert
+- **6-brunch-art-creative-walk-view-005** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:waterfront → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-013** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:painting → dinner
+- **6-active-event-dinner-dessert-018** — Активность, событие, ужин и десерт · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:theater → dinner → dessert:pastry
+- **6-creative-art-event-walk-slow-002** — Мастер-класс, искусство, событие, прогулка и исследование · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · activity → art → event:exhibition → walk → activity:bookstore
+- **6-active-view-art-dinner-bar-340** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner → bar:jazz
+- **6-active-art-walk-slow-creative-003** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk → activity:pottery
+- **6-active-art-walk-dinner-dessert-014** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:gastropub → dessert:pastry
+- **6-brunch-play-art-walk-dessert-005** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:waterfront → dessert
+- **6-coffee-slowactivity-art-creative-dinner-014** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:painting → dinner:restaurant
+- **6-art-creative-event-dinner-dessert-002** — Искусство, совместное дело, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → activity → event:exhibition → dinner → dessert:pastry
+- **6-view-art-event-play-walk-002** — Панорама, искусство, событие, игра и прогулка · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · viewpoint → art → event:exhibition → activity → walk:waterfront
+- **6-coffee-creative-art-dinner-bar-004** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner → bar:jazz
+- **6-art-walk-creative-slow-art-003** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity → art:museum
+- **6-active-art-walk-dinner-dessert-015** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:gastropub → dessert:icecream
+- **6-brunch-walk-art-dinner-view-005** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:restaurant → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-015** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:painting → dinner:casual
+- **6-art-event-creative-dinner-dessert-002** — Искусство, событие, мастер-класс, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → event:exhibition → activity → dinner → dessert:pastry
+- **6-walk-art-event-creative-view-002** — Город, искусство, событие, мастер-класс и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · walk → art → event:exhibition → activity → viewpoint:observation
+- **6-creative-walk-art-dinner-bar-004** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner → bar:jazz
+- **6-creative-art-walk-active-view-003** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity → viewpoint:rooftop
+- **6-active-art-walk-dinner-dessert-016** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk → dinner:gastropub → dessert:chocolate
+- **6-brunch-art-creative-walk-view-006** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:waterfront → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-016** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:painting → dinner:gastropub
+- **6-art-event-walk-dinner-bar-066** — Искусство, событие, прогулка, ужин и бар · `event` · mood: fun, unusual, romantic, calm · route: `district` · art → event:lecture → walk → dinner → bar:cocktail
+- **6-walk-art-stage-play-002** — Прогулка, искусство, большой выход и игра после · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · walk → art → event:concert → activity:games
+- **6-play-view-art-dinner-bar-004** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner → bar:jazz
+- **6-creative-art-walk-play-slow-004** — Мастер-класс, искусство, прогулка, игра и маленькое исследование · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity → walk → activity:market
+- **6-active-art-walk-dinner-dessert-017** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner → dessert
+- **6-brunch-play-art-walk-dessert-006** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:waterfront → dessert:pastry
+- **6-coffee-slowactivity-art-creative-dinner-017** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:cooking → dinner
+- **6-art-view-event-dinner-dessert-034** — Искусство, вид, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, calm · route: `district` · art → viewpoint → event:excursion → dinner → dessert:pastry
+- **6-active-art-event-walk-slow-403** — Активность, искусство, событие и спокойный городской финал · `event-nofd` · mood: active, fun, unusual, calm · route: `district` · activity:climbing → art → event:exhibition → walk → activity:vinyl
+- **6-active-view-art-dinner-bar-341** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner:restaurant → bar
+- **6-play-art-walk-active-slow-023** — Игра, искусство, город и активная глава · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity:climbing → walk → activity:vinyl
+- **6-active-art-walk-dinner-dessert-018** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner → dessert:pastry
+- **6-brunch-walk-art-dinner-view-006** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:restaurant → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-018** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:cooking → dinner:restaurant
+- **6-coffee-art-event-walk-dinner-050** — Кофе, искусство, событие, прогулка и ужин · `event` · mood: calm, unusual, fun, romantic · route: `district` · cafe → art → event → walk → dinner:restaurant
+- **6-active-walk-event-art-view-003** — Активность, город, событие, искусство и панорама · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → event:exhibition → art → viewpoint:rooftop
+- **6-coffee-creative-art-dinner-bar-005** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner:restaurant → bar
+- **6-walk-art-active-view-slowactivity-003** — Городской день без гастрономической части · `nofd` · mood: active, unusual, calm, romantic · route: `district` · walk → art → activity → viewpoint → activity:vinyl
+- **6-active-art-walk-dinner-dessert-019** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner → dessert:icecream
+- **6-brunch-art-creative-walk-view-007** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:architecture → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-019** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:cooking → dinner:casual
+- **6-coffee-creative-event-art-dinner-002** — Кофе, мастер-класс, событие, искусство и ужин · `event` · mood: calm, unusual, fun, active, romantic · route: `district` · cafe → activity → event:exhibition → art → dinner:restaurant
+- **6-art-creative-event-walk-view-003** — Искусство, мастер-класс, событие, прогулка и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → activity → event:exhibition → walk → viewpoint:rooftop
+- **6-creative-walk-art-dinner-bar-005** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner:restaurant → bar
+- **6-active-art-walk-slow-creative-004** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk → activity:painting
+- **6-active-art-walk-dinner-dessert-020** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner → dessert:chocolate
+- **6-brunch-play-art-walk-dessert-007** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:waterfront → dessert:icecream
+- **6-coffee-slowactivity-art-creative-dinner-020** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:cooking → dinner:gastropub
+- **6-creative-art-event-dinner-002** — Мастер-класс, искусство, событие и ужин · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → art → event:concert → dinner:restaurant
+- **6-art-event-creative-walk-slow-003** — Искусство, событие, мастер-класс, прогулка и маленькое открытие · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → event:exhibition → activity → walk → activity:vinyl
+- **6-play-view-art-dinner-bar-005** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner:restaurant → bar
+- **6-art-walk-creative-slow-art-004** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity → art:digital
+- **6-active-art-walk-dinner-dessert-021** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:restaurant → dessert
+- **6-brunch-walk-art-dinner-view-007** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:casual → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-021** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:dance → dinner
+- **6-creative-event-art-dinner-dessert-002** — Мастер-класс, событие, искусство, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · activity → event:exhibition → art → dinner → dessert:pastry
+- **6-creative-art-event-walk-slow-003** — Мастер-класс, искусство, событие, прогулка и исследование · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · activity → art → event:exhibition → walk → activity:vinyl
+- **6-active-view-art-dinner-bar-342** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner:restaurant → bar:cocktail
+- **6-creative-art-walk-active-view-004** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity:climbing → viewpoint
+- **6-active-art-walk-dinner-dessert-022** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:restaurant → dessert:pastry
+- **6-brunch-art-creative-walk-view-008** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:architecture → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-022** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:dance → dinner:restaurant
+- **6-creative-event-dinner-bar-002** — Совместное дело, событие, ужин и бар · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:concert → dinner → bar:cocktail
+- **6-view-art-event-play-walk-003** — Панорама, искусство, событие, игра и прогулка · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · viewpoint → art → event:exhibition → activity → walk:architecture
+- **6-coffee-creative-art-dinner-bar-006** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner:restaurant → bar:cocktail
+- **6-creative-art-walk-play-slow-005** — Мастер-класс, искусство, прогулка, игра и маленькое исследование · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity → walk → activity:games
+- **6-active-art-walk-dinner-dessert-023** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:restaurant → dessert:icecream
+- **6-brunch-play-art-walk-dessert-008** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:waterfront → dessert:chocolate
+- **6-coffee-slowactivity-art-creative-dinner-023** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:dance → dinner:casual
+- **6-walk-art-event-dinner-dessert-050** — Прогулка, искусство, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, calm · route: `district` · walk → art → event → dinner → dessert:pastry
+- **6-walk-art-event-creative-view-003** — Город, искусство, событие, мастер-класс и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · walk → art → event:exhibition → activity → viewpoint:rooftop
+- **6-creative-walk-art-dinner-bar-006** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner:restaurant → bar:cocktail
+- **6-play-art-walk-active-slow-024** — Игра, искусство, город и активная глава · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity:climbing → walk → activity:market
+- **6-active-art-walk-dinner-dessert-024** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:restaurant → dessert:chocolate
+- **6-brunch-walk-art-dinner-view-008** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:casual → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-024** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art → activity:dance → dinner:gastropub
+- **6-walk-play-event-dinner-006** — Город, игра, событие и ужин · `event` · mood: active, fun, unusual, romantic · route: `district` · walk → activity → event:theater → dinner:restaurant
+- **6-walk-art-stage-play-003** — Прогулка, искусство, большой выход и игра после · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · walk → art → event:concert → activity:bowling
+- **6-play-view-art-dinner-bar-006** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner:restaurant → bar:cocktail
+- **6-walk-art-active-view-slowactivity-004** — Городской день без гастрономической части · `nofd` · mood: active, unusual, calm, romantic · route: `district` · walk → art → activity → viewpoint → activity:market
+- **6-active-art-walk-dinner-dessert-025** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:casual → dessert
+- **6-brunch-art-creative-walk-view-009** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:architecture → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-025** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity → dinner
+- **6-active-event-dinner-dessert-019** — Активность, событие, ужин и десерт · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:theater → dinner → dessert:icecream
+- **6-active-art-event-walk-slow-404** — Активность, искусство, событие и спокойный городской финал · `event-nofd` · mood: active, fun, unusual, calm · route: `district` · activity:climbing → art → event:exhibition → walk → activity:market
+- **6-active-view-art-dinner-bar-343** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner:restaurant → bar:wine
+- **6-active-art-walk-slow-creative-005** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk → activity:cooking
+- **6-active-art-walk-dinner-dessert-026** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:casual → dessert:pastry
+- **6-brunch-play-art-walk-dessert-009** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:architecture → dessert
+- **6-coffee-slowactivity-art-creative-dinner-026** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity → dinner:restaurant
+- **6-art-creative-event-dinner-dessert-003** — Искусство, совместное дело, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → activity → event:exhibition → dinner → dessert:icecream
+- **6-active-walk-event-art-view-004** — Активность, город, событие, искусство и панорама · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → event:exhibition → art:gallery|contemporary → viewpoint
+- **6-coffee-creative-art-dinner-bar-007** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner:restaurant → bar:wine
+- **6-art-walk-creative-slow-art-005** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity → art:photo
+- **6-active-art-walk-dinner-dessert-027** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:casual → dessert:icecream
+- **6-brunch-walk-art-dinner-view-009** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:casual → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-027** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity → dinner:casual
+- **6-art-event-creative-dinner-dessert-003** — Искусство, событие, мастер-класс, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → event:exhibition → activity → dinner → dessert:icecream
+- **6-art-creative-event-walk-view-004** — Искусство, мастер-класс, событие, прогулка и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → activity → event:exhibition → walk:waterfront → viewpoint
+- **6-creative-walk-art-dinner-bar-007** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner:restaurant → bar:wine
+- **6-creative-art-walk-active-view-005** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity:climbing → viewpoint:observation
+- **6-active-art-walk-dinner-dessert-028** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:casual → dessert:chocolate
+- **6-brunch-art-creative-walk-view-010** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:park → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-028** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity → dinner:gastropub
+- **6-art-event-walk-dinner-bar-067** — Искусство, событие, прогулка, ужин и бар · `event` · mood: fun, unusual, romantic, calm · route: `district` · art → event:lecture → walk → dinner → bar:wine
+- **6-art-event-creative-walk-slow-004** — Искусство, событие, мастер-класс, прогулка и маленькое открытие · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → event:exhibition → activity → walk → activity:market
+- **6-play-view-art-dinner-bar-007** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner:restaurant → bar:wine
+- **6-creative-art-walk-play-slow-007** — Мастер-класс, искусство, прогулка, игра и маленькое исследование · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity → walk:waterfront → activity:bookstore
+- **6-active-art-walk-dinner-dessert-029** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:gastropub → dessert
+- **6-brunch-play-art-walk-dessert-010** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:architecture → dessert:pastry
+- **6-coffee-slowactivity-art-creative-dinner-029** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:workshop → dinner
+- **6-art-view-event-dinner-dessert-035** — Искусство, вид, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, calm · route: `district` · art → viewpoint → event:excursion → dinner → dessert:icecream
+- **6-creative-art-event-walk-slow-004** — Мастер-класс, искусство, событие, прогулка и исследование · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · activity → art → event:exhibition → walk → activity:market
+- **6-active-view-art-dinner-bar-344** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner:restaurant → bar:jazz
+- **6-play-art-walk-active-slow-025** — Игра, искусство, город и активная глава · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity:climbing → walk → activity:games
+- **6-active-art-walk-dinner-dessert-030** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:gastropub → dessert:pastry
+- **6-brunch-walk-art-dinner-view-010** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:gastropub → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-030** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:workshop → dinner:restaurant
+- **6-coffee-art-event-walk-dinner-051** — Кофе, искусство, событие, прогулка и ужин · `event` · mood: calm, unusual, fun, romantic · route: `district` · cafe → art → event → walk → dinner:casual
+- **6-view-art-event-play-walk-004** — Панорама, искусство, событие, игра и прогулка · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · viewpoint → art → event:exhibition → activity → walk:park
+- **6-coffee-creative-art-dinner-bar-008** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner:restaurant → bar:jazz
+- **6-walk-art-active-view-slowactivity-005** — Городской день без гастрономической части · `nofd` · mood: active, unusual, calm, romantic · route: `district` · walk → art → activity → viewpoint → activity:games
+- **6-active-art-walk-dinner-dessert-031** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:gastropub → dessert:icecream
+- **6-brunch-art-creative-walk-view-011** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:park → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-031** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:workshop → dinner:casual
+- **6-coffee-creative-event-art-dinner-003** — Кофе, мастер-класс, событие, искусство и ужин · `event` · mood: calm, unusual, fun, active, romantic · route: `district` · cafe → activity → event:exhibition → art → dinner:casual
+- **6-walk-art-event-creative-view-004** — Город, искусство, событие, мастер-класс и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · walk → art → event:exhibition → activity:workshop → viewpoint
+- **6-creative-walk-art-dinner-bar-008** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner:restaurant → bar:jazz
+- **6-active-art-walk-slow-creative-006** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk → activity:dance
+- **6-active-art-walk-dinner-dessert-032** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:waterfront → dinner:gastropub → dessert:chocolate
+- **6-brunch-play-art-walk-dessert-011** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:architecture → dessert:icecream
+- **6-coffee-slowactivity-art-creative-dinner-032** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:workshop → dinner:gastropub
+- **6-creative-art-event-dinner-003** — Мастер-класс, искусство, событие и ужин · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → art → event:concert → dinner:casual
+- **6-walk-art-stage-play-004** — Прогулка, искусство, большой выход и игра после · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · walk → art → event:concert → activity:billiards
+- **6-play-view-art-dinner-bar-008** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner:restaurant → bar:jazz
+- **6-art-walk-creative-slow-art-006** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity:bookstore → art
+- **6-active-art-walk-dinner-dessert-033** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner → dessert
+- **6-brunch-walk-art-dinner-view-011** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:gastropub → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-033** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:pottery → dinner
+- **6-creative-event-art-dinner-dessert-003** — Мастер-класс, событие, искусство, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · activity → event:exhibition → art → dinner → dessert:icecream
+- **6-active-art-event-walk-slow-405** — Активность, искусство, событие и спокойный городской финал · `event-nofd` · mood: active, fun, unusual, calm · route: `district` · activity:climbing → art → event:exhibition → walk → activity:games
+- **6-active-view-art-dinner-bar-345** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner:casual → bar
+- **6-creative-art-walk-active-view-006** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity:climbing → viewpoint:rooftop
+- **6-active-art-walk-dinner-dessert-034** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner → dessert:pastry
+- **6-brunch-art-creative-walk-view-012** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity → walk:park → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-034** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:pottery → dinner:restaurant
+- **6-creative-event-dinner-bar-003** — Совместное дело, событие, ужин и бар · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:concert → dinner → bar:wine
+- **6-active-walk-event-art-view-005** — Активность, город, событие, искусство и панорама · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → event:exhibition → art:gallery|contemporary → viewpoint:observation
+- **6-coffee-creative-art-dinner-bar-009** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner:casual → bar
+- **6-creative-art-walk-play-slow-008** — Мастер-класс, искусство, прогулка, игра и маленькое исследование · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity → walk:waterfront → activity:vinyl
+- **6-active-art-walk-dinner-dessert-035** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner → dessert:icecream
+- **6-brunch-play-art-walk-dessert-012** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:architecture → dessert:chocolate
+- **6-coffee-slowactivity-art-creative-dinner-035** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:pottery → dinner:casual
+- **6-walk-art-event-dinner-dessert-051** — Прогулка, искусство, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, calm · route: `district` · walk → art → event → dinner → dessert:icecream
+- **6-art-creative-event-walk-view-005** — Искусство, мастер-класс, событие, прогулка и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → activity → event:exhibition → walk:waterfront → viewpoint:observation
+- **6-creative-walk-art-dinner-bar-009** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner:casual → bar
+- **6-play-art-walk-active-slow-026** — Игра, искусство, город и активная глава · `nofd` · mood: active, fun, unusual, calm · route: `district` · activity → art → activity:climbing → walk:waterfront → activity
+- **6-active-art-walk-dinner-dessert-036** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner → dessert:chocolate
+- **6-brunch-walk-art-dinner-view-012** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art → dinner:gastropub → viewpoint:rooftop
+- **6-coffee-slowactivity-art-creative-dinner-036** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:pottery → dinner:gastropub
+- **6-walk-play-event-dinner-007** — Город, игра, событие и ужин · `event` · mood: active, fun, unusual, romantic · route: `district` · walk → activity → event:theater → dinner:casual
+- **6-art-event-creative-walk-slow-005** — Искусство, событие, мастер-класс, прогулка и маленькое открытие · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · art → event:exhibition → activity → walk → activity:games
+- **6-play-view-art-dinner-bar-009** — Игра, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → viewpoint → art → dinner:casual → bar
+- **6-walk-art-active-view-slowactivity-006** — Городской день без гастрономической части · `nofd` · mood: active, unusual, calm, romantic · route: `district` · walk → art → activity → viewpoint:observation → activity
+- **6-active-art-walk-dinner-dessert-037** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner:restaurant → dessert
+- **6-brunch-art-creative-walk-view-013** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity:workshop → walk → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-037** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:painting → dinner
+- **6-active-event-dinner-dessert-020** — Активность, событие, ужин и десерт · `event` · mood: active, fun, unusual, romantic · route: `district` · activity → event:theater → dinner → dessert:chocolate
+- **6-creative-art-event-walk-slow-005** — Мастер-класс, искусство, событие, прогулка и исследование · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · activity → art → event:exhibition → walk → activity:games
+- **6-active-view-art-dinner-bar-346** — Активность, панорама, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity:climbing → viewpoint → art → dinner:casual → bar:cocktail
+- **6-active-art-walk-slow-creative-007** — Активность, искусство, город, исследование и совместное дело · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → activity → walk:waterfront → activity
+- **6-active-art-walk-dinner-dessert-038** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner:restaurant → dessert:pastry
+- **6-brunch-play-art-walk-dessert-013** — Бранч, игра, искусство, прогулка и десерт · `daytime` · mood: fun, active, unusual, romantic · route: `district` · dinner:breakfast|brunch → activity → art → walk:park → dessert
+- **6-coffee-slowactivity-art-creative-dinner-038** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:painting → dinner:restaurant
+- **6-art-creative-event-dinner-dessert-004** — Искусство, совместное дело, событие, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → activity → event:exhibition → dinner → dessert:chocolate
+- **6-view-art-event-play-walk-005** — Панорама, искусство, событие, игра и прогулка · `event-nofd` · mood: active, fun, unusual, romantic · route: `district` · viewpoint → art → event:exhibition → activity:games → walk
+- **6-coffee-creative-art-dinner-bar-010** — От кофе и мастер-класса до ужина и бара · `night` · mood: active, fun, unusual, romantic · route: `district` · cafe → activity → art → dinner:casual → bar:cocktail
+- **6-art-walk-creative-slow-art-007** — Два культурных впечатления с прогулкой и совместным делом · `nofd` · mood: unusual, calm, romantic, active · route: `district` · art → activity → walk → activity:bookstore → art:gallery|contemporary
+- **6-active-art-walk-dinner-dessert-039** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner:restaurant → dessert:icecream
+- **6-brunch-walk-art-dinner-view-013** — Бранч, город, искусство, ужин и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → walk → art:gallery|contemporary → dinner → viewpoint
+- **6-coffee-slowactivity-art-creative-dinner-039** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:painting → dinner:casual
+- **6-art-event-creative-dinner-dessert-004** — Искусство, событие, мастер-класс, ужин и десерт · `event` · mood: romantic, unusual, fun, active · route: `district` · art → event:exhibition → activity → dinner → dessert:chocolate
+- **6-walk-art-event-creative-view-005** — Город, искусство, событие, мастер-класс и вид · `event-nofd` · mood: active, fun, unusual, calm, romantic · route: `district` · walk → art → event:exhibition → activity:workshop → viewpoint:observation
+- **6-creative-walk-art-dinner-bar-010** — Активность, город, искусство, ужин и бар · `night` · mood: active, fun, unusual, romantic · route: `district` · activity → walk → art → dinner:casual → bar:cocktail
+- **6-creative-art-walk-active-view-007** — Делать, смотреть, гулять и двигаться · `nofd` · mood: active, unusual, calm, romantic · route: `district` · activity → art → walk → activity:skating → viewpoint
+- **6-active-art-walk-dinner-dessert-040** — Активность, искусство, прогулка, ужин и десерт · `active` · mood: active, unusual, romantic, calm · route: `district` · activity → art → walk:architecture → dinner:restaurant → dessert:chocolate
+- **6-brunch-art-creative-walk-view-014** — Бранч, искусство, мастер-класс, прогулка и вид · `daytime` · mood: calm, romantic, unusual, active · route: `district` · dinner:breakfast|brunch → art → activity:workshop → walk → viewpoint:observation
+- **6-coffee-slowactivity-art-creative-dinner-040** — Кофе, исследование, искусство, мастер-класс и ужин · `discover` · mood: calm, unusual, active, romantic · route: `district` · cafe → activity → art:gallery|contemporary → activity:painting → dinner:gastropub

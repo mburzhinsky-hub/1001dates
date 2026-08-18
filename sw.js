@@ -1,7 +1,7 @@
-const CACHE = "1001-dates-v9";
+const CACHE = "1001-dates-v11";
 const CORE = [
-  "./", "./index.html", "./styles.css?v=9", "./app.js?v=9", "./engine.js",
-  "./data/seed.js", "./data/kudago.generated.js", "./manifest.webmanifest", "./assets/icon.svg"
+  "./", "./index.html", "./styles.css?v=11", "./app.js?v=11", "./engine.js",
+  "./data/seed.js", "./data/scenarios.js", "./data/kudago.generated.js", "./manifest.webmanifest", "./assets/icon.svg"
 ];
 
 self.addEventListener("install", (event) => {
