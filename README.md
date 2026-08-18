@@ -1,6 +1,6 @@
-# 1001 Dates — v12 Clean
+# 1001 Dates — v13 Full
 
-Полная чистая сборка приложения для публикации через GitHub Desktop + GitHub Pages.
+Production-сборка приложения для публикации через GitHub Desktop + GitHub Pages. Включает актуальный snapshot базы Москвы.
 
 ## Что находится в архиве
 

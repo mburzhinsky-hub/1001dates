@@ -184,17 +184,36 @@ function moscowParts(timestamp){
   const parts=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Moscow",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date(timestamp*1000));
   const get=(type)=>parts.find((p)=>p.type===type)?.value;return{date:`${get("year")}-${get("month")}-${get("day")}`,time:`${get("hour")}:${get("minute")}`};
 }
+function normalizeISODate(value=""){
+  const match=String(value||"").trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if(!match)return null;
+  const year=Number(match[1]),month=Number(match[2]),day=Number(match[3]);
+  const date=new Date(Date.UTC(year,month-1,day));
+  if(date.getUTCFullYear()!==year||date.getUTCMonth()!==month-1||date.getUTCDate()!==day)return null;
+  return String(year)+'-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+}
+function normalizeClock(value=""){
+  const match=String(value||"").trim().match(/^(\d{1,2}):(\d{2})(?::\d{2})?$/);
+  if(!match)return null;
+  const hour=Number(match[1]),minute=Number(match[2]);
+  if(hour<0||hour>23||minute<0||minute>59)return null;
+  return String(hour).padStart(2,'0')+':'+String(minute).padStart(2,'0');
+}
+const IMPORT_NOW=Math.floor(Date.now()/1000);
+const WINDOW_START=moscowParts(IMPORT_NOW).date;
+const WINDOW_END=moscowParts(IMPORT_NOW+60*24*60*60).date;
+function inImportWindow(date){return Boolean(date&&date>=WINDOW_START&&date<=WINDOW_END);}
 function normalizeDates(dates=[]) {
   const clean=dates.filter((d)=>d?.start||d?.start_date);
   const exactDates=new Set(),occurrences={},ranges=[];
-  const addOccurrence=(date,time)=>{if(!date)return;exactDates.add(date);if(time){if(!occurrences[date])occurrences[date]=[];if(!occurrences[date].includes(time))occurrences[date].push(time);}};
+  const addOccurrence=(date,time)=>{if(!inImportWindow(date))return;exactDates.add(date);if(time){if(!occurrences[date])occurrences[date]=[];if(!occurrences[date].includes(time))occurrences[date].push(time);}};
   for(const d of clean){
     const startParts=d.start?moscowParts(d.start):null,endParts=d.end?moscowParts(d.end):null;
-    const startDate=d.start_date||startParts?.date||null,endDate=d.end_date||endParts?.date||startDate;
-    const startTime=d.start_time||startParts?.time||null;
+    const startDate=normalizeISODate(d.start_date)||startParts?.date||null,endDate=normalizeISODate(d.end_date)||endParts?.date||startDate;
+    const startTime=normalizeClock(d.start_time)||normalizeClock(startParts?.time)||null;
     if(!startDate)continue;
     const spanDays=endDate?Math.round((new Date(`${endDate}T12:00:00`)-new Date(`${startDate}T12:00:00`))/86400000):0;
-    if(spanDays>=1){ranges.push([startDate,endDate]);continue;}
+    if(spanDays>=1){if(endDate<WINDOW_START||startDate>WINDOW_END)continue;ranges.push([startDate<WINDOW_START?WINDOW_START:startDate,endDate>WINDOW_END?WINDOW_END:endDate]);continue;}
     addOccurrence(startDate,startTime);
   }
   const result={};
@@ -211,7 +230,7 @@ function normalizeEvent(e) {
 }
 function uniqueById(items){const map=new Map();for(const item of items)if(item?.id&&!map.has(item.id))map.set(item.id,item);return[...map.values()];}
 
-const now=Math.floor(Date.now()/1000),until=now+60*24*60*60;
+const now=IMPORT_NOW,until=now+60*24*60*60;
 console.log(`Fetching KudaGo data for ${CITY}: up to ${PLACE_PAGES*100} places and ${EVENT_PAGES*100} events...`);
 const rawPlaces=await fetchPages("/places/",{location:CITY,order_by:"-favorites_count",text_format:"text",fields:"id,title,slug,address,coords,subway,site_url,foreign_url,categories,tags,timetable,is_closed,images,favorites_count,description",expand:"images"},PLACE_PAGES);
 const rawEvents=await fetchPages("/events/",{location:CITY,actual_since:now,actual_until:until,order_by:"-favorites_count",text_format:"text",fields:"id,title,short_title,dates,place,description,categories,age_restriction,price,is_free,images,favorites_count,site_url",expand:"place,dates,images"},EVENT_PAGES);
