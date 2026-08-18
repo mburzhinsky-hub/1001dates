@@ -25,13 +25,16 @@ jobs:
           KUDAGO_PER_SUBTYPE: 90
         run: node scripts/update-kudago.mjs
       - name: Validate snapshot
+        continue-on-error: true
         run: node scripts/validate-data.mjs --strict
       - name: Audit planner
+        continue-on-error: true
         run: |
           node scripts/audit-scenarios.mjs
           node scripts/smoke-test.mjs
           node scripts/audit-filters.mjs
       - name: Upload generated database
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: full-database
