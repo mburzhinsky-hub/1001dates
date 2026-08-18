@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// This file is overwritten by `node scripts/update-kudago.mjs`.
-// The repository ships with a curated fallback snapshot in seed.js so the app works offline.
-export const kudagoPlaces = [];
-export const kudagoEvents = [];
-export const kudagoMeta = { updatedAt: null, city: "msk", source: "KudaGo public API" };
-=======
 // Generated automatically from the KudaGo public API. Do not edit manually.
 export const kudagoPlaces = [
   {
@@ -16514,38 +16507,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-73358",
-    "title": "экспозиция в «Бункере-42»",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. 5-й Котельнический, д. 11",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.673391095378706,
-    "description": "В самом центре столицы на глубине шестидесяти пяти метров располагается в прошлом секретный объект, построенный в 50-е годы XX века. Этот бункер времен холодной войны оснащен всем необходимым на случай ядерной атаки.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/77/ad/77ad4cc32e202c47e2e033518e569014.jpg",
-    "coords": {
-      "lat": 55.74172299999999,
-      "lon": 37.64929199999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekspoziciya-v-bunkere-42/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-22306",
     "title": "Урания",
     "category": "event",
@@ -16575,6 +16536,38 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-muzeya-uranii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-73358",
+    "title": "экспозиция в «Бункере-42»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. 5-й Котельнический, д. 11",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.673391095378706,
+    "description": "В самом центре столицы на глубине шестидесяти пяти метров располагается в прошлом секретный объект, построенный в 50-е годы XX века. Этот бункер времен холодной войны оснащен всем необходимым на случай ядерной атаки.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/77/ad/77ad4cc32e202c47e2e033518e569014.jpg",
+    "coords": {
+      "lat": 55.74172299999999,
+      "lon": 37.64929199999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekspoziciya-v-bunkere-42/",
     "officialUrl": null
   },
   {
@@ -17330,6 +17323,37 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-189503",
+    "title": "Групповые знакомства GOKON",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 9998,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 8.505243601339158,
+    "description": "Компания GOKON приглашает на групповые свидания в необычном формате. Миссия проекта — помочь одиноким людям найти свою вторую половинку в большом городе.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30",
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e6/03/e603d2c71d3fec9f3e714b305d6adb5d.png",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/raznoe-gokon/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-23320",
     "title": "Дом Бурганова",
     "category": "event",
@@ -17359,37 +17383,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-v-muzee-dom-burganova/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-189503",
-    "title": "Групповые знакомства GOKON",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 9998,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 8.505243601339158,
-    "description": "Компания GOKON приглашает на групповые свидания в необычном формате. Миссия проекта — помочь одиноким людям найти свою вторую половинку в большом городе.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30",
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/e6/03/e603d2c71d3fec9f3e714b305d6adb5d.png",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/raznoe-gokon/",
     "officialUrl": null
   },
   {
@@ -17787,38 +17780,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-16473",
-    "title": "Моне",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Волхонка, д. 14",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.43183395176091,
-    "description": "Творчеству Клода Моне отведен девятый зал. Здесь гости музея могут проследить, как со временем совершенствовалась его творческая манера.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/3c/7c/3c7ce871c59bd9de38b3feeb02ca2310.jpg",
-    "coords": {
-      "lat": 55.74658799999997,
-      "lon": 37.60517599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/mone-msk-regular/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-153959",
     "title": "Экспонаты Музеев Московского Кремля",
     "category": "event",
@@ -17848,6 +17809,38 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/vyistavka-eksponatyi-muzeev-moskovskogo-kremlya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-16473",
+    "title": "Моне",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Волхонка, д. 14",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.43183395176091,
+    "description": "Творчеству Клода Моне отведен девятый зал. Здесь гости музея могут проследить, как со временем совершенствовалась его творческая манера.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/3c/7c/3c7ce871c59bd9de38b3feeb02ca2310.jpg",
+    "coords": {
+      "lat": 55.74658799999997,
+      "lon": 37.60517599999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/mone-msk-regular/",
     "officialUrl": null
   },
   {
@@ -18089,38 +18082,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-16510",
-    "title": "Ренуар. Писсарро. Сислей",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Волхонка, д. 14",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.393004813775153,
-    "description": "Экспозиция включает завораживающие пейзажи трех выдающихся мастеров, творивших в стиле импрессионизма. Гости галереи смогут увидеть атмосферные сценки из городской жизни Огюста Ренуара, трудовые будни крестьян в работах Камиля Писсарро, а…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/fb/3f/fb3f552fd76792bfebabe57ebcb5a515.jpg",
-    "coords": {
-      "lat": 55.74658799999997,
-      "lon": 37.60517599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/renuar-pissarro-sislej/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-218272",
     "title": "Эйфория",
     "category": "event",
@@ -18158,6 +18119,38 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/multimediynaya-vyistavka-ejforiya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-16510",
+    "title": "Ренуар. Писсарро. Сислей",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Волхонка, д. 14",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.393004813775153,
+    "description": "Экспозиция включает завораживающие пейзажи трех выдающихся мастеров, творивших в стиле импрессионизма. Гости галереи смогут увидеть атмосферные сценки из городской жизни Огюста Ренуара, трудовые будни крестьян в работах Камиля Писсарро, а…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/fb/3f/fb3f552fd76792bfebabe57ebcb5a515.jpg",
+    "coords": {
+      "lat": 55.74658799999997,
+      "lon": 37.60517599999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/renuar-pissarro-sislej/",
     "officialUrl": null
   },
   {
@@ -18265,6 +18258,38 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-18799",
+    "title": "Фотографии и негативы",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "Трубниковский переулок, д. 17",
+    "costForTwo": 300,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.377042591057421,
+    "description": "Фотографии и негативы с изображением Толстого и Горького, Ахматовой и Бунина, Чехова, Блока, Паустовского и многих-многих других — в одной из самых богатых в России коллекций Государственного литературного музея.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/24/04/2404db9a4372cc8019e73407ea8f2867_1.jpg",
+    "coords": {
+      "lat": 55.754735,
+      "lon": 37.586598
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/postoyanaya-exposiciya-foto-i-negativov/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-578",
     "title": "Петербургский двор",
     "category": "event",
@@ -18324,38 +18349,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-kosmos-dlya-malyishej/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-18799",
-    "title": "Фотографии и негативы",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "Трубниковский переулок, д. 17",
-    "costForTwo": 300,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.377042591057421,
-    "description": "Фотографии и негативы с изображением Толстого и Горького, Ахматовой и Бунина, Чехова, Блока, Паустовского и многих-многих других — в одной из самых богатых в России коллекций Государственного литературного музея.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/24/04/2404db9a4372cc8019e73407ea8f2867_1.jpg",
-    "coords": {
-      "lat": 55.754735,
-      "lon": 37.586598
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/postoyanaya-exposiciya-foto-i-negativov/",
     "officialUrl": null
   },
   {
@@ -18467,39 +18460,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-190908",
-    "title": "Подарочные сертификаты в стрелковый клуб «Лабиринт»",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Самокатная, д. 4 стр. 1.",
-    "costForTwo": 6000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.36,
-    "description": "Порадуйте родных и близких необычным подарком — сертификатом в стрелковый клуб «Лабиринт». На занятиях с опытными тренерами интересно будет и взрослым, и детям!",
-    "exactDates": [
-      "2021-02-08",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/62/65/6265e4764fb4124b7b679f3c4d872cab.jpg",
-    "coords": {
-      "lat": 55.75614344464366,
-      "lon": 37.67736740036072
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/recreation-podarochnyie-sertifikatyi/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-49645",
     "title": "Открытые игры по лазертагу",
     "category": "event",
@@ -18530,6 +18490,39 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/otkrytyj-match-po-lazertagu-dlya-vseh-zhelayushih/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-190908",
+    "title": "Подарочные сертификаты в стрелковый клуб «Лабиринт»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Самокатная, д. 4 стр. 1.",
+    "costForTwo": 6000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.36,
+    "description": "Порадуйте родных и близких необычным подарком — сертификатом в стрелковый клуб «Лабиринт». На занятиях с опытными тренерами интересно будет и взрослым, и детям!",
+    "exactDates": [
+      "2021-02-08",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/62/65/6265e4764fb4124b7b679f3c4d872cab.jpg",
+    "coords": {
+      "lat": 55.75614344464366,
+      "lon": 37.67736740036072
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/recreation-podarochnyie-sertifikatyi/",
     "officialUrl": null
   },
   {
@@ -18763,6 +18756,40 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-198938",
+    "title": "Бесплатный урок в мастерской голоса ReVoice",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Малый Златоустинский пер., д. 6 с. 1Б",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.313065293578124,
+    "description": "Всех, кто хочет раскрыть свой творческий потенциал, приглашают на бесплатное музыкальное занятие. Максимум практики, минимум теории и результаты уже после первого урока — бесспорные плюсы школы ReVoice.",
+    "exactDates": [
+      "2023-02-01",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "10:00:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/99/69/99699445b8798f37349dee38d73599c5.jpg",
+    "coords": {
+      "lat": 55.758990500000266,
+      "lon": 37.63439129999973
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/besplatnyij-urok-vokala-revoice/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-143942",
     "title": "Времена года. Вивальди – Пьяццолла",
     "category": "event",
@@ -18796,40 +18823,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/koncert-vremena-goda-vivaldi-i-pyaccolla-2017/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-198938",
-    "title": "Бесплатный урок в мастерской голоса ReVoice",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Малый Златоустинский пер., д. 6 с. 1Б",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.313065293578124,
-    "description": "Всех, кто хочет раскрыть свой творческий потенциал, приглашают на бесплатное музыкальное занятие. Максимум практики, минимум теории и результаты уже после первого урока — бесспорные плюсы школы ReVoice.",
-    "exactDates": [
-      "2023-02-01",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "10:00:00",
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/99/69/99699445b8798f37349dee38d73599c5.jpg",
-    "coords": {
-      "lat": 55.758990500000266,
-      "lon": 37.63439129999973
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/besplatnyij-urok-vokala-revoice/",
     "officialUrl": null
   },
   {
@@ -18962,6 +18955,38 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-17284",
+    "title": "Искусство Индии",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "бул. Никитский, д. 12, лит. А",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.259123385566479,
+    "description": "Индию называют колыбелью цивилизации, имея в виду, что большинство современных знаний о науках и мире люди изначально получили из этой древней страны.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/27/0d/270d4a8c307afbb671221243c55411d3.jpg",
+    "coords": {
+      "lat": 55.75623899999998,
+      "lon": 37.59997399999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekspozicia-iskusstvo-indii/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-202139",
     "title": "Вокал",
     "category": "event",
@@ -18995,38 +19020,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/obuchenie-besplatnyij-urok-vokala/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-17284",
-    "title": "Искусство Индии",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "бул. Никитский, д. 12, лит. А",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.259123385566479,
-    "description": "Индию называют колыбелью цивилизации, имея в виду, что большинство современных знаний о науках и мире люди изначально получили из этой древней страны.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/27/0d/270d4a8c307afbb671221243c55411d3.jpg",
-    "coords": {
-      "lat": 55.75623899999998,
-      "lon": 37.59997399999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekspozicia-iskusstvo-indii/",
     "officialUrl": null
   },
   {
@@ -19126,6 +19119,38 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-72404",
+    "title": "Бородинская битва",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "city",
+    "address": "просп. Кутузовский, д. 38, стр. 1",
+    "costForTwo": 400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.235491304306246,
+    "description": "Экспонаты трех музейных отделов посвящены событиям Отечественной войны 1812 г. и истории российского героизма. Помимо панорамы «Бородинская битва» в музейный комплекс входит музей «Кутузовская изба» и Музей Героев Советского Союза и России.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/1a/89/1a89408a6ab824cd3bc3b355b58165ab.JPG",
+    "coords": {
+      "lat": 55.73970099999996,
+      "lon": 37.52320399999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekspoziciya-muzeya-panoramy-borodinskaya-bitva/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-186675",
     "title": "Фотоэкскурсия на фабрику «Красный Октябрь»",
     "category": "event",
@@ -19161,38 +19186,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/ekskursiya-krasnyij-oktyabr-ekskursiya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-72404",
-    "title": "Бородинская битва",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "city",
-    "address": "просп. Кутузовский, д. 38, стр. 1",
-    "costForTwo": 400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.235491304306246,
-    "description": "Экспонаты трех музейных отделов посвящены событиям Отечественной войны 1812 г. и истории российского героизма. Помимо панорамы «Бородинская битва» в музейный комплекс входит музей «Кутузовская изба» и Музей Героев Советского Союза и России.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/1a/89/1a89408a6ab824cd3bc3b355b58165ab.JPG",
-    "coords": {
-      "lat": 55.73970099999996,
-      "lon": 37.52320399999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekspoziciya-muzeya-panoramy-borodinskaya-bitva/",
     "officialUrl": null
   },
   {
@@ -19298,38 +19291,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-16947",
-    "title": "Зоогеография",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "city",
-    "address": "ул. Вавилова, д. 57",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.200080004368457,
-    "description": "Гости музея смогут получить развернутое представление о том, каким образом виды животных распространены на земном шаре. Им предстоит «зайти в гости» к обитателям саванн, тропических лесов, подводных глубин и северных областей планеты.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/67/45/6745606a9fd4e19ad40ba530f1595c03.jpg",
-    "coords": {
-      "lat": 55.69062299999997,
-      "lon": 37.56149099999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/zoogeografiya-regular-msk/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-91758",
     "title": "капоэйра для взрослых и детей в клубе «Пампа Грин»",
     "category": "event",
@@ -19360,6 +19321,38 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/kapoejra-dlya-vzroslyh-i-detej-v-klube-pampa-grin/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-16947",
+    "title": "Зоогеография",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "city",
+    "address": "ул. Вавилова, д. 57",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.200080004368457,
+    "description": "Гости музея смогут получить развернутое представление о том, каким образом виды животных распространены на земном шаре. Им предстоит «зайти в гости» к обитателям саванн, тропических лесов, подводных глубин и северных областей планеты.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/67/45/6745606a9fd4e19ad40ba530f1595c03.jpg",
+    "coords": {
+      "lat": 55.69062299999997,
+      "lon": 37.56149099999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/zoogeografiya-regular-msk/",
     "officialUrl": null
   },
   {
@@ -19589,6 +19582,39 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-16696",
+    "title": "Руссо. Дерен",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Волхонка, д. 14",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 8.147411704236161,
+    "description": "Экспозиция, расположенная в двадцать первом зале Галереи искусства стран Европы и Америки XIX—XX веков, объединяет творчество разных мастеров изобразительного искусства. Наивные «сказочные» картины Анри Руссо здесь соседствуют с мрачновато…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/7e/10/7e100e3aeda9d7525490782101e02cdb_1.jpg",
+    "coords": {
+      "lat": 55.74658799999997,
+      "lon": 37.60517599999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/russo-deren-msk/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-209577",
     "title": "Стендап в темноте",
     "category": "event",
@@ -19626,75 +19652,6 @@ export const kudagoEvents = [
     "coords": null,
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/entertainment-stendap-v-temnote/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-16696",
-    "title": "Руссо. Дерен",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Волхонка, д. 14",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 8.147411704236161,
-    "description": "Экспозиция, расположенная в двадцать первом зале Галереи искусства стран Европы и Америки XIX—XX веков, объединяет творчество разных мастеров изобразительного искусства. Наивные «сказочные» картины Анри Руссо здесь соседствуют с мрачновато…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/7e/10/7e100e3aeda9d7525490782101e02cdb_1.jpg",
-    "coords": {
-      "lat": 55.74658799999997,
-      "lon": 37.60517599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/russo-deren-msk/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-170226",
-    "title": "квест-перформанс Alive",
-    "category": "event",
-    "eventType": "quest",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 11000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 8.141484588430782,
-    "description": "Жуткий хоррор-квест с участием профессиональных актёров, реалистичными декорациями и захватывающим сюжетом ждёт бесстрашных искателей острых ощущений. Приготовьтесь столкнуться с собственными страхами!",
-    "exactDates": [
-      "2018-05-24",
-      "2018-05-25",
-      "2018-05-31",
-      "2018-06-01",
-      "2018-06-07",
-      "2018-08-30"
-    ],
-    "startTimes": [
-      "14:00:00",
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/31/ab/31ab0c9b27e7e6058d7e6b8932d0e297.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-odna-zhizn/",
     "officialUrl": null
   },
   {
@@ -19760,6 +19717,42 @@ export const kudagoEvents = [
     "coords": null,
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/kontsert-gastro-stendap/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-170226",
+    "title": "квест-перформанс Alive",
+    "category": "event",
+    "eventType": "quest",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 11000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 8.141484588430782,
+    "description": "Жуткий хоррор-квест с участием профессиональных актёров, реалистичными декорациями и захватывающим сюжетом ждёт бесстрашных искателей острых ощущений. Приготовьтесь столкнуться с собственными страхами!",
+    "exactDates": [
+      "2018-05-24",
+      "2018-05-25",
+      "2018-05-31",
+      "2018-06-01",
+      "2018-06-07",
+      "2018-08-30"
+    ],
+    "startTimes": [
+      "14:00:00",
+      "12:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/31/ab/31ab0c9b27e7e6058d7e6b8932d0e297.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-odna-zhizn/",
     "officialUrl": null
   },
   {
@@ -19829,49 +19822,6 @@ export const kudagoEvents = [
     "coords": null,
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/byistroe-svidanie-speed-dating-30/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-201736",
-    "title": "Иммерсивные мастер-классы",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Автозаводская, д. 18",
-    "costForTwo": 6600,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 8.129194794970218,
-    "description": "Музей Темноты представляет целую серию иммерсивных мастер-классов, проходящих в пространстве эталонной темноты, которые полностью выключают ваше визуальное восприятие мира и вместо него фокусируются на других чувствах.",
-    "exactDates": [
-      "2022-12-15",
-      "2023-08-17",
-      "2024-02-02",
-      "2025-12-31",
-      "2026-01-01",
-      "2026-01-02",
-      "2026-01-08",
-      "2021-12-30",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:00",
-      "10:00:00",
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/99/a0/99a0782e9c0080904011d9a8237a3d81.jpg",
-    "coords": {
-      "lat": 55.70502999999994,
-      "lon": 37.639059799999764
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-novyie-master-klassyi/",
     "officialUrl": null
   },
   {
@@ -19976,6 +19926,49 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-201736",
+    "title": "Иммерсивные мастер-классы",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Автозаводская, д. 18",
+    "costForTwo": 6600,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 8.129194794970218,
+    "description": "Музей Темноты представляет целую серию иммерсивных мастер-классов, проходящих в пространстве эталонной темноты, которые полностью выключают ваше визуальное восприятие мира и вместо него фокусируются на других чувствах.",
+    "exactDates": [
+      "2022-12-15",
+      "2023-08-17",
+      "2024-02-02",
+      "2025-12-31",
+      "2026-01-01",
+      "2026-01-02",
+      "2026-01-08",
+      "2021-12-30",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:00",
+      "10:00:00",
+      "14:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/99/a0/99a0782e9c0080904011d9a8237a3d81.jpg",
+    "coords": {
+      "lat": 55.70502999999994,
+      "lon": 37.639059799999764
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-novyie-master-klassyi/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-211050",
     "title": "Джаз кабаре",
     "category": "event",
@@ -20029,6 +20022,38 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-16625",
+    "title": "Искусство символизма. Группа «Наби»",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Волхонка, д. 14",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.11627448603775,
+    "description": "Развитие символизма в европейском искусстве происходило в период с 1870-х по 1910-е годы. В это время многих художников уже не может удовлетворить эстетика реализма. Картины становятся живописными рассуждениями о вечных законах бытия и суд…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/32/f1/32f1e02c0e9315babafc884858e92c92.jpg",
+    "coords": {
+      "lat": 55.74658799999997,
+      "lon": 37.60517599999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/simvolizm-nabi/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-65687",
     "title": "Али-Баба и сорок разбойников",
     "category": "event",
@@ -20064,38 +20089,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/spektakl-ali-baba-i-sorok-razbojnikov-v-teatre-kuk/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-16625",
-    "title": "Искусство символизма. Группа «Наби»",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Волхонка, д. 14",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.11627448603775,
-    "description": "Развитие символизма в европейском искусстве происходило в период с 1870-х по 1910-е годы. В это время многих художников уже не может удовлетворить эстетика реализма. Картины становятся живописными рассуждениями о вечных законах бытия и суд…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/32/f1/32f1e02c0e9315babafc884858e92c92.jpg",
-    "coords": {
-      "lat": 55.74658799999997,
-      "lon": 37.60517599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/simvolizm-nabi/",
     "officialUrl": null
   },
   {
@@ -20384,39 +20377,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-188717",
-    "title": "Маршрут по Третьяковке",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "пер. Лаврушинский, д. 10",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 8.072986987425546,
-    "description": "Третьяковская галерея напоминает сундук с сокровищами, причём как в плане архитектуры, так и по части наполнения. Каждое произведение здесь было любовно отобрано Павлом Третьяковым и совершенно точно заслуживает внимания. Мы выбрали наибол…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/34/6b/346b2f0154c0a2b1736a9e67aea33482.jpg",
-    "coords": {
-      "lat": 55.74115599999996,
-      "lon": 37.62021299999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-marshrut-po-tretyakovke/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-147479",
     "title": "Все сочинения Баха для органа",
     "category": "event",
@@ -20476,6 +20436,39 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/koncert-bah-izbrannye/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-188717",
+    "title": "Маршрут по Третьяковке",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "пер. Лаврушинский, д. 10",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 8.072986987425546,
+    "description": "Третьяковская галерея напоминает сундук с сокровищами, причём как в плане архитектуры, так и по части наполнения. Каждое произведение здесь было любовно отобрано Павлом Третьяковым и совершенно точно заслуживает внимания. Мы выбрали наибол…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/34/6b/346b2f0154c0a2b1736a9e67aea33482.jpg",
+    "coords": {
+      "lat": 55.74115599999996,
+      "lon": 37.62021299999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-marshrut-po-tretyakovke/",
     "officialUrl": null
   },
   {
@@ -20556,38 +20549,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-16531",
-    "title": "Традиционное народное искусство России",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Делегатская, д. 3, стр. 1",
-    "costForTwo": 500,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 8.056730327737405,
-    "description": "Поистине уникальная коллекция предстает пред взором посетителей. Здесь и поволжская домовая резьба со своими причудливыми причелинами, оконными и светелочными наличниками. Удивительно, в каких расписных домах жили наши предки! А какая дико…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/7a/3a/7a3ad3d8b603d9bb43830c2e748d7dce.jpg",
-    "coords": {
-      "lat": 55.77473189676471,
-      "lon": 37.60965054100005
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-tradicionnogo-narodnogo-i/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-194524",
     "title": "Заблудшие",
     "category": "event",
@@ -20620,6 +20581,38 @@ export const kudagoEvents = [
     "coords": null,
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/teatr-zabludshie/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-16531",
+    "title": "Традиционное народное искусство России",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Делегатская, д. 3, стр. 1",
+    "costForTwo": 500,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.056730327737405,
+    "description": "Поистине уникальная коллекция предстает пред взором посетителей. Здесь и поволжская домовая резьба со своими причудливыми причелинами, оконными и светелочными наличниками. Удивительно, в каких расписных домах жили наши предки! А какая дико…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/7a/3a/7a3ad3d8b603d9bb43830c2e748d7dce.jpg",
+    "coords": {
+      "lat": 55.77473189676471,
+      "lon": 37.60965054100005
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-tradicionnogo-narodnogo-i/",
     "officialUrl": null
   },
   {
@@ -20689,6 +20682,38 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-83934",
+    "title": "Экспонаты Музея Вооружённых сил Российской Федерации",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Советской Армии, д. 2, стр. 1",
+    "costForTwo": 400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 8.039351658178488,
+    "description": "Вся история Вооруженных сил страны в двадцати четырех залах.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/b5/13/b513a42f2f1959b628fcad4dc403d5cc.jpg",
+    "coords": {
+      "lat": 55.78485499999996,
+      "lon": 37.61715000000002
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-v-muzee-vooruzhennyh-sil-/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-16434",
     "title": "Бастьен-Лепаж и реализм",
     "category": "event",
@@ -20721,35 +20746,37 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-83934",
-    "title": "Экспонаты Музея Вооружённых сил Российской Федерации",
+    "id": "kudago-event-203456",
+    "title": "Создание мягкой игрушки с сердцем",
     "category": "event",
-    "eventType": "exhibition",
+    "eventType": "event",
     "zone": "center",
-    "address": "ул. Советской Армии, д. 2, стр. 1",
-    "costForTwo": 400,
+    "address": "Москва",
+    "costForTwo": 6000,
     "costEstimated": false,
-    "duration": 80,
+    "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual"
+      "unusual",
+      "active",
+      "calm"
     ],
-    "quality": 8.039351658178488,
-    "description": "Вся история Вооруженных сил страны в двадцати четырех залах.",
+    "quality": 8.020684541823075,
+    "description": "Где провести время с ребёнком так, чтобы оно стало тёплым воспоминанием о счастливых мгновениях, проведённых вместе, на долгие годы? Мастерская кота Филиуса — это уютное волшебное пространство, где мечты оживают и превращаются в мягких плю…",
     "exactDates": [
+      "2023-03-14",
+      "2023-08-17",
       "0001-01-02"
     ],
     "startTimes": [
-      "21:30"
+      "00:00:00",
+      "10:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/b5/13/b513a42f2f1959b628fcad4dc403d5cc.jpg",
-    "coords": {
-      "lat": 55.78485499999996,
-      "lon": 37.61715000000002
-    },
+    "image": "https://media.kudago.com/images/event/fb/40/fb4020f8f3aa7d8bad47e1288ea0c63a.jpg",
+    "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-v-muzee-vooruzhennyh-sil-/",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-sozdaj-igrushku/",
     "officialUrl": null
   },
   {
@@ -20816,40 +20843,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/postoyannaya-vystavka-istoriya-rossijskoj-emigraci/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-203456",
-    "title": "Создание мягкой игрушки с сердцем",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 6000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active",
-      "calm"
-    ],
-    "quality": 8.020684541823075,
-    "description": "Где провести время с ребёнком так, чтобы оно стало тёплым воспоминанием о счастливых мгновениях, проведённых вместе, на долгие годы? Мастерская кота Филиуса — это уютное волшебное пространство, где мечты оживают и превращаются в мягких плю…",
-    "exactDates": [
-      "2023-03-14",
-      "2023-08-17",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00",
-      "10:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/fb/40/fb4020f8f3aa7d8bad47e1288ea0c63a.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-sozdaj-igrushku/",
     "officialUrl": null
   },
   {
@@ -21065,6 +21058,39 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-118968",
+    "title": "Декоративно-прикладное искусство XVIII – первой трети XIX веков",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Делегатская, д. 3, стр. 1",
+    "costForTwo": 500,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.978605154876879,
+    "description": "«Пётр Великий бросил вызов России, а она ответила ему Пушкиным», — этой знаменитой герценовской фразой можно определить суть эпохи, которой посвящена данная экспозиция. Представленные объекты повествуют о зарождении и расцвете отечественно…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/87/79/8779ad22c601886653878eafe2ed092e.jpg",
+    "coords": {
+      "lat": 55.77473189676471,
+      "lon": 37.60965054100005
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-v-muzee-dekorativno-prikl/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-153122",
     "title": "Быстрые свидания и другие вечеринки знакомств от FastLife",
     "category": "event",
@@ -21125,39 +21151,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/evolyuciya-povedeniya-zhivotnyh-msk/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-118968",
-    "title": "Декоративно-прикладное искусство XVIII – первой трети XIX веков",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Делегатская, д. 3, стр. 1",
-    "costForTwo": 500,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.978605154876879,
-    "description": "«Пётр Великий бросил вызов России, а она ответила ему Пушкиным», — этой знаменитой герценовской фразой можно определить суть эпохи, которой посвящена данная экспозиция. Представленные объекты повествуют о зарождении и расцвете отечественно…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/87/79/8779ad22c601886653878eafe2ed092e.jpg",
-    "coords": {
-      "lat": 55.77473189676471,
-      "lon": 37.60965054100005
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/postoyannaya-ekspoziciya-v-muzee-dekorativno-prikl/",
     "officialUrl": null
   },
   {
@@ -21437,6 +21430,38 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-16961",
+    "title": "Развитие органического мира",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "city",
+    "address": "ул. Вавилова, д. 57",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.928058052959917,
+    "description": "Жизнь существует на планете задолго до появления людей. Миллионы лет назад Земля уже была обитаема. Узнать о том, как зарождались первые существа на планете и проследить историю развития органического мира вплоть до наших дней, позволит эт…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/6b/71/6b71b65c1c8b873ac3d61fe692510438.jpg",
+    "coords": {
+      "lat": 55.69062299999997,
+      "lon": 37.56149099999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/razvitie-organicheskogo-mira-msk/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-24119",
     "title": "постоянная экспозиция в Мемориальном доме-музее академика И.В. Курчатова",
     "category": "event",
@@ -21469,35 +21494,41 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-16961",
-    "title": "Развитие органического мира",
+    "id": "kudago-event-9983",
+    "title": "Кот в сапогах",
     "category": "event",
-    "eventType": "exhibition",
-    "zone": "city",
-    "address": "ул. Вавилова, д. 57",
-    "costForTwo": 800,
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Садовая-Самотёчная, д. 3",
+    "costForTwo": 1200,
     "costEstimated": false,
-    "duration": 80,
+    "duration": 130,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
-    "quality": 7.928058052959917,
-    "description": "Жизнь существует на планете задолго до появления людей. Миллионы лет назад Земля уже была обитаема. Узнать о том, как зарождались первые существа на планете и проследить историю развития органического мира вплоть до наших дней, позволит эт…",
-    "exactDates": [
-      "0001-01-02"
-    ],
+    "quality": 7.913660374399399,
+    "description": "Кукольный спектакль по известной сказке, который одинаково понятен детям и взрослым.",
+    "activeFrom": "2015-09-19",
+    "activeUntil": "2026-09-16",
     "startTimes": [
-      "21:30"
+      "12:30:00",
+      "14:00:00",
+      "11:00:00",
+      "16:00:00",
+      "17:00:00",
+      "21:12:00",
+      "15:00:00",
+      "18:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/6b/71/6b71b65c1c8b873ac3d61fe692510438.jpg",
+    "image": "https://media.kudago.com/images/event/5d/ef/5def9de882cd77dad0889da0c3d58e92.jpg",
     "coords": {
-      "lat": 55.69062299999997,
-      "lon": 37.56149099999999
+      "lat": 55.77410999999975,
+      "lon": 37.61430900000015
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/razvitie-organicheskogo-mira-msk/",
+    "sourceUrl": "https://kudago.com/msk/event/spektakl-kot-v-sapogah-shperro-v-teatre-obrazcova/",
     "officialUrl": null
   },
   {
@@ -21569,41 +21600,36 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-9983",
-    "title": "Кот в сапогах",
+    "id": "kudago-event-183448",
+    "title": "VR-моделирование и 3D-печать персонажа",
     "category": "event",
-    "eventType": "theater",
+    "eventType": "event",
     "zone": "center",
-    "address": "ул. Садовая-Самотёчная, д. 3",
-    "costForTwo": 1200,
+    "address": "ул. Нижняя Сыромятническая, д. 11, корп. 1, офис 219",
+    "costForTwo": 7000,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual"
+      "unusual",
+      "calm"
     ],
-    "quality": 7.913660374399399,
-    "description": "Кукольный спектакль по известной сказке, который одинаково понятен детям и взрослым.",
-    "activeFrom": "2015-09-19",
-    "activeUntil": "2026-09-16",
+    "quality": 7.898389589940437,
+    "description": "Участники мастер-класса почувствуют себя цифровым скульптором: создадут 3D-модель собственного уникального персонажа и получат её распечатанной на 3D-принтере.",
+    "exactDates": [
+      "0001-01-02"
+    ],
     "startTimes": [
-      "12:30:00",
-      "14:00:00",
-      "11:00:00",
-      "16:00:00",
-      "17:00:00",
-      "21:12:00",
-      "15:00:00",
-      "18:00:00"
+      "10:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/5d/ef/5def9de882cd77dad0889da0c3d58e92.jpg",
+    "image": "https://media.kudago.com/images/event/58/1f/581fd3f959b4bdef359bce7aa96e94bf.jpg",
     "coords": {
-      "lat": 55.77410999999975,
-      "lon": 37.61430900000015
+      "lat": 55.75290009793234,
+      "lon": 37.67135528660576
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/spektakl-kot-v-sapogah-shperro-v-teatre-obrazcova/",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-vr-modelirovanie-i-3d-pechat-personazha/",
     "officialUrl": null
   },
   {
@@ -21639,39 +21665,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-183448",
-    "title": "VR-моделирование и 3D-печать персонажа",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Нижняя Сыромятническая, д. 11, корп. 1, офис 219",
-    "costForTwo": 7000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.898389589940437,
-    "description": "Участники мастер-класса почувствуют себя цифровым скульптором: создадут 3D-модель собственного уникального персонажа и получат её распечатанной на 3D-принтере.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "10:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/58/1f/581fd3f959b4bdef359bce7aa96e94bf.jpg",
-    "coords": {
-      "lat": 55.75290009793234,
-      "lon": 37.67135528660576
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-vr-modelirovanie-i-3d-pechat-personazha/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-199922",
     "title": "Номер 13",
     "category": "event",
@@ -21703,67 +21696,6 @@ export const kudagoEvents = [
     "coords": null,
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/teatr-nomer-13-oktyabr-2022/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-202914",
-    "title": "Лунозавр в космосе",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "ул. Русаковская, д. 13, стр. 5.",
-    "costForTwo": 2200,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.882132930252295,
-    "description": "«Театр Будущего Лилии Тим» приглашает ребят и их родителей отправиться навстречу незабываемым космическим приключениям. Зрителей ждёт ультрасовременное интерактивное представление с захватывающим сюжетом, добрым юмором и невероятными спецэ…",
-    "exactDates": [
-      "2023-04-08",
-      "2023-10-14",
-      "2023-11-06",
-      "2023-12-09",
-      "2024-04-13",
-      "2024-06-01",
-      "2024-11-09",
-      "2024-11-16",
-      "2024-11-23",
-      "2025-02-23",
-      "2025-03-22",
-      "2025-04-05",
-      "2025-10-18",
-      "2025-11-01",
-      "2025-11-02",
-      "2025-11-15",
-      "2026-02-23",
-      "2026-04-12",
-      "2026-05-24",
-      "2026-10-10",
-      "2026-12-26",
-      "2026-12-27"
-    ],
-    "startTimes": [
-      "11:00:00",
-      "13:30:00",
-      "16:00:00",
-      "18:00:00",
-      "12:00:00",
-      "14:30:00",
-      "13:00:00",
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ec/ad/ecad5db43aaab2983493405c6ba3b776.jpg",
-    "coords": {
-      "lat": 55.78436599999995,
-      "lon": 37.67233799999975
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-lunozavr-v-kosmose-202914/",
     "officialUrl": null
   },
   {
@@ -21877,6 +21809,67 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-202914",
+    "title": "Лунозавр в космосе",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Русаковская, д. 13, стр. 5.",
+    "costForTwo": 2200,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.882132930252295,
+    "description": "«Театр Будущего Лилии Тим» приглашает ребят и их родителей отправиться навстречу незабываемым космическим приключениям. Зрителей ждёт ультрасовременное интерактивное представление с захватывающим сюжетом, добрым юмором и невероятными спецэ…",
+    "exactDates": [
+      "2023-04-08",
+      "2023-10-14",
+      "2023-11-06",
+      "2023-12-09",
+      "2024-04-13",
+      "2024-06-01",
+      "2024-11-09",
+      "2024-11-16",
+      "2024-11-23",
+      "2025-02-23",
+      "2025-03-22",
+      "2025-04-05",
+      "2025-10-18",
+      "2025-11-01",
+      "2025-11-02",
+      "2025-11-15",
+      "2026-02-23",
+      "2026-04-12",
+      "2026-05-24",
+      "2026-10-10",
+      "2026-12-26",
+      "2026-12-27"
+    ],
+    "startTimes": [
+      "11:00:00",
+      "13:30:00",
+      "16:00:00",
+      "18:00:00",
+      "12:00:00",
+      "14:30:00",
+      "13:00:00",
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ec/ad/ecad5db43aaab2983493405c6ba3b776.jpg",
+    "coords": {
+      "lat": 55.78436599999995,
+      "lon": 37.67233799999975
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-lunozavr-v-kosmose-202914/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-190399",
     "title": "Экскурсия по стадиону «Лужники»",
     "category": "event",
@@ -21950,6 +21943,69 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-16876",
+    "title": "Этапы познания живой природы",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "city",
+    "address": "ул. Вавилова, д. 57",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.846087144337965,
+    "description": "Экспозиция посвящена истории развития биологии — науки, призванной помочь человеку познать животный мир и лучше понимать свое место в нем.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/54/5a/545a807d9caecff6ab120cbdb9242033.jpg",
+    "coords": {
+      "lat": 55.69062299999997,
+      "lon": 37.56149099999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/etapy-poznaniya-zhivoj-prirody-msk/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-204824",
+    "title": "Время обнимать",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Мясницкая, д. 24/7, стр. 3",
+    "costForTwo": 4000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.846087144337965,
+    "description": "Действие спектакля будет проходить везде: у бара, в зале и на сцене, а зрители окажутся вовлечены в происходящее.",
+    "activeFrom": "2023-06-28",
+    "activeUntil": "2026-09-27",
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/27/ca/27caefaa8ec59fee8a614864cf336aed.jpg",
+    "coords": {
+      "lat": 55.76243248659878,
+      "lon": 37.63554989767486
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-vremya-obnimat/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-220731",
     "title": "Москва от заката до рассвета",
     "category": "event",
@@ -22019,69 +22075,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-204824",
-    "title": "Время обнимать",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "ул. Мясницкая, д. 24/7, стр. 3",
-    "costForTwo": 4000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.846087144337965,
-    "description": "Действие спектакля будет проходить везде: у бара, в зале и на сцене, а зрители окажутся вовлечены в происходящее.",
-    "activeFrom": "2023-06-28",
-    "activeUntil": "2026-09-27",
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/27/ca/27caefaa8ec59fee8a614864cf336aed.jpg",
-    "coords": {
-      "lat": 55.76243248659878,
-      "lon": 37.63554989767486
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-vremya-obnimat/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-16876",
-    "title": "Этапы познания живой природы",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "city",
-    "address": "ул. Вавилова, д. 57",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.846087144337965,
-    "description": "Экспозиция посвящена истории развития биологии — науки, призванной помочь человеку познать животный мир и лучше понимать свое место в нем.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/54/5a/545a807d9caecff6ab120cbdb9242033.jpg",
-    "coords": {
-      "lat": 55.69062299999997,
-      "lon": 37.56149099999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/etapy-poznaniya-zhivoj-prirody-msk/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-225105",
     "title": "5 хедлайнеров",
     "category": "event",
@@ -22125,41 +22118,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/kontsert-5-hedlajnerov/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-203209",
-    "title": "Подыскиваю жену, недорого!",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.8259251227076225,
-    "description": "Популярные артисты комедийного жанра расскажут зрителям забавную историю о том, как непросто бывает состоятельному мужчине найти достойную кандидатку на роль супруги.",
-    "activeFrom": "2023-03-04",
-    "activeUntil": "2026-12-04",
-    "startTimes": [
-      "17:00:00",
-      "16:00:00",
-      "19:00:00",
-      "20:00:00",
-      "19:30:00",
-      "18:00:00",
-      "15:00:00",
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/9a/07/9a07d3e13356bb4f6d4dd089fc8d0cd6.jpeg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-podyiskivayu-zhenu-nedorogo/",
     "officialUrl": null
   },
   {
@@ -22267,6 +22225,73 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-203209",
+    "title": "Подыскиваю жену, недорого!",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.8259251227076225,
+    "description": "Популярные артисты комедийного жанра расскажут зрителям забавную историю о том, как непросто бывает состоятельному мужчине найти достойную кандидатку на роль супруги.",
+    "activeFrom": "2023-03-04",
+    "activeUntil": "2026-12-04",
+    "startTimes": [
+      "17:00:00",
+      "16:00:00",
+      "19:00:00",
+      "20:00:00",
+      "19:30:00",
+      "18:00:00",
+      "15:00:00",
+      "14:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/9a/07/9a07d3e13356bb4f6d4dd089fc8d0cd6.jpeg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-podyiskivayu-zhenu-nedorogo/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222234",
+    "title": "Ни в какие рамки",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Пушкарёв, д. 5",
+    "costForTwo": 2100,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.804007757391771,
+    "description": "Что рассказали бы Мона Лиза, девушка с жемчужной серёжкой, Давид и другие персонажи великих художественных произведений, если бы могли говорить? А кто победил бы в споре, Леонардо да Винчи или Микеланджело? Проникнуть в тайны гениев, а так…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "12:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ba/eb/baebe712a4291ab4a538656600747e6d.jpg",
+    "coords": {
+      "lat": 55.768907,
+      "lon": 37.626951
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-ni-v-kakie-ramki-dekabr-2025/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-195494",
     "title": "Дали детям",
     "category": "event",
@@ -22302,6 +22327,72 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/detyam-po-sledam-salvadora-dali/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-167317",
+    "title": "Волшебник изумрудного города",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "пер. Старосадский, д. 7/10, стр. 10",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.804007757391771,
+    "description": "Знаменитая волшебная история Александра Волкова в сопровождении органа и с живыми песочными иллюстрациями.",
+    "exactDates": [
+      "2023-09-30",
+      "2026-09-19"
+    ],
+    "startTimes": [
+      "17:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d4/1f/d41f82dd7e6b1ef130496ab58e3e379f.jpg",
+    "coords": {
+      "lat": 55.75678510282241,
+      "lon": 37.64095186663472
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-volshebnik-izumrudnogo-goroda-167317/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220164",
+    "title": "Тайные знаки и символы на монетах",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Большой Афанасьевский, д. 24",
+    "costForTwo": 1200,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.804007757391771,
+    "description": "На уникальной выставке собраны монеты более чем 20 государств разных эпох: от античности до наших дней. Гости увидят уникальные экспонаты, смогут подержать самую тяжёлую монету и разгадают послания, зашифрованные чеканщиками много веков на…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/ae/8c/ae8cf43e41a4a5849618b68b69210ab7.jpg",
+    "coords": {
+      "lat": 55.749344,
+      "lon": 37.597288
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-tajnyie-znaki-i-simvolyi-na-monetah/",
     "officialUrl": null
   },
   {
@@ -22369,104 +22460,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-167317",
-    "title": "Волшебник изумрудного города",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "пер. Старосадский, д. 7/10, стр. 10",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.804007757391771,
-    "description": "Знаменитая волшебная история Александра Волкова в сопровождении органа и с живыми песочными иллюстрациями.",
-    "exactDates": [
-      "2023-09-30",
-      "2026-09-19"
-    ],
-    "startTimes": [
-      "17:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d4/1f/d41f82dd7e6b1ef130496ab58e3e379f.jpg",
-    "coords": {
-      "lat": 55.75678510282241,
-      "lon": 37.64095186663472
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-volshebnik-izumrudnogo-goroda-167317/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222234",
-    "title": "Ни в какие рамки",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Пушкарёв, д. 5",
-    "costForTwo": 2100,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.804007757391771,
-    "description": "Что рассказали бы Мона Лиза, девушка с жемчужной серёжкой, Давид и другие персонажи великих художественных произведений, если бы могли говорить? А кто победил бы в споре, Леонардо да Винчи или Микеланджело? Проникнуть в тайны гениев, а так…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ba/eb/baebe712a4291ab4a538656600747e6d.jpg",
-    "coords": {
-      "lat": 55.768907,
-      "lon": 37.626951
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-ni-v-kakie-ramki-dekabr-2025/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220164",
-    "title": "Тайные знаки и символы на монетах",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Большой Афанасьевский, д. 24",
-    "costForTwo": 1200,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.804007757391771,
-    "description": "На уникальной выставке собраны монеты более чем 20 государств разных эпох: от античности до наших дней. Гости увидят уникальные экспонаты, смогут подержать самую тяжёлую монету и разгадают послания, зашифрованные чеканщиками много веков на…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/ae/8c/ae8cf43e41a4a5849618b68b69210ab7.jpg",
-    "coords": {
-      "lat": 55.749344,
-      "lon": 37.597288
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-tajnyie-znaki-i-simvolyi-na-monetah/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-211478",
     "title": "Мировая литература на экране. Интересное об известном",
     "category": "event",
@@ -22507,6 +22500,38 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/lektsiya-moskovskoe-dolgoletie-mirovaya-literatura-na-ekrane-interesnoe-ob-izvestnom/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208396",
+    "title": "Девичник в стрелковом клубе «Лабиринт»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Самокатная, д. 4 стр. 1.",
+    "costForTwo": 36000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.78,
+    "description": "Хотите встретиться с подругами в необычной обстановке? В стрелковом клубе «Лабиринт» вы сможете вдоволь пообщаться, освоить новые навыки и посоревноваться в меткости — такой девичник запомнится надолго!",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/67/fe/67fe7d8bac450acd921810f873901c2c.png",
+    "coords": {
+      "lat": 55.75614344464366,
+      "lon": 37.67736740036072
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/recreation-devichnik-v-strelkovom-klube-labirint/",
     "officialUrl": null
   },
   {
@@ -22570,13 +22595,13 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-208396",
-    "title": "Девичник в стрелковом клубе «Лабиринт»",
+    "id": "kudago-event-208080",
+    "title": "Экскурсия «В гости к динозаврам»",
     "category": "event",
     "eventType": "event",
-    "zone": "center",
-    "address": "ул. Самокатная, д. 4 стр. 1.",
-    "costForTwo": 36000,
+    "zone": "south",
+    "address": "ул. Профсоюзная, д. 123",
+    "costForTwo": 5400,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -22584,21 +22609,65 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.78,
-    "description": "Хотите встретиться с подругами в необычной обстановке? В стрелковом клубе «Лабиринт» вы сможете вдоволь пообщаться, освоить новые навыки и посоревноваться в меткости — такой девичник запомнится надолго!",
-    "exactDates": [
-      "0001-01-02"
-    ],
+    "quality": 7.753460655474808,
+    "description": "Юные гости Палеонтологического музея узнают много интересных фактов из истории нашей планеты и познакомятся с животными, вымершими миллионы лет назад.",
+    "activeFrom": "2023-11-27",
+    "activeUntil": "2026-08-29",
     "startTimes": [
-      "21:30"
+      "11:00:00",
+      "11:15:00",
+      "16:00:00",
+      "12:00:00",
+      "11:20:00",
+      "11:30:00",
+      "13:45:00",
+      "14:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/67/fe/67fe7d8bac450acd921810f873901c2c.png",
+    "image": "https://media.kudago.com/images/event/ba/50/ba50203a202aab13d7e15fad3ef658d6.png",
     "coords": {
-      "lat": 55.75614344464366,
-      "lon": 37.67736740036072
+      "lat": 55.62369099999994,
+      "lon": 37.51428399999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/recreation-devichnik-v-strelkovom-klube-labirint/",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-v-gosti-k-dinozavram/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208098",
+    "title": "МАММА МИМО! или Мюзикл пошёл не так",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Цветной бул., д. 11, стр.2",
+    "costForTwo": 2800,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.753460655474808,
+    "description": "Эксперты по мюзиклам — компания продюсера Дмитрия Богачёва «Бродвей Москва» — приглашают зрителей в мир театрального закулисья! Спектакль-пародия «Мамма Мимо!» объединил в себе мировые поп-хиты, комедийную интригу и непредсказуемый финал.",
+    "activeFrom": "2023-12-16",
+    "activeUntil": "2026-09-08",
+    "startTimes": [
+      "21:00",
+      "19:00:00",
+      "14:00:00",
+      "17:00:00",
+      "20:00:00",
+      "16:00:00",
+      "22:00:00",
+      "13:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ca/ee/caee32eb41c018c60d3bc67cdc94512e.jpg",
+    "coords": {
+      "lat": 55.77012350000024,
+      "lon": 37.62058900000029
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-mamma-mimo-ili-myuzikl-poshyol-ne-tak/",
     "officialUrl": null
   },
   {
@@ -22653,44 +22722,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-208098",
-    "title": "МАММА МИМО! или Мюзикл пошёл не так",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Цветной бул., д. 11, стр.2",
-    "costForTwo": 2800,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.753460655474808,
-    "description": "Эксперты по мюзиклам — компания продюсера Дмитрия Богачёва «Бродвей Москва» — приглашают зрителей в мир театрального закулисья! Спектакль-пародия «Мамма Мимо!» объединил в себе мировые поп-хиты, комедийную интригу и непредсказуемый финал.",
-    "activeFrom": "2023-12-16",
-    "activeUntil": "2026-09-08",
-    "startTimes": [
-      "21:00",
-      "19:00:00",
-      "14:00:00",
-      "17:00:00",
-      "20:00:00",
-      "16:00:00",
-      "22:00:00",
-      "13:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ca/ee/caee32eb41c018c60d3bc67cdc94512e.jpg",
-    "coords": {
-      "lat": 55.77012350000024,
-      "lon": 37.62058900000029
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-mamma-mimo-ili-myuzikl-poshyol-ne-tak/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-210582",
     "title": "Good Night Show",
     "category": "event",
@@ -22724,13 +22755,13 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-208080",
-    "title": "Экскурсия «В гости к динозаврам»",
+    "id": "kudago-event-172345",
+    "title": "Авторский курс «Секретные материалы»",
     "category": "event",
     "eventType": "event",
-    "zone": "south",
-    "address": "ул. Профсоюзная, д. 123",
-    "costForTwo": 5400,
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 58000,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -22738,95 +22769,18 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.753460655474808,
-    "description": "Юные гости Палеонтологического музея узнают много интересных фактов из истории нашей планеты и познакомятся с животными, вымершими миллионы лет назад.",
-    "activeFrom": "2023-11-27",
-    "activeUntil": "2026-08-29",
-    "startTimes": [
-      "11:00:00",
-      "11:15:00",
-      "16:00:00",
-      "12:00:00",
-      "11:20:00",
-      "11:30:00",
-      "13:45:00",
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ba/50/ba50203a202aab13d7e15fad3ef658d6.png",
-    "coords": {
-      "lat": 55.62369099999994,
-      "lon": 37.51428399999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-v-gosti-k-dinozavram/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-208977",
-    "title": "Между светом и тьмой",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "vdnh",
-    "address": "просп. Мира, д. 119, павильон № 36",
-    "costForTwo": 1000,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
     "quality": 7.723792192455328,
-    "description": "Экспозиция рассказывает о том, как тема блокады отражена в кинематографе.",
+    "description": "Хотите научиться «читать» людей? Чувствовать, когда вам врут, сканировать человека по внешнему виду и узнать кое-что новое о себе? В школе стиля Кати Гершуни уже полным ходом идёт запись на необычный курс.",
     "exactDates": [
-      "2024-01-27",
       "0001-01-02"
     ],
     "startTimes": [
-      "21:00",
-      "21:30"
+      "19:30:00"
     ],
-    "image": "https://media.kudago.com/images/event/5a/b9/5ab991c590ce860e05b280e78cf5fdf9.jpg",
-    "coords": {
-      "lat": 55.83950252112824,
-      "lon": 37.61669319110222
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-mezhdu-svetom-i-tmoj/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-204144",
-    "title": "Отдам бывшего в хорошие руки",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 3400,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.723792192455328,
-    "description": "История девушки, чья жизнь кардинально поменялась после судьбоносного знакомства с подозрительным мужчиной, оживёт на театральной сцене в исполнении популярных артистов комедийного жанра.",
-    "activeFrom": "2023-04-22",
-    "activeUntil": "2026-12-13",
-    "startTimes": [
-      "20:00:00",
-      "18:00:00",
-      "19:00:00",
-      "17:00:00",
-      "19:30:00",
-      "16:00:00",
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/dd/be/ddbead9bcd74e8eb4a4c37c1bdb15fac.jpg",
+    "image": "https://media.kudago.com/images/event/69/29/6929c89b8f7f442ef91939e9cd30a05e.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-otdam-byivshego-v-horoshie-ruki/",
+    "sourceUrl": "https://kudago.com/msk/event/znaniya-avtorskij-kurs-sekretnyie-materialyi/",
     "officialUrl": null
   },
   {
@@ -22933,62 +22887,105 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-172345",
-    "title": "Авторский курс «Секретные материалы»",
+    "id": "kudago-event-208977",
+    "title": "Между светом и тьмой",
     "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 58000,
+    "eventType": "exhibition",
+    "zone": "vdnh",
+    "address": "просп. Мира, д. 119, павильон № 36",
+    "costForTwo": 1000,
     "costEstimated": false,
-    "duration": 105,
+    "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.723792192455328,
-    "description": "Хотите научиться «читать» людей? Чувствовать, когда вам врут, сканировать человека по внешнему виду и узнать кое-что новое о себе? В школе стиля Кати Гершуни уже полным ходом идёт запись на необычный курс.",
+    "description": "Экспозиция рассказывает о том, как тема блокады отражена в кинематографе.",
     "exactDates": [
+      "2024-01-27",
       "0001-01-02"
     ],
     "startTimes": [
-      "19:30:00"
+      "21:00",
+      "21:30"
     ],
-    "image": "https://media.kudago.com/images/event/69/29/6929c89b8f7f442ef91939e9cd30a05e.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/5a/b9/5ab991c590ce860e05b280e78cf5fdf9.jpg",
+    "coords": {
+      "lat": 55.83950252112824,
+      "lon": 37.61669319110222
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/znaniya-avtorskij-kurs-sekretnyie-materialyi/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-mezhdu-svetom-i-tmoj/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-198629",
-    "title": "«Большие быстрые свидания» для группы 30+",
+    "id": "kudago-event-204144",
+    "title": "Отдам бывшего в хорошие руки",
     "category": "event",
-    "eventType": "event",
+    "eventType": "theater",
     "zone": "center",
     "address": "Москва",
-    "costForTwo": 5798,
+    "costForTwo": 3400,
     "costEstimated": false,
-    "duration": 105,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.723792192455328,
+    "description": "История девушки, чья жизнь кардинально поменялась после судьбоносного знакомства с подозрительным мужчиной, оживёт на театральной сцене в исполнении популярных артистов комедийного жанра.",
+    "activeFrom": "2023-04-22",
+    "activeUntil": "2026-12-13",
+    "startTimes": [
+      "20:00:00",
+      "18:00:00",
+      "19:00:00",
+      "17:00:00",
+      "19:30:00",
+      "16:00:00",
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/dd/be/ddbead9bcd74e8eb4a4c37c1bdb15fac.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-otdam-byivshego-v-horoshie-ruki/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-206908",
+    "title": "Спектакль «Сказ про Федота-стрельца»",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 4000,
+    "costEstimated": false,
+    "duration": 130,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual",
-      "romantic"
+      "calm"
     ],
     "quality": 7.690156863208269,
-    "description": "Компания Fast Life проведёт классический вечер знакомств для смешанной старшей и основной возрастной группы. В «Больших быстрых свиданиях» примут участие около ста гостей — каждого ждёт до 50 быстрых свиданий, а значит, шансы найти вторую…",
-    "activeFrom": "2022-08-07",
-    "activeUntil": "2026-08-30",
+    "description": "Постановка Олега Ильина основана на знаменитой стихотворной пьесе Леонида Филатова. О приключениях стрельца Федота зрителям поведают популярные актёры театра и кино.",
+    "activeFrom": "2023-09-30",
+    "activeUntil": "2026-11-14",
     "startTimes": [
-      "18:00:00",
-      "17:00:00"
+      "16:00:00",
+      "19:00:00",
+      "20:00:00",
+      "17:00:00",
+      "14:00:00",
+      "12:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/91/41/9141f6989cbd071012eb71346e2538fc.jpg",
+    "image": "https://media.kudago.com/images/event/5a/c1/5ac1736c0acf17508815c8c3c3551982.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-bolshoj-speed-dating-dlya-gruppyi-30/",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-spektakl-skaz-pro-fedota-streltsa/",
     "officialUrl": null
   },
   {
@@ -23087,75 +23084,33 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-206908",
-    "title": "Спектакль «Сказ про Федота-стрельца»",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 4000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.690156863208269,
-    "description": "Постановка Олега Ильина основана на знаменитой стихотворной пьесе Леонида Филатова. О приключениях стрельца Федота зрителям поведают популярные актёры театра и кино.",
-    "activeFrom": "2023-09-30",
-    "activeUntil": "2026-11-14",
-    "startTimes": [
-      "16:00:00",
-      "19:00:00",
-      "20:00:00",
-      "17:00:00",
-      "14:00:00",
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/5a/c1/5ac1736c0acf17508815c8c3c3551982.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-spektakl-skaz-pro-fedota-streltsa/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-195994",
-    "title": "Пикассо детям",
+    "id": "kudago-event-198629",
+    "title": "«Большие быстрые свидания» для группы 30+",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "ул. Старая Басманная, д. 15А, стр. 4",
-    "costForTwo": 4400,
+    "address": "Москва",
+    "costForTwo": 5798,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual"
+      "unusual",
+      "romantic"
     ],
     "quality": 7.690156863208269,
-    "description": "В окружении подлинных произведений искусства Пабло Пикассо участники детской программы смогут дать волю фантазии и проявить свои творческие навыки.",
-    "activeFrom": "2022-02-05",
-    "activeUntil": "2026-08-23",
+    "description": "Компания Fast Life проведёт классический вечер знакомств для смешанной старшей и основной возрастной группы. В «Больших быстрых свиданиях» примут участие около ста гостей — каждого ждёт до 50 быстрых свиданий, а значит, шансы найти вторую…",
+    "activeFrom": "2022-08-07",
+    "activeUntil": "2026-08-30",
     "startTimes": [
-      "11:00:00",
-      "12:00:00",
-      "11:30:00",
-      "12:30:00",
-      "13:30:00",
-      "14:30:00",
-      "14:15:00",
-      "14:00:00"
+      "18:00:00",
+      "17:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/7f/a0/7fa080f5ff75e27537b152e2a428b415.jpg",
-    "coords": {
-      "lat": 55.7654517999999,
-      "lon": 37.65992869999984
-    },
+    "image": "https://media.kudago.com/images/event/91/41/9141f6989cbd071012eb71346e2538fc.jpg",
+    "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-detskij-master-klass-po-rospisi-keramiki/",
+    "sourceUrl": "https://kudago.com/msk/event/entertainment-bolshoj-speed-dating-dlya-gruppyi-30/",
     "officialUrl": null
   },
   {
@@ -23201,6 +23156,44 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/lektsiya-tsifrovyie-tehnologii-kotoryie-delayut-nas-schastlivyimi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-195994",
+    "title": "Пикассо детям",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Старая Басманная, д. 15А, стр. 4",
+    "costForTwo": 4400,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.690156863208269,
+    "description": "В окружении подлинных произведений искусства Пабло Пикассо участники детской программы смогут дать волю фантазии и проявить свои творческие навыки.",
+    "activeFrom": "2022-02-05",
+    "activeUntil": "2026-08-23",
+    "startTimes": [
+      "11:00:00",
+      "12:00:00",
+      "11:30:00",
+      "12:30:00",
+      "13:30:00",
+      "14:30:00",
+      "14:15:00",
+      "14:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/7f/a0/7fa080f5ff75e27537b152e2a428b415.jpg",
+    "coords": {
+      "lat": 55.7654517999999,
+      "lon": 37.65992869999984
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-detskij-master-klass-po-rospisi-keramiki/",
     "officialUrl": null
   },
   {
@@ -23271,6 +23264,250 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-211112",
+    "title": "Арома-код шедевра",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Старая Басманная, д. 15А, стр. 4",
+    "costForTwo": 7000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.651327725222513,
+    "description": "Необычные работы Сальвадора Дали и собственный уникальный парфюм — участники встречи погрузятся в таинственный мир ароматов и узнают, как эфирные масла могут выступать в качестве предмета искусства.",
+    "activeFrom": "2024-10-12",
+    "activeUntil": "2026-08-23",
+    "startTimes": [
+      "11:00:00",
+      "19:00:00",
+      "13:00:00",
+      "18:00:00",
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/78/bd/78bdcebf4bc2868b19b83704d9d186ad.jpg",
+    "coords": {
+      "lat": 55.7654517999999,
+      "lon": 37.65992869999984
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-aroma-kod-shedevra/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-219655",
+    "title": "Выгоднее онлайн",
+    "category": "event",
+    "eventType": "event",
+    "zone": "city",
+    "address": "наб. Пресненская, д. 12,  ММДЦ «Москва-Сити», башня «Федерация. Восток», этаж 89",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.651327725222513,
+    "description": "Захватывающие дух городские пейзажи, эксклюзивное мороженое от Панорамыча, посещение Музея мороженого и красивые фотозоны — PANORAMA360 предлагает интересный досуг для посетителей всех возрастов. Приобретая билеты онлайн, вы сможете наслад…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/ef/51/ef51d0d8fb07bb3ce66b556dc44b9cf5.jpg",
+    "coords": {
+      "lat": 55.7496930000001,
+      "lon": 37.53753900000023
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-vyigodnee-onlajn/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208601",
+    "title": "Ночь её откровений",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.651327725222513,
+    "description": "Увлекательная авантюрная история с музыкой, танцами, комедийным подтекстом и захватывающим детективным сюжетом.",
+    "activeFrom": "2024-01-18",
+    "activeUntil": "2027-01-07",
+    "startTimes": [
+      "19:00:00",
+      "15:30:00",
+      "16:30:00",
+      "16:00:00",
+      "20:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ee/44/ee44b43aca26473dedfc50dc7c709235.png",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-spektakl-noch-eyo-otkrovenij/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-219775",
+    "title": "Волшебные миры Миядзаки",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Павловская, д. 8",
+    "costForTwo": 2600,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.651327725222513,
+    "description": "Музыка из культовых анимационных фильмов Хаяо Миядзаки прозвучит в Москве и перенесёт слушателей в миры Тоторо, «Унесённых призраками» и «Ходячего замка».",
+    "exactDates": [
+      "2025-11-14",
+      "2026-01-30",
+      "2026-03-20",
+      "2026-04-30",
+      "2026-05-29",
+      "2026-06-26",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-29",
+      "2026-08-13",
+      "2026-09-10",
+      "2026-10-02",
+      "2026-11-13"
+    ],
+    "startTimes": [
+      "19:30:00",
+      "18:30:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b6/ba/b6ba3bfc783794a1f5dceb08f46cdf6a.jpg",
+    "coords": {
+      "lat": 55.718725,
+      "lon": 37.627103
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-volshebnyie-miryi-miyadzaki/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-212353",
+    "title": "Го без границ",
+    "category": "event",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.651327725222513,
+    "description": "Игра го, пришедшая из Древнего Китая, не только тренирует ум, но и становится увлекательным увлечением для людей разного возраста и навыков. На встрече каждый сможет погрузиться в эту древнюю стратегическую игру.",
+    "exactDates": [
+      "2024-11-25",
+      "2025-01-27",
+      "2025-02-10",
+      "2025-02-24",
+      "2025-03-10",
+      "2025-03-24",
+      "2025-04-14",
+      "2025-04-28",
+      "2025-05-12",
+      "2025-05-26",
+      "2025-06-09",
+      "2025-06-23",
+      "2025-07-14",
+      "2025-07-28",
+      "2025-08-11",
+      "2025-08-25",
+      "2025-09-22",
+      "2025-10-13",
+      "2025-10-27",
+      "2025-11-24",
+      "2025-12-08",
+      "2025-12-22",
+      "2026-01-12",
+      "2026-01-26",
+      "2026-02-16",
+      "2026-03-23",
+      "2026-04-13",
+      "2026-04-27",
+      "2026-05-18",
+      "2026-05-25",
+      "2026-07-13",
+      "2026-07-27",
+      "2026-08-10",
+      "2026-08-24"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/28/08/280858a7c3926c4111dfb0ef1cc00124",
+    "coords": {
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vstrecha-go-bez-granits/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-203229",
+    "title": "Мужчина на все руки",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 4000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.651327725222513,
+    "description": "Популярные актёры театра и кино представят зрителям комедийную историю, в которой удивительным образом переплелись рыба в лаваше, билет на трамвай, закадычные друзья, банан и сеанс гипноза.",
+    "activeFrom": "2023-03-07",
+    "activeUntil": "2026-12-12",
+    "startTimes": [
+      "19:00:00",
+      "17:00:00",
+      "16:00:00",
+      "20:00:00",
+      "19:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ad/8d/ad8df16bdeb91445295649280a4730d2.jpeg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-muzhchina-na-vse-ruki/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-219966",
     "title": "Развлечения в WOW!Land",
     "category": "event",
@@ -23301,6 +23538,39 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/detyam-razvlecheniya-v-wowland/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218134",
+    "title": "Чудеса света",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Нижняя Сыромятническая, д. 11, корп. 1, офис 219",
+    "costForTwo": 2400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.651327725222513,
+    "description": "В этом уникальном аттракционе очки виртуальной реальности мгновенно переносят вас через эпохи и континенты. Это не просто видео — вы сами решаете, куда смотреть, и вам даже открываются детали, недоступные обычным туристам.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00",
+      "12:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/9a/8c/9a8c6f5eff44bff8e3cd803109676736.jpg",
+    "coords": {
+      "lat": 55.75290009793234,
+      "lon": 37.67135528660576
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vr-chudesa-sveta/",
     "officialUrl": null
   },
   {
@@ -23419,368 +23689,33 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-208601",
-    "title": "Ночь её откровений",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.651327725222513,
-    "description": "Увлекательная авантюрная история с музыкой, танцами, комедийным подтекстом и захватывающим детективным сюжетом.",
-    "activeFrom": "2024-01-18",
-    "activeUntil": "2027-01-07",
-    "startTimes": [
-      "19:00:00",
-      "15:30:00",
-      "16:30:00",
-      "16:00:00",
-      "20:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ee/44/ee44b43aca26473dedfc50dc7c709235.png",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-spektakl-noch-eyo-otkrovenij/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218134",
-    "title": "Чудеса света",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Нижняя Сыромятническая, д. 11, корп. 1, офис 219",
-    "costForTwo": 2400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.651327725222513,
-    "description": "В этом уникальном аттракционе очки виртуальной реальности мгновенно переносят вас через эпохи и континенты. Это не просто видео — вы сами решаете, куда смотреть, и вам даже открываются детали, недоступные обычным туристам.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00",
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/9a/8c/9a8c6f5eff44bff8e3cd803109676736.jpg",
-    "coords": {
-      "lat": 55.75290009793234,
-      "lon": 37.67135528660576
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vr-chudesa-sveta/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-219655",
-    "title": "Выгоднее онлайн",
+    "id": "kudago-event-224799",
+    "title": "Огни небоскрёбов",
     "category": "event",
     "eventType": "event",
-    "zone": "city",
-    "address": "наб. Пресненская, д. 12,  ММДЦ «Москва-Сити», башня «Федерация. Восток», этаж 89",
-    "costForTwo": 2000,
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2380,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual"
+      "unusual",
+      "calm"
     ],
-    "quality": 7.651327725222513,
-    "description": "Захватывающие дух городские пейзажи, эксклюзивное мороженое от Панорамыча, посещение Музея мороженого и красивые фотозоны — PANORAMA360 предлагает интересный досуг для посетителей всех возрастов. Приобретая билеты онлайн, вы сможете наслад…",
+    "quality": 7.605402602514891,
+    "description": "Уютная атмосфера, вкусные блюда и завораживающие виды на столицу — на двухпалубном теплоходе вы совершите незабываемое путешествие по Москве-реке.",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
       "21:30"
     ],
-    "image": "https://media.kudago.com/images/event/ef/51/ef51d0d8fb07bb3ce66b556dc44b9cf5.jpg",
-    "coords": {
-      "lat": 55.7496930000001,
-      "lon": 37.53753900000023
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-vyigodnee-onlajn/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-203229",
-    "title": "Мужчина на все руки",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 4000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.651327725222513,
-    "description": "Популярные актёры театра и кино представят зрителям комедийную историю, в которой удивительным образом переплелись рыба в лаваше, билет на трамвай, закадычные друзья, банан и сеанс гипноза.",
-    "activeFrom": "2023-03-07",
-    "activeUntil": "2026-12-12",
-    "startTimes": [
-      "19:00:00",
-      "17:00:00",
-      "16:00:00",
-      "20:00:00",
-      "19:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ad/8d/ad8df16bdeb91445295649280a4730d2.jpeg",
+    "image": "https://media.kudago.com/images/event/a4/6d/a46d66b48eca894fffd66d3cfd806ee6.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-muzhchina-na-vse-ruki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-211112",
-    "title": "Арома-код шедевра",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Старая Басманная, д. 15А, стр. 4",
-    "costForTwo": 7000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.651327725222513,
-    "description": "Необычные работы Сальвадора Дали и собственный уникальный парфюм — участники встречи погрузятся в таинственный мир ароматов и узнают, как эфирные масла могут выступать в качестве предмета искусства.",
-    "activeFrom": "2024-10-12",
-    "activeUntil": "2026-08-23",
-    "startTimes": [
-      "11:00:00",
-      "19:00:00",
-      "13:00:00",
-      "18:00:00",
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/78/bd/78bdcebf4bc2868b19b83704d9d186ad.jpg",
-    "coords": {
-      "lat": 55.7654517999999,
-      "lon": 37.65992869999984
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-aroma-kod-shedevra/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-212353",
-    "title": "Го без границ",
-    "category": "event",
-    "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.651327725222513,
-    "description": "Игра го, пришедшая из Древнего Китая, не только тренирует ум, но и становится увлекательным увлечением для людей разного возраста и навыков. На встрече каждый сможет погрузиться в эту древнюю стратегическую игру.",
-    "exactDates": [
-      "2024-11-25",
-      "2025-01-27",
-      "2025-02-10",
-      "2025-02-24",
-      "2025-03-10",
-      "2025-03-24",
-      "2025-04-14",
-      "2025-04-28",
-      "2025-05-12",
-      "2025-05-26",
-      "2025-06-09",
-      "2025-06-23",
-      "2025-07-14",
-      "2025-07-28",
-      "2025-08-11",
-      "2025-08-25",
-      "2025-09-22",
-      "2025-10-13",
-      "2025-10-27",
-      "2025-11-24",
-      "2025-12-08",
-      "2025-12-22",
-      "2026-01-12",
-      "2026-01-26",
-      "2026-02-16",
-      "2026-03-23",
-      "2026-04-13",
-      "2026-04-27",
-      "2026-05-18",
-      "2026-05-25",
-      "2026-07-13",
-      "2026-07-27",
-      "2026-08-10",
-      "2026-08-24"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/28/08/280858a7c3926c4111dfb0ef1cc00124",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vstrecha-go-bez-granits/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-219775",
-    "title": "Волшебные миры Миядзаки",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "ул. Павловская, д. 8",
-    "costForTwo": 2600,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.651327725222513,
-    "description": "Музыка из культовых анимационных фильмов Хаяо Миядзаки прозвучит в Москве и перенесёт слушателей в миры Тоторо, «Унесённых призраками» и «Ходячего замка».",
-    "exactDates": [
-      "2025-11-14",
-      "2026-01-30",
-      "2026-03-20",
-      "2026-04-30",
-      "2026-05-29",
-      "2026-06-26",
-      "2026-07-16",
-      "2026-07-17",
-      "2026-07-29",
-      "2026-08-13",
-      "2026-09-10",
-      "2026-10-02",
-      "2026-11-13"
-    ],
-    "startTimes": [
-      "19:30:00",
-      "18:30:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/b6/ba/b6ba3bfc783794a1f5dceb08f46cdf6a.jpg",
-    "coords": {
-      "lat": 55.718725,
-      "lon": 37.627103
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-volshebnyie-miryi-miyadzaki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223330",
-    "title": "Зарисовки в Кабинете художника",
-    "category": "event",
-    "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.605402602514891,
-    "description": "Участники мастер-класса художника Алима Велитова выполнят упражнения на развитие воображения, будут учиться внимательнее смотреть на мир и переводить увиденное на бумагу.",
-    "exactDates": [
-      "2026-03-11",
-      "2026-03-18",
-      "2026-03-25",
-      "2026-04-01",
-      "2026-04-15",
-      "2026-04-22",
-      "2026-04-28",
-      "2026-05-06",
-      "2026-05-13",
-      "2026-05-20",
-      "2026-05-27",
-      "2026-07-08",
-      "2026-07-15",
-      "2026-07-22",
-      "2026-07-29",
-      "2026-08-05",
-      "2026-08-12",
-      "2026-08-19",
-      "2026-08-26"
-    ],
-    "startTimes": [
-      "15:00:00",
-      "16:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/96/c0/96c01d4b3b3f72b068e45d8d95d1f447",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/master-klass-zarisovki-v-kabinete-hudozhnika/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-212150",
-    "title": "Сказания Руси Богатырской",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "пл. Красная, д. 1",
-    "costForTwo": 5400,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.605402602514891,
-    "description": "Опытный гид проведёт ребят по выставочным залам Государственного исторического музея и в игровом формате познакомит их с историей России и героическими былинными персонажами.",
-    "activeFrom": "2024-11-09",
-    "activeUntil": "2026-08-22",
-    "startTimes": [
-      "17:00:00",
-      "14:00:00",
-      "16:00:00",
-      "15:00:00",
-      "13:30:00",
-      "13:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/e5/e5/e5e5cee0ab399e2e28c5a731c2c1a7dc.jpg",
-    "coords": {
-      "lat": 55.7534523775232,
-      "lon": 37.61873189947469
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-skazaniya-rusi-bogatyirskoj/",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-ogni-neboskryobov/",
     "officialUrl": null
   },
   {
@@ -23854,33 +23789,91 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-224799",
-    "title": "Огни небоскрёбов",
+    "id": "kudago-event-212150",
+    "title": "Сказания Руси Богатырской",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2380,
+    "address": "пл. Красная, д. 1",
+    "costForTwo": 5400,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual",
-      "calm"
+      "active"
     ],
     "quality": 7.605402602514891,
-    "description": "Уютная атмосфера, вкусные блюда и завораживающие виды на столицу — на двухпалубном теплоходе вы совершите незабываемое путешествие по Москве-реке.",
+    "description": "Опытный гид проведёт ребят по выставочным залам Государственного исторического музея и в игровом формате познакомит их с историей России и героическими былинными персонажами.",
+    "activeFrom": "2024-11-09",
+    "activeUntil": "2026-08-22",
+    "startTimes": [
+      "17:00:00",
+      "14:00:00",
+      "16:00:00",
+      "15:00:00",
+      "13:30:00",
+      "13:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e5/e5/e5e5cee0ab399e2e28c5a731c2c1a7dc.jpg",
+    "coords": {
+      "lat": 55.7534523775232,
+      "lon": 37.61873189947469
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-skazaniya-rusi-bogatyirskoj/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223330",
+    "title": "Зарисовки в Кабинете художника",
+    "category": "event",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.605402602514891,
+    "description": "Участники мастер-класса художника Алима Велитова выполнят упражнения на развитие воображения, будут учиться внимательнее смотреть на мир и переводить увиденное на бумагу.",
     "exactDates": [
-      "0001-01-02"
+      "2026-03-11",
+      "2026-03-18",
+      "2026-03-25",
+      "2026-04-01",
+      "2026-04-15",
+      "2026-04-22",
+      "2026-04-28",
+      "2026-05-06",
+      "2026-05-13",
+      "2026-05-20",
+      "2026-05-27",
+      "2026-07-08",
+      "2026-07-15",
+      "2026-07-22",
+      "2026-07-29",
+      "2026-08-05",
+      "2026-08-12",
+      "2026-08-19",
+      "2026-08-26"
     ],
     "startTimes": [
-      "21:30"
+      "15:00:00",
+      "16:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/a4/6d/a46d66b48eca894fffd66d3cfd806ee6.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/96/c0/96c01d4b3b3f72b068e45d8d95d1f447",
+    "coords": {
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-ogni-neboskryobov/",
+    "sourceUrl": "https://kudago.com/msk/event/master-klass-zarisovki-v-kabinete-hudozhnika/",
     "officialUrl": null
   },
   {
@@ -24032,40 +24025,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-208276",
-    "title": "«Фарфоровое заведение» князя Николая Юсупова. 1818—1831",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "west",
-    "address": "Московская обл., Красногорский р-н, пос. Архангельское",
-    "costForTwo": 600,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.5491947949702185,
-    "description": "Экспозиция посвящена юсуповскому фарфору, изысканному наследию князя Николая Юсупова. Мастерская по его производству находилась в «Архангельском».",
-    "exactDates": [
-      "2023-11-14",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:00",
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/65/e9/65e9084173ace939bf5592420c878850.jpg",
-    "coords": {
-      "lat": 55.78468526559221,
-      "lon": 37.28426308018685
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-farforovoe-zavedeniya-knyazya-n-b-yusupova-1818-1831/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-223423",
     "title": "ПБ. Миксер",
     "category": "event",
@@ -24107,37 +24066,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/vecherinka-nestyidnyie-svidaniya-nestyidnyij-dejting/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-184309",
-    "title": "Ночь в отеле",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "ул. Чаплыгина, д. 1а, стр. 1",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.5491947949702185,
-    "description": "Спектакль по пьесе Терри Джонсона — первая постановка Владимира Машкова в качестве художественного руководителя «Табакерки». Она показывает, как случайная встреча превращается в разговор о влиянии, амбициях и личных слабостях.",
-    "activeFrom": "2019-12-25",
-    "activeUntil": "2026-09-26",
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/73/62/73621b33bb2048a51c4f7f5985ef2c80.jpg",
-    "coords": {
-      "lat": 55.764197,
-      "lon": 37.64613899999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-noch-v-otele/",
     "officialUrl": null
   },
   {
@@ -24230,38 +24158,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-222740",
-    "title": "Неистовый конец",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Переведеновский, д. 18",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.5491947949702185,
-    "description": "Проект о рубеже, на котором рушатся привычные опоры и рождается новое чувство свободы. Художники превращают опыт потерь, тревоги и личных кризисов в мощные визуальные высказывания — от темных, плотных листов до почти светящихся работ о над…",
-    "exactDates": [
-      "2026-01-31"
-    ],
-    "startTimes": [
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d8/e7/d8e7abfb37c6a0eabf03de256b982816",
-    "coords": {
-      "lat": 55.77958499999998,
-      "lon": 37.68971599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-neistovyij-konets/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-222504",
     "title": "Где водятся волшебники?",
     "category": "event",
@@ -24292,6 +24188,38 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/vyistavka-gde-vodyatsya-volshebniki/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222740",
+    "title": "Неистовый конец",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Переведеновский, д. 18",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.5491947949702185,
+    "description": "Проект о рубеже, на котором рушатся привычные опоры и рождается новое чувство свободы. Художники превращают опыт потерь, тревоги и личных кризисов в мощные визуальные высказывания — от темных, плотных листов до почти светящихся работ о над…",
+    "exactDates": [
+      "2026-01-31"
+    ],
+    "startTimes": [
+      "12:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d8/e7/d8e7abfb37c6a0eabf03de256b982816",
+    "coords": {
+      "lat": 55.77958499999998,
+      "lon": 37.68971599999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-neistovyij-konets/",
     "officialUrl": null
   },
   {
@@ -24334,13 +24262,78 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225282",
-    "title": "Как пришить старушку",
+    "id": "kudago-event-184309",
+    "title": "Ночь в отеле",
     "category": "event",
     "eventType": "theater",
     "zone": "center",
-    "address": "Страстной бул., д. 8, лит. А",
-    "costForTwo": 1500,
+    "address": "ул. Чаплыгина, д. 1а, стр. 1",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.5491947949702185,
+    "description": "Спектакль по пьесе Терри Джонсона — первая постановка Владимира Машкова в качестве художественного руководителя «Табакерки». Она показывает, как случайная встреча превращается в разговор о влиянии, амбициях и личных слабостях.",
+    "activeFrom": "2019-12-25",
+    "activeUntil": "2026-09-26",
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/73/62/73621b33bb2048a51c4f7f5985ef2c80.jpg",
+    "coords": {
+      "lat": 55.764197,
+      "lon": 37.64613899999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-noch-v-otele/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208276",
+    "title": "«Фарфоровое заведение» князя Николая Юсупова. 1818—1831",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "west",
+    "address": "Московская обл., Красногорский р-н, пос. Архангельское",
+    "costForTwo": 600,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.5491947949702185,
+    "description": "Экспозиция посвящена юсуповскому фарфору, изысканному наследию князя Николая Юсупова. Мастерская по его производству находилась в «Архангельском».",
+    "exactDates": [
+      "2023-11-14",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/65/e9/65e9084173ace939bf5592420c878850.jpg",
+    "coords": {
+      "lat": 55.78468526559221,
+      "lon": 37.28426308018685
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-farforovoe-zavedeniya-knyazya-n-b-yusupova-1818-1831/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-204073",
+    "title": "Примадонны",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 4000,
     "costEstimated": false,
     "duration": 130,
     "indoor": true,
@@ -24349,235 +24342,52 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.476730327737404,
-    "description": "Комедийная история о неудавшейся авантюре мошенников воплотится на сцене театрального центра «На Страстном» в исполнении известных артистов.",
-    "exactDates": [
-      "2026-07-14",
-      "2026-07-22",
-      "2026-07-28",
-      "2026-08-04",
-      "2026-08-11",
-      "2026-08-16",
-      "2026-08-19",
-      "2026-08-25"
-    ],
+    "description": "Вдохновлённая знаменитым кинохитом «В джазе только девушки» комедийная постановка Сергея Ефремова рассказывает историю двух неудачливых актёров, которые решают притвориться девушками, чтобы заполучить огромное наследство.",
+    "activeFrom": "2023-04-21",
+    "activeUntil": "2027-01-08",
     "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/5b/ad/5bad2144ce1a69036b5116f8b3e209ff.jpg",
-    "coords": {
-      "lat": 55.76625299999996,
-      "lon": 37.610826
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-kak-prishit-starushku/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222804",
-    "title": "Madam Boom",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "ул. Пушечная, д. 9/6",
-    "costForTwo": 6000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Гости винтажного танцевального шоу перенесутся в роскошную «золотую эпоху джаза».",
-    "exactDates": [
-      "2026-04-03",
-      "2026-04-17",
-      "2026-04-24",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-05-22",
-      "2026-05-29",
-      "2026-06-05",
-      "2026-06-12",
-      "2026-06-19",
-      "2026-06-26",
-      "2026-07-03",
-      "2026-07-10",
-      "2026-07-17",
-      "2026-07-24",
-      "2026-07-31",
-      "2026-08-07",
-      "2026-08-14",
-      "2026-08-21",
-      "2026-08-28",
-      "2026-09-04",
-      "2026-09-11",
-      "2026-09-18",
-      "2026-09-25",
-      "2026-10-02",
-      "2026-10-09",
-      "2026-10-16",
-      "2026-10-23",
-      "2026-10-30",
-      "2026-10-31",
-      "2026-11-06",
-      "2026-11-13",
-      "2026-11-20",
-      "2026-11-27"
-    ],
-    "startTimes": [
-      "20:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/e6/eb/e6eb2e02d6038341ce13e5c84cc03a9f.jpg",
-    "coords": {
-      "lat": 55.76103989999991,
-      "lon": 37.62437389999989
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-madam-boom-aprel-2026/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-190272",
-    "title": "Поколение Маугли",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "пер. Камергерский, д. 3",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Константин Хабенский представляет масштабный благотворительный спектакль, сделав его ещё более захватывающим.",
-    "exactDates": [
-      "2021-01-24",
-      "2021-01-25",
-      "2021-09-04",
-      "2022-10-29",
-      "2022-10-30",
-      "2022-11-26",
-      "2022-12-18",
-      "2023-02-25",
-      "2023-03-25",
-      "2023-04-16",
-      "2023-05-14",
-      "2023-06-03",
-      "2023-09-23",
-      "2023-11-05",
-      "2023-12-10",
-      "2024-02-17",
-      "2024-04-20",
-      "2024-05-18",
-      "2024-09-22",
-      "2024-10-19",
-      "2024-11-17",
-      "2024-12-08",
-      "2025-02-15",
-      "2025-03-15",
-      "2025-04-20",
-      "2025-05-31",
-      "2025-09-21",
-      "2025-11-16",
-      "2025-12-21",
-      "2026-03-15",
-      "2026-05-16",
-      "2026-09-13"
-    ],
-    "startTimes": [
-      "14:00:00",
       "19:00:00",
-      "13:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/05/00/0500b7b09714c064a2b16be5d524f4e2.jpg",
-    "coords": {
-      "lat": 55.760397999999995,
-      "lon": 37.61349400000001
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-pokolenie-maugli/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-208091",
-    "title": "Про Китай",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "бул. Никитский, д. 12, лит. А",
-    "costForTwo": 5400,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Участники экскурсии познакомятся с историей императорского Китая и в игровом формате постараются раскрыть тайны загадочной Поднебесной.",
-    "activeFrom": "2023-11-25",
-    "activeUntil": "2026-08-29",
-    "startTimes": [
-      "18:30:00",
       "17:00:00",
-      "17:30:00",
+      "20:00:00",
       "18:00:00",
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/34/5f/345f0bb84e8a2f822531c864a9794c6b.jpg",
-    "coords": {
-      "lat": 55.75623899999998,
-      "lon": 37.59997399999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-pro-kitaj/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-208081",
-    "title": "Экскурсия «В стране фараонов»",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Волхонка, д. 12",
-    "costForTwo": 6200,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Старинные иероглифы, суровые и справедливые боги, роскошные саркофаги и загадочные мумии — экскурсанты прикоснутся к культуре Древнего Египта и попробуют разгадать его тайны.",
-    "activeFrom": "2023-12-03",
-    "activeUntil": "2026-08-23",
-    "startTimes": [
-      "16:45:00",
-      "17:15:00",
-      "17:30:00",
-      "17:00:00",
-      "16:30:00",
-      "15:45:00",
-      "12:15:00",
       "16:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/06/2d/062d30b81fc3481daf24e3e2d7ddddcc.jpg",
+    "image": "https://media.kudago.com/images/event/1c/1c/1c1cec58f94797d4b46ee3abf992711f.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-primadonnyi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224533",
+    "title": "Феномены. Современная московская живопись и пересборка реального",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Петровка, д. 25",
+    "costForTwo": 1000,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Экспозиция обращается к современной живописи как к языку, способному точно фиксировать состояние времени.",
+    "exactDates": [
+      "2026-04-24"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d7/c8/d7c8c190af2815be9f94871ce21a4ecc.jpg",
     "coords": {
-      "lat": 55.74727199999997,
-      "lon": 37.60528299999999
+      "lat": 55.76696199999997,
+      "lon": 37.614276000000004
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-v-strane-faraonov/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-fenomenyi/",
     "officialUrl": null
   },
   {
@@ -24616,201 +24426,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-224533",
-    "title": "Феномены. Современная московская живопись и пересборка реального",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Петровка, д. 25",
-    "costForTwo": 1000,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Экспозиция обращается к современной живописи как к языку, способному точно фиксировать состояние времени.",
-    "exactDates": [
-      "2026-04-24"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d7/c8/d7c8c190af2815be9f94871ce21a4ecc.jpg",
-    "coords": {
-      "lat": 55.76696199999997,
-      "lon": 37.614276000000004
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-fenomenyi/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220093",
-    "title": "Покорители вершин",
-    "category": "event",
-    "eventType": "event",
-    "zone": "city",
-    "address": "наб. Пресненская, д. 12,  ММДЦ «Москва-Сити», башня «Федерация. Восток», этаж 89",
-    "costForTwo": 1500,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Как проходило строительство небоскрёбов «Москва-Сити», что скрывается за их стеклянными фасадами и люди каких профессий работают над обликом города? На смотровой площадке PANORAMA360 в увлекательной форме школьники познакомятся с интересны…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/f3/5c/f35cc4cf0f3b6d8e1454c64132a041a0.jpg",
-    "coords": {
-      "lat": 55.7496930000001,
-      "lon": 37.53753900000023
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-pokoriteli-vershin/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224456",
-    "title": "Романовы: история и мистика великой династии",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Откуда произошёл род Романовых и какие тайны хранят столичные памятники архитектуры? На экскурсии вы узнаете неожиданные факты о царской династии и увидите знаковые исторические локации Москвы.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/52/e2/52e279c424c0083b6a0678f10994a1c1.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-romanovyi-istoriya-i-mistika-velikoj-dinastii/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-192854",
-    "title": "Баста",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "city",
-    "address": "наб. Лужнецкая, д. 24",
-    "costForTwo": 6000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Один из самых востребованных рэп-артистов в стране вновь замахивается на стадионный формат.",
-    "exactDates": [
-      "2022-06-18",
-      "2025-06-27",
-      "2025-06-28",
-      "2026-08-29",
-      "2026-08-30"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "19:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d5/88/d588652486f2e2923a574a6b0dc00871.jpg",
-    "coords": {
-      "lat": 55.71474399999995,
-      "lon": 37.553828
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-basta-iyul-2021/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-210752",
-    "title": "Боинг-Боинг",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Популярные артисты театра и кино — в улётной комедии Сергея Ефремова о чересчур влюблённом архитекторе.",
-    "activeFrom": "2024-09-19",
-    "activeUntil": "2026-11-20",
-    "startTimes": [
-      "19:00:00",
-      "16:00:00",
-      "20:00:00",
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/44/50/44503b488ac32daf4e33a79c1748e5e6.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-boing-boing/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222410",
-    "title": "Российские традиции",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Малый Головин, д. 10",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Народные промыслы, деревенский быт, городские панорамы и сцены труда — всё это оживает в наивной живописи, созданной людьми без академической школы, но с острым чувством цвета. В экспозиции — работы признанных классиков и музейные предметы…",
-    "exactDates": [
-      "2026-01-02"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/20/4f/204f28d0a988d34c861b20cdc64b5199",
-    "coords": {
-      "lat": 55.7689769971855,
-      "lon": 37.63442327709354
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-rossijskie-traditsii/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-222640",
     "title": "Время керамики. К юбилею Валерия Малолеткова",
     "category": "event",
@@ -24840,141 +24455,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/vyistavka-vremya-keramiki-k-yubileyu-valeriya-maloletkova/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222995",
-    "title": "Квартира № 3 и её окрестности",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Борисоглебский, д. 6, стр. 1",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Экспозиция переносит в пространство коммунальной квартиры, где повседневные вещи становятся свидетелями больших перемен. Через истории разных жильцов и личные переживания Марины Цветаевой раскрывается жизнь первых советских десятилетий.",
-    "exactDates": [
-      "2025-08-27"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/fe/44/fe441ddfea9e53a3ee118135923e3f94",
-    "coords": {
-      "lat": 55.75419299999997,
-      "lon": 37.59006599999997
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-kvartira--3-i-ee-okrestnosti/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-216921",
-    "title": "Фурин",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Новорогожская, д. 5",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Маджонг в клубе «Фурин» — это увлекательная игра, а также путь к развитию мышления, внимательности и стратегического взгляда. Новички освоят правила и сыграют первую партию, а опытные игроки углубят знания и обсудят сложные тактики.",
-    "exactDates": [
-      "2025-04-10",
-      "2025-04-17",
-      "2025-05-22",
-      "2025-06-19",
-      "2025-07-03"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "18:00:00",
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/1d/f4/1df45e775f27a37fbe0182f61c26d1e0",
-    "coords": {
-      "lat": 55.74290010000011,
-      "lon": 37.67939470000001
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/igra-klub-madzhonga-furin/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-190558",
-    "title": "Ходжа Насреддин",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Петровский пер., д. 3",
-    "costForTwo": 6000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Кукольный спектакль Тимура Бекмамбетова — первая постановка этого жанра на сцене Театра Наций. Лёгкий фольклорный сюжет постепенно приобретает философское звучание, позволяя взглянуть на привычные вещи с другой стороны.",
-    "activeFrom": "2021-02-05",
-    "activeUntil": "2026-10-04",
-    "startTimes": [
-      "19:00:00",
-      "11:00:00",
-      "15:00:00",
-      "14:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/38/89/38899ad4d37b627f5a6aa011900ce1d6.jpg",
-    "coords": {
-      "lat": 55.76594399999996,
-      "lon": 37.612775
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-hodzha-nasreddin-fevral-2021/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-209874",
-    "title": "Частный стендап",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 158000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Хотите устроить праздник, о котором гости будут вспоминать с улыбкой? Команда «Стендап Импорт» организует для вас частный стендап и пригласит на ваш день рождения или другое мероприятие топовых комиков из популярных проектов, которые заряд…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/57/7c/577ca70e647bf286dda82d9c096e45cf.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-chastnyij-stendap/",
     "officialUrl": null
   },
   {
@@ -25013,39 +24493,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/teatr-gadkij-utyonok-190274/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220382",
-    "title": "TOYIARTI",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "city",
-    "address": "наб. Пресненская, д. 12,  ММДЦ «Москва-Сити», башня «Федерация. Восток», этаж 89",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.476730327737404,
-    "description": "Полотна современных художников и коллекционные фигурки со всего мира — на высоте 327 метров вы сможете погрузиться в мир концептуального искусства и увидеть интересные экспонаты, многие из которых созданы вручную и существуют в одном экзем…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/82/b8/82b84701b67128f9cd9ffc790a58aa93.JPG",
-    "coords": {
-      "lat": 55.7496930000001,
-      "lon": 37.53753900000023
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-toyiartyi/",
     "officialUrl": null
   },
   {
@@ -25160,6 +24607,144 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-190558",
+    "title": "Ходжа Насреддин",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Петровский пер., д. 3",
+    "costForTwo": 6000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Кукольный спектакль Тимура Бекмамбетова — первая постановка этого жанра на сцене Театра Наций. Лёгкий фольклорный сюжет постепенно приобретает философское звучание, позволяя взглянуть на привычные вещи с другой стороны.",
+    "activeFrom": "2021-02-05",
+    "activeUntil": "2026-10-04",
+    "startTimes": [
+      "19:00:00",
+      "11:00:00",
+      "15:00:00",
+      "14:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/38/89/38899ad4d37b627f5a6aa011900ce1d6.jpg",
+    "coords": {
+      "lat": 55.76594399999996,
+      "lon": 37.612775
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-hodzha-nasreddin-fevral-2021/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208091",
+    "title": "Про Китай",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "бул. Никитский, д. 12, лит. А",
+    "costForTwo": 5400,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Участники экскурсии познакомятся с историей императорского Китая и в игровом формате постараются раскрыть тайны загадочной Поднебесной.",
+    "activeFrom": "2023-11-25",
+    "activeUntil": "2026-08-29",
+    "startTimes": [
+      "18:30:00",
+      "17:00:00",
+      "17:30:00",
+      "18:00:00",
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/34/5f/345f0bb84e8a2f822531c864a9794c6b.jpg",
+    "coords": {
+      "lat": 55.75623899999998,
+      "lon": 37.59997399999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-pro-kitaj/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222804",
+    "title": "Madam Boom",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Пушечная, д. 9/6",
+    "costForTwo": 6000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Гости винтажного танцевального шоу перенесутся в роскошную «золотую эпоху джаза».",
+    "exactDates": [
+      "2026-04-03",
+      "2026-04-17",
+      "2026-04-24",
+      "2026-05-01",
+      "2026-05-15",
+      "2026-05-22",
+      "2026-05-29",
+      "2026-06-05",
+      "2026-06-12",
+      "2026-06-19",
+      "2026-06-26",
+      "2026-07-03",
+      "2026-07-10",
+      "2026-07-17",
+      "2026-07-24",
+      "2026-07-31",
+      "2026-08-07",
+      "2026-08-14",
+      "2026-08-21",
+      "2026-08-28",
+      "2026-09-04",
+      "2026-09-11",
+      "2026-09-18",
+      "2026-09-25",
+      "2026-10-02",
+      "2026-10-09",
+      "2026-10-16",
+      "2026-10-23",
+      "2026-10-30",
+      "2026-10-31",
+      "2026-11-06",
+      "2026-11-13",
+      "2026-11-20",
+      "2026-11-27"
+    ],
+    "startTimes": [
+      "20:00:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e6/eb/e6eb2e02d6038341ce13e5c84cc03a9f.jpg",
+    "coords": {
+      "lat": 55.76103989999991,
+      "lon": 37.62437389999989
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-madam-boom-aprel-2026/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-215138",
     "title": "Книжный клуб разработчиков игр",
     "category": "event",
@@ -25220,6 +24805,340 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-209874",
+    "title": "Частный стендап",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 158000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Хотите устроить праздник, о котором гости будут вспоминать с улыбкой? Команда «Стендап Импорт» организует для вас частный стендап и пригласит на ваш день рождения или другое мероприятие топовых комиков из популярных проектов, которые заряд…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/57/7c/577ca70e647bf286dda82d9c096e45cf.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-chastnyij-stendap/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-190272",
+    "title": "Поколение Маугли",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "пер. Камергерский, д. 3",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Константин Хабенский представляет масштабный благотворительный спектакль, сделав его ещё более захватывающим.",
+    "exactDates": [
+      "2021-01-24",
+      "2021-01-25",
+      "2021-09-04",
+      "2022-10-29",
+      "2022-10-30",
+      "2022-11-26",
+      "2022-12-18",
+      "2023-02-25",
+      "2023-03-25",
+      "2023-04-16",
+      "2023-05-14",
+      "2023-06-03",
+      "2023-09-23",
+      "2023-11-05",
+      "2023-12-10",
+      "2024-02-17",
+      "2024-04-20",
+      "2024-05-18",
+      "2024-09-22",
+      "2024-10-19",
+      "2024-11-17",
+      "2024-12-08",
+      "2025-02-15",
+      "2025-03-15",
+      "2025-04-20",
+      "2025-05-31",
+      "2025-09-21",
+      "2025-11-16",
+      "2025-12-21",
+      "2026-03-15",
+      "2026-05-16",
+      "2026-09-13"
+    ],
+    "startTimes": [
+      "14:00:00",
+      "19:00:00",
+      "13:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/05/00/0500b7b09714c064a2b16be5d524f4e2.jpg",
+    "coords": {
+      "lat": 55.760397999999995,
+      "lon": 37.61349400000001
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-pokolenie-maugli/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225282",
+    "title": "Как пришить старушку",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Страстной бул., д. 8, лит. А",
+    "costForTwo": 1500,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Комедийная история о неудавшейся авантюре мошенников воплотится на сцене театрального центра «На Страстном» в исполнении известных артистов.",
+    "exactDates": [
+      "2026-07-14",
+      "2026-07-22",
+      "2026-07-28",
+      "2026-08-04",
+      "2026-08-11",
+      "2026-08-16",
+      "2026-08-19",
+      "2026-08-25"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/5b/ad/5bad2144ce1a69036b5116f8b3e209ff.jpg",
+    "coords": {
+      "lat": 55.76625299999996,
+      "lon": 37.610826
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-kak-prishit-starushku/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220382",
+    "title": "TOYIARTI",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "city",
+    "address": "наб. Пресненская, д. 12,  ММДЦ «Москва-Сити», башня «Федерация. Восток», этаж 89",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Полотна современных художников и коллекционные фигурки со всего мира — на высоте 327 метров вы сможете погрузиться в мир концептуального искусства и увидеть интересные экспонаты, многие из которых созданы вручную и существуют в одном экзем…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/82/b8/82b84701b67128f9cd9ffc790a58aa93.JPG",
+    "coords": {
+      "lat": 55.7496930000001,
+      "lon": 37.53753900000023
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-toyiartyi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220093",
+    "title": "Покорители вершин",
+    "category": "event",
+    "eventType": "event",
+    "zone": "city",
+    "address": "наб. Пресненская, д. 12,  ММДЦ «Москва-Сити», башня «Федерация. Восток», этаж 89",
+    "costForTwo": 1500,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Как проходило строительство небоскрёбов «Москва-Сити», что скрывается за их стеклянными фасадами и люди каких профессий работают над обликом города? На смотровой площадке PANORAMA360 в увлекательной форме школьники познакомятся с интересны…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/f3/5c/f35cc4cf0f3b6d8e1454c64132a041a0.jpg",
+    "coords": {
+      "lat": 55.7496930000001,
+      "lon": 37.53753900000023
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-pokoriteli-vershin/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222995",
+    "title": "Квартира № 3 и её окрестности",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Борисоглебский, д. 6, стр. 1",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Экспозиция переносит в пространство коммунальной квартиры, где повседневные вещи становятся свидетелями больших перемен. Через истории разных жильцов и личные переживания Марины Цветаевой раскрывается жизнь первых советских десятилетий.",
+    "exactDates": [
+      "2025-08-27"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/fe/44/fe441ddfea9e53a3ee118135923e3f94",
+    "coords": {
+      "lat": 55.75419299999997,
+      "lon": 37.59006599999997
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-kvartira--3-i-ee-okrestnosti/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222410",
+    "title": "Российские традиции",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Малый Головин, д. 10",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Народные промыслы, деревенский быт, городские панорамы и сцены труда — всё это оживает в наивной живописи, созданной людьми без академической школы, но с острым чувством цвета. В экспозиции — работы признанных классиков и музейные предметы…",
+    "exactDates": [
+      "2026-01-02"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/20/4f/204f28d0a988d34c861b20cdc64b5199",
+    "coords": {
+      "lat": 55.7689769971855,
+      "lon": 37.63442327709354
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-rossijskie-traditsii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208081",
+    "title": "Экскурсия «В стране фараонов»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Волхонка, д. 12",
+    "costForTwo": 6200,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Старинные иероглифы, суровые и справедливые боги, роскошные саркофаги и загадочные мумии — экскурсанты прикоснутся к культуре Древнего Египта и попробуют разгадать его тайны.",
+    "activeFrom": "2023-12-03",
+    "activeUntil": "2026-08-23",
+    "startTimes": [
+      "16:45:00",
+      "17:15:00",
+      "17:30:00",
+      "17:00:00",
+      "16:30:00",
+      "15:45:00",
+      "12:15:00",
+      "16:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/06/2d/062d30b81fc3481daf24e3e2d7ddddcc.jpg",
+    "coords": {
+      "lat": 55.74727199999997,
+      "lon": 37.60528299999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-v-strane-faraonov/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-210752",
+    "title": "Боинг-Боинг",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Популярные артисты театра и кино — в улётной комедии Сергея Ефремова о чересчур влюблённом архитекторе.",
+    "activeFrom": "2024-09-19",
+    "activeUntil": "2026-11-20",
+    "startTimes": [
+      "19:00:00",
+      "16:00:00",
+      "20:00:00",
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/44/50/44503b488ac32daf4e33a79c1748e5e6.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-boing-boing/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-225173",
     "title": "Цветы. Символ красоты",
     "category": "event",
@@ -25252,129 +25171,151 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-204073",
-    "title": "Примадонны",
+    "id": "kudago-event-224456",
+    "title": "Романовы: история и мистика великой династии",
     "category": "event",
-    "eventType": "theater",
+    "eventType": "event",
     "zone": "center",
     "address": "Москва",
-    "costForTwo": 4000,
+    "costForTwo": 3000,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Откуда произошёл род Романовых и какие тайны хранят столичные памятники архитектуры? На экскурсии вы узнаете неожиданные факты о царской династии и увидите знаковые исторические локации Москвы.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/52/e2/52e279c424c0083b6a0678f10994a1c1.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-romanovyi-istoriya-i-mistika-velikoj-dinastii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-216921",
+    "title": "Фурин",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Новорогожская, д. 5",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.476730327737404,
+    "description": "Маджонг в клубе «Фурин» — это увлекательная игра, а также путь к развитию мышления, внимательности и стратегического взгляда. Новички освоят правила и сыграют первую партию, а опытные игроки углубят знания и обсудят сложные тактики.",
+    "exactDates": [
+      "2025-04-10",
+      "2025-04-17",
+      "2025-05-22",
+      "2025-06-19",
+      "2025-07-03"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "18:00:00",
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/1d/f4/1df45e775f27a37fbe0182f61c26d1e0",
+    "coords": {
+      "lat": 55.74290010000011,
+      "lon": 37.67939470000001
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/igra-klub-madzhonga-furin/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-192854",
+    "title": "Баста",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "city",
+    "address": "наб. Лужнецкая, д. 24",
+    "costForTwo": 6000,
+    "costEstimated": false,
+    "duration": 110,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.476730327737404,
-    "description": "Вдохновлённая знаменитым кинохитом «В джазе только девушки» комедийная постановка Сергея Ефремова рассказывает историю двух неудачливых актёров, которые решают притвориться девушками, чтобы заполучить огромное наследство.",
-    "activeFrom": "2023-04-21",
-    "activeUntil": "2027-01-08",
+    "description": "Один из самых востребованных рэп-артистов в стране вновь замахивается на стадионный формат.",
+    "exactDates": [
+      "2022-06-18",
+      "2025-06-27",
+      "2025-06-28",
+      "2026-08-29",
+      "2026-08-30"
+    ],
     "startTimes": [
       "19:00:00",
-      "17:00:00",
-      "20:00:00",
-      "18:00:00",
-      "16:00:00"
+      "19:30:00"
     ],
-    "image": "https://media.kudago.com/images/event/1c/1c/1c1cec58f94797d4b46ee3abf992711f.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/d5/88/d588652486f2e2923a574a6b0dc00871.jpg",
+    "coords": {
+      "lat": 55.71474399999995,
+      "lon": 37.553828
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-primadonnyi/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-basta-iyul-2021/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-209756",
-    "title": "Мой брат умер",
+    "id": "kudago-event-223547",
+    "title": "Гости из будущего",
     "category": "event",
-    "eventType": "theater",
+    "eventType": "exhibition",
     "zone": "center",
-    "address": "Страстной бул., д. 12/2",
-    "costForTwo": 12000,
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Перформативная читка киносценария Алексея Балабанова, завершённого им за три дня до смерти.",
+    "description": "Инсталляция Сони Стереостырски превращает привычную музейную систему наблюдения в странный и ироничный спектакль. Проект размышляет о контроле, ритуалах музейного пространства и о том, как мы смотрим на искусство, пока кто-то смотрит на на…",
     "exactDates": [
-      "2024-05-07",
-      "2024-05-08",
-      "2024-06-26",
-      "2024-06-27",
-      "2024-09-18",
-      "2024-10-15",
-      "2024-11-09",
-      "2025-01-18",
-      "2025-02-21",
-      "2025-03-04",
-      "2025-04-10",
-      "2025-05-07",
-      "2025-06-29",
-      "2025-07-08",
-      "2025-10-25",
-      "2026-01-21",
-      "2026-07-09",
-      "2026-09-23",
-      "2026-09-24",
-      "2026-10-09",
-      "2026-10-10"
+      "2026-03-06"
     ],
     "startTimes": [
-      "19:00:00"
+      "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/9c/46/9c4683ab7a3dcce7e11d4db721eef55f.jpg",
+    "image": "https://media.kudago.com/images/event/53/3f/533f4503287d10ed01d9057b24b8b6cc",
     "coords": {
-      "lat": 55.76615849999985,
-      "lon": 37.60865809999957
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-moj-brat-umer/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-gosti-iz-buduschego/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-199227",
-    "title": "Канарейка",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Петровский пер., д. 3",
-    "costForTwo": 13000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "На сцене воплощаются последние дни жизни Марии Каллас. Главную роль исполняет Сати Спивакова.",
-    "activeFrom": "2022-09-17",
-    "activeUntil": "2026-09-28",
-    "startTimes": [
-      "20:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/e2/26/e226e05939e60fb4e5547a0354d5ea27.jpg",
-    "coords": {
-      "lat": 55.76594399999996,
-      "lon": 37.612775
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-kanarejka/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224455",
-    "title": "Сказки старого Зарядья",
+    "id": "kudago-event-218980",
+    "title": "Курс по скетчингу",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 1056,
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 46000,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -25383,27 +25324,138 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Живописные городские пейзажи и богатая история — вы осмотрите достопримечательности одного из самых колоритных районов столицы и ощутите дыхание разных эпох.",
+    "description": "За 8 занятий слушатели курса научатся передавать свои творческие идей на бумагу и создадут несколько красивых зарисовок различными художественными материалами.",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
-      "21:30"
+      "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/39/ea/39ea04da24600d769982e063d882595e.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/cd/32/cd3294d92df8ee525187a36c1f297979.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-skazki-starogo-zaryadya/",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-sketchingu/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-211590",
-    "title": "Celtica",
+    "id": "kudago-event-224453",
+    "title": "Речная прогулка на теплоходе «Ривер Палас»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 7000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "На теплоходе премиум-класса вы пройдёте вдоль гранитных набережных и знаковых достопримечательностей Москвы. По желанию прогулку можно дополнить ужином прямо на борту.",
+    "exactDates": [
+      "2026-04-01",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/7e/ea/7eea79e10e6bb8e39508c655b7684beb.JPG",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-rechnaya-progulka-na-teplohode-river-palas/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218860",
+    "title": "«Большая фанатская ночь» / Big fandom night",
+    "category": "event",
+    "eventType": "event",
+    "zone": "city",
+    "address": "Ленинградский просп., д. 47, стр. 19",
+    "costForTwo": 2400,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Мультифанатская вечеринка нового уровня объединит поклонников аниме, фильмов, книг и комиксов. Гостей ждут почта валентинок, запоминающиеся тематические выступления и настоящее романтическое настроение!",
+    "exactDates": [
+      "2025-06-28",
+      "2025-09-06",
+      "2025-10-04",
+      "2025-11-01",
+      "2025-11-22",
+      "2025-12-27",
+      "2026-01-10",
+      "2026-02-14",
+      "2026-03-28",
+      "2026-05-02",
+      "2026-06-27",
+      "2026-09-12"
+    ],
+    "startTimes": [
+      "23:40:00",
+      "23:55:00"
+    ],
+    "image": "https://media.kudago.com/images/event/6f/fd/6ffd6f4ef1fea8a87b4b06117c53cd33.jpg",
+    "coords": {
+      "lat": 55.799364800000255,
+      "lon": 37.53202969999972
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-big-fandom-night/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218978",
+    "title": "Базовый курс рисования",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 100626,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Карандашные зарисовки, масляные натюрморты, портрет углём и реалистичные пейзажи — за 16 занятий вы познакомитесь с основами живописи и рисунка и научитесь писать картины в разных техниках.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/cd/bd/cdbd905f284c9381e304203efaa23260.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-bazovyij-kurs-risovaniya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223480",
+    "title": "Джаз и вино",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 1600,
+    "address": "ул. Яузская, д. 1/15 стр. 1",
+    "costForTwo": 7000,
     "costEstimated": false,
     "duration": 110,
     "indoor": true,
@@ -25412,100 +25464,157 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "«Селтика» — это фееричное шоу, которое отражает живую музыкальную культуру Ирландии через динамичные выступления.",
+    "description": "Джазовый вечер с дегустацией под руководством опытного сомелье — событие, наполненное эстетикой и вкусом.",
     "exactDates": [
-      "2024-11-03",
-      "2025-01-28",
-      "2025-06-03",
-      "2025-10-29",
-      "2026-06-29",
+      "2026-03-22",
+      "2026-04-05",
+      "2026-04-19",
+      "2026-04-23",
+      "2026-05-03",
+      "2026-05-10",
+      "2026-06-14",
+      "2026-06-21",
+      "2026-06-28",
+      "2026-07-05",
+      "2026-07-12",
+      "2026-07-19",
+      "2026-07-26",
+      "2026-08-02",
+      "2026-08-09",
+      "2026-08-16",
+      "2026-08-23",
+      "2026-08-30",
+      "2026-09-06",
+      "2026-09-13",
+      "2026-09-20",
+      "2026-09-27"
+    ],
+    "startTimes": [
+      "17:00:00",
+      "19:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/20/4e/204e1e3598582ed887d897675e664bf3.jpg",
+    "coords": {
+      "lat": 55.75048466331753,
+      "lon": 37.64341169464926
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-dzhaz-i-vino/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-202241",
+    "title": "Охота жить",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "бул. Чистопрудный, д. 19",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Спектакль о любви, верности, дружбе, счастье и разочарованиях по рассказам Василия Шукшина. Здесь смех соседствует с грустью, а простые сюжеты оказываются очень личными.",
+    "exactDates": [
+      "2023-01-30",
+      "2023-02-10",
+      "2023-02-17",
+      "2023-02-26",
+      "2023-03-10",
+      "2023-03-18",
+      "2023-03-24",
+      "2023-03-31",
+      "2023-04-09",
+      "2023-04-17",
+      "2023-04-29",
+      "2023-05-09",
+      "2023-06-22",
+      "2023-07-02",
+      "2023-09-16",
+      "2023-09-25",
+      "2023-10-09",
+      "2023-10-18",
+      "2023-10-23",
+      "2023-11-04",
+      "2024-01-05",
+      "2024-01-20",
+      "2024-02-02",
+      "2024-02-18",
+      "2024-02-25",
+      "2024-03-09",
+      "2024-03-16",
+      "2024-04-06",
+      "2024-04-13",
+      "2024-04-29",
+      "2024-05-09",
+      "2024-06-12",
+      "2026-04-26",
+      "2026-06-04",
       "2026-09-16"
     ],
     "startTimes": [
       "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/58/6b/586b6c74726ed264e98b936d06f36499",
+    "image": "https://media.kudago.com/images/event/8b/10/8b10ea5016bbf587fc627de2cf09ccc3.jpg",
     "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
+      "lat": 55.76182099999997,
+      "lon": 37.645968
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-celtica/",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-ohota-zhit/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223544",
-    "title": "Искусство будущего",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 200,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Этот проект собирает искусство, науку и технологии, чтобы поговорить о мире, который меняется у нас на глазах. В центре внимания — работы, где искусственный интеллект, робототехника и цифровые среды становятся способом заново поставить воп…",
-    "exactDates": [
-      "2026-03-06"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/37/ba/37ba3801df7aece35517837f7725ba8d.png",
-    "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/biennale-iskusstvo-buduschego/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-209054",
-    "title": "Волшебный фонарь",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Борисоглебский, д. 6, стр. 1",
-    "costForTwo": 600,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Мир раннего творчества Марины Цветаевой — в мемориальных предметах на выставке в доме-музее поэтессы.",
-    "exactDates": [
-      "2024-01-18"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/20/9f/209f4f34a89599f24acb452c4786e326.jpg",
-    "coords": {
-      "lat": 55.75419299999997,
-      "lon": 37.59006599999997
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-volshebnyij-fonar/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-216625",
-    "title": "Эйнштейн Party",
+    "id": "kudago-event-218873",
+    "title": "Music Loto",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2500,
-    "costEstimated": true,
+    "address": "Садовая-Спасская ул., д. 21/1",
+    "costForTwo": 1980,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Шоу Music Loto — это новый формат весёлых музыкальных вечеринок, где гостей ждут десятки любимых хитов, танцы, много смеха и подарки.",
+    "exactDates": [
+      "2025-06-06",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "18:00:00",
+      "19:30:00",
+      "21:00:00",
+      "00:00:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/48/03/480320f5662ddccc16bf30f2ac6fe094.JPG",
+    "coords": {
+      "lat": 55.76863140000002,
+      "lon": 37.65064030000019
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-music-loto/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-214368",
+    "title": "Интерьерная картина",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Трубная, д. 29, стр. 4",
+    "costForTwo": 3000,
+    "costEstimated": false,
     "duration": 105,
     "indoor": true,
     "vibes": [
@@ -25513,17 +25622,21 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Если вам надоели стандартные викторины с вопросами уровня «в каком году…», «кто написал…» — вам сюда. Квиз «Эйнштейн Party» — это мозговой штурм, где необязательно быть ходячей энциклопедией, чтобы тащить за всю команду.",
+    "description": "На творческом мастер-классе под руководством опытного художника вы собственными руками создадите красочную абстрактную картину в выбранной технике живописи.",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
+      "21:30",
       "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/f1/41/f141ff3421dd744a9e5c6f99ffb6eaf4.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/71/11/7111e4847b658a071f2129dcb415de27.jpg",
+    "coords": {
+      "lat": 55.77174630000005,
+      "lon": 37.62389340000005
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-ejnshtejn-party/",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-interernaya-kartina/",
     "officialUrl": null
   },
   {
@@ -25566,115 +25679,36 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-219948",
-    "title": "Летфест",
+    "id": "kudago-event-206400",
+    "title": "Детский праздник в клубе «Лазертаг Зона»/Lazertag Zone",
     "category": "event",
-    "eventType": "concert",
+    "eventType": "event",
     "zone": "center",
-    "address": "ул. Крымский Вал, вл. 2",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": false,
+    "address": "ул. Самокатная, д. 4 стр. 1",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": true,
     "vibes": [
       "fun",
       "unusual",
       "active"
     ],
     "quality": 7.374597397485109,
-    "description": "В парке «Музеон» в воздух поднимутся невероятные конструкции. Команды во главе со звёздными спортсменами и артистами представят свои самодельные летательные аппараты, а жюри решит, который из них — лучший.",
+    "description": "Хотите подарить имениннику и его гостям яркие впечатления? Увлекательные командные игры в клубе Lazertag Zone сделают любой детский праздник событием, которое невозможно забыть.",
     "exactDates": [
-      "2025-08-23",
-      "2026-08-22"
-    ],
-    "startTimes": [
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d1/d4/d1d445f5ef8a5bed2017949abeaac12e.webp",
-    "coords": {
-      "lat": 55.73559099999997,
-      "lon": 37.60662199999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/festival-letfest/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225864",
-    "title": "ТОК 2026",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "наб. Болотная, д. 15",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "ТОК 2026 — конференция для предпринимателей, которые выбирают расти даже при колоссальном напряжении. Каждый год здесь поднимают темы, которые сейчас особенно остро звучат для бизнеса.",
-    "exactDates": [
-      "2026-08-27"
+      "0001-01-02"
     ],
     "startTimes": [
       "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/27/f1/27f1189e27c9c1aa4855a491b879c9f9.jpg",
+    "image": "https://media.kudago.com/images/event/0c/19/0c1962eb42508df20c453ab6cec6c328.jpg",
     "coords": {
-      "lat": 55.74271099999972,
-      "lon": 37.61275390000022
+      "lat": 55.75616300000001,
+      "lon": 37.67737509999978
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/konferentsiya-tok/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-208695",
-    "title": "Дудук с оркестром",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "south",
-    "address": "Ленинский просп., д. 105",
-    "costForTwo": 4800,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Шедевры классики, знаменитые саундтреки и жемчужины армянской народной музыки прозвучат в исполнении дудукиста Арсена Костоняна и яркого петербургского коллектива Olympic orchestra.",
-    "exactDates": [
-      "2024-03-30",
-      "2024-05-04",
-      "2024-10-12",
-      "2024-12-06",
-      "2025-01-24",
-      "2026-01-17",
-      "2026-02-14",
-      "2026-03-08",
-      "2026-04-04",
-      "2026-05-01",
-      "2026-07-18",
-      "2026-08-22",
-      "2026-09-12"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "19:30:00",
-      "20:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/8e/4e/8e4ed15e2551bdff3c42ba96aab26597.png",
-    "coords": {
-      "lat": 55.66527899999996,
-      "lon": 37.51336799999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-duduk-s-orkestrom-2024/",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-detskij-prazdnik-v-klube-lazertag-zone/",
     "officialUrl": null
   },
   {
@@ -25771,13 +25805,13 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-211447",
-    "title": "Создание комикса",
+    "id": "kudago-event-210311",
+    "title": "Премиальные групповые знакомства GOKON",
     "category": "event",
     "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 2000,
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 29998,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -25786,19 +25820,46 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Художник Алим Велитов приглашает всех желающих на мастер-класс по созданию комиксов, который состоится 28 октября в «Кабинете художника».",
-    "activeFrom": "2024-10-26",
-    "activeUntil": "2026-08-25",
+    "description": "Роскошная атмосфера, ресторан премиум-класса и новые знакомства по статусу — мероприятие соберёт под одной крышей успешных мужчин и женщин, ценящих высокий стандарт жизни. Их ждут вкусные блюда, общение с интересными людьми и специальная п…",
+    "activeFrom": "2024-07-27",
+    "activeUntil": "2026-08-23",
     "startTimes": [
-      "15:00:00"
+      "19:00:00",
+      "18:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/72/8a/728ada0ef88eff2b59178d3f1f7adce3",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
+    "image": "https://media.kudago.com/images/event/4c/f3/4cf3e7e679ebbf166f59e4774c46a54f.jpg",
+    "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/master-klass-sozdanie-komiksa/",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-gokon-premium/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224442",
+    "title": "Царь-макет",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 1440,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "«Царь-макет» — место, где под одной крышей собрана вся Россия в миниатюре. Вы увидите узнаваемые символы крупных городов, детальные копии деревень и воссозданные с поразительной точностью памятники природы.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "10:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/5e/9a/5e9acfb27660f1702a24cfd3fd9710f0.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-tsar-maket/",
     "officialUrl": null
   },
   {
@@ -25832,233 +25893,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223071",
-    "title": "Чёрный человек. Исповедь поэта",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Чернышевского, д. 4, стр. 2",
-    "costForTwo": 700,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Поэма Сергея Есенина о беседе с собственным двойником становится поводом для серьёзного разговора о природе тьмы, свете творчества и внутреннем конфликте художника. Экспозиция обращается к истории текста и его восприятию современниками.",
-    "exactDates": [
-      "2026-02-20"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/55/12/5512ef51312e3757daca9e5219887ed0.jpg",
-    "coords": {
-      "lat": 55.782152000000025,
-      "lon": 37.60921699999961
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-chyornyij-chelovek-ispoved-poeta-s4yhhu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225479",
-    "title": "Картинг Crazy Cart со скидкой",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 1386,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Крутые виражи и безопасные треки — отдых в Crazy Cart подарит ребятам массу ярких эмоций. Маленьких гонщиков ждёт увлекательное знакомство с основами вождения, а пилотов постарше — соревновательные заезды.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/12/66/12668e7b4675103e79e6667dfdf0eb51.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-karting-crazy-cart-so-skidkoj/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218978",
-    "title": "Базовый курс рисования",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 100626,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Карандашные зарисовки, масляные натюрморты, портрет углём и реалистичные пейзажи — за 16 занятий вы познакомитесь с основами живописи и рисунка и научитесь писать картины в разных техниках.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/cd/bd/cdbd905f284c9381e304203efaa23260.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-bazovyij-kurs-risovaniya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218980",
-    "title": "Курс по скетчингу",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 46000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "За 8 занятий слушатели курса научатся передавать свои творческие идей на бумагу и создадут несколько красивых зарисовок различными художественными материалами.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/cd/32/cd3294d92df8ee525187a36c1f297979.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-sketchingu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223547",
-    "title": "Гости из будущего",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Инсталляция Сони Стереостырски превращает привычную музейную систему наблюдения в странный и ироничный спектакль. Проект размышляет о контроле, ритуалах музейного пространства и о том, как мы смотрим на искусство, пока кто-то смотрит на на…",
-    "exactDates": [
-      "2026-03-06"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/53/3f/533f4503287d10ed01d9057b24b8b6cc",
-    "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-gosti-iz-buduschego/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225760",
-    "title": "Выбор коллекционеров. К 170-летию со дня основания Третьяковской галереи",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Лаврушинский, д. 10",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Маршрут по постоянной экспозиции рассказывает, как частные собрания стали основой национального музея. Через произведения XVIII—XIX веков можно проследить вкусы трёх коллекционеров.",
-    "exactDates": [
-      "2026-06-25"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/38/3b/383b1229a1a4f405ec353057bfdeb5d2.jpg",
-    "coords": {
-      "lat": 55.74115599999996,
-      "lon": 37.62021299999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-marshrut-vyibor-kollektsionerov-k-170-letiyu-so-dnya-osnovaniya-tretyakovskoj-galerei/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218873",
-    "title": "Music Loto",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Садовая-Спасская ул., д. 21/1",
-    "costForTwo": 1980,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Шоу Music Loto — это новый формат весёлых музыкальных вечеринок, где гостей ждут десятки любимых хитов, танцы, много смеха и подарки.",
-    "exactDates": [
-      "2025-06-06",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "18:00:00",
-      "19:30:00",
-      "21:00:00",
-      "00:00:00",
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/48/03/480320f5662ddccc16bf30f2ac6fe094.JPG",
-    "coords": {
-      "lat": 55.76863140000002,
-      "lon": 37.65064030000019
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-music-loto/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-223322",
     "title": "В семействе нашем, где царствует любовь…",
     "category": "event",
@@ -26089,37 +25923,6 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/vyistavka-v-semejstve-nashem-gde-tsarstvuet-lyubov/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-216650",
-    "title": "Капибара Квиз",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active",
-      "calm"
-    ],
-    "quality": 7.374597397485109,
-    "description": "«Капибара Квиз» — это лёгкий способ провести вечер ярко, весело и с пользой для ума. Командная игра с уютной атмосферой, ненапряжными вопросами и кучей поводов посмеяться!",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/a0/4a/a04affdeb2b77c7354b3fcd49796cd7c.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-kapibara-kviz/",
     "officialUrl": null
   },
   {
@@ -26161,243 +25964,6 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-214863",
-    "title": "Виктор Сухоруков и Оркестр Некрасова",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Неповторимая встреча с выдающимся артистом Виктором Сухоруковым в сопровождении Академического оркестра имени Некрасова.",
-    "exactDates": [
-      "2025-04-03",
-      "2025-09-25",
-      "2026-04-21",
-      "2026-09-16"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/f0/6c/f06cf4fef729f12dc14812b52535f00a",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/monospektakl-viktor-suhorukov-i-orkestr-im-n-nekrasova/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218860",
-    "title": "«Большая фанатская ночь» / Big fandom night",
-    "category": "event",
-    "eventType": "event",
-    "zone": "city",
-    "address": "Ленинградский просп., д. 47, стр. 19",
-    "costForTwo": 2400,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Мультифанатская вечеринка нового уровня объединит поклонников аниме, фильмов, книг и комиксов. Гостей ждут почта валентинок, запоминающиеся тематические выступления и настоящее романтическое настроение!",
-    "exactDates": [
-      "2025-06-28",
-      "2025-09-06",
-      "2025-10-04",
-      "2025-11-01",
-      "2025-11-22",
-      "2025-12-27",
-      "2026-01-10",
-      "2026-02-14",
-      "2026-03-28",
-      "2026-05-02",
-      "2026-06-27",
-      "2026-09-12"
-    ],
-    "startTimes": [
-      "23:40:00",
-      "23:55:00"
-    ],
-    "image": "https://media.kudago.com/images/event/6f/fd/6ffd6f4ef1fea8a87b4b06117c53cd33.jpg",
-    "coords": {
-      "lat": 55.799364800000255,
-      "lon": 37.53202969999972
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-big-fandom-night/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-210311",
-    "title": "Премиальные групповые знакомства GOKON",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 29998,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Роскошная атмосфера, ресторан премиум-класса и новые знакомства по статусу — мероприятие соберёт под одной крышей успешных мужчин и женщин, ценящих высокий стандарт жизни. Их ждут вкусные блюда, общение с интересными людьми и специальная п…",
-    "activeFrom": "2024-07-27",
-    "activeUntil": "2026-08-23",
-    "startTimes": [
-      "19:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/4c/f3/4cf3e7e679ebbf166f59e4774c46a54f.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-gokon-premium/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226145",
-    "title": "Спортивный фестиваль",
-    "category": "event",
-    "eventType": "festival",
-    "zone": "city",
-    "address": "наб. Лужнецкая, д. 24",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": false,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Департамент спорта города Москвы проводит масштабный фестиваль с тренировками на свежем воздухе, пляжным релаксом, технологичными развлечениями и зрелищными шоу на воде.",
-    "exactDates": [
-      "2026-08-01"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/98/ae/98ae90a80837a5ee1654c8c43f70514a.jpeg",
-    "coords": {
-      "lat": 55.71474399999995,
-      "lon": 37.553828
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/festival-sportivnyij-festival/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-201660",
-    "title": "«Идём!Квиз» / «Гоу!Квиз» на корпоратив",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 130000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Хотите устроить корпоратив, воспоминания о котором будут согревать весь следующий год? Команда «Гоу!Квиз» приглашает весело провести время в кругу коллег за решением интересных заданий.",
-    "exactDates": [
-      "2022-12-05",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d3/ff/d3ffdc03700bd6aa100125e8f0eb77cf.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/prazdnik-gokviz-na-korporativ/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-206400",
-    "title": "Детский праздник в клубе «Лазертаг Зона»/Lazertag Zone",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Самокатная, д. 4 стр. 1",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Хотите подарить имениннику и его гостям яркие впечатления? Увлекательные командные игры в клубе Lazertag Zone сделают любой детский праздник событием, которое невозможно забыть.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/0c/19/0c1962eb42508df20c453ab6cec6c328.jpg",
-    "coords": {
-      "lat": 55.75616300000001,
-      "lon": 37.67737509999978
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-detskij-prazdnik-v-klube-lazertag-zone/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226115",
-    "title": "Артефакты Франциско Инфантэ",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "south",
-    "address": "г. Тула, пер. Центральный, д. 18",
-    "costForTwo": 600,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "В экспозиции собраны более 100 произведений Франциско Инфантэ, созданных за несколько десятилетий. Выставка познакомит с художественной системой мастера, в которой природа, свет и пространство становятся частью произведения.",
-    "exactDates": [
-      "2026-08-07"
-    ],
-    "startTimes": [
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/31/fb/31fb7d75d6c3618cd5b2ec11cb369148.jpeg",
-    "coords": {
-      "lat": 54.19090102260353,
-      "lon": 37.61173077016641
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-artefaktyi-frantsisko-infante/",
-    "officialUrl": null
-  },
-  {
     "id": "kudago-event-213287",
     "title": "Мифы и легенды Древней Греции",
     "category": "event",
@@ -26435,46 +26001,117 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-162904",
-    "title": "Синяя синяя птица",
+    "id": "kudago-event-211447",
+    "title": "Создание комикса",
     "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Петровский пер., д. 3",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
     "costForTwo": 2000,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Интерпретация произведения Мориса Метерлинка, в которой соединились элементы шоу и философского размышления.",
-    "activeFrom": "2017-11-30",
-    "activeUntil": "2026-09-13",
+    "description": "Художник Алим Велитов приглашает всех желающих на мастер-класс по созданию комиксов, который состоится 28 октября в «Кабинете художника».",
+    "activeFrom": "2024-10-26",
+    "activeUntil": "2026-08-25",
     "startTimes": [
-      "19:00:00",
-      "14:00:00",
-      "13:00:00",
-      "18:00:00"
+      "15:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/c2/a7/c2a7d128988c079f2b93d95468cecb35.jpg",
+    "image": "https://media.kudago.com/images/event/72/8a/728ada0ef88eff2b59178d3f1f7adce3",
     "coords": {
-      "lat": 55.76594399999996,
-      "lon": 37.612775
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-sinyaya-sinyaya-ptitsa/",
+    "sourceUrl": "https://kudago.com/msk/event/master-klass-sozdanie-komiksa/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225914",
-    "title": "Верю — не верю",
+    "id": "kudago-event-206947",
+    "title": "Бременские музыканты",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Большая Садовая, д. 16",
+    "costForTwo": 1000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Спектакль-праздник Евгения Марчелли — история о дружбе, таланте, красоте и романтической любви для зрителей всех возрастов.",
+    "activeFrom": "2023-09-16",
+    "activeUntil": "2026-09-26",
+    "startTimes": [
+      "19:00:00",
+      "16:00:00",
+      "14:00:00",
+      "13:00:00",
+      "15:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/a5/a6/a5a69f9382c3ceff63170db73f5353c1.jpg",
+    "coords": {
+      "lat": 55.76832899999999,
+      "lon": 37.59745899999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-bremenskie-muzyikantyi-2023/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-211590",
+    "title": "Celtica",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 1600,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "«Селтика» — это фееричное шоу, которое отражает живую музыкальную культуру Ирландии через динамичные выступления.",
+    "exactDates": [
+      "2024-11-03",
+      "2025-01-28",
+      "2025-06-03",
+      "2025-10-29",
+      "2026-06-29",
+      "2026-09-16"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/58/6b/586b6c74726ed264e98b936d06f36499",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-celtica/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226115",
+    "title": "Артефакты Франциско Инфантэ",
     "category": "event",
     "eventType": "exhibition",
-    "zone": "center",
-    "address": "Серпуховский Вал, д. 24, к. 2",
+    "zone": "south",
+    "address": "г. Тула, пер. Центральный, д. 18",
     "costForTwo": 600,
     "costEstimated": false,
     "duration": 80,
@@ -26484,117 +26121,145 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Анна Немчинова собирает новую мифологию из лубочных мотивов, городских легенд, мемов 1990-х и викторианских деталей. Ткань, кружево и дерево помогают превратить знакомую повседневность в пространство, где достоверное постоянно спорит с вым…",
+    "description": "В экспозиции собраны более 100 произведений Франциско Инфантэ, созданных за несколько десятилетий. Выставка познакомит с художественной системой мастера, в которой природа, свет и пространство становятся частью произведения.",
     "exactDates": [
-      "2026-07-10"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/a8/cf/a8cf455dd3ae587e05f6984a0011ebe0",
-    "coords": {
-      "lat": 55.712847,
-      "lon": 37.61017
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-veryu---ne-veryu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-214368",
-    "title": "Интерьерная картина",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Трубная, д. 29, стр. 4",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "На творческом мастер-классе под руководством опытного художника вы собственными руками создадите красочную абстрактную картину в выбранной технике живописи.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30",
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/71/11/7111e4847b658a071f2129dcb415de27.jpg",
-    "coords": {
-      "lat": 55.77174630000005,
-      "lon": 37.62389340000005
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-interernaya-kartina/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225924",
-    "title": "События в арт-центре Linda de La",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "Берсеневский пер, д. 5 стр.2, этаж 2",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Культурно-образовательный арт-центр Linda de La исследует тему человеческих взаимоотношений на стыке современного искусства, психологии и образования. Здесь создают выставки и камерные проекты, которые помогают по-новому взглянуть на свои…",
-    "exactDates": [
-      "0001-01-02"
+      "2026-08-07"
     ],
     "startTimes": [
       "12:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/d5/5d/d55d7400cae540b2852e41dd3580df0e.jpg",
+    "image": "https://media.kudago.com/images/event/31/fb/31fb7d75d6c3618cd5b2ec11cb369148.jpeg",
     "coords": {
-      "lat": 55.741272837723436,
-      "lon": 37.6096536956327
+      "lat": 54.19090102260353,
+      "lon": 37.61173077016641
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-sobyitiya-v-art-tsentre-linda-de-la/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-artefaktyi-frantsisko-infante/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-224453",
-    "title": "Речная прогулка на теплоходе «Ривер Палас»",
+    "id": "kudago-event-226074",
+    "title": "Бесплатные стендап-концерты в STILL",
     "category": "event",
-    "eventType": "event",
+    "eventType": "concert",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 7000,
+    "address": "ул. Покровка,  д. 17, стр. 5",
+    "costForTwo": 0,
     "costEstimated": false,
-    "duration": 105,
+    "duration": 110,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "На теплоходе премиум-класса вы пройдёте вдоль гранитных набережных и знаковых достопримечательностей Москвы. По желанию прогулку можно дополнить ужином прямо на борту.",
+    "description": "Проверка материала в клубе Still — вечер комедии с бесплатным входом, свежими шутками от опытных комиков и возможностью увидеть, как создаётся стендап.",
     "exactDates": [
-      "2026-04-01",
       "0001-01-02"
     ],
     "startTimes": [
-      "21:00",
-      "21:30"
+      "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/7e/ea/7eea79e10e6bb8e39508c655b7684beb.JPG",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/79/f8/79f85a5796d096f3b1928e94d9098311.png",
+    "coords": {
+      "lat": 55.75965649999987,
+      "lon": 37.645598500000226
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-rechnaya-progulka-na-teplohode-river-palas/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-besplatnyie-stendap-kontsertyi-v-still/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-209756",
+    "title": "Мой брат умер",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Страстной бул., д. 12/2",
+    "costForTwo": 12000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Перформативная читка киносценария Алексея Балабанова, завершённого им за три дня до смерти.",
+    "exactDates": [
+      "2024-05-07",
+      "2024-05-08",
+      "2024-06-26",
+      "2024-06-27",
+      "2024-09-18",
+      "2024-10-15",
+      "2024-11-09",
+      "2025-01-18",
+      "2025-02-21",
+      "2025-03-04",
+      "2025-04-10",
+      "2025-05-07",
+      "2025-06-29",
+      "2025-07-08",
+      "2025-10-25",
+      "2026-01-21",
+      "2026-07-09",
+      "2026-09-23",
+      "2026-09-24",
+      "2026-10-09",
+      "2026-10-10"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/9c/46/9c4683ab7a3dcce7e11d4db721eef55f.jpg",
+    "coords": {
+      "lat": 55.76615849999985,
+      "lon": 37.60865809999957
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-moj-brat-umer/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220058",
+    "title": "Lumisfera",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 6000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Концерт Lumisfera — это музыкальное путешествие в мир любви и гармонии. В программе переплетаются нежные мелодии струнных, вокал Вероники Воронкевич и звучание рояля Михаила Балашова. Каждый номер раскрывает новые оттенки чувств, создавая…",
+    "exactDates": [
+      "2025-09-06",
+      "2025-09-07",
+      "2025-09-20",
+      "2025-10-15",
+      "2025-11-26",
+      "2025-12-08",
+      "2025-12-15",
+      "2025-12-22",
+      "2026-03-23",
+      "2026-09-04"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d6/49/d649a2dca773693fa10366a9acd1eeaf",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-lumisfera-h9gcui/",
     "officialUrl": null
   },
   {
@@ -26652,70 +26317,13 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-206553",
-    "title": "Последнее лето",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Петровский пер., д. 3",
-    "costForTwo": 14000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Спектакль о дачной жизни в эпоху потрясений по сценарию Анны Козловой «Куоккала». История показывает, как привычный уклад постепенно уступает место тревоге и ощущению перемен.",
-    "exactDates": [
-      "2023-09-25",
-      "2023-09-26",
-      "2023-09-27",
-      "2023-10-10",
-      "2023-10-11",
-      "2023-10-12",
-      "2023-11-07",
-      "2023-12-06",
-      "2024-01-08",
-      "2024-04-13",
-      "2024-11-29",
-      "2024-12-08",
-      "2025-01-11",
-      "2025-10-01",
-      "2025-10-31",
-      "2025-11-15",
-      "2026-01-09",
-      "2026-04-02",
-      "2026-04-04",
-      "2026-04-12",
-      "2026-06-05",
-      "2026-06-06",
-      "2026-06-07",
-      "2026-09-19",
-      "2026-09-20"
-    ],
-    "startTimes": [
-      "20:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/f0/28/f028a32e510c0d23086a56a2ac872079.jpg",
-    "coords": {
-      "lat": 55.76594399999996,
-      "lon": 37.612775
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-poslednee-leto/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224442",
-    "title": "Царь-макет",
+    "id": "kudago-event-225479",
+    "title": "Картинг Crazy Cart со скидкой",
     "category": "event",
     "eventType": "event",
     "zone": "center",
     "address": "Москва",
-    "costForTwo": 1440,
+    "costForTwo": 1386,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -26724,131 +26332,87 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "«Царь-макет» — место, где под одной крышей собрана вся Россия в миниатюре. Вы увидите узнаваемые символы крупных городов, детальные копии деревень и воссозданные с поразительной точностью памятники природы.",
+    "description": "Крутые виражи и безопасные треки — отдых в Crazy Cart подарит ребятам массу ярких эмоций. Маленьких гонщиков ждёт увлекательное знакомство с основами вождения, а пилотов постарше — соревновательные заезды.",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
-      "10:00:00"
+      "21:30"
     ],
-    "image": "https://media.kudago.com/images/event/5e/9a/5e9acfb27660f1702a24cfd3fd9710f0.jpg",
+    "image": "https://media.kudago.com/images/event/12/66/12668e7b4675103e79e6667dfdf0eb51.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-tsar-maket/",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-karting-crazy-cart-so-skidkoj/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-205592",
-    "title": "Somewhere Music Session",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "Большой Дровяной пер., д. 6",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.374597397485109,
-    "description": "Группа Somewhere Music Session исполнит хиты легендарных поп-див и подарит гостям романтику на крыше.",
-    "exactDates": [
-      "2023-07-02",
-      "2023-08-27",
-      "2024-08-02",
-      "2024-08-22",
-      "2025-07-19",
-      "2026-05-22",
-      "2026-08-20"
-    ],
-    "startTimes": [
-      "20:00:00",
-      "18:00:00",
-      "19:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/51/3d/513d8ee897c745ffb65cc8a4cc522764.jpg",
-    "coords": {
-      "lat": 55.74374270000012,
-      "lon": 37.656222700000036
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-divas-voices-na-vyisote/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222991",
-    "title": "Муки творчества",
+    "id": "kudago-event-225924",
+    "title": "События в арт-центре Linda de La",
     "category": "event",
     "eventType": "exhibition",
-    "zone": "west",
-    "address": "Московская обл., Красногорский р-н, пос. Архангельское",
-    "costForTwo": 700,
+    "zone": "center",
+    "address": "Берсеневский пер, д. 5 стр.2, этаж 2",
+    "costForTwo": 1400,
     "costEstimated": false,
     "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual"
+      "unusual",
+      "calm"
     ],
     "quality": 7.374597397485109,
-    "description": "Экспозиция показывает изнанку фарфоровой красоты — от первых неуверенных мазков по белому «белью» до смелых экспериментов с формами, которые рождались в мастерской. Зритель оказывается рядом с художниками в тот момент, когда сервиз ещё тол…",
+    "description": "Культурно-образовательный арт-центр Linda de La исследует тему человеческих взаимоотношений на стыке современного искусства, психологии и образования. Здесь создают выставки и камерные проекты, которые помогают по-новому взглянуть на свои…",
     "exactDates": [
-      "2026-01-02"
+      "0001-01-02"
     ],
     "startTimes": [
-      "21:00"
+      "12:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/c8/3d/c83d680ccf1bafe80f43813d76ff964e.jpg",
+    "image": "https://media.kudago.com/images/event/d5/5d/d55d7400cae540b2852e41dd3580df0e.jpg",
     "coords": {
-      "lat": 55.78468526559221,
-      "lon": 37.28426308018685
+      "lat": 55.741272837723436,
+      "lon": 37.6096536956327
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-muki-tvorchestva/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-sobyitiya-v-art-tsentre-linda-de-la/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-220182",
-    "title": "Данила Козловский. Фрэнк",
+    "id": "kudago-event-225864",
+    "title": "ТОК 2026",
     "category": "event",
-    "eventType": "theater",
-    "zone": "vdnh",
-    "address": "просп. Мира, д. 119, стр. 545",
-    "costForTwo": 7000,
+    "eventType": "event",
+    "zone": "center",
+    "address": "наб. Болотная, д. 15",
+    "costForTwo": 0,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "«Фрэнк» с Данилой Козловским — это ни на что не похожий музыкальный стендап, личная история, близкая и понятная каждому. Темы любви и дружбы, юмор, искренность, красивое световое оформление — всё это объединилось на сцене в тонкой режиссур…",
+    "description": "ТОК 2026 — конференция для предпринимателей, которые выбирают расти даже при колоссальном напряжении. Каждый год здесь поднимают темы, которые сейчас особенно остро звучат для бизнеса.",
     "exactDates": [
-      "2025-10-07",
-      "2025-10-14",
-      "2026-05-03",
-      "2026-08-22"
+      "2026-08-27"
     ],
     "startTimes": [
-      "19:00:00",
-      "20:00:00"
+      "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/d2/b1/d2b1e67bb8fb4d9b1f6cdfd93147cb6c.jpg",
+    "image": "https://media.kudago.com/images/event/27/f1/27f1189e27c9c1aa4855a491b879c9f9.jpg",
     "coords": {
-      "lat": 55.83156999999999,
-      "lon": 37.6175
+      "lat": 55.74271099999972,
+      "lon": 37.61275390000022
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-danila-kozlovskij-frenk/",
+    "sourceUrl": "https://kudago.com/msk/event/konferentsiya-tok/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223549",
-    "title": "Sanctum [green]",
+    "id": "kudago-event-223546",
+    "title": "4338",
     "category": "event",
     "eventType": "exhibition",
     "zone": "center",
@@ -26862,52 +26426,99 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Инсталляция Степана Терещенко и Monolesan предлагает пройти путь от телесного присутствия к почти полному растворению в цифровой среде. Проект исследует, как человек теряет признаки индивидуальности, превращаясь сначала в набор данных, а з…",
+    "description": "Проект Павла Пепперштейна соединяет литературу, футурологию и художественное воображение, возвращая к одному из самых поразительных русских текстов о будущем. В центре внимания — взгляд на завтрашний день, где научная фантастика XIX века п…",
     "exactDates": [
       "2026-03-06"
     ],
     "startTimes": [
       "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/db/b6/dbb60ce3f41787fd0232e8e0429c5793",
+    "image": "https://media.kudago.com/images/event/f3/26/f32691232b54d38ab639fd1632630d75.jpg",
     "coords": {
       "lat": 55.74165699999998,
       "lon": 37.59877999999995
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-sanctumgreen/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-4338/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-222734",
-    "title": "Панорама отечественного наивного искусства",
+    "id": "kudago-event-208695",
+    "title": "Дудук с оркестром",
     "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Малый Головин, д. 10",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 80,
+    "eventType": "concert",
+    "zone": "south",
+    "address": "Ленинский просп., д. 105",
+    "costForTwo": 4800,
+    "costEstimated": false,
+    "duration": 110,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.374597397485109,
-    "description": "Наивное искусство в России — это живой, трогательный язык, в котором говорят города, люди и сказочные сюжеты. Выставка предлагает взглянуть на знакомую реальность глазами художников-самоучек, для которых искренность важнее академических пр…",
+    "description": "Шедевры классики, знаменитые саундтреки и жемчужины армянской народной музыки прозвучат в исполнении дудукиста Арсена Костоняна и яркого петербургского коллектива Olympic orchestra.",
     "exactDates": [
-      "2026-01-02"
+      "2024-03-30",
+      "2024-05-04",
+      "2024-10-12",
+      "2024-12-06",
+      "2025-01-24",
+      "2026-01-17",
+      "2026-02-14",
+      "2026-03-08",
+      "2026-04-04",
+      "2026-05-01",
+      "2026-07-18",
+      "2026-08-22",
+      "2026-09-12"
     ],
     "startTimes": [
-      "10:00:00"
+      "19:00:00",
+      "19:30:00",
+      "20:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/db/83/db83eeff3dd87121ef4d904d761b9134",
+    "image": "https://media.kudago.com/images/event/8e/4e/8e4ed15e2551bdff3c42ba96aab26597.png",
     "coords": {
-      "lat": 55.7689769971855,
-      "lon": 37.63442327709354
+      "lat": 55.66527899999996,
+      "lon": 37.51336799999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-panorama-otechestvennogo-naivnogo-iskusstva/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-duduk-s-orkestrom-2024/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226145",
+    "title": "Спортивный фестиваль",
+    "category": "event",
+    "eventType": "festival",
+    "zone": "city",
+    "address": "наб. Лужнецкая, д. 24",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": false,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Департамент спорта города Москвы проводит масштабный фестиваль с тренировками на свежем воздухе, пляжным релаксом, технологичными развлечениями и зрелищными шоу на воде.",
+    "exactDates": [
+      "2026-08-01"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/98/ae/98ae90a80837a5ee1654c8c43f70514a.jpeg",
+    "coords": {
+      "lat": 55.71474399999995,
+      "lon": 37.553828
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/festival-sportivnyij-festival/",
     "officialUrl": null
   },
   {
@@ -26948,6 +26559,151 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-180394",
+    "title": "Мой папа — Питер Пэн",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "vdnh",
+    "address": "ул. Шереметьевская, д. 6, корпус 2",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "История о памяти, взрослении и попытке понять близкого человека. В центре внимания — зыбкая граница между фантазией и реальностью.",
+    "exactDates": [
+      "2020-03-01",
+      "2020-03-15",
+      "2020-09-04",
+      "2021-01-26",
+      "2022-11-19",
+      "2022-12-03",
+      "2023-01-15",
+      "2023-02-15",
+      "2023-03-26",
+      "2023-04-01",
+      "2023-04-30",
+      "2023-05-19",
+      "2023-06-21",
+      "2023-07-20",
+      "2023-09-29",
+      "2023-10-07",
+      "2023-12-24",
+      "2024-01-20",
+      "2024-04-07",
+      "2024-05-12",
+      "2024-06-03",
+      "2024-09-19",
+      "2024-10-23",
+      "2024-11-23",
+      "2024-12-21",
+      "2025-01-21",
+      "2025-02-23",
+      "2025-03-01",
+      "2025-04-26",
+      "2025-05-25",
+      "2025-06-15",
+      "2026-04-26",
+      "2026-05-10",
+      "2026-07-01",
+      "2026-09-09"
+    ],
+    "startTimes": [
+      "19:30:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/66/c5/66c527093441df3c0e21feffe62fc9d4.jpg",
+    "coords": {
+      "lat": 55.796238,
+      "lon": 37.61868599999998
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-moj-papa---piter-pen/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-219948",
+    "title": "Летфест",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Крымский Вал, вл. 2",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": false,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.374597397485109,
+    "description": "В парке «Музеон» в воздух поднимутся невероятные конструкции. Команды во главе со звёздными спортсменами и артистами представят свои самодельные летательные аппараты, а жюри решит, который из них — лучший.",
+    "exactDates": [
+      "2025-08-23",
+      "2026-08-22"
+    ],
+    "startTimes": [
+      "14:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d1/d4/d1d445f5ef8a5bed2017949abeaac12e.webp",
+    "coords": {
+      "lat": 55.73559099999997,
+      "lon": 37.60662199999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/festival-letfest/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-221034",
+    "title": "Митина любовь",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Арбат, д. 26",
+    "costForTwo": 9000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic",
+      "calm"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Спектакль по повести Ивана Бунина о безответной любви поставил Владислав Наставшев. В его интерпретации повести главный герой Митя оказывается перед лицом стихии, которая сильнее его по определению.",
+    "exactDates": [
+      "2025-11-09",
+      "2025-11-10",
+      "2026-01-08",
+      "2026-01-09",
+      "2026-03-17",
+      "2026-03-24",
+      "2026-04-17",
+      "2026-06-23",
+      "2026-07-20",
+      "2026-09-15"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "19:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/87/96/8796431b113536b383b737d31a276006.jpg",
+    "coords": {
+      "lat": 55.74989099999998,
+      "lon": 37.59152099999997
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-mitina-lyubov/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-216633",
     "title": "WOW Quiz",
     "category": "event",
@@ -26977,451 +26733,12 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225891",
-    "title": "Повод остаться",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Виктория Исакова и Игорь Гордин в комедийной мелодраме по пьесе Бернарда Слейда о бывших супругах, которые решили остаться друзьями.",
-    "exactDates": [
-      "2026-08-25",
-      "2026-08-26",
-      "2026-08-30"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/68/d8/68d841557e205a9f6a9710f74805a0d7.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-povod-ostatsya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225842",
-    "title": "Хиты 80-90-00 на корабле",
-    "category": "event",
-    "eventType": "event",
-    "zone": "vdnh",
-    "address": "ш. Ленинградское, д. 51",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Музыкальный вечер на теплоходе с возможностью потанцевать под хиты, полюбоваться достопримечательностями и закатом.",
-    "exactDates": [
-      "2026-07-10",
-      "2026-07-16",
-      "2026-07-23",
-      "2026-07-30",
-      "2026-08-05",
-      "2026-08-06",
-      "2026-08-12",
-      "2026-08-13",
-      "2026-08-19",
-      "2026-08-20",
-      "2026-08-26",
-      "2026-08-27"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/de/29/de29f1fcf5234dc7cfb5e14a3140bb5a.jpg",
-    "coords": {
-      "lat": 55.85067599999999,
-      "lon": 37.467392
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-hityi-80-90-00-na-korable/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225856",
-    "title": "Мировые джаз- и поп-хиты",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "Большой Дровяной пер., д. 6",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Вечер объединит джазовую классику, современные хиты и выразительный вокал. Гостей ждут музыка под открытым небом и панорамный вид на вечерний город.",
-    "exactDates": [
-      "2026-07-12",
-      "2026-08-08",
-      "2026-08-23"
-    ],
-    "startTimes": [
-      "20:00:00",
-      "19:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/64/5c/645cab9a6285ef975cf237478c92c67b.webp",
-    "coords": {
-      "lat": 55.74374270000012,
-      "lon": 37.656222700000036
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-mirovyie-dzhaz-i-pop-hityi/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224100",
-    "title": "Народы России",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Пречистенка, д. 12/2, стр.1",
-    "costForTwo": 1200,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экспозиция обращается к культурному многообразию страны и показывает, как языки, обычаи, костюмы и фольклор складывались в единое историческое наследие.",
-    "exactDates": [
-      "2026-05-16"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ed/65/ed659e151a08413422e96e3193215758",
-    "coords": {
-      "lat": 55.74354199999998,
-      "lon": 37.59766599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-narodyi-rossii-op6tmf/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218982",
-    "title": "Курс по книжной иллюстрации",
+    "id": "kudago-event-222372",
+    "title": "Осваиваем мобильные устройства",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 46000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "За 8 увлекательных уроков слушатели курса смогут развить воображение, научатся визуализировать книжные сюжеты и превращать свои идеи в интересные красочные иллюстрации.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/a6/55/a65518c4ced32d2f1c9965f41a898702.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-knizhnoj-illyustratsii/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222911",
-    "title": "Старинный орган в Соборе. Бах. Токката и фуга ре минор. Моцарт. Лакримоза. Бетховен. Лунная соната",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "пер. Старосадский, д. 7/10, стр. 10",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Мелодии классиков прозвучат под сводами собора в исполнении солистки Московской филармонии Анастасии Сидельниковой.",
-    "exactDates": [
-      "2026-02-20",
-      "2026-09-23"
-    ],
-    "startTimes": [
-      "21:00:00",
-      "20:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/5b/bd/5bbd98a9773300e47f7d6a68a16f08b8.jpg",
-    "coords": {
-      "lat": 55.75678510282241,
-      "lon": 37.64095186663472
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-bah-tokkata-i-fuga-re-minor-motsart-malenkaya-nochnaya-serenada-bethoven-lunnaya-sonata/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223865",
-    "title": "Под небом Парижа. Фортепиано и Голос",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 4000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.2,
-    "description": "Французская вокальная музыка начала XX века здесь звучит как вечерний жест — с мерцанием парижских огней, мягкой меланхолией и вспышками чувства. Сопрано и фортепиано собирают программу, где рядом существуют изящество, ирония, хрупкость и…",
-    "exactDates": [
-      "2026-04-22",
-      "2026-09-15"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/4e/55/4e55d73fb0532c8e081baf8dd18df47e",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-pod-nebom-parizha-fortepiano-i-golos/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222522",
-    "title": "Шанель № Стравинский",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 12000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Ночь в Театре Елисейских полей превращается в откровенный разговор двух легенд: модельера Габриэль «Коко» Шанель и композитора Игоря Стравинского. В полумраке пустого зала они спорят, вспоминают, ранят и поддерживают друг друга, испытывая…",
-    "exactDates": [
-      "2026-02-07",
-      "2026-02-08",
-      "2026-09-12"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/6c/16/6c166800e45c524a05bebdd1a8b96163",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/spektakl-shanel--stravinskij/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223160",
-    "title": "Династии",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.2,
-    "description": "Три знаменитые фамилии выходят на сцену, чтобы говорить о самом личном — памяти, долге и любви. Балет, поэзия и драматическая речь переплетаются в живой разговор дочерей с наследием своих семей. Этот вечер о том, как большой культуре всегд…",
-    "exactDates": [
-      "2026-03-03",
-      "2026-04-07",
-      "2026-04-26",
-      "2026-09-09"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/03/1e/031e0ff3907d9d8219ef7cd5a329cb4b",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/spektakl-dinastii/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225278",
-    "title": "От Воробьёвых гор до Кремля",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 980,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Всего за 45 минут вы увидите главные достопримечательности города, полюбуетесь столичными пейзажами с необычного ракурса и доберётесь от Воробьёвых гор до парка «Зарядье».",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/e8/b3/e8b34e7163d4ec953384f0fb9c011c6e.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-ot-vorobyovyih-gor-do-kremlya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226154",
-    "title": "Иммерсивный дуэт",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Пушкарёв, д. 5",
-    "costForTwo": 3400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "До конца лета в Центре современного искусства М’АРС действует спецпредложение — комбо-билет «Иммерсивный дуэт», который даёт возможность посетить сразу две выставки, опробовать виртуальные технологии и глубоко погрузиться в мир изобразител…",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/77/e5/77e5ff0a8e51d759d98d22c0dd042329.png",
-    "coords": {
-      "lat": 55.768907,
-      "lon": 37.626951
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-immersivnyij-duet/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222867",
-    "title": "Рок-хиты на органе при свечах",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "пер. Старосадский, д. 7/10, стр. 10",
-    "costForTwo": 1800,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Мощное звучание органа, безудержная энергия рока и удивительная акустика собора — органист Сергей Буслов и рок-музыканты объединят в одном концерте классику XVIII века и стадионные гимны современности.",
-    "exactDates": [
-      "2026-02-26",
-      "2026-05-21",
-      "2026-06-25",
-      "2026-07-30",
-      "2026-08-20"
-    ],
-    "startTimes": [
-      "20:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/68/39/68390794e8dc8fb17bb7345cbe7ca58d.jpg",
-    "coords": {
-      "lat": 55.75678510282241,
-      "lon": 37.64095186663472
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-rok-hityi-na-organe-pri-svechah-fevral-2026/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-216649",
-    "title": "IQ Battle",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Когда хочется чего-то бодрого, шумного и чуть-чуть азартного — есть IQ Battle! Тут смешиваются логика, смекалка и немного удачи — потому что в некоторых раундах важен не только ответ, но и ставка, которую ты на него сделаешь.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d5/f9/d5f9ce0f41ddbe1131e2bd27edb2b8ee.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-iq-battle/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226045",
-    "title": "Синяя Борода",
-    "category": "event",
-    "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
+    "address": "ул. Новорогожская, д. 5",
     "costForTwo": 0,
     "costEstimated": false,
     "duration": 105,
@@ -27430,150 +26747,31 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.2,
-    "description": "Участники прочтут сказку Шарля Перро на французском, обсудят характеры героев и сравнят русские переводы с оригиналом.",
+    "quality": 7.374597397485109,
+    "description": "Курс предназначен для людей старшего поколения, которые начинают знакомиться с миром смартфонов или хотят углубить свои знания. Участники курса научатся пользоваться приложениями и познакомятся с полезными сервисами.",
     "exactDates": [
-      "2026-08-20"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/41/b0/41b0c4132349755ccf694defd2995937",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/literaturnyie-chteniya-sinyaya-boroda/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223559",
-    "title": "Серия «Переход»",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Серия Владимира Грига обращается к состояниям, в которых привычные границы начинают смещаться, а реальность кажется проницаемой для сна, памяти и фантазии. Проект соединяет ретрофутуристические образы, личные воспоминания и визуальный язык…",
-    "exactDates": [
-      "2026-03-06"
+      "2026-01-21"
     ],
     "startTimes": [
       "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/44/a0/44a0ff3656651ee70b0fc3e0fef26d41",
+    "image": "https://media.kudago.com/images/event/e2/83/e283b3f9aaf3be5073c41d3528f1c8da.jpg",
     "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
+      "lat": 55.74290010000011,
+      "lon": 37.67939470000001
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-seriya-perehod/",
+    "sourceUrl": "https://kudago.com/msk/event/kurs-osvaivaem-mobilnyie-ustrojstva/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-207643",
-    "title": "Мой бедный Марат",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "ул. Александра Солженицына, д. 17, стр. 5.",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Как выживали ленинградцы в дни блокады? Трогательную историю, развернувшуюся в то страшное время, рассказал в своей пьесе Алексей Арбузов.",
-    "exactDates": [
-      "2023-11-23",
-      "2023-11-24",
-      "2023-12-16",
-      "2024-01-24",
-      "2024-02-24",
-      "2024-03-29",
-      "2024-04-21",
-      "2024-05-09",
-      "2024-08-22",
-      "2024-09-27",
-      "2024-10-25",
-      "2024-11-29",
-      "2024-12-24",
-      "2025-01-25",
-      "2025-02-23",
-      "2025-03-26",
-      "2025-04-08",
-      "2025-05-09",
-      "2026-05-09",
-      "2026-05-28",
-      "2026-08-19",
-      "2026-09-20",
-      "2026-10-15",
-      "2026-11-07"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/43/81/4381020158ef8dbe8b659b29e39d26ea.jpg",
-    "coords": {
-      "lat": 55.74415499999981,
-      "lon": 37.66143999999972
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-moj-bednyij-marat-207643/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226212",
-    "title": "Докер",
-    "category": "event",
-    "eventType": "festival",
-    "zone": "center",
-    "address": "ул. Новый Арбат, д. 24",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": false,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Авторские документальные ленты из 30 стран покажут на фестивале «Докер». В этом году в программе 80 фильмов, главная тема которых — то, что мы можем потерять: традиции, родной дом, индентичность, внутренняя свобода, а также сам образ време…",
-    "exactDates": [
-      "2026-09-03"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/e9/99/e999b3e9e5b1893e8a1117d0f83c682a.jpg",
-    "coords": {
-      "lat": 55.75308299999997,
-      "lon": 37.587614
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/festival-doker/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226187",
-    "title": "Струнное световое шоу: саундтреки",
+    "id": "kudago-event-223475",
+    "title": "Нью-Йорк 50-х. Джаз на крыше",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
-    "address": "ул. Кузнецкий мост. д. 3, стр. 2",
-    "costForTwo": 3000,
+    "address": "Цветной бульвар, д. 15, стр. 1",
+    "costForTwo": 3200,
     "costEstimated": false,
     "duration": 110,
     "indoor": true,
@@ -27581,280 +26779,32 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.2,
-    "description": "Музыка из культовых фильмов прозвучит в формате струнного светового электрошоу.",
+    "quality": 7.374597397485109,
+    "description": "На панорамной крыше с видом на Москву прозвучит джаз в исполнении вокалистки Áni Minasi и её квартета.",
     "exactDates": [
-      "2026-09-18"
-    ],
-    "startTimes": [
-      "19:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/e4/7b/e47b5a99f04ae2a75cf68ff86cd9bf68.jpg",
-    "coords": {
-      "lat": 55.761514555916506,
-      "lon": 37.61754796728055
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-strunnoe-svetovoe-shou-saundtreki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-191873",
-    "title": "Вишнёвый сад. Комедия",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "ул. Земляной Вал, д. 76/21",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Антон Чехов был автором живым и саркастичным, но пьесы его играют порой далеко не так. Режиссёр Юрий Муравицкий и артисты Таганки преодолевают «чеховскую тоску», представляя «Вишнёвый сад» в эстрадной стилистике.",
-    "activeFrom": "2021-04-23",
-    "activeUntil": "2026-11-19",
-    "startTimes": [
-      "19:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/9f/15/9f15085cad6c7d721826298ee206ba9d.jpg",
-    "coords": {
-      "lat": 55.743102,
-      "lon": 37.653999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-vishnyovyij-sad-komediya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222992",
-    "title": "Театр во времени",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "west",
-    "address": "Московская обл., Красногорский р-н, пос. Архангельское",
-    "costForTwo": 1000,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экспозиция показывает, как театр менял жизнь людей: здесь прослеживаются привычки публики, мода на зрелища и развитие особого «языка сцены», где архитектура, свет и живопись работают ради одного впечатления. Через документы, эскизы и фотог…",
-    "exactDates": [
-      "2026-01-02"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/94/f5/94f524c5fca8177c16dc7f9faecc4750.jpg",
-    "coords": {
-      "lat": 55.78468526559221,
-      "lon": 37.28426308018685
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-teatr-vo-vremeni/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-211482",
-    "title": "Мир Пушкина",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Арбат, д. 33",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Участники получат возможность погрузиться в богатое литературное наследие Александра Пушкина. Лекция подойдёт всем, кто интересуется культурой и хочет расширить свои знания о великом мастере слова.",
-    "exactDates": [
-      "2024-10-31",
-      "2024-11-07",
-      "2024-11-14",
-      "2024-11-21",
-      "2024-11-28",
-      "2024-12-05",
-      "2024-12-12",
-      "2024-12-19",
-      "2024-12-26",
-      "2024-12-30",
-      "2025-01-16",
-      "2025-01-23",
-      "2025-01-30",
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "11:00:00",
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/80/88/80889e923770dd269330d427f7b1e4ae.jpg",
-    "coords": {
-      "lat": 55.74953200000001,
-      "lon": 37.59240200000001
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/lektsiya-moskovskoe-dolgoletie-mir-pushkina/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-221537",
-    "title": "Детство и юность Гоголя",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "бул. Никитский, д. 7А",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экскурсия посвящена юности великого писателя. Участники познакомятся с судьбами сестёр Гоголя, откроют загадку его фамилии и узнают, какой путь прошёл молодой автор прежде чем получить известность.",
-    "exactDates": [
-      "2025-12-06",
-      "2026-01-04",
-      "2026-01-25",
-      "2026-02-01",
-      "2026-02-22",
-      "2026-03-08",
-      "2026-04-02",
-      "2026-04-26",
-      "2026-05-03",
-      "2026-05-10",
-      "2026-05-23",
-      "2026-05-30",
-      "2026-05-31",
-      "2026-06-06",
-      "2026-06-07",
-      "2026-06-13",
-      "2026-06-14",
-      "2026-06-20",
-      "2026-07-05",
-      "2026-07-11",
-      "2026-07-12",
-      "2026-07-18",
-      "2026-07-25",
-      "2026-08-15",
-      "2026-08-22",
-      "2026-08-23",
+      "2026-05-02",
       "2026-08-29"
     ],
     "startTimes": [
-      "16:00:00",
-      "14:00:00",
-      "13:00:00"
+      "17:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/79/8e/798e00a6036ac54a7043f2de4a416cff",
+    "image": "https://media.kudago.com/images/event/53/c0/53c0a48af148ed2d09a1cfb7eed23d7d.jfif",
     "coords": {
-      "lat": 55.75414199999994,
-      "lon": 37.599822
+      "lat": 55.77109910000014,
+      "lon": 37.61994680000009
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-detstvo-i-yunost-gogolya/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-nyu-jork-50-h-dzhaz-na-kryishe/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225157",
-    "title": "Тайны старинной усадьбы",
+    "id": "kudago-event-225068",
+    "title": "Искротека",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "бул. Никитский, д. 7А",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экскурсия по старинной усадьбе на Никитском бульваре раскрывает загадки, связанные с последними годами Николая Гоголя. Гости узнают о тайне смерти писателя, сожжённой рукописи и доме, где он жил.",
-    "exactDates": [
-      "2026-06-03",
-      "2026-06-10",
-      "2026-06-17",
-      "2026-06-24",
-      "2026-07-08",
-      "2026-07-09",
-      "2026-07-15",
-      "2026-07-16",
-      "2026-07-22",
-      "2026-07-23",
-      "2026-08-12",
-      "2026-08-13",
-      "2026-08-19",
-      "2026-08-26",
-      "2026-08-27"
-    ],
-    "startTimes": [
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/3b/59/3b59beed42acc3bf8edbbbfd67b87ba0",
-    "coords": {
-      "lat": 55.75414199999994,
-      "lon": 37.599822
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-tajnyi-starinnoj-usadbyi/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225922",
-    "title": "Архив Ахульго II",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "city",
-    "address": "просп. Кутузовский, д. 38, стр. 1",
-    "costForTwo": 1000,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "20 художников из Дагестана заново осмысляют утраченную панораму Франца Рубо. Живопись, скульптура и инсталляции превращают батальный сюжет в разговор о памяти, мифе и современном взгляде на историю Кавказа.",
-    "exactDates": [
-      "2026-06-11"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/28/d4/28d4bb689cb66d332f64b041b764690c.jpg",
-    "coords": {
-      "lat": 55.73970099999996,
-      "lon": 37.52320399999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-arhiv-ahulgo-ii/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226012",
-    "title": "Кодекс Данте",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "наб. Котельническая, д. 1/15",
-    "costForTwo": 1400,
+    "address": "3-я улица Ямского Поля, д. 2 к. 6",
+    "costForTwo": 6780,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -27863,31 +26813,126 @@ export const kudagoEvents = [
       "unusual",
       "active"
     ],
-    "quality": 7.2,
-    "description": "Полная режиссёрская версия метафизического триллера Джулиана Шнабеля впервые выйдет на российский экран. Оскар Айзек играет писателя, втянутого в охоту за рукописью Данте, а сюжет соединяет криминальную авантюру с размышлением о любви и тв…",
+    "quality": 7.374597397485109,
+    "description": "Множество интерактивных игр, музыка, шоу и веселье — в «Искротеке» клуб «ПБ» собрал всё, что превращает обычную вечеринку в место, где легко познакомиться даже тем, кто пришёл один.",
     "exactDates": [
-      "2026-08-22"
+      "2026-06-20",
+      "2026-10-10"
     ],
     "startTimes": [
-      "19:15:00"
+      "22:00:00",
+      "18:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/d9/15/d9152c1aca2dfbcfbf12c7634becc27a.jpg",
+    "image": "https://media.kudago.com/images/event/d3/52/d3523a38a7f77adce7bfe32fc05365bd.jpg",
     "coords": {
-      "lat": 55.74752999999998,
-      "lon": 37.64469199999996
+      "lat": 55.78406420903173,
+      "lon": 37.58277225396698
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-filma-kodeks-dante-rezhisserskaya-versiya/",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-iskroteka/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225080",
-    "title": "Нахлебники",
+    "id": "kudago-event-199227",
+    "title": "Канарейка",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Петровский пер., д. 3",
+    "costForTwo": 13000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "На сцене воплощаются последние дни жизни Марии Каллас. Главную роль исполняет Сати Спивакова.",
+    "activeFrom": "2022-09-17",
+    "activeUntil": "2026-09-28",
+    "startTimes": [
+      "20:00:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e2/26/e226e05939e60fb4e5547a0354d5ea27.jpg",
+    "coords": {
+      "lat": 55.76594399999996,
+      "lon": 37.612775
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-kanarejka/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-219476",
+    "title": "Выходные с вожатыми",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Провести лето в городе весело, интересно и активно поможет детская программа «Выходные с вожатыми». Каждую неделю с пятницы по воскресенье ребят ждут подвижные игры, квесты, мастер-классы и другие захватывающие события в 10 парках Москвы.",
+    "exactDates": [
+      "2026-05-30",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/c0/fc/c0fc2ebeec46f0b4563e70eec9dc04d6.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-vyihodnyie-s-vozhatyimi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224455",
+    "title": "Сказки старого Зарядья",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 1056,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Живописные городские пейзажи и богатая история — вы осмотрите достопримечательности одного из самых колоритных районов столицы и ощутите дыхание разных эпох.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/39/ea/39ea04da24600d769982e063d882595e.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-skazki-starogo-zaryadya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224145",
+    "title": "Александр Иванов. Библейские эскизы. Благовещение",
     "category": "event",
     "eventType": "exhibition",
-    "zone": "city",
-    "address": "ул. Вавилова, д. 57",
-    "costForTwo": 1580,
+    "zone": "center",
+    "address": "пер. Лаврушинский, д. 10",
+    "costForTwo": 1400,
     "costEstimated": false,
     "duration": 80,
     "indoor": true,
@@ -27895,30 +26940,30 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.2,
-    "description": "Паразиты становятся героями почти кинематографического рассказа — тревожного, остроумного и научно точного. Экспозиция показывает, как разные организмы живут за чужой счёт, меняя тела, поведение и судьбы своих хозяев.",
+    "quality": 7.374597397485109,
+    "description": "Экспозиция открывает юбилейный цикл, посвящённый Александру Иванову. В центре внимания — акварельные листы, в которых евангельские и ветхозаветные сюжеты обретают свободу и внутреннее напряжение.",
     "exactDates": [
-      "2026-06-02"
+      "2026-04-23"
     ],
     "startTimes": [
       "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/67/30/6730bfa8f0190ada36a13b8122d35d33.jpg",
+    "image": "https://media.kudago.com/images/event/0f/4f/0f4fd1b4ac2ab375a2160757911b883b.jpg",
     "coords": {
-      "lat": 55.69062299999997,
-      "lon": 37.56149099999999
+      "lat": 55.74115599999996,
+      "lon": 37.62021299999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-nahlebniki/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-aleksandr-ivanov-biblejskie-eskizyi-blagoveschenie/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226030",
-    "title": "Ворошиловский стрелок",
+    "id": "kudago-event-216625",
+    "title": "Эйнштейн Party",
     "category": "event",
     "eventType": "event",
-    "zone": "vdnh",
-    "address": "просп. Мира, д. 119, павильон № 36",
+    "zone": "center",
+    "address": "Москва",
     "costForTwo": 2500,
     "costEstimated": true,
     "duration": 105,
@@ -27927,1030 +26972,60 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.2,
-    "description": "Пожилой ветеран сталкивается с системой, которая защищает виновных и оставляет его внучку без надежды на справедливость. Драма Станислава Говорухина превращает личную трагедию в жесткий портрет России 1990-х и задает трудный вопрос: что пр…",
+    "quality": 7.374597397485109,
+    "description": "Если вам надоели стандартные викторины с вопросами уровня «в каком году…», «кто написал…» — вам сюда. Квиз «Эйнштейн Party» — это мозговой штурм, где необязательно быть ходячей энциклопедией, чтобы тащить за всю команду.",
     "exactDates": [
-      "2026-08-23"
+      "0001-01-02"
     ],
     "startTimes": [
-      "16:20:00"
+      "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/5e/f7/5ef74b2e901cbd56e9aca1e6708b7122.webp",
-    "coords": {
-      "lat": 55.83950252112824,
-      "lon": 37.61669319110222
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-filma-voroshilovskij-strelok-h4fxob/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-218445",
-    "title": "Мировые рок-хиты на виолончелях. Magic Cellos Band",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 2400,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Ансамбль Magic Cellos Band перевернёт представление о виолончели, исполнив мощные рок-хиты.",
-    "exactDates": [
-      "2025-07-17",
-      "2026-07-23",
-      "2026-09-25"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/0b/b1/0bb1bcd1374e48ecfea7d9a272fdccc2",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-mirovyie-rok-hityi-na-violonchelyah-magic-cellos-band/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225514",
-    "title": "Иконы. Собрание Павла Третьякова",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. Лаврушинский, д. 12",
-    "costForTwo": 1000,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Иконное собрание Павла Третьякова раскрывает основателя галереи как внимательного исследователя древнерусской живописи. Редкие памятники и архивные материалы показывают, как личный интерес коллекционера стал частью истории национального му…",
-    "exactDates": [
-      "2026-06-10"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/8c/6e/8c6e5c87167190d2b74467230c6c722f.jpg",
-    "coords": {
-      "lat": 55.740872,
-      "lon": 37.62104
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-ikonyi-sobranie-pavla-tretyakova/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225482",
-    "title": "Караоке с оркестром",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "ул. Орджоникидзе, д. 11, стр. 1",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Коллектив RockestraLive предлагает каждому зрителю стать частью грандиозного шоу.",
-    "exactDates": [
-      "2026-08-21"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ce/b3/ceb3a4662e389ae7758d9d86ef184494.jpg",
-    "coords": {
-      "lat": 55.707791,
-      "lon": 37.595806
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-karaoke-s-orkestrom/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223553",
-    "title": "Нейрочадо 2.0 и архив наследственности",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Интерактивная инсталляция превращает личную семейную историю в разговор о надежде, репродуктивных технологиях и попытке представить того, кто пока существует лишь в воображении. Проект соединяет биографический опыт, науку и цифровую модель…",
-    "exactDates": [
-      "2026-03-06"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ac/f7/acf7983bb26fa9496b909fb8eff1e674.png",
-    "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-nejrochado-20-i-arhiv-nasledstvennosti/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222792",
-    "title": "Идиот",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "vdnh",
-    "address": "пер. Стромынский, д. 5.",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.2,
-    "description": "Роман Достоевского воплотился на театральной сцене в версии Театра Черкасова.",
-    "exactDates": [
-      "2026-04-14",
-      "2026-06-04",
-      "2026-09-27"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/b7/48/b748fa7b59f87e8508dc90c5d66d5c12.jpg",
-    "coords": {
-      "lat": 55.79300980000024,
-      "lon": 37.69480089999983
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-idiot-iyun-2026/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220494",
-    "title": "Дорогая Елена Сергеевна",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Пьеса Людмилы Разумовской «Дорогая Елена Сергеевна» оживает в премьерной постановке с Екатериной Климовой. Наивное вторжение выпускников к учительнице оборачивается напряжённым психологическим поединком — о нравственных границах, взрослени…",
-    "exactDates": [
-      "2025-10-07",
-      "2025-10-08",
-      "2025-11-11",
-      "2025-12-29",
-      "2026-01-13",
-      "2026-01-27",
-      "2026-02-11",
-      "2026-04-05",
-      "2026-09-19"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/91/3f/913fdee5c218c26acc81d2f7c89655c8.png",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/spektakl-dorogaya-elena-sergeevna-iknlf5/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-214893",
-    "title": "Золушка",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 1800,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "«Золушка» — это воплощение мечты о любви и красоте в классическом искусстве. Балет с музыкой Сергея Прокофьева и уникальной хореографией Анатолия Емельянова станет настоящим подарком для всей семьи, напоминая, что добро и красота неизменно…",
-    "exactDates": [
-      "2025-04-13",
-      "2025-09-28",
-      "2026-03-21",
-      "2026-09-27"
-    ],
-    "startTimes": [
-      "13:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/da/b8/dab8e35a7b0211a671be40715829ed36",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/balet-zolushka-nud8ed/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223165",
-    "title": "Великие хиты джаза",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 2800,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Знаменитый оркестр имени Олега Лундстрема возвращает на сцену золотой век джаза: от мягких баллад до драйвовых свинговых номеров. Фирменное звучание, живой звук большого состава и история коллектива превращают вечер в праздник для тех, кто…",
-    "exactDates": [
-      "2026-03-05",
-      "2026-09-17"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/80/c9/80c9211928ce0db9656e3a6a78506786",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-velikie-hityi-dzhaza/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222986",
-    "title": "Королевский Копенгаген",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "east",
-    "address": "ул. Юности, д.2",
-    "costForTwo": 600,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Проект объединяет редкие образцы датского фарфора и показывает, как менялись художественные традиции в разные исторические периоды. Экспозиция раскрывает масштаб скандинавской мануфактуры и её влияние на русскую культуру.",
-    "exactDates": [
-      "2025-11-27"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/97/bd/97bd2167aa3f85e3ed6f8a6431e017a5.jpg",
-    "coords": {
-      "lat": 55.734922,
-      "lon": 37.808958
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-korolevskij-kopengagen/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226184",
-    "title": "Сплав миксер",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 29400,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Клуб «ПБ» и компания «Хочу на сплав» совмещают активный отдых на свежем воздухе со знакомствами по интересам. Вас ждут два дня настоящих приключений: сплавы по реке, песчаные пляжи, душевные песни у костра и жаркая баня.",
-    "exactDates": [
-      "2026-08-22"
-    ],
-    "startTimes": [
-      "09:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/4d/fa/4dfac73d590ad14e4f716e516ec1c259.webp",
+    "image": "https://media.kudago.com/images/event/f1/41/f141ff3421dd744a9e5c6f99ffb6eaf4.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/recreation-splav-mikser/",
+    "sourceUrl": "https://kudago.com/msk/event/entertainment-ejnshtejn-party/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225923",
-    "title": "Научили(сь)",
+    "id": "kudago-event-223071",
+    "title": "Чёрный человек. Исповедь поэта",
     "category": "event",
     "eventType": "exhibition",
-    "zone": "east",
-    "address": "городок им. Баумана, д. 2, стр. 14",
-    "costForTwo": 500,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "11 выпускников Строгановки показывают дипломные проекты, с которых начинается их самостоятельная художественная практика. Керамика становится способом говорить о памяти, восприятии, форме и личном опыте.",
-    "exactDates": [
-      "2026-06-24"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/9a/2a/9a2a42af27ffd5c91f1a88d5d366f166.jfif",
-    "coords": {
-      "lat": 55.79129417013407,
-      "lon": 37.76228880050095
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-nauchilis/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225919",
-    "title": "Трын*Трава. Дети. Современный русский стиль",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Делегатская, д. 3, стр. 1",
-    "costForTwo": 1100,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Молодые авторы от 7 до 21 года переосмысливают русский культурный код через керамику, текстиль, светильники и предметы интерьера. Сказочные герои, народные промыслы и советский быт получают форму, понятную сегодняшнему поколению.",
-    "exactDates": [
-      "2026-06-30"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/fa/c2/fac200608b5577ecf342aafbde5bff0c.jpg",
-    "coords": {
-      "lat": 55.77473189676471,
-      "lon": 37.60965054100005
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-tryintrava-deti-sovremennyij-russkij-stil/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225668",
-    "title": "Нейросказка о герое",
-    "category": "event",
-    "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.2,
-    "description": "На мастер-классе ребёнок создаст персонажа 3D-ручкой, а искусственный интеллект поможет придумать ему сказку, стихотворение или весёлую песенку.",
-    "exactDates": [
-      "2026-07-14",
-      "2026-08-04",
-      "2026-08-11",
-      "2026-08-18",
-      "2026-08-25"
-    ],
-    "startTimes": [
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/2c/71/2c71833ba0ab2d96e2a86f7258c20c1d.jpg",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/master-klass-nejroskazka-o-geroe/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224536",
-    "title": "Путешествие в старую Россию",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Пречистенка, д. 12/2, стр.1",
-    "costForTwo": 1200,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экспозиция собирает образ России XIX века из литографий, в которых соединились точность наблюдения, издательский размах и интерес к повседневной культуре. Перед зрителем возникает страна парадных площадей, старых улиц, ярмарок, упряжек и г…",
-    "exactDates": [
-      "2026-05-22"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/2f/c5/2fc568442bae093cb1dafd686700583e.jpg",
-    "coords": {
-      "lat": 55.74354199999998,
-      "lon": 37.59766599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-puteshestvie-v-staruyu-rossiyu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226025",
-    "title": "Пирогов",
-    "category": "event",
-    "eventType": "event",
-    "zone": "vdnh",
-    "address": "просп. Мира, д. 119, павильон № 36",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Историческая драма Григория Козинцева показывает Николая Пирогова в моменты, когда научное убеждение требовало личной смелости. Хирург спорит с консервативной медициной, спасает раненых и отстаивает право пациента на помощь без сословных г…",
-    "exactDates": [
-      "2026-08-22"
-    ],
-    "startTimes": [
-      "16:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/5a/c6/5ac6203b5658f8246844a558e866209d.jpg",
-    "coords": {
-      "lat": 55.83950252112824,
-      "lon": 37.61669319110222
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-filma-pirogov/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224535",
-    "title": "(Не)известный. Константин Горбатов",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "west",
-    "address": "Московская обл., г. Истра, наб. Ново-Иерусалимская, д. 1",
-    "costForTwo": 600,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экспозиция раскрывает судьбу художника через живопись, архивы и личные истории. Перед зрителем постепенно складывается портрет мастера, чьё наследие долго оставалось в тени и обрело новую жизнь.",
-    "exactDates": [
-      "2026-04-29"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/f5/b6/f5b63d99eee35cbee69f7df88206795b.jpg",
-    "coords": {
-      "lat": 55.92119799999996,
-      "lon": 36.85919699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-neizvestnyij-konstantin-gorbatov/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226181",
-    "title": "Не надо стесняться",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Ладожская, д. 1/2",
-    "costForTwo": 4500,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Хотите чувствовать себя в любой компании расслабленно и комфортно? Мастер-класс по раскрепощению от клуба «ПБ» поможет забыть про неловкость в общении и страх сказать что-то не то. Через работу с телом, дыханием и голосом.",
-    "exactDates": [
-      "2026-08-22"
-    ],
-    "startTimes": [
-      "15:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ba/64/ba6474ba2b06c9d24173324c0e65190f.png",
-    "coords": {
-      "lat": 55.77156213005747,
-      "lon": 37.68163852602503
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-ne-nado-stesnyatsya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226185",
-    "title": "Романтика рока при свечах. Мировые хиты на виолончели и фортепиано в Есенин-центре",
-    "category": "event",
-    "eventType": "concert",
     "zone": "center",
     "address": "пер. Чернышевского, д. 4, стр. 2",
-    "costForTwo": 2400,
+    "costForTwo": 700,
     "costEstimated": false,
-    "duration": 110,
+    "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual",
-      "romantic"
+      "unusual"
     ],
-    "quality": 7.2,
-    "description": "Знакомые рок-композиции зазвучат совсем иначе, когда электрогитары уступят место виолончели и роялю.",
+    "quality": 7.374597397485109,
+    "description": "Поэма Сергея Есенина о беседе с собственным двойником становится поводом для серьёзного разговора о природе тьмы, свете творчества и внутреннем конфликте художника. Экспозиция обращается к истории текста и его восприятию современниками.",
     "exactDates": [
-      "2026-08-28"
+      "2026-02-20"
     ],
     "startTimes": [
-      "19:30:00"
+      "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/c9/4d/c94d6d6ef4aa7a5c6aadd7ffd091d2a4.jpg",
+    "image": "https://media.kudago.com/images/event/55/12/5512ef51312e3757daca9e5219887ed0.jpg",
     "coords": {
       "lat": 55.782152000000025,
       "lon": 37.60921699999961
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-romantika-roka-pri-svechah-mirovyie-hityi-na-violoncheli-i-fortepiano-v-esenin-tsentre/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-chyornyij-chelovek-ispoved-poeta-s4yhhu/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-219955",
-    "title": "Многоликий орган: от Баха до Пьяццоллы",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "пер. Старосадский, д. 7/10, стр. 10",
-    "costForTwo": 1800,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Молодой органист из Петербурга продемонстрирует современный взгляд на возможности короля музыкальных инструментов.",
-    "exactDates": [
-      "2025-09-07",
-      "2026-08-30"
-    ],
-    "startTimes": [
-      "16:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/b7/ca/b7ca4ed7f511a894fd70ae4bff904a22.jpg",
-    "coords": {
-      "lat": 55.75678510282241,
-      "lon": 37.64095186663472
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-mnogolikij-organ-ot-baha-do-hachaturyana/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225829",
-    "title": "Олег Погудин. Любовь останется",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.2,
-    "description": "Олег Погудин обратится к песням 1950—1960-х — времени надежд, культурных перемен и памяти о победителях.",
-    "exactDates": [
-      "2026-08-28"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/ce/3e/ce3e7d72466949bfcc2cdeb5f0cc97a5.jpg",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-oleg-pogudin-lyubov-ostanetsya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-217585",
-    "title": "Последние дни Николая Гоголя",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "бул. Никитский, д. 7А",
-    "costForTwo": 800,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Что происходило в последние дни жизни Николая Гоголя и почему они окутаны такой завесой загадок? Новая экскурсия от Дома Гоголя откроет драматическую историю его последних решений и духовных исканий.",
-    "exactDates": [
-      "2025-05-11",
-      "2025-05-22",
-      "2025-06-08",
-      "2025-06-19",
-      "2025-06-29",
-      "2025-07-27",
-      "2025-08-24",
-      "2025-08-31",
-      "2025-09-07",
-      "2025-09-28",
-      "2025-10-05",
-      "2025-11-02",
-      "2025-11-20",
-      "2025-12-04",
-      "2025-12-18",
-      "2026-01-11",
-      "2026-01-25",
-      "2026-02-01",
-      "2026-02-22",
-      "2026-04-26",
-      "2026-05-03",
-      "2026-05-10",
-      "2026-05-31",
-      "2026-06-04",
-      "2026-06-07",
-      "2026-06-11",
-      "2026-06-14",
-      "2026-06-18",
-      "2026-07-05",
-      "2026-07-12",
-      "2026-08-23"
-    ],
-    "startTimes": [
-      "15:00:00",
-      "19:00:00",
-      "16:00:00",
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/1b/1b/1b1b69d74a0bd797285093bb3cedb393",
-    "coords": {
-      "lat": 55.75414199999994,
-      "lon": 37.599822
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-poslednie-dni-nikolaya-gogolya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-202207",
-    "title": "Елизавета Бам",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "east",
-    "address": "пл. Журавлёва, д.1",
-    "costForTwo": 1600,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Спектакль Георгия Мнацаканова основывается на произведении загадочного русского абсурдиста Даниила Хармса. Постановка соединяет иронию и внутреннюю напряжённость, обращаясь к ощущению времени и несвободы.",
-    "exactDates": [
-      "2023-01-24",
-      "2023-02-09",
-      "2023-03-29",
-      "2026-04-11",
-      "2026-05-24",
-      "2026-07-03",
-      "2026-09-19"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/c4/9b/c49b71c8fa6901558c63dc04e4f33b3b.jpg",
-    "coords": {
-      "lat": 55.78406099999992,
-      "lon": 37.70471799999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-elizaveta-bam-2023/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-192714",
-    "title": "Страсти по Бумбарашу",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "бул. Чистопрудный, д. 19",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Постановка режиссёра Владимира Машкова рассказывает историю человека, который ищет дом и покой, но снова оказывается в центре событий. Через личную судьбу раскрывается время, в котором трудно отличить своё от чужого.",
-    "activeFrom": "2021-06-10",
-    "activeUntil": "2026-09-15",
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/f4/e5/f4e513d34a4da957b2f23a30d3d8f757.jpg",
-    "coords": {
-      "lat": 55.76182099999997,
-      "lon": 37.645968
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-strasti-po-bumbarashu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223552",
-    "title": "Это не я",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Проект превращает личный архив в размышление о том, как память меняется под влиянием технологий и собственных ошибок восприятия. Старые фотографии здесь становятся материалом для сомнений и внутреннего спора.",
-    "exactDates": [
-      "2026-03-06"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/80/d9/80d9894f6e1b6156757fe272aa2a622f",
-    "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-eto-ne-ya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223558",
-    "title": "Море",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Инсталляция обращается к привычке бесконечно сохранять изображения и исследует, как цифровая память из средства фиксации важного превратилась в пространство перенасыщения. Проект рассматривает, какие сюжеты снова и снова оседают в мобильны…",
-    "exactDates": [
-      "2026-03-06"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/1d/60/1d60b1b0df3a1d6d418eeef00550a961",
-    "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-more/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-217605",
-    "title": "Музыка вселенной: Бах, Циммер, Эйнауди",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "пер. Старосадский, д. 7/10, стр. 10",
-    "costForTwo": 1800,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Мелодии классических композиторов и авторские переложения современных авторов прозвучат под сводами собора в концертной программе Ивана Царёва.",
-    "exactDates": [
-      "2025-05-11",
-      "2025-06-28",
-      "2025-09-14",
-      "2026-02-28",
-      "2026-05-17",
-      "2026-09-06"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "21:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/97/fe/97fe0afd627a5d1ae65ec2cdf8ee5068.jpg",
-    "coords": {
-      "lat": 55.75678510282241,
-      "lon": 37.64095186663472
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-muzyika-vselennoj-bah-tsimmer-ejnaudi/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224452",
-    "title": "Сталинские высотки: символ советской эпохи",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 3200,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "За одну поездку вы осмотрите сразу все 7 знаменитых памятников сталинского ампира и узнаете любопытные факты о каждом из них.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/d9/7f/d97fc8cd1f517c5263252883ed0cd635.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-stalinskie-vyisotki-simvol-sovetskoj-epohi/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224445",
-    "title": "Курс по живописи пастелью",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 48000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "От базовых техник пастельной живописи до создания сложных картин — за 8 занятий вы научитесь уверенно работать с материалом и передавать на бумагу форму, объём, цвет и пространство композиции.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/24/4b/244bae9ebe384561bb6937057176b6d6.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-zhivopisi-pastelyu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-213878",
-    "title": "Ансамбль песни и пляски ВКС России",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 200,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "День защитника Отечества — это время, когда песни о доблести и чести приобретают особую силу. Праздничный концерт с участием Ансамбля песни и пляски ВКС России подарит зрителям уникальную возможность услышать лучшие вокальные и танцевальны…",
-    "exactDates": [
-      "2025-02-23",
-      "2026-02-23",
-      "2026-09-05"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "18:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/0c/26/0c26a829df8b79d6b2ec2901b4bb648b",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-ansambl-pesni-i-plyaski-vks-rossii/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-222993",
-    "title": "Поездки Николая Юсупова по России",
+    "id": "kudago-event-222991",
+    "title": "Муки творчества",
     "category": "event",
     "eventType": "exhibition",
     "zone": "west",
     "address": "Московская обл., Красногорский р-н, пос. Архангельское",
-    "costForTwo": 500,
+    "costForTwo": 700,
     "costEstimated": false,
     "duration": 80,
     "indoor": true,
@@ -28958,114 +27033,115 @@ export const kudagoEvents = [
       "fun",
       "unusual"
     ],
-    "quality": 7.2,
-    "description": "Экспозиция знакомит с тем, как князь Николай Юсупов исследовал собственные владения, опираясь на карты, справочники и дорожные заметки. Здесь можно увидеть редкие издания из его библиотеки и проследить, как менялась жизнь огромной вотчинно…",
+    "quality": 7.374597397485109,
+    "description": "Экспозиция показывает изнанку фарфоровой красоты — от первых неуверенных мазков по белому «белью» до смелых экспериментов с формами, которые рождались в мастерской. Зритель оказывается рядом с художниками в тот момент, когда сервиз ещё тол…",
     "exactDates": [
       "2026-01-02"
     ],
     "startTimes": [
-      "21:00",
-      "00:00:00"
+      "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/dc/02/dc0222569cbbeb4724ddb81437438430",
+    "image": "https://media.kudago.com/images/event/c8/3d/c83d680ccf1bafe80f43813d76ff964e.jpg",
     "coords": {
       "lat": 55.78468526559221,
       "lon": 37.28426308018685
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-poezdki-nb-yusupova-po-rossii/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-muki-tvorchestva/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-218984",
-    "title": "Анатомия человека для начинающих художников",
+    "id": "kudago-event-222734",
+    "title": "Панорама отечественного наивного искусства",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Малый Головин, д. 10",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.374597397485109,
+    "description": "Наивное искусство в России — это живой, трогательный язык, в котором говорят города, люди и сказочные сюжеты. Выставка предлагает взглянуть на знакомую реальность глазами художников-самоучек, для которых искренность важнее академических пр…",
+    "exactDates": [
+      "2026-01-02"
+    ],
+    "startTimes": [
+      "10:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/db/83/db83eeff3dd87121ef4d904d761b9134",
+    "coords": {
+      "lat": 55.7689769971855,
+      "lon": 37.63442327709354
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-panorama-otechestvennogo-naivnogo-iskusstva/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226080",
+    "title": "Lil Pump",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "city",
+    "address": "Ленинградский просп., д. 80, корп. 17",
+    "costForTwo": 6000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Lil Pump возвращается в Россию с первым сольным концертом. Со сцены прозвучат песни, ставшие символами эпохи «новой школы» рэпа.",
+    "exactDates": [
+      "2026-08-22"
+    ],
+    "startTimes": [
+      "20:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ad/31/ad31b91d0bf7867c9b4da4e48ff43112.webp",
+    "coords": {
+      "lat": 55.80790300514267,
+      "lon": 37.51182651058978
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-lil-pump-avgust-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225277",
+    "title": "Речная прогулка на теплоходе от Воробьёвых гор до парка «Зарядье»",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 109480,
+    "address": "Москва",
+    "costForTwo": 1180,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "За 17 занятий слушатели курса научатся рисовать человека с анатомической точностью и создавать выразительные работы, демонстрирующие красоту тела.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/5b/57/5b5770586300c91df2c926124dd03419.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-anatomiya-cheloveka-dlya-nachinayuschih-hudozhnikov/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-216646",
-    "title": "Теория большого квиза",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Это не лекция и не экзамен, а командная викторина, где каждый тур — микс из логики, юмора и неожиданных фактов. Вопросы бывают на любые темы: от мемов до истории, от сериалов до странных жизненных ситуаций.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/8b/e3/8be36378fc71afb87c647bedfdca8a73.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-teoriya-bolshogo-kviza/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-216634",
-    "title": "МЯУ КВИЗ",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
       "unusual",
-      "active",
       "calm"
     ],
     "quality": 7.2,
-    "description": "Если вам ближе ностальгия по 2000-м, чем таблица Менделеева, а сериальные диалоги вспоминаются лучше, чем даты из учебника, то вам точно сюда. «МЯУ КВИЗ» — это уютные, лёгкие, тематические игры, где можно блеснуть своими знаниями о сериала…",
+    "description": "Живописные панорамы столицы за чашечкой кофе с круассаном... Водный маршрут познакомит вас с главными достопримечательностями Москвы, а комфортные условия на борту сделают поездку по-настоящему уютной.",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
-      "00:00:00"
+      "12:58:00"
     ],
-    "image": "https://media.kudago.com/images/event/c7/1a/c71a0b310e16940bfb1efb935bfcd574.jpg",
+    "image": "https://media.kudago.com/images/event/12/29/12295920d3200e0acd5d117006ecf5f4.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/entertainment-myau-kviz/",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-rechnaya-progulka-na-teplohode-ot-vorobyovyih-gor-do-parka-zaryade/",
     "officialUrl": null
   },
   {
@@ -29143,8 +27219,49 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-219819",
-    "title": "Экскурсии по школам",
+    "id": "kudago-event-215597",
+    "title": "Пиноккио",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Земляной Вал, д. 76/21",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Почти музыкальную трагикомедию о взрослении по сказке Карло Коллоди поставил Ярослав Жевнеров.",
+    "exactDates": [
+      "2025-03-29",
+      "2025-03-30",
+      "2025-04-27",
+      "2025-05-24",
+      "2026-08-15",
+      "2026-09-12",
+      "2026-10-11",
+      "2026-11-01",
+      "2026-12-06",
+      "2027-01-23"
+    ],
+    "startTimes": [
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/09/ca/09ca29d42d304067ed3f2ebff4b4a936.jpg",
+    "coords": {
+      "lat": 55.743102,
+      "lon": 37.653999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-pinokkio-2025/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226201",
+    "title": "Ночь в поликлинике",
     "category": "event",
     "eventType": "event",
     "zone": "center",
@@ -29155,60 +27272,471 @@ export const kudagoEvents = [
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual",
-      "active",
-      "calm"
+      "unusual"
     ],
     "quality": 7.2,
-    "description": "У вас есть уникальный шанс попасть в школу будущего! Современные столичные школы проводят увлекательные экскурсии для всех желающих. Гостям покажут технологичные классы, уютные медиатеки и зоны отдыха, можно будет принять участие в спортив…",
+    "description": "Ночью 22 и 29 августа поликлиники изменят свой привычный облик и превратятся в культурные площадки. Москвичи смогут по-новому взглянуть на свою районную поликлинику, интересно провести время и позаботиться о здоровье.",
     "exactDates": [
-      "2025-08-25",
-      "2026-08-24"
+      "2026-08-22",
+      "2026-08-29"
     ],
     "startTimes": [
-      "21:00"
+      "20:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/67/d2/67d215be640ed225926dcce806c4984a.jpg",
+    "image": "https://media.kudago.com/images/event/66/d3/66d3bedcf4ff38111776c891a4ebba63.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-po-obnovlyonnoj-shkole/",
+    "sourceUrl": "https://kudago.com/msk/event/prazdnik-noch-v-poliklinike/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226080",
-    "title": "Lil Pump",
+    "id": "kudago-event-225922",
+    "title": "Архив Ахульго II",
     "category": "event",
-    "eventType": "concert",
+    "eventType": "exhibition",
     "zone": "city",
-    "address": "Ленинградский просп., д. 80, корп. 17",
-    "costForTwo": 6000,
+    "address": "просп. Кутузовский, д. 38, стр. 1",
+    "costForTwo": 1000,
     "costEstimated": false,
-    "duration": 110,
+    "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Lil Pump возвращается в Россию с первым сольным концертом. Со сцены прозвучат песни, ставшие символами эпохи «новой школы» рэпа.",
+    "description": "20 художников из Дагестана заново осмысляют утраченную панораму Франца Рубо. Живопись, скульптура и инсталляции превращают батальный сюжет в разговор о памяти, мифе и современном взгляде на историю Кавказа.",
+    "exactDates": [
+      "2026-06-11"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/28/d4/28d4bb689cb66d332f64b041b764690c.jpg",
+    "coords": {
+      "lat": 55.73970099999996,
+      "lon": 37.52320399999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-arhiv-ahulgo-ii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225668",
+    "title": "Нейросказка о герое",
+    "category": "event",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "На мастер-классе ребёнок создаст персонажа 3D-ручкой, а искусственный интеллект поможет придумать ему сказку, стихотворение или весёлую песенку.",
+    "exactDates": [
+      "2026-07-14",
+      "2026-08-04",
+      "2026-08-11",
+      "2026-08-18",
+      "2026-08-25"
+    ],
+    "startTimes": [
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/2c/71/2c71833ba0ab2d96e2a86f7258c20c1d.jpg",
+    "coords": {
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/master-klass-nejroskazka-o-geroe/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225917",
+    "title": "10×17",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. 1-й Зачатьевский, д. 10",
+    "costForTwo": 700,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "Иван Найнти превращает миниатюрные коллажи из блокнота в крупноформатную живопись и графику. Абстрактные композиции исследуют цвет, ритм и способность визуального образа менять внутреннее состояние.",
+    "exactDates": [
+      "2026-07-10"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/64/2b/642b28fba7e6317fad257fb2948097b1.jpg",
+    "coords": {
+      "lat": 55.74115829999999,
+      "lon": 37.6002470000003
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-1017/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226026",
+    "title": "Крейсер «Варяг»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "vdnh",
+    "address": "просп. Мира, д. 119, павильон № 36",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Историческая картина Виктора Эйсымонта воссоздаёт атмосферу боя у Чемульпо, где русские моряки приняли решение выйти против превосходящей японской эскадры.",
     "exactDates": [
       "2026-08-22"
     ],
     "startTimes": [
-      "20:00:00"
+      "14:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/ad/31/ad31b91d0bf7867c9b4da4e48ff43112.webp",
+    "image": "https://media.kudago.com/images/event/2a/be/2abe21a0139f078fd1e51eef84c11b25.jpg",
     "coords": {
-      "lat": 55.80790300514267,
-      "lon": 37.51182651058978
+      "lat": 55.83950252112824,
+      "lon": 37.61669319110222
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-lil-pump-avgust-2026/",
+    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-filma-krejser-varyag/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223554",
-    "title": "AI Winter",
+    "id": "kudago-event-226025",
+    "title": "Пирогов",
+    "category": "event",
+    "eventType": "event",
+    "zone": "vdnh",
+    "address": "просп. Мира, д. 119, павильон № 36",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Историческая драма Григория Козинцева показывает Николая Пирогова в моменты, когда научное убеждение требовало личной смелости. Хирург спорит с консервативной медициной, спасает раненых и отстаивает право пациента на помощь без сословных г…",
+    "exactDates": [
+      "2026-08-22"
+    ],
+    "startTimes": [
+      "16:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/5a/c6/5ac6203b5658f8246844a558e866209d.jpg",
+    "coords": {
+      "lat": 55.83950252112824,
+      "lon": 37.61669319110222
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-filma-pirogov/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226184",
+    "title": "Сплав миксер",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 29400,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Клуб «ПБ» и компания «Хочу на сплав» совмещают активный отдых на свежем воздухе со знакомствами по интересам. Вас ждут два дня настоящих приключений: сплавы по реке, песчаные пляжи, душевные песни у костра и жаркая баня.",
+    "exactDates": [
+      "2026-08-22"
+    ],
+    "startTimes": [
+      "09:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/4d/fa/4dfac73d590ad14e4f716e516ec1c259.webp",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/recreation-splav-mikser/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226055",
+    "title": "Изобретая реальность: эпилог",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Николоямская, д. 1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Финальная встреча цикла о документальном кино объединит темы, которые остались за пределами прошлых лекций.",
+    "exactDates": [
+      "2026-08-19"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/73/63/7363190f34fedea4eb710f0e78cea997",
+    "coords": {
+      "lat": 55.74863130000007,
+      "lon": 37.64758419999989
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/lektsiya-izobretaya-realnost-epilog/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223160",
+    "title": "Династии",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "Три знаменитые фамилии выходят на сцену, чтобы говорить о самом личном — памяти, долге и любви. Балет, поэзия и драматическая речь переплетаются в живой разговор дочерей с наследием своих семей. Этот вечер о том, как большой культуре всегд…",
+    "exactDates": [
+      "2026-03-03",
+      "2026-04-07",
+      "2026-04-26",
+      "2026-09-09"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/03/1e/031e0ff3907d9d8219ef7cd5a329cb4b",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/spektakl-dinastii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224791",
+    "title": "Знакомство с небоскрёбами «Москва-Сити»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 694,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Как возводили знаменитые небоскрёбы и что сегодня находится за их стеклянными фасадами — гид познакомит вас с футуристичной архитектурой современной Москвы и расскажет историю величественных башен.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/0f/a4/0fa4700a63b55ca2fd3c962155b604a0.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-znakomstvo-s-neboskryobami-moskva-siti/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225278",
+    "title": "От Воробьёвых гор до Кремля",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 980,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Всего за 45 минут вы увидите главные достопримечательности города, полюбуетесь столичными пейзажами с необычного ракурса и доберётесь от Воробьёвых гор до парка «Зарядье».",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/e8/b3/e8b34e7163d4ec953384f0fb9c011c6e.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-ot-vorobyovyih-gor-do-kremlya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-216649",
+    "title": "IQ Battle",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Когда хочется чего-то бодрого, шумного и чуть-чуть азартного — есть IQ Battle! Тут смешиваются логика, смекалка и немного удачи — потому что в некоторых раундах важен не только ответ, но и ставка, которую ты на него сделаешь.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d5/f9/d5f9ce0f41ddbe1131e2bd27edb2b8ee.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/entertainment-iq-battle/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-209264",
+    "title": "Замужняя невеста",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Большая Садовая, д. 16",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Евгений Марчелли поставил лёгкий и непринуждённый спектакль по пьесе Александра Шаховского, Александра Грибоедова и Николая Хмельницкого 1817 года.",
+    "exactDates": [
+      "2024-03-14",
+      "2024-03-17",
+      "2024-03-31",
+      "2024-04-07",
+      "2024-04-14",
+      "2024-07-21",
+      "2024-08-04",
+      "2024-08-25",
+      "2024-09-24",
+      "2024-10-12",
+      "2024-10-26",
+      "2024-11-04",
+      "2024-11-14",
+      "2024-12-18",
+      "2024-12-27",
+      "2025-01-04",
+      "2025-01-17",
+      "2025-02-09",
+      "2025-03-12",
+      "2025-04-12",
+      "2025-04-29",
+      "2025-05-22",
+      "2025-05-29",
+      "2026-05-08",
+      "2026-05-30",
+      "2026-07-28",
+      "2026-08-05",
+      "2026-09-23"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/d3/10/d310012b6fd458e2a62ae5a8c380d479.jpg",
+    "coords": {
+      "lat": 55.76832899999999,
+      "lon": 37.59745899999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-zamuzhnyaya-nevesta/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226169",
+    "title": "Российская серия кольцевых гонок",
+    "category": "event",
+    "eventType": "event",
+    "zone": "west",
+    "address": "Волоколамский р-н, дер. Шелудьково, д. 39",
+    "costForTwo": 500,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "На трассе под Москвой определится обладатель Кубка России среди спортпрототипов. Помимо заездов гостей ждут встречи с гонщиками и доступ туда, куда обычно зрителей не пускают.",
+    "exactDates": [
+      "2026-09-19",
+      "2026-09-20"
+    ],
+    "startTimes": [
+      "10:00:00",
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/21/4a/214a0f4d39c2f7f36507b889865fa56a.webp",
+    "coords": {
+      "lat": 55.995423687722656,
+      "lon": 36.267045378673565
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/raznoe-rossijskaya-seriya-koltsevyih-gonok-sentyabr-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223559",
+    "title": "Серия «Переход»",
     "category": "event",
     "eventType": "exhibition",
     "zone": "center",
@@ -29222,265 +27750,97 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Видеоэссе обращается к теме искусственного интеллекта через образ затянувшейся зимы — периода, когда обещания технологий сталкиваются с пределами их возможностей. Проект рассматривает, как нейросети воспроизводят культурные шаблоны.",
+    "description": "Серия Владимира Грига обращается к состояниям, в которых привычные границы начинают смещаться, а реальность кажется проницаемой для сна, памяти и фантазии. Проект соединяет ретрофутуристические образы, личные воспоминания и визуальный язык…",
     "exactDates": [
       "2026-03-06"
     ],
     "startTimes": [
       "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/b4/7f/b47fabdd16fad46f496ad9fe8ef150b8.jpg",
+    "image": "https://media.kudago.com/images/event/44/a0/44a0ff3656651ee70b0fc3e0fef26d41",
     "coords": {
       "lat": 55.74165699999998,
       "lon": 37.59877999999995
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-ai-winter/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-seriya-perehod/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226203",
-    "title": "Яблоки",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 7800,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Хрустящие, медовые, румяные — яблоки словно созданы для того, чтобы запечатлеть их на холсте. На мастер-классе в студии «Рисуй» вы вдохновитесь атмосферой Яблочного Спаса и перенесёте на круглый холст всю палитру летних оттенков.",
-    "exactDates": [
-      "2026-08-14",
-      "2026-08-15",
-      "2026-08-16",
-      "2026-08-18",
-      "2026-08-19"
-    ],
-    "startTimes": [
-      "16:00:00",
-      "11:30:00",
-      "18:30:00",
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/62/52/6252f46fddf912cfbebc717cb22fd4f9.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-yabloki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226069",
-    "title": "Амаркорд",
-    "category": "event",
-    "eventType": "festival",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": false,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "В Калужской области, в городе Таруса, в третий раз пройдёт Международный культурный форум-фестиваль «Амаркорд», реализуемый при поддержке Президентского фонда культурных инициатив. В этом году он трансформируется из русско-итальянского фор…",
-    "exactDates": [
-      "2026-09-04"
-    ],
-    "startTimes": [
-      "14:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/65/3f/653fd00df3f0ad1602bdcfd6def64879.png",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/festival-amarkord/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226049",
-    "title": "Что другие думают во мне",
-    "category": "event",
-    "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.2,
-    "description": "Главный герой романа слышит чужие мысли и постепенно перестаёт понимать, где заканчиваются другие и начинается он сам. Участники книжного клуба обсудят, как Йоав Блум говорит с читателем о личных границах, одиночестве и доверии.",
-    "exactDates": [
-      "2026-08-27"
-    ],
-    "startTimes": [
-      "19:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/46/11/461146c3b4d86b8f9b1f78fa5658e646",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obsuzhdenie-romana-chto-drugie-dumayut-vo-mne/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226157",
-    "title": "АЗС. Архитектура заправочных станций",
+    "id": "kudago-event-225925",
+    "title": "Век в лозунгах и красках. Из истории московского плаката",
     "category": "event",
     "eventType": "exhibition",
     "zone": "center",
-    "address": "ул. Воздвиженка, д. 5/25",
-    "costForTwo": 500,
+    "address": "бул. Зубовский, д. 2",
+    "costForTwo": 1000,
     "costEstimated": false,
     "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual",
-      "active"
+      "unusual"
     ],
     "quality": 7.2,
-    "description": "Как менялись автозаправочные станции вместе с автомобилями и городами? Экспозиция прослеживает их путь от первых бензоколонок до современных комплексов, раскрывая не только архитектурную, но и культурную историю.",
+    "description": "Около 160 плакатов показывают, как Москва целое столетие разговаривала с жителями через афишные тумбы, витрины и стены домов. Реклама, агитация и городская графика складываются в хронику повседневности и исторических переломов.",
     "exactDates": [
-      "2026-07-28"
+      "2026-06-24"
     ],
     "startTimes": [
       "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/0c/85/0c85255548a26335867f6ffe65914ef2.JPG",
+    "image": "https://media.kudago.com/images/event/b3/f7/b3f73c659def925dc627395d43d154df.png",
     "coords": {
-      "lat": 55.75242790000003,
-      "lon": 37.607246100000275
+      "lat": 55.73668610000017,
+      "lon": 37.59185630000002
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-azs-arhitektura-zapravochnyih-stantsij/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-vek-v-lozungah-i-kraskah-iz-istorii-moskovskogo-plakata/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226139",
-    "title": "Королевское барокко во дворце Кусково: легенды Туманного Альбиона",
+    "id": "kudago-event-223264",
+    "title": "Жить красиво",
     "category": "event",
-    "eventType": "concert",
-    "zone": "east",
-    "address": "ул. Юности, д. 2",
-    "costForTwo": 2200,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "В старинных дворцовых интерьерах прозвучит музыка английского барокко. Произведения исполнят на исторических инструментах при свете сотен свечей.",
-    "exactDates": [
-      "2026-09-04"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/87/4e/874e0453ac3541f4363f9e1fcf18c57f.jpg",
-    "coords": {
-      "lat": 55.734922,
-      "lon": 37.808957999999976
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-korolevskoe-barokko-vo-dvortse-kuskovo-legendyi-tumannogo-albiona/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-215717",
-    "title": "Море Синего леса",
-    "category": "event",
-    "eventType": "concert",
+    "eventType": "event",
     "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 5000,
+    "address": "Мясницкая, 42",
+    "costForTwo": 0,
     "costEstimated": false,
-    "duration": 110,
+    "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Погрузитесь в магию японской культуры на шоу «Море Синего леса».",
+    "description": "Если вы цените вдохновляющую атмосферу и вещи с характером, маркет «Жить красиво» вас точно не разочарует. В исторических интерьерах усадьбы Барышникова, под высокими потолками с лепниной, раскинется экспозиция с атмосферой осени и творчес…",
     "exactDates": [
-      "2025-04-23",
-      "2025-09-30",
-      "2026-02-18",
-      "2026-05-28",
-      "2026-09-26"
+      "2026-04-03",
+      "2026-05-15",
+      "2026-09-18",
+      "2026-10-30"
     ],
     "startTimes": [
-      "19:00:00"
+      "21:00",
+      "12:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/1f/89/1f89da715da66a4c5ba901029cff33a8",
+    "image": "https://media.kudago.com/images/event/34/97/349750d555010a79df8079d674864d28.jpg",
     "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
+      "lat": 55.767129,
+      "lon": 37.642824
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/shou-more-sinego-lesa/",
+    "sourceUrl": "https://kudago.com/msk/event/market-zhit-krasivo/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223119",
-    "title": "Надо больше радоваться",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "city",
-    "address": "Столярный пер, д. 3, корп. 15",
-    "costForTwo": 3800,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Ироничная драмеди о встрече двух потерянных людей в кабинете психотерапевта — честный разговор о разводе, панических атаках, синдроме самозванца и культе успеха. Тринадцать сеансов, минималистичный кабинет-трансформер, инди-саунд и видеопр…",
-    "exactDates": [
-      "2026-02-27",
-      "2026-05-29",
-      "2026-09-26"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/6a/b2/6ab250219c5de7c40f1f86e2d59035b2",
-    "coords": {
-      "lat": 55.7647129999999,
-      "lon": 37.56777200000037
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/spektakl-nado-bolshe-radovatsya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-209806",
-    "title": "Мамлеев",
+    "id": "kudago-event-225891",
+    "title": "Повод остаться",
     "category": "event",
     "eventType": "theater",
     "zone": "center",
-    "address": "Зубовский бул., д. 2, стр. 3",
+    "address": "Москва",
     "costForTwo": 5000,
     "costEstimated": false,
     "duration": 130,
@@ -29490,39 +27850,167 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Спектакль в жанре психоделической оперы по прозе Юрия Мамлеева.",
+    "description": "Виктория Исакова и Игорь Гордин в комедийной мелодраме по пьесе Бернарда Слейда о бывших супругах, которые решили остаться друзьями.",
     "exactDates": [
-      "2024-05-31",
-      "2024-06-30",
-      "2024-09-13",
-      "2024-10-16",
-      "2024-11-25",
-      "2024-12-15",
-      "2025-01-18",
-      "2025-02-02",
-      "2025-03-16",
-      "2025-04-13",
-      "2025-05-24",
-      "2025-06-18",
-      "2025-07-06",
-      "2025-08-29",
-      "2025-09-14",
-      "2025-11-30",
-      "2026-04-26",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-30"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/68/d8/68d841557e205a9f6a9710f74805a0d7.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-povod-ostatsya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224694",
+    "title": "Призрак мюзикла, или Что опять не так?",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Цветной бул., д. 11, стр.2",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Компания продюсера Дмитрия Богачёва «Бродвей Москва» снова приглашает в закулисье театра, где невозможное становится реальностью: на волне успеха спектакля из суперхитов «Мамма Мимо!» было решено создать его продолжение.",
+    "exactDates": [
+      "2026-08-21",
+      "2026-09-22",
+      "2026-10-01",
+      "2026-10-23"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/97/0a/970a4cc46277722110315e0306144eb7.png",
+    "coords": {
+      "lat": 55.77012350000024,
+      "lon": 37.62058900000029
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-prizrak-myuzikla-ili-chto-opyat-ne-tak/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225916",
+    "title": "Искусство книги. От знака к медиа",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Малая Пионерская, д. 12",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Бумажное издание рассматривают как систему, где смысл рождается из шрифта, ритма страниц, конструкции блока и выбора материала. Проекты студентов и выпускников показывают, как книжный дизайн управляет вниманием.",
+    "exactDates": [
+      "2026-07-08"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e6/fe/e6fec35eb06c711472d4aa3d061909e6.jpg",
+    "coords": {
+      "lat": 55.7287107000002,
+      "lon": 37.63555289999984
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-iskusstvo-knigi-ot-znaka-k-media/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226194",
+    "title": "Лекции для управленцев",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "4-й Лесной переулок, д. 4, БЦ White Stone",
+    "costForTwo": 30000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Лекторий 24/7 — это постоянно действующая площадка практического обучения для собственников, управленцев и руководителей. Здесь создают сильное деловое сообщество из тех, чья цель — устойчивый рост, успешное использование передовых техноло…",
+    "exactDates": [
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-07",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19"
+    ],
+    "startTimes": [
+      "11:00:00",
+      "14:00:00",
+      "09:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/81/21/8121213b0f3bd4cdccf2af9d3c0dbddf.jpg",
+    "coords": {
+      "lat": 55.779627799999794,
+      "lon": 37.58777440000008
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-lektsii-dlya-biznesa/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226273",
+    "title": "Путешествие",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 7700,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Шум прибоя, свежесть гор, городские улочки, запах леса и вкус свежих ягод — участники мастер-класса соберут воедино личные воспоминания о лете и перенесут их на холст.",
+    "exactDates": [
+      "2026-08-20",
+      "2026-08-21",
       "2026-08-22",
-      "2026-09-12"
+      "2026-08-23"
     ],
     "startTimes": [
-      "20:00:00",
-      "19:00:00"
+      "13:00:00",
+      "17:00:00",
+      "12:00:00",
+      "16:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/96/b1/96b1b214c2e233157dc0c5260293aad9.jpg",
+    "image": "https://media.kudago.com/images/event/71/72/7172db7311403b5495c3f9655488ea1d.jpg",
     "coords": {
-      "lat": 55.73697611234431,
-      "lon": 37.59322262121239
+      "lat": null,
+      "lon": null
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-mamleev/",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-puteshestvie-avgust-2026/",
     "officialUrl": null
   },
   {
@@ -29568,147 +28056,83 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-218981",
-    "title": "Курс по акварели",
+    "id": "kudago-event-224794",
+    "title": "Вечерняя Москва",
     "category": "event",
     "eventType": "event",
-    "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 46000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "За 8 уроков вы освоите ключевые техники акварельной живописи и научитесь создавать эстетичные работы в разных жанрах — от ботанического натюрморта до городского пейзажа.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "00:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/80/b7/80b7ef7b5e22f5f78efa77985503156d.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-akvareli/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225846",
-    "title": "Здравствуйте, я ваша тётя!",
-    "category": "event",
-    "eventType": "theater",
     "zone": "center",
     "address": "Москва",
     "costForTwo": 3000,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Знаменитые символы города, ажурные мосты, архитектурные шедевры и просторные набережные — вас ждёт увлекательное трёхчасовое путешествие по вечерней столице.",
+    "exactDates": [
+      "2026-05-10",
+      "2026-05-12",
+      "2026-05-13",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "18:30:00",
+      "18:00:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/11/97/11978e6f330d1a96173e8317483efa3b.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-vechernyaya-moskva/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225842",
+    "title": "Хиты 80-90-00 на корабле",
+    "category": "event",
+    "eventType": "event",
+    "zone": "vdnh",
+    "address": "ш. Ленинградское, д. 51",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual",
-      "romantic"
+      "romantic",
+      "active"
     ],
     "quality": 7.2,
-    "description": "Трепетная любовь, хитрый обман и абсурдные обстоятельства — знаменитая история «тётушки» Джека Чеснея оживёт на сцене в исполнении популярных актёров театра и кино.",
+    "description": "Музыкальный вечер на теплоходе с возможностью потанцевать под хиты, полюбоваться достопримечательностями и закатом.",
     "exactDates": [
-      "2026-10-16",
-      "2026-10-25",
-      "2026-11-07",
-      "2026-12-12",
-      "2026-12-19",
-      "2026-12-30",
-      "2027-02-06",
-      "2027-03-18"
+      "2026-07-10",
+      "2026-07-16",
+      "2026-07-23",
+      "2026-07-30",
+      "2026-08-05",
+      "2026-08-06",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-19",
+      "2026-08-20",
+      "2026-08-26",
+      "2026-08-27"
     ],
     "startTimes": [
-      "19:00:00",
-      "20:00:00",
-      "16:00:00"
+      "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/72/43/7243944e89e46a9ad6f7d6a5b8c2ddee.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-zdravstvujte-ya-vasha-tyotya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220183",
-    "title": "Пуантилизм + Жорж Сёра",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Старая Басманная, д. 15А, стр. 4",
-    "costForTwo": 4000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Программа познакомит детей с творчеством знаменитого художника Жоржа Сёра и его удивительной техникой живописи. Участники повторят шедевр мастера с помощью своих пальчиков и пластилина.",
-    "exactDates": [
-      "2025-09-13",
-      "2025-10-26",
-      "2025-11-15",
-      "2025-12-20",
-      "2026-01-08",
-      "2026-02-22",
-      "2026-04-18",
-      "2026-05-16",
-      "2026-06-20",
-      "2026-08-18"
-    ],
-    "startTimes": [
-      "12:00:00",
-      "16:00:00",
-      "12:15:00",
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/6b/05/6b050b4dbb7bbee56362249f35d70a1c.jpg",
+    "image": "https://media.kudago.com/images/event/de/29/de29f1fcf5234dc7cfb5e14a3140bb5a.jpg",
     "coords": {
-      "lat": 55.7654517999999,
-      "lon": 37.65992869999984
+      "lat": 55.85067599999999,
+      "lon": 37.467392
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-puantilizm--zhorzh-syora/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224792",
-    "title": "Экскурсия по Красной площади",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 1440,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Часы на Спасской башне, Казанский собор и могила Неизвестного солдата — в сопровождении гида вы прогуляетесь по главной площади страны и осмотрите её знаменитые достопримечательности.",
-    "exactDates": [
-      "0001-01-02"
-    ],
-    "startTimes": [
-      "21:30"
-    ],
-    "image": "https://media.kudago.com/images/event/5d/09/5d09d66a0c2ee940573929c0cd3156d8.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-ekskursiya-po-krasnoj-ploschadi/",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-hityi-80-90-00-na-korable/",
     "officialUrl": null
   },
   {
@@ -29741,6 +28165,396 @@ export const kudagoEvents = [
     },
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/vyistavka-lyudi-dekabrya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223165",
+    "title": "Великие хиты джаза",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 2800,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Знаменитый оркестр имени Олега Лундстрема возвращает на сцену золотой век джаза: от мягких баллад до драйвовых свинговых номеров. Фирменное звучание, живой звук большого состава и история коллектива превращают вечер в праздник для тех, кто…",
+    "exactDates": [
+      "2026-03-05",
+      "2026-09-17"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/80/c9/80c9211928ce0db9656e3a6a78506786",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-velikie-hityi-dzhaza/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-213878",
+    "title": "Ансамбль песни и пляски ВКС России",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 200,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "День защитника Отечества — это время, когда песни о доблести и чести приобретают особую силу. Праздничный концерт с участием Ансамбля песни и пляски ВКС России подарит зрителям уникальную возможность услышать лучшие вокальные и танцевальны…",
+    "exactDates": [
+      "2025-02-23",
+      "2026-02-23",
+      "2026-09-05"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/0c/26/0c26a829df8b79d6b2ec2901b4bb648b",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-ansambl-pesni-i-plyaski-vks-rossii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222175",
+    "title": "Ансамбль скрипачей Большого театра",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 19600,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Скрипки Большого театра зазвучат как единый организм: от искрящегося «Полёта шмеля» до лирической «Аве Мария» и мрачной «Ночи на Лысой горе». В программе — хиты академической музыки, фрагменты из опер и балетов, виртуозные вариации и вокал…",
+    "exactDates": [
+      "2026-01-16",
+      "2026-09-26"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/1f/77/1f77f12cc2b06a4c9ea049e88052513c",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-ansambl-skripachej-bolshogo-teatra-rppyhh/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220107",
+    "title": "Посвящение Лучано Паваротти",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Концерт «Посвящение Лучано Паваротти» — это торжество оперного вокала, живой оркестровой силы и неподдельных эмоций. Музыка гения прозвучит в исполнении проекта «ТенорА XXI века» и оркестра «Русская филармония». Зрителей ждёт вечер, наполн…",
+    "exactDates": [
+      "2025-09-27",
+      "2026-09-30"
+    ],
+    "startTimes": [
+      "15:00:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/fb/8f/fb8f3692e273a00feacff9b437cbb7cb",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-posvyaschenie-luchano-pavarotti/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-216634",
+    "title": "МЯУ КВИЗ",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "Если вам ближе ностальгия по 2000-м, чем таблица Менделеева, а сериальные диалоги вспоминаются лучше, чем даты из учебника, то вам точно сюда. «МЯУ КВИЗ» — это уютные, лёгкие, тематические игры, где можно блеснуть своими знаниями о сериала…",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/c7/1a/c71a0b310e16940bfb1efb935bfcd574.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/entertainment-myau-kviz/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-208571",
+    "title": "Русалочка",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "пер. Мамоновский, д. 10, стр. 1",
+    "costForTwo": 4800,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Нежный и изысканный спектакль Рузанны Мовсесян по сказке Ганса Христиана Андерсена.",
+    "activeFrom": "2024-01-13",
+    "activeUntil": "2026-09-26",
+    "startTimes": [
+      "12:00:00",
+      "15:00:00",
+      "16:00:00",
+      "17:00:00",
+      "13:00:00",
+      "14:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/85/d2/85d2fdf8430654db2631455a754cb75e.jpg",
+    "coords": {
+      "lat": 55.76622799999998,
+      "lon": 37.599867
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-rusalochka-2024/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222867",
+    "title": "Рок-хиты на органе при свечах",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "пер. Старосадский, д. 7/10, стр. 10",
+    "costForTwo": 1800,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Мощное звучание органа, безудержная энергия рока и удивительная акустика собора — органист Сергей Буслов и рок-музыканты объединят в одном концерте классику XVIII века и стадионные гимны современности.",
+    "exactDates": [
+      "2026-02-26",
+      "2026-05-21",
+      "2026-06-25",
+      "2026-07-30",
+      "2026-08-20"
+    ],
+    "startTimes": [
+      "20:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/68/39/68390794e8dc8fb17bb7345cbe7ca58d.jpg",
+    "coords": {
+      "lat": 55.75678510282241,
+      "lon": 37.64095186663472
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-rok-hityi-na-organe-pri-svechah-fevral-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224792",
+    "title": "Экскурсия по Красной площади",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 1440,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Часы на Спасской башне, Казанский собор и могила Неизвестного солдата — в сопровождении гида вы прогуляетесь по главной площади страны и осмотрите её знаменитые достопримечательности.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/5d/09/5d09d66a0c2ee940573929c0cd3156d8.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-ekskursiya-po-krasnoj-ploschadi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226193",
+    "title": "Пионы",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Картина необязательно должна быть со сложным сюжетом — иногда хочется чего-то простого и настоящего. На мастер-классе вы создадите именно такую иллюстрацию с выразительным пышным цветком.",
+    "exactDates": [
+      "2026-08-12",
+      "2026-08-15",
+      "2026-08-16",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20",
+      "2026-08-22",
+      "2026-08-23"
+    ],
+    "startTimes": [
+      "12:00:00",
+      "13:00:00",
+      "16:00:00",
+      "15:00:00",
+      "14:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/99/04/990401f70bd857ea6aa884e8c6a5f428.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-pionyi-avgust-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225157",
+    "title": "Тайны старинной усадьбы",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "бул. Никитский, д. 7А",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Экскурсия по старинной усадьбе на Никитском бульваре раскрывает загадки, связанные с последними годами Николая Гоголя. Гости узнают о тайне смерти писателя, сожжённой рукописи и доме, где он жил.",
+    "exactDates": [
+      "2026-06-03",
+      "2026-06-10",
+      "2026-06-17",
+      "2026-06-24",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-22",
+      "2026-07-23",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-19",
+      "2026-08-26",
+      "2026-08-27"
+    ],
+    "startTimes": [
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/3b/59/3b59beed42acc3bf8edbbbfd67b87ba0",
+    "coords": {
+      "lat": 55.75414199999994,
+      "lon": 37.599822
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-tajnyi-starinnoj-usadbyi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225919",
+    "title": "Трын*Трава. Дети. Современный русский стиль",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Делегатская, д. 3, стр. 1",
+    "costForTwo": 1100,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Молодые авторы от 7 до 21 года переосмысливают русский культурный код через керамику, текстиль, светильники и предметы интерьера. Сказочные герои, народные промыслы и советский быт получают форму, понятную сегодняшнему поколению.",
+    "exactDates": [
+      "2026-06-30"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/fa/c2/fac200608b5577ecf342aafbde5bff0c.jpg",
+    "coords": {
+      "lat": 55.77473189676471,
+      "lon": 37.60965054100005
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-tryintrava-deti-sovremennyij-russkij-stil/",
     "officialUrl": null
   },
   {
@@ -29779,13 +28593,46 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-205974",
-    "title": "«История любви в джазе» / Love story in jazz",
+    "id": "kudago-event-226185",
+    "title": "Романтика рока при свечах. Мировые хиты на виолончели и фортепиано в Есенин-центре",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
-    "address": "Большая Татарская, 5",
-    "costForTwo": 7400,
+    "address": "пер. Чернышевского, д. 4, стр. 2",
+    "costForTwo": 2400,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.2,
+    "description": "Знакомые рок-композиции зазвучат совсем иначе, когда электрогитары уступят место виолончели и роялю.",
+    "exactDates": [
+      "2026-08-28"
+    ],
+    "startTimes": [
+      "19:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/c9/4d/c94d6d6ef4aa7a5c6aadd7ffd091d2a4.jpg",
+    "coords": {
+      "lat": 55.782152000000025,
+      "lon": 37.60921699999961
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-romantika-roka-pri-svechah-mirovyie-hityi-na-violoncheli-i-fortepiano-v-esenin-tsentre/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226179",
+    "title": "Танго и босса-нова при свечах: музыка Латинской Америки",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Покровка, д. 27, стр.1",
+    "costForTwo": 3200,
     "costEstimated": false,
     "duration": 110,
     "indoor": true,
@@ -29794,45 +28641,62 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Вечер посвятят джазовым историям о любви, собранным со всего мира. Программа объединит известные композиции на разных языках и рассказы об их появлении.",
+    "description": "Дуэт скрипки и рояля перенесёт слушателей на солнечные пляжи Латинской Америки.",
     "exactDates": [
-      "2023-08-03",
-      "2024-03-06",
-      "2024-03-10",
-      "2024-04-06",
-      "2024-06-08",
-      "2024-07-18",
-      "2024-09-01",
-      "2024-09-27",
-      "2024-12-22",
-      "2025-02-14",
-      "2026-02-14",
-      "2026-08-30"
+      "2026-08-28"
     ],
     "startTimes": [
-      "20:30:00",
-      "19:00:00",
-      "20:00:00",
-      "18:00:00",
-      "19:30:00"
+      "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/71/14/7114fb2421a1fbf3572dfd0fdfbe73d2.jpg",
+    "image": "https://media.kudago.com/images/event/db/f8/dbf8e9b0774b62e929c6723055fd493f.jpg",
     "coords": {
-      "lat": 55.742468,
-      "lon": 37.631442
+      "lat": null,
+      "lon": null
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-olga-stupina-and-b-band-iyul-2023/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-tango-i-bossa-nova-pri-svechah-muzyika-latinskoj-ameriki/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225880",
-    "title": "Москва масонская. Легенды и предания вольных каменщиков",
+    "id": "kudago-event-226146",
+    "title": "Иоганн Себастьян Бах и венские классики",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Делегатская, д. 3, корп. 1",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Органная музыка объединит сочинения классиков и современных композиторов. Программа покажет, насколько по-разному может звучать этот инструмент.",
+    "exactDates": [
+      "2026-09-11"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b4/54/b45433a73945d5c8009e19063a1be95e.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-iogann-sebastyan-bah-i-venskie-klassiki/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225882",
+    "title": "Красавица Коломна. Старинное чудо Подмосковья",
     "category": "event",
     "eventType": "event",
     "zone": "center",
     "address": "Москва",
-    "costForTwo": 1440,
+    "costForTwo": 8330,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -29841,27 +28705,28 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Где в Москве находились масонские ложи и какие памятники архитектуры хранят о них память по сей день? На экскурсии вы посетите места со спорной репутацией, а рассказ гида отделит мифы о тайном братстве от реальных фактов.",
+    "description": "Кремль XVI века, изящные соборы, пастила и крокодиловая ферма — древний и многогранный город Коломна откроется вам с совершенно разных сторон.",
     "exactDates": [
-      "0001-01-02"
+      "2026-07-26",
+      "2026-08-22"
     ],
     "startTimes": [
-      "21:30"
+      "09:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/36/93/36938878995b1e0f1dc98c08b431d1a2.jpg",
+    "image": "https://media.kudago.com/images/event/c5/cb/c5cb30e9eef29c94ec1f0bcbe61e1ec3.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-moskva-masonskaya-legendyi-i-predaniya-volnyih-kamenschikov/",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-krasavitsa-kolomna-starinnoe-chudo-podmoskovya/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-211627",
-    "title": "Орган от барокко до рока",
+    "id": "kudago-event-218445",
+    "title": "Мировые рок-хиты на виолончелях. Magic Cellos Band",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
     "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 1400,
+    "costForTwo": 2400,
     "costEstimated": false,
     "duration": 110,
     "indoor": true,
@@ -29870,24 +28735,22 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Концерт предлагает уникальный музыкальный опыт, где классические произведения встречаются с мировыми хитами рока. Это мероприятие станет захватывающим путешествием по эпохам и стилям, демонстрируя орган как инструмент с невероятными возмож…",
+    "description": "Ансамбль Magic Cellos Band перевернёт представление о виолончели, исполнив мощные рок-хиты.",
     "exactDates": [
-      "2024-11-07",
-      "2025-03-27",
-      "2025-11-01",
-      "2026-07-16",
-      "2026-09-09"
+      "2025-07-17",
+      "2026-07-23",
+      "2026-09-25"
     ],
     "startTimes": [
       "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/b1/bc/b1bc43c65b66ded95ebab0d9cbffce98",
+    "image": "https://media.kudago.com/images/event/0b/b1/0bb1bcd1374e48ecfea7d9a272fdccc2",
     "coords": {
       "lat": 55.73324899999993,
       "lon": 37.64659699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-organ-ot-barokko-do-roka/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-mirovyie-rok-hityi-na-violonchelyah-magic-cellos-band/",
     "officialUrl": null
   },
   {
@@ -29951,6 +28814,72 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
+    "id": "kudago-event-225170",
+    "title": "Чайка",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Арбат, д. 26",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Всегда актуальные жизненные вопросы и непостижимая глубина чувств — пьеса Антона Чехова воплотится в постановке Владислава Наставшева.",
+    "exactDates": [
+      "2026-07-05",
+      "2026-08-26"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/2e/fa/2efa73e56c6e31ae57386a981993589c.jpg",
+    "coords": {
+      "lat": 55.74989099999998,
+      "lon": 37.59152099999997
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-chajka-iyul-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223553",
+    "title": "Нейрочадо 2.0 и архив наследственности",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Интерактивная инсталляция превращает личную семейную историю в разговор о надежде, репродуктивных технологиях и попытке представить того, кто пока существует лишь в воображении. Проект соединяет биографический опыт, науку и цифровую модель…",
+    "exactDates": [
+      "2026-03-06"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ac/f7/acf7983bb26fa9496b909fb8eff1e674.png",
+    "coords": {
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-nejrochado-20-i-arhiv-nasledstvennosti/",
+    "officialUrl": null
+  },
+  {
     "id": "kudago-event-223560",
     "title": "Lacrima",
     "category": "event",
@@ -29983,373 +28912,13 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-211716",
-    "title": "Органные шедевры Баха",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Органные шедевры Баха, наполненные невероятной глубиной и масштабом, прозвучат в исполнении виртуозного итальянского исполнителя Эудженио Марии Фаджиани. Концерт погрузит слушателей в атмосферу возвышенной духовности и искусства.",
-    "exactDates": [
-      "2025-11-25",
-      "2026-09-27"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "13:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/6b/7b/6b7bc33dba7604228d18367e561e2b45",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-organnyie-shedevryi-baha-e-fadzhiani-organ-italiya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-221285",
-    "title": "Обломок империи",
-    "category": "event",
-    "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Фильм Фридриха Эрмлера «Обломок империи» возвращается на экран — немой шедевр о человеке, потерянном между двумя эпохами. Впечатляющая операторская работа, глубокий драматизм и масштаб эпохи делают эту ленту не просто кином, а настоящим ис…",
-    "exactDates": [
-      "2025-11-22",
-      "2026-08-21"
-    ],
-    "startTimes": [
-      "16:00:00",
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/d0/01/d00174efa183f4a763ed4fcb9d0cf7c4",
-    "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-oblomok-imperii/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220107",
-    "title": "Посвящение Лучано Паваротти",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Концерт «Посвящение Лучано Паваротти» — это торжество оперного вокала, живой оркестровой силы и неподдельных эмоций. Музыка гения прозвучит в исполнении проекта «ТенорА XXI века» и оркестра «Русская филармония». Зрителей ждёт вечер, наполн…",
-    "exactDates": [
-      "2025-09-27",
-      "2026-09-30"
-    ],
-    "startTimes": [
-      "15:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/fb/8f/fb8f3692e273a00feacff9b437cbb7cb",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-posvyaschenie-luchano-pavarotti/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220095",
-    "title": "Пётр Погодаев и хиты группы «Кино»",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 2600,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Уникальный голос Петра Погодаева возвращает к бессмертным хитам «Кино» — с душой, искренностью и свежим звучанием. Его голос уже прозвучал в культовом фильме «Лето», а теперь — в живом концерте, полном ностальгии, рока и новых эмоций. Это…",
-    "exactDates": [
-      "2025-09-19",
-      "2026-02-22",
-      "2026-09-18"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "20:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/79/72/7972a0b2b6aa55b931a486a0d48e367a",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-pyotr-pogodaev-i-hityi-gruppyi-kino/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225498",
-    "title": "Звёзды стендапа на крыше",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2224,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Уморительные шутки популярных комиков и красивые виды на вечернюю Москву — проект «Стендап Мск» / StandUp Msk проводит серию летних концертов.",
-    "exactDates": [
-      "2026-06-20",
-      "2026-06-22",
-      "2026-06-23",
-      "2026-06-27",
-      "2026-06-29",
-      "2026-06-30",
-      "2026-07-04",
-      "2026-07-07",
-      "2026-07-18",
-      "2026-07-20",
-      "2026-07-21",
-      "2026-07-22",
-      "2026-07-23",
-      "2026-07-25",
-      "2026-07-27",
-      "2026-07-28",
-      "2026-07-29",
-      "2026-08-08",
-      "2026-08-15",
-      "2026-08-18",
-      "2026-08-22",
-      "2026-08-29"
-    ],
-    "startTimes": [
-      "17:00:00",
-      "20:00:00",
-      "21:30:00"
-    ],
-    "image": "https://media.kudago.com/images/event/6d/c0/6dc061ae771f898867f615dfc91f0e66.jpg",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-zvyozdyi-stendapa-na-kryishe/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226251",
-    "title": "Конные сезоны",
-    "category": "event",
-    "eventType": "festival",
-    "zone": "west",
-    "address": "Новоивановское, ул. Западная, с. 18А",
-    "costForTwo": 5250,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": false,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "«Конные сезоны» — событие нового формата, объединяющее международные спортивные соревнования и яркое театрализованное шоу. Здесь можно увлекательно провести время всей семьёй: будет интересно, даже если вы на конной арене впервые.",
-    "exactDates": [
-      "2026-09-10",
-      "2026-09-17"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/8b/84/8b84d78e4be469dd53aa92c41e3d7b82.png",
-    "coords": {
-      "lat": 55.709201,
-      "lon": 37.362199
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/festival-konnyie-sezonyi/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226008",
-    "title": "Персона. Микаэл Таривердиев",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "наб. Котельническая, д. 1/15",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "В рамках цикла музыка Микаэла Таривердиева прозвучит в нескольких советских фильмах — от шпионских детективов до сказки, мелодрамы и военной драмы. Все картины покажут с плёнки 35 миллиметров из коллекции Госфильмофонда.",
-    "exactDates": [
-      "2026-08-10",
-      "2026-08-11",
-      "2026-08-12",
-      "2026-08-13",
-      "2026-08-14",
-      "2026-08-17",
-      "2026-08-19",
-      "2026-08-20",
-      "2026-08-21"
-    ],
-    "startTimes": [
-      "10:00:00",
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/7c/e4/7ce476a4cd374a7dfc10310585967b0e.webp",
-    "coords": {
-      "lat": 55.74752999999998,
-      "lon": 37.64469199999996
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/seriya-kinopokazov-persona-mikael-tariverdiev/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226262",
-    "title": "Вкусы на крыше",
-    "category": "event",
-    "eventType": "festival",
-    "zone": "center",
-    "address": "ул. 7-я Кожуховская, д. 9",
-    "costForTwo": 700,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": false,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Вкусное летнее событие с видом на Москву: на крыше ТРЦ «Мозаика» соберутся более десятка гастропроектов с блюдами разных кухонь мира, также в программе — подарки гостям, музыка от диджеев и кавер-групп.",
-    "exactDates": [
-      "2026-08-21"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/05/34/053418846d89856c4078157486d84f76.png",
-    "coords": {
-      "lat": 55.71061637014689,
-      "lon": 37.67652317504902
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/festival-vkusyi-na-kryishe/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226056",
-    "title": "Кейптаун: мифы, реальность и причины влюбиться",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Николоямская, д. 1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Столица ЮАР напоминает открытку: океан, гора над городом, пляжи с пингвинами и винодельни неподалёку. Но за эффектными видами скрывается противоречивый мегаполис, где природное богатство соседствует с резкими социальными контрастами.",
-    "exactDates": [
-      "2026-08-21"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/4d/35/4d35a4949e8f65f68711bb46f22ba43f",
-    "coords": {
-      "lat": 55.74863130000007,
-      "lon": 37.64758419999989
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/lektsiya-kejptaun-mifyi-realnost-i-prichinyi-vlyubitsya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226057",
-    "title": "Коренные народы Америки",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Николоямская, д. 1",
-    "costForTwo": 0,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Финальная лекция цикла о населении США.",
-    "exactDates": [
-      "2026-08-29"
-    ],
-    "startTimes": [
-      "12:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/0e/d4/0ed4f9d608e88a0880b3859cd745fe70",
-    "coords": {
-      "lat": 55.74863130000007,
-      "lon": 37.64758419999989
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/lektsiya-korennyie-narodyi-ameriki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224694",
-    "title": "Призрак мюзикла, или Что опять не так?",
+    "id": "kudago-event-205325",
+    "title": "Смертельный номер",
     "category": "event",
     "eventType": "theater",
     "zone": "center",
-    "address": "Цветной бул., д. 11, стр.2",
-    "costForTwo": 3000,
+    "address": "бул. Чистопрудный, д. 19",
+    "costForTwo": 2000,
     "costEstimated": false,
     "duration": 130,
     "indoor": true,
@@ -30358,28 +28927,48 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Компания продюсера Дмитрия Богачёва «Бродвей Москва» снова приглашает в закулисье театра, где невозможное становится реальностью: на волне успеха спектакля из суперхитов «Мамма Мимо!» было решено создать его продолжение.",
+    "description": "Спектакль рассказывает историю о внутреннем раздвоении, где разные стороны личности вступают в открытый спор.",
     "exactDates": [
-      "2026-08-21",
-      "2026-09-22",
-      "2026-10-01",
-      "2026-10-23"
+      "2023-06-16",
+      "2023-06-17",
+      "2023-06-25",
+      "2023-06-26",
+      "2023-09-11",
+      "2023-09-20",
+      "2023-09-30",
+      "2023-10-14",
+      "2023-10-28",
+      "2023-11-08",
+      "2023-11-30",
+      "2023-12-09",
+      "2024-01-10",
+      "2024-01-19",
+      "2024-01-30",
+      "2024-02-11",
+      "2024-02-24",
+      "2024-03-10",
+      "2024-04-14",
+      "2024-04-30",
+      "2024-06-16",
+      "2026-04-25",
+      "2026-05-22",
+      "2026-09-12"
     ],
     "startTimes": [
-      "21:00"
+      "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/97/0a/970a4cc46277722110315e0306144eb7.png",
+    "image": "https://media.kudago.com/images/event/05/89/0589629aa35b2663d02de293448bf62e.jpg",
     "coords": {
-      "lat": 55.77012350000024,
-      "lon": 37.62058900000029
+      "lat": 55.76182099999997,
+      "lon": 37.645968
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-prizrak-myuzikla-ili-chto-opyat-ne-tak/",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-smertelnyij-nomer/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-210284",
-    "title": "Бах и Таривердиев. Играет Мария Блажевич",
+    "id": "kudago-event-217605",
+    "title": "Музыка вселенной: Бах, Циммер, Эйнауди",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
@@ -30390,27 +28979,291 @@ export const kudagoEvents = [
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual",
-      "active"
+      "unusual"
     ],
     "quality": 7.2,
-    "description": "Мария Блажевич представит публике концертную программу, в которой объединились наследия двух великих композиторов, оставивших заметный след в истории музыки.",
+    "description": "Мелодии классических композиторов и авторские переложения современных авторов прозвучат под сводами собора в концертной программе Ивана Царёва.",
     "exactDates": [
-      "2024-08-25",
-      "2025-05-29",
-      "2026-08-27"
+      "2025-05-11",
+      "2025-06-28",
+      "2025-09-14",
+      "2026-02-28",
+      "2026-05-17",
+      "2026-09-06"
     ],
     "startTimes": [
       "19:00:00",
-      "20:00:00"
+      "21:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/c1/77/c1778956be97bb1e29e738703792308a.jpg",
+    "image": "https://media.kudago.com/images/event/97/fe/97fe0afd627a5d1ae65ec2cdf8ee5068.jpg",
     "coords": {
       "lat": 55.75678510282241,
       "lon": 37.64095186663472
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-bah-i-tariverdiev-ko-dnyu-rozhdeniya-mikaela-tariverdieva/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-muzyika-vselennoj-bah-tsimmer-ejnaudi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220517",
+    "title": "ансамбль танца «Кабардинка»",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Государственный ансамбль танца «Кабардинка» возвращается на сцену с вихрем страстных ритмов и виртуозных трюков. Народные танцы, наполненные энергией гор, яркие национальные костюмы и живое музыкальное сопровождение создают поистине незабы…",
+    "exactDates": [
+      "2025-10-17",
+      "2026-09-29"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/29/99/2999a6e9c8259947f1086499346453a3",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-ansamblya-tantsa-kabardinka/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-216494",
+    "title": "Денис Мацуев",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 37980,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Концерт Дениса Мацуева — это встреча с уникальным исполнителем, чье имя стало синонимом виртуозности и невероятной экспрессии. Его выступления — это всегда живое общение с залом, фейерверк эмоций и невероятная техника. На сцене Мацуев не п…",
+    "exactDates": [
+      "2025-05-16",
+      "2025-09-29",
+      "2026-09-28"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/86/9b/869b58c5caf2ed29566f5a4709baf5b0",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-denisa-matsueva/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220073",
+    "title": "Евгений Онегин",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 11000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Музыкально-литературная композиция «Евгений Онегин» в авторской версии Юрия Башмета — это синтез слова и музыки, который оживляет классику. Проза, поэзия и симфоническая музыка соединяются в одном спектакле, создавая живую, трепетную и глу…",
+    "exactDates": [
+      "2025-09-15",
+      "2026-09-15"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/88/0c/880c05bb7aa56fd77f46ccdf5eace944",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/muzyikalno-literaturnaya-kompozitsiya-evgenij-onegin/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218984",
+    "title": "Анатомия человека для начинающих художников",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 109480,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "За 17 занятий слушатели курса научатся рисовать человека с анатомической точностью и создавать выразительные работы, демонстрирующие красоту тела.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/5b/57/5b5770586300c91df2c926124dd03419.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-anatomiya-cheloveka-dlya-nachinayuschih-hudozhnikov/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218981",
+    "title": "Курс по акварели",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 46000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "За 8 уроков вы освоите ключевые техники акварельной живописи и научитесь создавать эстетичные работы в разных жанрах — от ботанического натюрморта до городского пейзажа.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/80/b7/80b7ef7b5e22f5f78efa77985503156d.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-akvareli/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218979",
+    "title": "Курс по живописи маслом",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 59800,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Начинающих художников ждёт 9 увлекательных занятий по масляной живописи, на которых они изучат основные техники, создадут несколько красивых картин и выработают свой уникальный художественный почерк.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e9/02/e9027d21bf8777044885ddfb4b6fb61e.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-zhivopisi-maslom/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225927",
+    "title": "Фотохронике ТАСС 100 лет",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пл. Красная, д. 1",
+    "costForTwo": 4000,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Экспозиция показывает новостную фотографию с двух сторон: как кадр, вошедший в историю, и как результат работы репортёра.",
+    "exactDates": [
+      "2026-06-16"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/5a/75/5a75156bb2f0a53a09e00031bf32e16c.jpg",
+    "coords": {
+      "lat": 55.7534523775232,
+      "lon": 37.61873189947469
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-fotohronike-tass-100-let/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218982",
+    "title": "Курс по книжной иллюстрации",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 46000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "За 8 увлекательных уроков слушатели курса смогут развить воображение, научатся визуализировать книжные сюжеты и превращать свои идеи в интересные красочные иллюстрации.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/a6/55/a65518c4ced32d2f1c9965f41a898702.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-knizhnoj-illyustratsii/",
     "officialUrl": null
   },
   {
@@ -30478,13 +29331,109 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-218983",
-    "title": "Курс по модной иллюстрации",
+    "id": "kudago-event-225881",
+    "title": "Посольства Москвы: загадки и тайны старинных особняков",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Нижний Сусальный пер., д. 5, стр. 2",
-    "costForTwo": 69000,
+    "address": "Москва",
+    "costForTwo": 1440,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Какую роль шедевры московского модерна играют в мировой политике? На экскурсии вы рассмотрите знаменитые здания дипломатических представительств и узнаете их историю.",
+    "exactDates": [
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/34/2e/342e77259b557c88fb52000c06b09d98.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-posolstva-moskvyi-zagadki-i-tajnyi-starinnyih-osobnyakov/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222522",
+    "title": "Шанель № Стравинский",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 12000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Ночь в Театре Елисейских полей превращается в откровенный разговор двух легенд: модельера Габриэль «Коко» Шанель и композитора Игоря Стравинского. В полумраке пустого зала они спорят, вспоминают, ранят и поддерживают друг друга, испытывая…",
+    "exactDates": [
+      "2026-02-07",
+      "2026-02-08",
+      "2026-09-12"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/6c/16/6c166800e45c524a05bebdd1a8b96163",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/spektakl-shanel--stravinskij/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224097",
+    "title": "Аладдин Гарунов. Путь. Форма. Образ",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Петровка, д. 25",
+    "costForTwo": 1000,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Экспозиция показывает, как личный художественный путь превращается в размышление о памяти, форме и духовном опыте. Живопись и скульптура складываются в пространство, где архаические символы встречаются с материалами современной индустриаль…",
+    "exactDates": [
+      "2026-04-10"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/12/51/12513f72811cdfa05dd9dd57a1b24e7e.jpg",
+    "coords": {
+      "lat": 55.76696199999997,
+      "lon": 37.614276000000004
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-aladdin-garunov-put-forma-obraz/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226056",
+    "title": "Кейптаун: мифы, реальность и причины влюбиться",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Николоямская, д. 1",
+    "costForTwo": 0,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -30493,30 +29442,494 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Участники курса погрузятся в мир моды, познакомятся с особенностями профессии художника-модельера и за 12 занятий научатся создавать стильные работы в авторской манере.",
+    "description": "Столица ЮАР напоминает открытку: океан, гора над городом, пляжи с пингвинами и винодельни неподалёку. Но за эффектными видами скрывается противоречивый мегаполис, где природное богатство соседствует с резкими социальными контрастами.",
+    "exactDates": [
+      "2026-08-21"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/4d/35/4d35a4949e8f65f68711bb46f22ba43f",
+    "coords": {
+      "lat": 55.74863130000007,
+      "lon": 37.64758419999989
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/lektsiya-kejptaun-mifyi-realnost-i-prichinyi-vlyubitsya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223554",
+    "title": "AI Winter",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Видеоэссе обращается к теме искусственного интеллекта через образ затянувшейся зимы — периода, когда обещания технологий сталкиваются с пределами их возможностей. Проект рассматривает, как нейросети воспроизводят культурные шаблоны.",
+    "exactDates": [
+      "2026-03-06"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b4/7f/b47fabdd16fad46f496ad9fe8ef150b8.jpg",
+    "coords": {
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-ai-winter/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226060",
+    "title": "Московская кругосветка",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Флагманский круизный теплоход «Золотое кольцо» приглашает в 9-дневное путешествие по живописным городам России.",
+    "exactDates": [
+      "2026-07-26",
+      "2026-08-06",
+      "2026-08-14"
+    ],
+    "startTimes": [
+      "14:00:00",
+      "23:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b9/08/b908c9cb3a6fd04daf142db235ca93b3.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-moskovskaya-krugosvetka/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226212",
+    "title": "Докер",
+    "category": "event",
+    "eventType": "festival",
+    "zone": "center",
+    "address": "ул. Новый Арбат, д. 24",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": false,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Авторские документальные ленты из 30 стран покажут на фестивале «Докер». В этом году в программе 80 фильмов, главная тема которых — то, что мы можем потерять: традиции, родной дом, индентичность, внутренняя свобода, а также сам образ време…",
+    "exactDates": [
+      "2026-09-03"
+    ],
+    "startTimes": [
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e9/99/e999b3e9e5b1893e8a1117d0f83c682a.jpg",
+    "coords": {
+      "lat": 55.75308299999997,
+      "lon": 37.587614
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/festival-doker/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226187",
+    "title": "Струнное световое шоу: саундтреки",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Кузнецкий мост. д. 3, стр. 2",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Музыка из культовых фильмов прозвучит в формате струнного светового электрошоу.",
+    "exactDates": [
+      "2026-09-18"
+    ],
+    "startTimes": [
+      "19:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e4/7b/e47b5a99f04ae2a75cf68ff86cd9bf68.jpg",
+    "coords": {
+      "lat": 55.761514555916506,
+      "lon": 37.61754796728055
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-strunnoe-svetovoe-shou-saundtreki/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226157",
+    "title": "АЗС. Архитектура заправочных станций",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Воздвиженка, д. 5/25",
+    "costForTwo": 500,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Как менялись автозаправочные станции вместе с автомобилями и городами? Экспозиция прослеживает их путь от первых бензоколонок до современных комплексов, раскрывая не только архитектурную, но и культурную историю.",
+    "exactDates": [
+      "2026-07-28"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/0c/85/0c85255548a26335867f6ffe65914ef2.JPG",
+    "coords": {
+      "lat": 55.75242790000003,
+      "lon": 37.607246100000275
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-azs-arhitektura-zapravochnyih-stantsij/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225929",
+    "title": "Детский метал-хор Всесоюзного радио",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "city",
+    "address": "Ленинградский просп., д. 47, стр. 19",
+    "costForTwo": 4200,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Необычный музыкальный проект впервые представит свою программу на большой московской сцене. Зрителей ждёт сочетание детского хорового пения и тяжёлого метала.",
+    "exactDates": [
+      "2026-09-13"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/89/a0/89a0d6d5942529c6eaf27d99e7d1789f.jpg",
+    "coords": {
+      "lat": 55.799364800000255,
+      "lon": 37.53202969999972
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-detskij-metal-hor-vsesoyuznogo-radio/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-218073",
+    "title": "Медленное чтение на немецком: Franz Specht «Der rote Hahn: Ein heißer Fall für Carsten Tsara»",
+    "category": "event",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Разговорный формат, чтение на немецком и разбор текста — всё это делает встречу не просто полезной, но и живой. Это шанс пополнить словарный запас и погрузиться в язык через детективную историю.",
+    "exactDates": [
+      "2025-05-26",
+      "2025-06-16",
+      "2025-07-21",
+      "2025-08-25",
+      "2025-09-25",
+      "2025-12-08",
+      "2026-01-26",
+      "2026-02-02",
+      "2026-03-30",
+      "2026-04-20",
+      "2026-05-18",
+      "2026-08-31"
+    ],
+    "startTimes": [
+      "19:30:00",
+      "18:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/c3/6b/c36b78f234cf0f2ca9bcfc21deee0164",
+    "coords": {
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vstrecha-medlennoe-chtenie-na-nemetskom-franz-specht-der-rote-hahn-ein-heier-fall-fr-carsten-tsara/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222411",
+    "title": "Вся жизнь — театр",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "пер. Малый Головин, д. 10",
+    "costForTwo": 500,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Наивные художники смотрят на театр без академических правил — через яркие сцены, портреты любимых артистов и смешные наблюдения из закулисья. В экспозиции рядом с русскими сюжетами появляются образы китайского театра и лубочные няньхуа — т…",
+    "exactDates": [
+      "2026-01-02"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/01/47/0147adf203563cc0eb51243444b5c1ed.jpg",
+    "coords": {
+      "lat": 55.7689769971855,
+      "lon": 37.63442327709354
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-vsya-zhizn---teatr/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223558",
+    "title": "Море",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Инсталляция обращается к привычке бесконечно сохранять изображения и исследует, как цифровая память из средства фиксации важного превратилась в пространство перенасыщения. Проект рассматривает, какие сюжеты снова и снова оседают в мобильны…",
+    "exactDates": [
+      "2026-03-06"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/1d/60/1d60b1b0df3a1d6d418eeef00550a961",
+    "coords": {
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-more/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-214893",
+    "title": "Золушка",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 1800,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "«Золушка» — это воплощение мечты о любви и красоте в классическом искусстве. Балет с музыкой Сергея Прокофьева и уникальной хореографией Анатолия Емельянова станет настоящим подарком для всей семьи, напоминая, что добро и красота неизменно…",
+    "exactDates": [
+      "2025-04-13",
+      "2025-09-28",
+      "2026-03-21",
+      "2026-09-27"
+    ],
+    "startTimes": [
+      "13:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/da/b8/dab8e35a7b0211a671be40715829ed36",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/balet-zolushka-nud8ed/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222993",
+    "title": "Поездки Николая Юсупова по России",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "west",
+    "address": "Московская обл., Красногорский р-н, пос. Архангельское",
+    "costForTwo": 500,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Экспозиция знакомит с тем, как князь Николай Юсупов исследовал собственные владения, опираясь на карты, справочники и дорожные заметки. Здесь можно увидеть редкие издания из его библиотеки и проследить, как менялась жизнь огромной вотчинно…",
+    "exactDates": [
+      "2026-01-02"
+    ],
+    "startTimes": [
+      "21:00",
+      "00:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/dc/02/dc0222569cbbeb4724ddb81437438430",
+    "coords": {
+      "lat": 55.78468526559221,
+      "lon": 37.28426308018685
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-poezdki-nb-yusupova-po-rossii/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-211716",
+    "title": "Органные шедевры Баха",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Органные шедевры Баха, наполненные невероятной глубиной и масштабом, прозвучат в исполнении виртуозного итальянского исполнителя Эудженио Марии Фаджиани. Концерт погрузит слушателей в атмосферу возвышенной духовности и искусства.",
+    "exactDates": [
+      "2025-11-25",
+      "2026-09-27"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "13:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/6b/7b/6b7bc33dba7604228d18367e561e2b45",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-organnyie-shedevryi-baha-e-fadzhiani-organ-italiya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-216632",
+    "title": "60 секунд",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2500,
+    "costEstimated": true,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Этот квиз не про зубрёжку, а про умение мыслить на ходу. Игра «60 секунд» построена на логике и интуиции: все ответы прячутся в тексте вопросов, нужно только раскопать. Игра для тех, кто кайфует от «эврика»-моментов!",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
       "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/f1/31/f1315e4c2eb8e8b2805f2e097e0f030e.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
+    "image": "https://media.kudago.com/images/event/b3/46/b3463c93e930ef97f521e370d8571c9d.jpg",
+    "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-fashion-illyustratsii/",
+    "sourceUrl": "https://kudago.com/msk/event/entertainment-60-sekund-216632/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226140",
-    "title": "Страшный панк-карнавал",
+    "id": "kudago-event-206600",
+    "title": "Маяковский. Послушайте",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "city",
+    "address": "наб. Тараса Шевченко, д. 29",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Литературно-музыкальная композиция к 130-летию Владимира Маяковского в исполнении трёх артистов «Мастерской».",
+    "activeFrom": "2023-09-12",
+    "activeUntil": "2026-10-13",
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/39/cb/39cba2b3d0e70a1950cdc66397b80571.jpg",
+    "coords": {
+      "lat": 55.74287218795934,
+      "lon": 37.53516979090794
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-mayakovskij-poslushajte/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226180",
+    "title": "ПБ.Девичник: твои нулевые",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Берсеневский пер, д. 5, стр. 2",
-    "costForTwo": 2400,
+    "address": "ул. Нижняя Сыромятническая, д. 1/4, с. 11",
+    "costForTwo": 3200,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -30525,20 +29938,403 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Ночь мрачной эстетики объединит любителей панк-музыки, ярких образов и живых концертов. Гостей ждут костюмы, необычная атмосфера и насыщенная развлекательная программа.",
+    "description": "Хиты нулевых и приятная ностальгия — тематическая вечеринка в формате музыкальной викторины поможет девушкам завести новых подруг.",
     "exactDates": [
-      "2026-09-26"
+      "2026-08-20"
     ],
     "startTimes": [
-      "18:00:00"
+      "20:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/0e/b6/0eb6cce0567745244fe17f22f53c500e.jpg",
+    "image": "https://media.kudago.com/images/event/5b/4c/5b4cf56125e1b46cc151b1dd34fc17f4.png",
     "coords": {
-      "lat": 55.74111799999986,
-      "lon": 37.6105939999996
+      "lat": 55.75426300000013,
+      "lon": 37.66716900000002
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-strashnyij-pank-karnaval/",
+    "sourceUrl": "https://kudago.com/msk/event/entertainment-pbdevichnik-tvoi-nulevyie/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223551",
+    "title": "Самозванцы",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "Серия ставит под сомнение привычную уверенность во взгляде на человеческое лицо и заставляет задуматься о природе эмпатии. Перед зрителем — портреты, среди которых реальные люди соседствуют с образами, созданными искусственным интеллектом.",
+    "exactDates": [
+      "2026-03-06"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/77/6e/776e4d7d8ba1ea5238107bda586aead0",
+    "coords": {
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-samozvantsyi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225498",
+    "title": "Звёзды стендапа на крыше",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2224,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Уморительные шутки популярных комиков и красивые виды на вечернюю Москву — проект «Стендап Мск» / StandUp Msk проводит серию летних концертов.",
+    "exactDates": [
+      "2026-06-20",
+      "2026-06-22",
+      "2026-06-23",
+      "2026-06-27",
+      "2026-06-29",
+      "2026-06-30",
+      "2026-07-04",
+      "2026-07-07",
+      "2026-07-18",
+      "2026-07-20",
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23",
+      "2026-07-25",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-08-08",
+      "2026-08-15",
+      "2026-08-18",
+      "2026-08-22",
+      "2026-08-29"
+    ],
+    "startTimes": [
+      "17:00:00",
+      "20:00:00",
+      "21:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/6d/c0/6dc061ae771f898867f615dfc91f0e66.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-zvyozdyi-stendapa-na-kryishe/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226177",
+    "title": "Тысяча и одна ночь при свечах: музыкальные сказки Востока",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "переулок Чернышевского, д. 4, стр. 2",
+    "costForTwo": 2400,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Зрители перенесутся в манящую атмосферу Востока, которую создаст дуэт Марины Шигановой (скрипка) и Дмитрия Максименко (фортепиано).",
+    "exactDates": [
+      "2026-08-21"
+    ],
+    "startTimes": [
+      "19:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/26/2c/262cfb5da8cad15b123a1b4a5f9a5832.jpg",
+    "coords": {
+      "lat": 55.78215200000002,
+      "lon": 37.60921699999961
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-tyisyacha-i-odna-noch-pri-svechah-muzyikalnyie-skazki-vostoka/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-211710",
+    "title": "Белоснежка и семь гномов",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Это новый взгялд нюа знамениту сказку, рассчитанный на семейную аудиторию. Мюзикл предлагает зрителям не только захватывающий сюжет, но и яркие спецэффекты, живую музыку и невероятные костюмы.",
+    "exactDates": [
+      "2024-11-24",
+      "2025-12-13",
+      "2026-01-03"
+    ],
+    "startTimes": [
+      "13:00:00",
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/9f/d7/9fd7931f2daf5e2404acf17004fe0ff2",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/myuzikl-belosnezhka-i-sem-gnomov/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-211482",
+    "title": "Мир Пушкина",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Арбат, д. 33",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Участники получат возможность погрузиться в богатое литературное наследие Александра Пушкина. Лекция подойдёт всем, кто интересуется культурой и хочет расширить свои знания о великом мастере слова.",
+    "exactDates": [
+      "2024-10-31",
+      "2024-11-07",
+      "2024-11-14",
+      "2024-11-21",
+      "2024-11-28",
+      "2024-12-05",
+      "2024-12-12",
+      "2024-12-19",
+      "2024-12-26",
+      "2024-12-30",
+      "2025-01-16",
+      "2025-01-23",
+      "2025-01-30",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "11:00:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/80/88/80889e923770dd269330d427f7b1e4ae.jpg",
+    "coords": {
+      "lat": 55.74953200000001,
+      "lon": 37.59240200000001
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/lektsiya-moskovskoe-dolgoletie-mir-pushkina/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220095",
+    "title": "Пётр Погодаев и хиты группы «Кино»",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 2600,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Уникальный голос Петра Погодаева возвращает к бессмертным хитам «Кино» — с душой, искренностью и свежим звучанием. Его голос уже прозвучал в культовом фильме «Лето», а теперь — в живом концерте, полном ностальгии, рока и новых эмоций. Это…",
+    "exactDates": [
+      "2025-09-19",
+      "2026-02-22",
+      "2026-09-18"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "20:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/79/72/7972a0b2b6aa55b931a486a0d48e367a",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-pyotr-pogodaev-i-hityi-gruppyi-kino/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226048",
+    "title": "Анна Кольт",
+    "category": "event",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Писательница и автор комиксов Анна Кольт представит два непохожих мира — дизельпанк-фэнтези и неонуарный вестерн-хоррор.",
+    "exactDates": [
+      "2026-08-27"
+    ],
+    "startTimes": [
+      "18:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/00/3d/003dd63a9d115eb2df08912fb9beb7f6",
+    "coords": {
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/tvorcheskaya-vstrecha-anna-kolt/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225450",
+    "title": "Особняк. Театрализованная иммерсивная экскурсия",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Яузская, д. 1/15 стр. 1",
+    "costForTwo": 3400,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Участники экскурсии побывают в старинном особняке, где жили предки супруги Александра Пушкина Натальи Гончаровой. История оживёт и раскроет свои тайны!",
+    "exactDates": [
+      "2026-06-14",
+      "2026-06-21",
+      "2026-06-28",
+      "2026-07-05",
+      "2026-07-19",
+      "2026-07-26",
+      "2026-07-27",
+      "2026-08-02",
+      "2026-08-09",
+      "2026-08-16",
+      "2026-08-17",
+      "2026-08-23",
+      "2026-08-24",
+      "2026-08-30",
+      "2026-09-06",
+      "2026-09-13",
+      "2026-09-14",
+      "2026-09-20",
+      "2026-09-27",
+      "2026-09-28"
+    ],
+    "startTimes": [
+      "13:00:00",
+      "15:00:00",
+      "19:00:00",
+      "13:10:00"
+    ],
+    "image": "https://media.kudago.com/images/event/43/0c/430c1bf0a48e61536d169cc20743ed79.jpg",
+    "coords": {
+      "lat": 55.75048466331753,
+      "lon": 37.64341169464926
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-osobnyakteatralizovannaya-immersivnaya-ekskursiya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226189",
+    "title": "Письма русскому испанцу",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Доброслободская, д.5а",
+    "costForTwo": 3000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Спектакль о любви, несовпадении и семейной памяти, основанный на реальных письмах.",
+    "exactDates": [
+      "2026-10-10"
+    ],
+    "startTimes": [
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/1b/0a/1b0acbe36b7f8e0756e582262a881aaf.jpg",
+    "coords": {
+      "lat": 55.768496,
+      "lon": 37.673025
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-pisma-russkomu-ispantsu/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225913",
+    "title": "Жили-были и живём",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "4-ый Сыромятнический пер., д. 1/8, стр. 6",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Виктория Вейсбрут переносит сказочные сюжеты в современную повседневность, где герои сталкиваются с узнаваемыми обстоятельствами. За яркими образами скрываются размышления о выборе, ответственности и границах между добром и злом.",
+    "exactDates": [
+      "2026-07-08"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/e6/09/e609087175cc728249d9e4f449b2e485.jpg",
+    "coords": {
+      "lat": 55.75553110769741,
+      "lon": 37.66429662176778
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-zhili-byili-i-zhivem/",
     "officialUrl": null
   },
   {
@@ -30577,13 +30373,79 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226146",
-    "title": "Иоганн Себастьян Бах и венские классики",
+    "id": "kudago-event-226052",
+    "title": "«Фанатская ночь» / Fandom night",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Варшавское ш., д. 26, стр. 12",
+    "costForTwo": 1600,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Ночная встреча для поклонников популярных вселенных, музыки и ярких образов. Гостей ждут танцы, конкурсы, костюмы, игровые зоны и общение с единомышленниками.",
+    "exactDates": [
+      "2026-08-22"
+    ],
+    "startTimes": [
+      "23:40:00"
+    ],
+    "image": "https://media.kudago.com/images/event/f3/24/f32472e3843718cd96c125c1dee9147b.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vecherinka-fanatskaya-noch--fandom-night/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225838",
+    "title": "Что-то между нами",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Люсиновская ул., д. 9",
+    "costForTwo": 3200,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "На веранде ресторана исполнят лирический гастро-иммерсивный спектакль под джазовый аккомпанемент, а затем программа продолжится вечеринкой с диджеем.",
+    "exactDates": [
+      "2026-07-18",
+      "2026-08-27"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/76/80/7680e62a7b5785f7314b03b326e33bfa.jpg",
+    "coords": {
+      "lat": 55.72845800000003,
+      "lon": 37.623618300000174
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-chto-to-mezhdu-nami/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-211627",
+    "title": "Орган от барокко до рока",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
-    "address": "ул. Делегатская, д. 3, корп. 1",
-    "costForTwo": 2000,
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 1400,
     "costEstimated": false,
     "duration": 110,
     "indoor": true,
@@ -30592,51 +30454,24 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Органная музыка объединит сочинения классиков и современных композиторов. Программа покажет, насколько по-разному может звучать этот инструмент.",
+    "description": "Концерт предлагает уникальный музыкальный опыт, где классические произведения встречаются с мировыми хитами рока. Это мероприятие станет захватывающим путешествием по эпохам и стилям, демонстрируя орган как инструмент с невероятными возмож…",
     "exactDates": [
-      "2026-09-11"
+      "2024-11-07",
+      "2025-03-27",
+      "2025-11-01",
+      "2026-07-16",
+      "2026-09-09"
     ],
     "startTimes": [
       "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/b4/54/b45433a73945d5c8009e19063a1be95e.jpg",
+    "image": "https://media.kudago.com/images/event/b1/bc/b1bc43c65b66ded95ebab0d9cbffce98",
     "coords": {
-      "lat": null,
-      "lon": null
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-iogann-sebastyan-bah-i-venskie-klassiki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225862",
-    "title": "Ты где-то рядом",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "Москва",
-    "costForTwo": 5000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Фёдор Добронравов и Марина Иванова в трогательной комедии о двух немолодых людях, чья случайная встреча на танцевальной площадке перерастает в искреннее чувство.",
-    "exactDates": [
-      "2026-08-19",
-      "2026-08-25"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/59/11/5911bade59d9b0ab70e7b5602ef55601.JPG",
-    "coords": null,
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-tyi-gde-to-ryadom-avgust-2026/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-organ-ot-barokko-do-roka/",
     "officialUrl": null
   },
   {
@@ -30666,6 +30501,72 @@ export const kudagoEvents = [
     "coords": null,
     "source": "KudaGo API",
     "sourceUrl": "https://kudago.com/msk/event/ekskursiya-lyubimaya-stolitsa/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225788",
+    "title": "Фрида: невероятное желание жить!",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "vdnh",
+    "address": "ул. Клары Цеткин, д. 4, корп. 2",
+    "costForTwo": 3200,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.2,
+    "description": "Спектакль объединяет танец, монологи и выразительные сценические образы, раскрывая путь художницы через любовь, творчество и постоянную борьбу с болью.",
+    "exactDates": [
+      "2026-09-27"
+    ],
+    "startTimes": [
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/2e/ee/2eee0db1c402786de011e98959597b74.jpg",
+    "coords": {
+      "lat": 55.81875700000003,
+      "lon": 37.519884000000076
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-frida-neveroyatnoe-zhelanie-zhit-sentyabr-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223545",
+    "title": "Города-сплетения",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Видеоинсталляция превращает город в живую систему связей, где транспорт, погода, новости и экология постоянно влияют на повседневность. Проект исследует, как цифровые потоки переплетаются с человеческим опытом и меняют устройство современн…",
+    "exactDates": [
+      "2026-03-06"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/57/50/575006f1afe7ac473c82ffdbd7617dfe.jpg",
+    "coords": {
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-goroda-spleteniya/",
     "officialUrl": null
   },
   {
@@ -30706,43 +30607,8 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-214177",
-    "title": "Ричард Клайдерман",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 9000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic"
-    ],
-    "quality": 7.2,
-    "description": "Выступление легендарного «Принца Романтики» Ричарда Клайдермана в сопровождении большого симфонического оркестра.",
-    "exactDates": [
-      "2025-03-08",
-      "2026-09-19"
-    ],
-    "startTimes": [
-      "14:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/37/73/3773303620bccb5c60db03a9e1a4057f",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-richard-klajderman/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226048",
-    "title": "Анна Кольт",
+    "id": "kudago-event-221285",
+    "title": "Обломок империи",
     "category": "event",
     "eventType": "event",
     "zone": "east",
@@ -30756,61 +30622,32 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Писательница и автор комиксов Анна Кольт представит два непохожих мира — дизельпанк-фэнтези и неонуарный вестерн-хоррор.",
+    "description": "Фильм Фридриха Эрмлера «Обломок империи» возвращается на экран — немой шедевр о человеке, потерянном между двумя эпохами. Впечатляющая операторская работа, глубокий драматизм и масштаб эпохи делают эту ленту не просто кином, а настоящим ис…",
     "exactDates": [
-      "2026-08-27"
+      "2025-11-22",
+      "2026-08-21"
     ],
     "startTimes": [
-      "18:30:00"
+      "16:00:00",
+      "17:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/00/3d/003dd63a9d115eb2df08912fb9beb7f6",
+    "image": "https://media.kudago.com/images/event/d0/01/d00174efa183f4a763ed4fcb9d0cf7c4",
     "coords": {
       "lat": 55.79575199999994,
       "lon": 37.71762699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/tvorcheskaya-vstrecha-anna-kolt/",
+    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-oblomok-imperii/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-206600",
-    "title": "Маяковский. Послушайте",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "city",
-    "address": "наб. Тараса Шевченко, д. 29",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Литературно-музыкальная композиция к 130-летию Владимира Маяковского в исполнении трёх артистов «Мастерской».",
-    "activeFrom": "2023-09-12",
-    "activeUntil": "2026-10-13",
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/39/cb/39cba2b3d0e70a1950cdc66397b80571.jpg",
-    "coords": {
-      "lat": 55.74287218795934,
-      "lon": 37.53516979090794
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-mayakovskij-poslushajte/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226178",
-    "title": "Sade",
+    "id": "kudago-event-216484",
+    "title": "Я люблю тебя, жизнь!",
     "category": "event",
     "eventType": "concert",
     "zone": "center",
-    "address": "Большой Дровяной пер., д. 6",
-    "costForTwo": 5000,
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 2000,
     "costEstimated": false,
     "duration": 110,
     "indoor": true,
@@ -30819,30 +30656,31 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Хиты британской группы Sade прозвучат над вечерней Москвой. В роли солистки выступит MARELI (Марьяна Чукова).",
+    "description": "К 80-летию Великой Победы в Доме Музыки состоится грандиозный концерт «Я люблю тебя, жизнь!» с участием легендарного маэстро Владимира Спивакова и выдающейся оперной дивы Хиблы Герзмава.",
     "exactDates": [
-      "2026-08-28"
+      "2025-05-04",
+      "2026-09-14"
     ],
     "startTimes": [
-      "19:30:00"
+      "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/1a/d3/1ad38004a4385d48fe797ca5a439f3c6.webp",
+    "image": "https://media.kudago.com/images/event/ca/82/ca8245421ef258b324bf0ac3bf82e186",
     "coords": {
-      "lat": 55.74374270000012,
-      "lon": 37.656222700000036
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-sade/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-ya-lyublyu-tebya-zhizn-2tlpnv/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225277",
-    "title": "Речная прогулка на теплоходе от Воробьёвых гор до парка «Зарядье»",
+    "id": "kudago-event-208104",
+    "title": "Экскурсия «По следам импрессионистов»",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 1180,
+    "address": "ул. Волхонка, д. 12",
+    "costForTwo": 6200,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -30852,17 +30690,680 @@ export const kudagoEvents = [
       "calm"
     ],
     "quality": 7.2,
-    "description": "Живописные панорамы столицы за чашечкой кофе с круассаном... Водный маршрут познакомит вас с главными достопримечательностями Москвы, а комфортные условия на борту сделают поездку по-настоящему уютной.",
+    "description": "Кто создал импрессионизм, что такое пленэр, как фотография повлияла на творчество художников и какие цвета были нелюбимыми у знаменитых живописцев? Участники экскурсии узнают много интересных фактов об изобразительном искусстве рубежа XIX-…",
+    "exactDates": [
+      "2023-12-10",
+      "2024-01-14",
+      "2024-02-04",
+      "2024-03-10",
+      "2024-04-07",
+      "2024-05-05",
+      "2024-05-23",
+      "2024-07-07",
+      "2024-09-15",
+      "2024-10-06",
+      "2024-10-20",
+      "2024-11-24",
+      "2024-12-29",
+      "2025-01-19",
+      "2025-02-23",
+      "2025-03-20",
+      "2025-04-20",
+      "2025-05-13",
+      "2025-06-08",
+      "2025-07-06",
+      "2025-08-10",
+      "2025-09-14",
+      "2025-10-05",
+      "2025-11-16",
+      "2026-02-08",
+      "2026-04-26",
+      "2026-05-31",
+      "2026-06-21",
+      "2026-08-19"
+    ],
+    "startTimes": [
+      "17:00:00",
+      "17:30:00",
+      "16:45:00",
+      "17:15:00",
+      "14:30:00"
+    ],
+    "image": "https://media.kudago.com/images/event/20/b5/20b516587d70194940fb571a2c038a74.png",
+    "coords": {
+      "lat": 55.74727199999997,
+      "lon": 37.60528299999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/detyam-ekskursiya-po-sledam-impressionistov/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225104",
+    "title": "Ревизор",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "vdnh",
+    "address": "пер. Стромынский, д. 5.",
+    "costForTwo": 1000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Из столицы в провинцию нагрянула проверка — и вот уже город стоит на ушах, а на поверхность всплывают страхи и амбиции его «верхушки». Чем не современная история?",
+    "exactDates": [
+      "2026-10-03",
+      "2026-11-22"
+    ],
+    "startTimes": [
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ba/38/ba3893027563dd418d2e46a0eb5484a7.jpg",
+    "coords": {
+      "lat": 55.79300980000024,
+      "lon": 37.69480089999983
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-revizor-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-209806",
+    "title": "Мамлеев",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "Зубовский бул., д. 2, стр. 3",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Спектакль в жанре психоделической оперы по прозе Юрия Мамлеева.",
+    "exactDates": [
+      "2024-05-31",
+      "2024-06-30",
+      "2024-09-13",
+      "2024-10-16",
+      "2024-11-25",
+      "2024-12-15",
+      "2025-01-18",
+      "2025-02-02",
+      "2025-03-16",
+      "2025-04-13",
+      "2025-05-24",
+      "2025-06-18",
+      "2025-07-06",
+      "2025-08-29",
+      "2025-09-14",
+      "2025-11-30",
+      "2026-04-26",
+      "2026-08-22",
+      "2026-09-12"
+    ],
+    "startTimes": [
+      "20:00:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/96/b1/96b1b214c2e233157dc0c5260293aad9.jpg",
+    "coords": {
+      "lat": 55.73697611234431,
+      "lon": 37.59322262121239
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-mamleev/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226046",
+    "title": "«О душе» Аристотеля",
+    "category": "event",
+    "eventType": "event",
+    "zone": "east",
+    "address": "ул. Большая Черкизовская, д. 4/1",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Произведение Аристотеля станет основой для разговора о природе души, мышлении и связи тела с сознанием. Участники разберут ход рассуждений древнегреческого философа и выяснят, почему этот текст считают одним из ранних источников психологич…",
+    "exactDates": [
+      "2026-08-23"
+    ],
+    "startTimes": [
+      "17:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/36/bb/36bb841089e9d4e2469e9040ac8e406b.jpg",
+    "coords": {
+      "lat": 55.79575199999994,
+      "lon": 37.71762699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/literaturnyie-chteniya-o-dushe-aristotelya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223865",
+    "title": "Под небом Парижа. Фортепиано и Голос",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 4000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "Французская вокальная музыка начала XX века здесь звучит как вечерний жест — с мерцанием парижских огней, мягкой меланхолией и вспышками чувства. Сопрано и фортепиано собирают программу, где рядом существуют изящество, ирония, хрупкость и…",
+    "exactDates": [
+      "2026-04-22",
+      "2026-09-15"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/4e/55/4e55d73fb0532c8e081baf8dd18df47e",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-pod-nebom-parizha-fortepiano-i-golos/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223555",
+    "title": "while(true) { exist(); }",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "center",
+    "address": "ул. Остоженка, д. 16",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Инсталляция предлагает взглянуть на искусство с точки зрения машин и представить мир, в котором робот получает собственный опыт восприятия. Проект исследует машинную субъектность и задаёт вопрос о том, может ли обработка данных стать формо…",
+    "exactDates": [
+      "2026-03-06"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/92/fb/92fb33f115ba604ad5a66d9ca95a555d.jpg",
+    "coords": {
+      "lat": 55.74165699999998,
+      "lon": 37.59877999999995
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-whiletrue--exist-/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226028",
+    "title": "Свадьба",
+    "category": "event",
+    "eventType": "event",
+    "zone": "vdnh",
+    "address": "просп. Мира, д. 119, павильон № 36",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Мещанское торжество превращается в шумную комедию характеров, где жених считает приданое, хозяева мечтают поразить гостей важным чином, а случайная правда рушит тщательно подготовленный фасад.",
+    "exactDates": [
+      "2026-08-23"
+    ],
+    "startTimes": [
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b2/c7/b2c73e93ea7cf4cdb3984a72f022e6ea.jpg",
+    "coords": {
+      "lat": 55.83950252112824,
+      "lon": 37.61669319110222
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kinopokaz-filma-svadba/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223563",
+    "title": "Вполне нормальная психопатка",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "vdnh",
+    "address": "просп. Мира, д. 119, павильон № 36",
+    "costForTwo": 1000,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Выставка предлагает увидеть Фаину Раневскую вне привычного набора цитат и хрестоматийных ролей. Экспозиция собирает образ актрисы как большого мастера, ироничного собеседника и человека с непростой, но насыщенной судьбой.",
+    "exactDates": [
+      "2026-03-05"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/7e/a7/7ea7aed00e0367bbeb331d26d47ad5c4.jpg",
+    "coords": {
+      "lat": 55.83950252112824,
+      "lon": 37.61669319110222
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-vpolne-normalnaya-psihopatka/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-213855",
+    "title": "Жизель",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Балет «Жизель» — это совершенный образец романтической хореографии, где классическая элегантность встречается с поэтичной фантазией. Постановка театра «Корона русского балета» наполнена благородной чувственностью и виртуозностью. Зрителей…",
+    "exactDates": [
+      "2025-02-16",
+      "2025-05-22",
+      "2025-07-03",
+      "2025-09-27",
+      "2026-02-15",
+      "2026-03-28",
+      "2026-05-26",
+      "2026-07-09",
+      "2026-09-30"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/13/74/13740cceb93cfe18b69a52d1fea1e165",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/balet-zhizel-qh4ohj/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-215803",
+    "title": "Мещане",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Тверская, д. 5/6",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Пьесу Максима Горького об истории одной семьи поставил Григорий Южаков.",
+    "exactDates": [
+      "2025-03-07",
+      "2025-04-04",
+      "2025-04-19",
+      "2025-05-02",
+      "2025-05-27",
+      "2025-06-10",
+      "2025-06-29",
+      "2026-06-27",
+      "2026-07-08",
+      "2026-09-17",
+      "2026-10-03",
+      "2026-10-18"
+    ],
+    "startTimes": [
+      "20:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/9c/35/9c355f2c98890df92538bd778ca66e25.jpg",
+    "coords": {
+      "lat": 55.757891,
+      "lon": 37.61239800000001
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-meschane-2025/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225482",
+    "title": "Караоке с оркестром",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "ул. Орджоникидзе, д. 11, стр. 1",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Коллектив RockestraLive предлагает каждому зрителю стать частью грандиозного шоу.",
+    "exactDates": [
+      "2026-08-21"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/ce/b3/ceb3a4662e389ae7758d9d86ef184494.jpg",
+    "coords": {
+      "lat": 55.707791,
+      "lon": 37.595806
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-karaoke-s-orkestrom/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222792",
+    "title": "Идиот",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "vdnh",
+    "address": "пер. Стромынский, д. 5.",
+    "costForTwo": 1400,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "romantic"
+    ],
+    "quality": 7.2,
+    "description": "Роман Достоевского воплотился на театральной сцене в версии Театра Черкасова.",
+    "exactDates": [
+      "2026-04-14",
+      "2026-06-04",
+      "2026-09-27"
+    ],
+    "startTimes": [
+      "19:00:00",
+      "18:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b7/48/b748fa7b59f87e8508dc90c5d66d5c12.jpg",
+    "coords": {
+      "lat": 55.79300980000024,
+      "lon": 37.69480089999983
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-idiot-iyun-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224452",
+    "title": "Сталинские высотки: символ советской эпохи",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 3200,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "За одну поездку вы осмотрите сразу все 7 знаменитых памятников сталинского ампира и узнаете любопытные факты о каждом из них.",
     "exactDates": [
       "0001-01-02"
     ],
     "startTimes": [
-      "12:58:00"
+      "21:30"
     ],
-    "image": "https://media.kudago.com/images/event/12/29/12295920d3200e0acd5d117006ecf5f4.jpg",
+    "image": "https://media.kudago.com/images/event/d9/7f/d97fc8cd1f517c5263252883ed0cd635.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-rechnaya-progulka-na-teplohode-ot-vorobyovyih-gor-do-parka-zaryade/",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-stalinskie-vyisotki-simvol-sovetskoj-epohi/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-222986",
+    "title": "Королевский Копенгаген",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "east",
+    "address": "ул. Юности, д.2",
+    "costForTwo": 600,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Проект объединяет редкие образцы датского фарфора и показывает, как менялись художественные традиции в разные исторические периоды. Экспозиция раскрывает масштаб скандинавской мануфактуры и её влияние на русскую культуру.",
+    "exactDates": [
+      "2025-11-27"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/97/bd/97bd2167aa3f85e3ed6f8a6431e017a5.jpg",
+    "coords": {
+      "lat": 55.734922,
+      "lon": 37.808958
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-korolevskij-kopengagen/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-220183",
+    "title": "Пуантилизм + Жорж Сёра",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "ул. Старая Басманная, д. 15А, стр. 4",
+    "costForTwo": 4000,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Программа познакомит детей с творчеством знаменитого художника Жоржа Сёра и его удивительной техникой живописи. Участники повторят шедевр мастера с помощью своих пальчиков и пластилина.",
+    "exactDates": [
+      "2025-09-13",
+      "2025-10-26",
+      "2025-11-15",
+      "2025-12-20",
+      "2026-01-08",
+      "2026-02-22",
+      "2026-04-18",
+      "2026-05-16",
+      "2026-06-20",
+      "2026-08-18"
+    ],
+    "startTimes": [
+      "12:00:00",
+      "16:00:00",
+      "12:15:00",
+      "15:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/6b/05/6b050b4dbb7bbee56362249f35d70a1c.jpg",
+    "coords": {
+      "lat": 55.7654517999999,
+      "lon": 37.65992869999984
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-puantilizm--zhorzh-syora/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-207643",
+    "title": "Мой бедный Марат",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Александра Солженицына, д. 17, стр. 5.",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Как выживали ленинградцы в дни блокады? Трогательную историю, развернувшуюся в то страшное время, рассказал в своей пьесе Алексей Арбузов.",
+    "exactDates": [
+      "2023-11-23",
+      "2023-11-24",
+      "2023-12-16",
+      "2024-01-24",
+      "2024-02-24",
+      "2024-03-29",
+      "2024-04-21",
+      "2024-05-09",
+      "2024-08-22",
+      "2024-09-27",
+      "2024-10-25",
+      "2024-11-29",
+      "2024-12-24",
+      "2025-01-25",
+      "2025-02-23",
+      "2025-03-26",
+      "2025-04-08",
+      "2025-05-09",
+      "2026-05-09",
+      "2026-05-28",
+      "2026-08-19",
+      "2026-09-20",
+      "2026-10-15",
+      "2026-11-07"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/43/81/4381020158ef8dbe8b659b29e39d26ea.jpg",
+    "coords": {
+      "lat": 55.74415499999981,
+      "lon": 37.66143999999972
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-moj-bednyij-marat-207643/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-215717",
+    "title": "Море Синего леса",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Погрузитесь в магию японской культуры на шоу «Море Синего леса».",
+    "exactDates": [
+      "2025-04-23",
+      "2025-09-30",
+      "2026-02-18",
+      "2026-05-28",
+      "2026-09-26"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/1f/89/1f89da715da66a4c5ba901029cff33a8",
+    "coords": {
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/shou-more-sinego-lesa/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-219819",
+    "title": "Экскурсии по школам",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 0,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active",
+      "calm"
+    ],
+    "quality": 7.2,
+    "description": "У вас есть уникальный шанс попасть в школу будущего! Современные столичные школы проводят увлекательные экскурсии для всех желающих. Гостям покажут технологичные классы, уютные медиатеки и зоны отдыха, можно будет принять участие в спортив…",
+    "exactDates": [
+      "2025-08-25",
+      "2026-08-24"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/67/d2/67d215be640ed225926dcce806c4984a.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-po-obnovlyonnoj-shkole/",
     "officialUrl": null
   },
   {
@@ -30933,13 +31434,301 @@ export const kudagoEvents = [
     "officialUrl": null
   },
   {
-    "id": "kudago-event-209264",
-    "title": "Замужняя невеста",
+    "id": "kudago-event-221537",
+    "title": "Детство и юность Гоголя",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "бул. Никитский, д. 7А",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Экскурсия посвящена юности великого писателя. Участники познакомятся с судьбами сестёр Гоголя, откроют загадку его фамилии и узнают, какой путь прошёл молодой автор прежде чем получить известность.",
+    "exactDates": [
+      "2025-12-06",
+      "2026-01-04",
+      "2026-01-25",
+      "2026-02-01",
+      "2026-02-22",
+      "2026-03-08",
+      "2026-04-02",
+      "2026-04-26",
+      "2026-05-03",
+      "2026-05-10",
+      "2026-05-23",
+      "2026-05-30",
+      "2026-05-31",
+      "2026-06-06",
+      "2026-06-07",
+      "2026-06-13",
+      "2026-06-14",
+      "2026-06-20",
+      "2026-07-05",
+      "2026-07-11",
+      "2026-07-12",
+      "2026-07-18",
+      "2026-07-25",
+      "2026-08-15",
+      "2026-08-22",
+      "2026-08-23",
+      "2026-08-29"
+    ],
+    "startTimes": [
+      "16:00:00",
+      "14:00:00",
+      "13:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/79/8e/798e00a6036ac54a7043f2de4a416cff",
+    "coords": {
+      "lat": 55.75414199999994,
+      "lon": 37.599822
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-detstvo-i-yunost-gogolya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-226190",
+    "title": "Магия вне Хогвартса",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "пер. Вознесенский, д. 8",
+    "costForTwo": 2400,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "В неоготической церкви откроется портал в мир Гарри Поттера. Зрители перенесутся в мир волшебства и услышат мелодии из любимых фильмов в свете свечей.",
+    "exactDates": [
+      "2026-09-14",
+      "2026-10-15",
+      "2026-11-09"
+    ],
+    "startTimes": [
+      "20:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/09/04/0904bd8b9770fcd184e76d73a43d3abf.jpg",
+    "coords": {
+      "lat": 55.75789215221659,
+      "lon": 37.605536255294105
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-magiya-vne-hogvartsa/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225080",
+    "title": "Нахлебники",
+    "category": "event",
+    "eventType": "exhibition",
+    "zone": "city",
+    "address": "ул. Вавилова, д. 57",
+    "costForTwo": 1580,
+    "costEstimated": false,
+    "duration": 80,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Паразиты становятся героями почти кинематографического рассказа — тревожного, остроумного и научно точного. Экспозиция показывает, как разные организмы живут за чужой счёт, меняя тела, поведение и судьбы своих хозяев.",
+    "exactDates": [
+      "2026-06-02"
+    ],
+    "startTimes": [
+      "21:00"
+    ],
+    "image": "https://media.kudago.com/images/event/67/30/6730bfa8f0190ada36a13b8122d35d33.jpg",
+    "coords": {
+      "lat": 55.69062299999997,
+      "lon": 37.56149099999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-nahlebniki/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-219955",
+    "title": "Многоликий орган: от Баха до Пьяццоллы",
+    "category": "event",
+    "eventType": "concert",
+    "zone": "center",
+    "address": "пер. Старосадский, д. 7/10, стр. 10",
+    "costForTwo": 1800,
+    "costEstimated": false,
+    "duration": 110,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Молодой органист из Петербурга продемонстрирует современный взгляд на возможности короля музыкальных инструментов.",
+    "exactDates": [
+      "2025-09-07",
+      "2026-08-30"
+    ],
+    "startTimes": [
+      "16:00:00",
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/b7/ca/b7ca4ed7f511a894fd70ae4bff904a22.jpg",
+    "coords": {
+      "lat": 55.75678510282241,
+      "lon": 37.64095186663472
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-mnogolikij-organ-ot-baha-do-hachaturyana/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-225862",
+    "title": "Ты где-то рядом",
     "category": "event",
     "eventType": "theater",
     "zone": "center",
-    "address": "ул. Большая Садовая, д. 16",
-    "costForTwo": 3000,
+    "address": "Москва",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual",
+      "active"
+    ],
+    "quality": 7.2,
+    "description": "Фёдор Добронравов и Марина Иванова в трогательной комедии о двух немолодых людях, чья случайная встреча на танцевальной площадке перерастает в искреннее чувство.",
+    "exactDates": [
+      "2026-08-19",
+      "2026-08-25"
+    ],
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/59/11/5911bade59d9b0ab70e7b5602ef55601.JPG",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-tyi-gde-to-ryadom-avgust-2026/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-217585",
+    "title": "Последние дни Николая Гоголя",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "бул. Никитский, д. 7А",
+    "costForTwo": 800,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Что происходило в последние дни жизни Николая Гоголя и почему они окутаны такой завесой загадок? Новая экскурсия от Дома Гоголя откроет драматическую историю его последних решений и духовных исканий.",
+    "exactDates": [
+      "2025-05-11",
+      "2025-05-22",
+      "2025-06-08",
+      "2025-06-19",
+      "2025-06-29",
+      "2025-07-27",
+      "2025-08-24",
+      "2025-08-31",
+      "2025-09-07",
+      "2025-09-28",
+      "2025-10-05",
+      "2025-11-02",
+      "2025-11-20",
+      "2025-12-04",
+      "2025-12-18",
+      "2026-01-11",
+      "2026-01-25",
+      "2026-02-01",
+      "2026-02-22",
+      "2026-04-26",
+      "2026-05-03",
+      "2026-05-10",
+      "2026-05-31",
+      "2026-06-04",
+      "2026-06-07",
+      "2026-06-11",
+      "2026-06-14",
+      "2026-06-18",
+      "2026-07-05",
+      "2026-07-12",
+      "2026-08-23"
+    ],
+    "startTimes": [
+      "15:00:00",
+      "19:00:00",
+      "16:00:00",
+      "14:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/1b/1b/1b1b69d74a0bd797285093bb3cedb393",
+    "coords": {
+      "lat": 55.75414199999994,
+      "lon": 37.599822
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-poslednie-dni-nikolaya-gogolya/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-224451",
+    "title": "Огни большого города",
+    "category": "event",
+    "eventType": "event",
+    "zone": "center",
+    "address": "Москва",
+    "costForTwo": 2240,
+    "costEstimated": false,
+    "duration": 105,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Ночная подсветка на фасадах и пейзажи, удивляющие даже местных жителей, — вечерняя экскурсия покажет вам красоту столицы, которая в полной мере раскрывается лишь с заходом солнца.",
+    "exactDates": [
+      "2026-06-27",
+      "2026-07-04",
+      "0001-01-02"
+    ],
+    "startTimes": [
+      "18:00:00",
+      "21:30"
+    ],
+    "image": "https://media.kudago.com/images/event/25/0f/250fda470a4c8e7824f36b6d68249dda.jpg",
+    "coords": null,
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-ogni-bolshogo-goroda/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-202207",
+    "title": "Елизавета Бам",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "east",
+    "address": "пл. Журавлёва, д.1",
+    "costForTwo": 1600,
     "costEstimated": false,
     "duration": 130,
     "indoor": true,
@@ -30948,128 +31737,66 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Евгений Марчелли поставил лёгкий и непринуждённый спектакль по пьесе Александра Шаховского, Александра Грибоедова и Николая Хмельницкого 1817 года.",
+    "description": "Спектакль Георгия Мнацаканова основывается на произведении загадочного русского абсурдиста Даниила Хармса. Постановка соединяет иронию и внутреннюю напряжённость, обращаясь к ощущению времени и несвободы.",
     "exactDates": [
-      "2024-03-14",
-      "2024-03-17",
-      "2024-03-31",
-      "2024-04-07",
-      "2024-04-14",
-      "2024-07-21",
-      "2024-08-04",
-      "2024-08-25",
-      "2024-09-24",
-      "2024-10-12",
-      "2024-10-26",
-      "2024-11-04",
-      "2024-11-14",
-      "2024-12-18",
-      "2024-12-27",
-      "2025-01-04",
-      "2025-01-17",
-      "2025-02-09",
-      "2025-03-12",
-      "2025-04-12",
-      "2025-04-29",
-      "2025-05-22",
-      "2025-05-29",
-      "2026-05-08",
-      "2026-05-30",
-      "2026-07-28",
-      "2026-08-05",
-      "2026-09-23"
+      "2023-01-24",
+      "2023-02-09",
+      "2023-03-29",
+      "2026-04-11",
+      "2026-05-24",
+      "2026-07-03",
+      "2026-09-19"
     ],
     "startTimes": [
       "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/d3/10/d310012b6fd458e2a62ae5a8c380d479.jpg",
+    "image": "https://media.kudago.com/images/event/c4/9b/c49b71c8fa6901558c63dc04e4f33b3b.jpg",
     "coords": {
-      "lat": 55.76832899999999,
-      "lon": 37.59745899999999
+      "lat": 55.78406099999992,
+      "lon": 37.70471799999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-zamuzhnyaya-nevesta/",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-elizaveta-bam-2023/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223508",
-    "title": "Керамика + Марк Шагал",
-    "category": "event",
-    "eventType": "event",
-    "zone": "center",
-    "address": "ул. Старая Басманная, д. 15А, стр. 4",
-    "costForTwo": 4000,
-    "costEstimated": false,
-    "duration": 105,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Знакомство с искусством через увлекательный творческий процесс! На мастер-классе дети создадут своими руками необычное керамическое изделие по мотивам работ Марка Шагала.",
-    "exactDates": [
-      "2026-03-22",
-      "2026-04-25",
-      "2026-05-23",
-      "2026-06-27",
-      "2026-07-25",
-      "2026-08-22"
-    ],
-    "startTimes": [
-      "12:15:00",
-      "16:00:00",
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/54/b5/54b5fced1f2681e6474e093e4df6c13b.jpg",
-    "coords": {
-      "lat": 55.7654517999999,
-      "lon": 37.65992869999984
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/detyam-keramika--mark-shagal/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225283",
-    "title": "На перекрёстке царских судеб",
+    "id": "kudago-event-225717",
+    "title": "День развлечений в «ФиксиПарке»",
     "category": "event",
     "eventType": "event",
     "zone": "center",
     "address": "Москва",
-    "costForTwo": 2800,
+    "costForTwo": 3626,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual",
-      "calm"
+      "active"
     ],
     "quality": 7.2,
-    "description": "Истории русских княгинь, палаты царевны Софьи и монастырский быт — в сопровождении гида вы побываете внутри знаменитого архитектурного комплекса и узнаете, как жили знатные особы в этих стенах.",
+    "description": "Вселенная Фиксиков открывает свои двери для юных поклонников. Детей ждут интерактивные локации, игры и шоу-программы, а также безопасные игровые зоны для самых маленьких, вдохновлённые мультсериалом.",
     "exactDates": [
-      "2026-06-12",
       "0001-01-02"
     ],
     "startTimes": [
-      "10:30:00",
-      "21:30"
+      "10:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/fd/d3/fdd3c7391891fdfb8f2d63bc6b611f65.jpg",
+    "image": "https://media.kudago.com/images/event/bf/50/bf50220bde607b0bd5be84578b2539b2.jpg",
     "coords": null,
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-na-perekryostke-tsarskih-sudeb/",
+    "sourceUrl": "https://kudago.com/msk/event/aktsiya-den-razvlechenij-v-fiksiparke/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-218073",
-    "title": "Медленное чтение на немецком: Franz Specht «Der rote Hahn: Ein heißer Fall für Carsten Tsara»",
+    "id": "kudago-event-214721",
+    "title": "Разговор с экспонатами",
     "category": "event",
     "eventType": "event",
-    "zone": "east",
-    "address": "ул. Большая Черкизовская, д. 4/1",
-    "costForTwo": 0,
+    "zone": "center",
+    "address": "бул. Никитский, д. 7А",
+    "costForTwo": 800,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -31078,69 +31805,154 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Разговорный формат, чтение на немецком и разбор текста — всё это делает встречу не просто полезной, но и живой. Это шанс пополнить словарный запас и погрузиться в язык через детективную историю.",
+    "description": "Погрузитесь в мир уникальных экспонатов Дома Гоголя вместе с главным хранителем Светланой Миловановой. Узнайте истории предметов, их связь с семьей Гоголей-Яновских и откройте для себя забытые символы и техники XIX века.",
     "exactDates": [
-      "2025-05-26",
-      "2025-06-16",
-      "2025-07-21",
-      "2025-08-25",
+      "2025-02-05",
+      "2025-02-12",
+      "2025-02-19",
+      "2025-02-26",
+      "2025-04-09",
+      "2025-04-23",
+      "2025-05-02",
+      "2025-05-07",
+      "2025-05-21",
+      "2025-06-18",
+      "2025-06-25",
+      "2025-07-23",
+      "2025-08-07",
+      "2025-08-28",
+      "2025-09-17",
       "2025-09-25",
-      "2025-12-08",
-      "2026-01-26",
-      "2026-02-02",
-      "2026-03-30",
-      "2026-04-20",
-      "2026-05-18",
-      "2026-08-31"
+      "2025-10-08",
+      "2025-10-22",
+      "2025-11-05",
+      "2025-11-12",
+      "2025-12-10",
+      "2025-12-17",
+      "2025-12-24",
+      "2026-03-11",
+      "2026-03-18",
+      "2026-04-08",
+      "2026-04-29",
+      "2026-06-03",
+      "2026-06-17",
+      "2026-06-24",
+      "2026-08-19",
+      "2026-08-26"
     ],
     "startTimes": [
-      "19:30:00",
-      "18:30:00"
+      "18:00:00",
+      "19:00:00",
+      "14:00:00",
+      "16:00:00",
+      "17:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/c3/6b/c36b78f234cf0f2ca9bcfc21deee0164",
+    "image": "https://media.kudago.com/images/event/2b/23/2b2359e267d709536907b1514483ee9e.jpg",
     "coords": {
-      "lat": 55.79575199999994,
-      "lon": 37.71762699999999
+      "lat": 55.75414199999994,
+      "lon": 37.599822
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vstrecha-medlennoe-chtenie-na-nemetskom-franz-specht-der-rote-hahn-ein-heier-fall-fr-carsten-tsara/",
+    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-razgovor-s-eksponatami/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226060",
-    "title": "Московская кругосветка",
+    "id": "kudago-event-225514",
+    "title": "Иконы. Собрание Павла Третьякова",
     "category": "event",
-    "eventType": "event",
+    "eventType": "exhibition",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 2500,
-    "costEstimated": true,
-    "duration": 105,
+    "address": "пер. Лаврушинский, д. 12",
+    "costForTwo": 1000,
+    "costEstimated": false,
+    "duration": 80,
     "indoor": true,
     "vibes": [
       "fun",
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Флагманский круизный теплоход «Золотое кольцо» приглашает в 9-дневное путешествие по живописным городам России.",
+    "description": "Иконное собрание Павла Третьякова раскрывает основателя галереи как внимательного исследователя древнерусской живописи. Редкие памятники и архивные материалы показывают, как личный интерес коллекционера стал частью истории национального му…",
     "exactDates": [
-      "2026-07-26",
-      "2026-08-06",
-      "2026-08-14"
+      "2026-06-10"
     ],
     "startTimes": [
-      "14:00:00",
-      "23:00:00"
+      "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/b9/08/b908c9cb3a6fd04daf142db235ca93b3.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/8c/6e/8c6e5c87167190d2b74467230c6c722f.jpg",
+    "coords": {
+      "lat": 55.740872,
+      "lon": 37.62104
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/ekskursiya-moskovskaya-krugosvetka/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-ikonyi-sobranie-pavla-tretyakova/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223557",
-    "title": "Инфосплетение",
+    "id": "kudago-event-188885",
+    "title": "Старший сын",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "ул. Чаплыгина, д. 1а, стр. 1",
+    "costForTwo": 5000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Случайная ложь запускает цепочку событий, в которой чужой человек вдруг становится частью семьи. Это история о доверии, близости и том, как быстро могут измениться привычные роли.",
+    "activeFrom": "2020-09-07",
+    "activeUntil": "2026-09-25",
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/3d/93/3d931748a3d6c7d4bbf4b28baa3ee7d9.jpg",
+    "coords": {
+      "lat": 55.764197,
+      "lon": 37.64613899999999
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-starshij-syin-2020/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-192714",
+    "title": "Страсти по Бумбарашу",
+    "category": "event",
+    "eventType": "theater",
+    "zone": "center",
+    "address": "бул. Чистопрудный, д. 19",
+    "costForTwo": 2000,
+    "costEstimated": false,
+    "duration": 130,
+    "indoor": true,
+    "vibes": [
+      "fun",
+      "unusual"
+    ],
+    "quality": 7.2,
+    "description": "Постановка режиссёра Владимира Машкова рассказывает историю человека, который ищет дом и покой, но снова оказывается в центре событий. Через личную судьбу раскрывается время, в котором трудно отличить своё от чужого.",
+    "activeFrom": "2021-06-10",
+    "activeUntil": "2026-09-15",
+    "startTimes": [
+      "19:00:00"
+    ],
+    "image": "https://media.kudago.com/images/event/f4/e5/f4e513d34a4da957b2f23a30d3d8f757.jpg",
+    "coords": {
+      "lat": 55.76182099999997,
+      "lon": 37.645968
+    },
+    "source": "KudaGo API",
+    "sourceUrl": "https://kudago.com/msk/event/teatr-strasti-po-bumbarashu/",
+    "officialUrl": null
+  },
+  {
+    "id": "kudago-event-223552",
+    "title": "Это не я",
     "category": "event",
     "eventType": "exhibition",
     "zone": "center",
@@ -31154,292 +31966,30 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Инсталляция превращает поток технологических новостей в образ информационной перегрузки, в которой легко потеряться даже внимательному наблюдателю. Проект показывает, как изобилие сведений об открытиях и изобретениях начинает мешать понима…",
+    "description": "Проект превращает личный архив в размышление о том, как память меняется под влиянием технологий и собственных ошибок восприятия. Старые фотографии здесь становятся материалом для сомнений и внутреннего спора.",
     "exactDates": [
       "2026-03-06"
     ],
     "startTimes": [
       "21:00"
     ],
-    "image": "https://media.kudago.com/images/event/fa/9d/fa9d2dc1b96407073c61dc76fa26a62b.png",
+    "image": "https://media.kudago.com/images/event/80/d9/80d9894f6e1b6156757fe272aa2a622f",
     "coords": {
       "lat": 55.74165699999998,
       "lon": 37.59877999999995
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-infospletenie/",
+    "sourceUrl": "https://kudago.com/msk/event/vyistavka-eto-ne-ya/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-223908",
-    "title": "Бестолочь",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "south",
-    "address": "ул. Профсоюзная, дом 61",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Комедия положений превращает обычный дом в поле стремительных недоразумений, тайных планов и смешных катастроф. Здесь работает всё сразу: точный ритм, нелепые совпадения, яркие характеры и тот самый азарт, когда одна ошибка тянет за собой…",
-    "exactDates": [
-      "2026-04-12",
-      "2026-08-31"
-    ],
-    "startTimes": [
-      "20:00:00",
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/30/28/30284acce8af6f107c3fad3655f656d3",
-    "coords": {
-      "lat": 55.656417,
-      "lon": 37.542608
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/spektakl-bestoloch-yidwne/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-211710",
-    "title": "Белоснежка и семь гномов",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Это новый взгялд нюа знамениту сказку, рассчитанный на семейную аудиторию. Мюзикл предлагает зрителям не только захватывающий сюжет, но и яркие спецэффекты, живую музыку и невероятные костюмы.",
-    "exactDates": [
-      "2024-11-24",
-      "2025-12-13",
-      "2026-01-03"
-    ],
-    "startTimes": [
-      "13:00:00",
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/9f/d7/9fd7931f2daf5e2404acf17004fe0ff2",
-    "coords": {
-      "lat": 55.73324899999993,
-      "lon": 37.64659699999999
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/myuzikl-belosnezhka-i-sem-gnomov/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225929",
-    "title": "Детский метал-хор Всесоюзного радио",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "city",
-    "address": "Ленинградский просп., д. 47, стр. 19",
-    "costForTwo": 4200,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Необычный музыкальный проект впервые представит свою программу на большой московской сцене. Зрителей ждёт сочетание детского хорового пения и тяжёлого метала.",
-    "exactDates": [
-      "2026-09-13"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/89/a0/89a0d6d5942529c6eaf27d99e7d1789f.jpg",
-    "coords": {
-      "lat": 55.799364800000255,
-      "lon": 37.53202969999972
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-detskij-metal-hor-vsesoyuznogo-radio/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226147",
-    "title": "Иберийская мозаика",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "ул. Делегатская, д. 3, корп. 1",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Орган и гитара — редкий дуэт, способный объединить эпохи и традиции. Двое музыкантов представят программу, где барокко встречается с латиноамериканскими ритмами.",
-    "exactDates": [
-      "2026-09-25"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/92/9e/929e0256a6ee3222cf24a3aefda34043.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-iberijskaya-mozaika/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-224141",
-    "title": "Повернись ко мне в профиль",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Пречистенка, д. 12/2, стр.1",
-    "costForTwo": 1200,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Экспозиция рассказывает, как профильный портрет из древнего приёма превратился в способ говорить о характере, эпохе и человеческом присутствии. В центре внимания — рисунки Александра Пушкина и работы русских мастеров XVIII—XIX веков, в кот…",
-    "exactDates": [
-      "2026-05-14"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/f2/54/f254759a117df929d73c89315ae823c1",
-    "coords": {
-      "lat": 55.74354199999998,
-      "lon": 37.59766599999998
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-povernis-ko-mne-v-profil/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226189",
-    "title": "Письма русскому испанцу",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "ул. Доброслободская, д.5а",
-    "costForTwo": 3000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Спектакль о любви, несовпадении и семейной памяти, основанный на реальных письмах.",
-    "exactDates": [
-      "2026-10-10"
-    ],
-    "startTimes": [
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/1b/0a/1b0acbe36b7f8e0756e582262a881aaf.jpg",
-    "coords": {
-      "lat": 55.768496,
-      "lon": 37.673025
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-pisma-russkomu-ispantsu/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225917",
-    "title": "10×17",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "пер. 1-й Зачатьевский, д. 10",
-    "costForTwo": 700,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "calm"
-    ],
-    "quality": 7.2,
-    "description": "Иван Найнти превращает миниатюрные коллажи из блокнота в крупноформатную живопись и графику. Абстрактные композиции исследуют цвет, ритм и способность визуального образа менять внутреннее состояние.",
-    "exactDates": [
-      "2026-07-10"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/64/2b/642b28fba7e6317fad257fb2948097b1.jpg",
-    "coords": {
-      "lat": 55.74115829999999,
-      "lon": 37.6002470000003
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-1017/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-226179",
-    "title": "Танго и босса-нова при свечах: музыка Латинской Америки",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "ул. Покровка, д. 27, стр.1",
-    "costForTwo": 3200,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual"
-    ],
-    "quality": 7.2,
-    "description": "Дуэт скрипки и рояля перенесёт слушателей на солнечные пляжи Латинской Америки.",
-    "exactDates": [
-      "2026-08-28"
-    ],
-    "startTimes": [
-      "19:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/db/f8/dbf8e9b0774b62e929c6723055fd493f.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-tango-i-bossa-nova-pri-svechah-muzyika-latinskoj-ameriki/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-225882",
-    "title": "Красавица Коломна. Старинное чудо Подмосковья",
+    "id": "kudago-event-224445",
+    "title": "Курс по живописи пастелью",
     "category": "event",
     "eventType": "event",
     "zone": "center",
-    "address": "Москва",
-    "costForTwo": 8330,
+    "address": "Нижний Сусальный пер., д. 5, стр. 2",
+    "costForTwo": 48000,
     "costEstimated": false,
     "duration": 105,
     "indoor": true,
@@ -31448,28 +31998,30 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Кремль XVI века, изящные соборы, пастила и крокодиловая ферма — древний и многогранный город Коломна откроется вам с совершенно разных сторон.",
+    "description": "От базовых техник пастельной живописи до создания сложных картин — за 8 занятий вы научитесь уверенно работать с материалом и передавать на бумагу форму, объём, цвет и пространство композиции.",
     "exactDates": [
-      "2026-07-26",
-      "2026-08-22"
+      "0001-01-02"
     ],
     "startTimes": [
-      "09:00:00"
+      "00:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/c5/cb/c5cb30e9eef29c94ec1f0bcbe61e1ec3.jpg",
-    "coords": null,
+    "image": "https://media.kudago.com/images/event/24/4b/244bae9ebe384561bb6937057176b6d6.jpg",
+    "coords": {
+      "lat": null,
+      "lon": null
+    },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/aktsiya-krasavitsa-kolomna-starinnoe-chudo-podmoskovya/",
+    "sourceUrl": "https://kudago.com/msk/event/obuchenie-kurs-po-zhivopisi-pastelyu/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225850",
-    "title": "Кабаре в большом городе",
+    "id": "kudago-event-220494",
+    "title": "Дорогая Елена Сергеевна",
     "category": "event",
     "eventType": "theater",
     "zone": "center",
-    "address": "ул. Кузнецкий мост. д. 3, стр. 2",
-    "costForTwo": 4400,
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 2000,
     "costEstimated": false,
     "duration": 130,
     "indoor": true,
@@ -31478,109 +32030,73 @@ export const kudagoEvents = [
       "unusual"
     ],
     "quality": 7.2,
-    "description": "Праздник красоты и стиля в формате кабаре.",
+    "description": "Пьеса Людмилы Разумовской «Дорогая Елена Сергеевна» оживает в премьерной постановке с Екатериной Климовой. Наивное вторжение выпускников к учительнице оборачивается напряжённым психологическим поединком — о нравственных границах, взрослени…",
     "exactDates": [
-      "2026-07-24",
-      "2026-08-21"
+      "2025-10-07",
+      "2025-10-08",
+      "2025-11-11",
+      "2025-12-29",
+      "2026-01-13",
+      "2026-01-27",
+      "2026-02-11",
+      "2026-04-05",
+      "2026-09-19"
     ],
     "startTimes": [
-      "19:30:00"
+      "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/ea/12/ea12aeeadc64ea705dae9dad895902e5.jpg",
+    "image": "https://media.kudago.com/images/event/91/3f/913fdee5c218c26acc81d2f7c89655c8.png",
     "coords": {
-      "lat": 55.761514555916506,
-      "lon": 37.61754796728055
+      "lat": 55.73324899999993,
+      "lon": 37.64659699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-kabare-v-bolshom-gorode/",
+    "sourceUrl": "https://kudago.com/msk/event/spektakl-dorogaya-elena-sergeevna-iknlf5/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-226052",
-    "title": "«Фанатская ночь» / Fandom night",
+    "id": "kudago-event-220094",
+    "title": "Рахманинов in Jazz. Шедевры в джазовых обработках",
     "category": "event",
-    "eventType": "event",
+    "eventType": "concert",
     "zone": "center",
-    "address": "Варшавское ш., д. 26, стр. 12",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
     "costForTwo": 1600,
     "costEstimated": false,
-    "duration": 105,
+    "duration": 110,
     "indoor": true,
     "vibes": [
       "fun",
-      "unusual",
-      "active"
+      "unusual"
     ],
     "quality": 7.2,
-    "description": "Ночная встреча для поклонников популярных вселенных, музыки и ярких образов. Гостей ждут танцы, конкурсы, костюмы, игровые зоны и общение с единомышленниками.",
+    "description": "Легендарный Второй концерт Рахманинова оживёт в джазовой интерпретации — с тонкой импровизацией, неожиданными переходами и сохранённой глубиной классики. «Аримойя трио» создаст уникальный диалог между академической музыкой и свободным дыха…",
     "exactDates": [
-      "2026-08-22"
+      "2025-09-18",
+      "2026-09-17"
     ],
     "startTimes": [
-      "23:40:00"
+      "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/f3/24/f32472e3843718cd96c125c1dee9147b.jpg",
-    "coords": {
-      "lat": null,
-      "lon": null
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vecherinka-fanatskaya-noch--fandom-night/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-213855",
-    "title": "Жизель",
-    "category": "event",
-    "eventType": "theater",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 2000,
-    "costEstimated": false,
-    "duration": 130,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "romantic",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Балет «Жизель» — это совершенный образец романтической хореографии, где классическая элегантность встречается с поэтичной фантазией. Постановка театра «Корона русского балета» наполнена благородной чувственностью и виртуозностью. Зрителей…",
-    "exactDates": [
-      "2025-02-16",
-      "2025-05-22",
-      "2025-07-03",
-      "2025-09-27",
-      "2026-02-15",
-      "2026-03-28",
-      "2026-05-26",
-      "2026-07-09",
-      "2026-09-30"
-    ],
-    "startTimes": [
-      "19:00:00",
-      "15:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/13/74/13740cceb93cfe18b69a52d1fea1e165",
+    "image": "https://media.kudago.com/images/event/f7/9c/f79c3c573474a529f1084d7286f8e2b6",
     "coords": {
       "lat": 55.73324899999993,
       "lon": 37.64659699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/balet-zhizel-qh4ohj/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-rahmaninov-in-jazz-shedevryi-v-dzhazovyih-obrabotkah/",
     "officialUrl": null
   },
   {
-    "id": "kudago-event-225788",
-    "title": "Фрида: невероятное желание жить!",
+    "id": "kudago-event-214177",
+    "title": "Ричард Клайдерман",
     "category": "event",
-    "eventType": "theater",
-    "zone": "vdnh",
-    "address": "ул. Клары Цеткин, д. 4, корп. 2",
-    "costForTwo": 3200,
+    "eventType": "concert",
+    "zone": "center",
+    "address": "наб. Космодамианская, д. 52, стр. 8",
+    "costForTwo": 9000,
     "costEstimated": false,
-    "duration": 130,
+    "duration": 110,
     "indoor": true,
     "vibes": [
       "fun",
@@ -31588,99 +32104,34 @@ export const kudagoEvents = [
       "romantic"
     ],
     "quality": 7.2,
-    "description": "Спектакль объединяет танец, монологи и выразительные сценические образы, раскрывая путь художницы через любовь, творчество и постоянную борьбу с болью.",
+    "description": "Выступление легендарного «Принца Романтики» Ричарда Клайдермана в сопровождении большого симфонического оркестра.",
     "exactDates": [
-      "2026-09-27"
+      "2025-03-08",
+      "2026-09-19"
     ],
     "startTimes": [
-      "17:00:00"
-    ],
-    "image": "https://media.kudago.com/images/event/2e/ee/2eee0db1c402786de011e98959597b74.jpg",
-    "coords": {
-      "lat": 55.81875700000003,
-      "lon": 37.519884000000076
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/teatr-frida-neveroyatnoe-zhelanie-zhit-sentyabr-2026/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-223545",
-    "title": "Города-сплетения",
-    "category": "event",
-    "eventType": "exhibition",
-    "zone": "center",
-    "address": "ул. Остоженка, д. 16",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 80,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Видеоинсталляция превращает город в живую систему связей, где транспорт, погода, новости и экология постоянно влияют на повседневность. Проект исследует, как цифровые потоки переплетаются с человеческим опытом и меняют устройство современн…",
-    "exactDates": [
-      "2026-03-06"
-    ],
-    "startTimes": [
-      "21:00"
-    ],
-    "image": "https://media.kudago.com/images/event/57/50/575006f1afe7ac473c82ffdbd7617dfe.jpg",
-    "coords": {
-      "lat": 55.74165699999998,
-      "lon": 37.59877999999995
-    },
-    "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/vyistavka-goroda-spleteniya/",
-    "officialUrl": null
-  },
-  {
-    "id": "kudago-event-220517",
-    "title": "ансамбль танца «Кабардинка»",
-    "category": "event",
-    "eventType": "concert",
-    "zone": "center",
-    "address": "наб. Космодамианская, д. 52, стр. 8",
-    "costForTwo": 1400,
-    "costEstimated": false,
-    "duration": 110,
-    "indoor": true,
-    "vibes": [
-      "fun",
-      "unusual",
-      "active"
-    ],
-    "quality": 7.2,
-    "description": "Государственный ансамбль танца «Кабардинка» возвращается на сцену с вихрем страстных ритмов и виртуозных трюков. Народные танцы, наполненные энергией гор, яркие национальные костюмы и живое музыкальное сопровождение создают поистине незабы…",
-    "exactDates": [
-      "2025-10-17",
-      "2026-09-29"
-    ],
-    "startTimes": [
+      "14:00:00",
       "19:00:00"
     ],
-    "image": "https://media.kudago.com/images/event/29/99/2999a6e9c8259947f1086499346453a3",
+    "image": "https://media.kudago.com/images/event/37/73/3773303620bccb5c60db03a9e1a4057f",
     "coords": {
       "lat": 55.73324899999993,
       "lon": 37.64659699999999
     },
     "source": "KudaGo API",
-    "sourceUrl": "https://kudago.com/msk/event/kontsert-ansamblya-tantsa-kabardinka/",
+    "sourceUrl": "https://kudago.com/msk/event/kontsert-richard-klajderman/",
     "officialUrl": null
   }
 ];
 
 export const kudagoMeta = {
-  "updatedAt": "2026-08-18T10:03:44.192Z",
+  "updatedAt": "2026-08-18T10:19:01.167Z",
   "city": "msk",
   "source": "KudaGo public API",
   "rawPlaces": 1032,
   "rawEvents": 500,
   "places": 614,
-  "events": 442,
+  "events": 450,
   "categoryCounts": {
     "dinner": 113,
     "cafe": 19,
@@ -31692,6 +32143,5 @@ export const kudagoMeta = {
     "activity": 119
   },
   "concretePlaceLinks": 614,
-  "concreteEventLinks": 442
+  "concreteEventLinks": 450
 };
->>>>>>> 9d9b169063e14c65c80abc1e123ac5857a6a613c
