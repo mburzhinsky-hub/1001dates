@@ -3,6 +3,8 @@ name: Build Full DB Artifact
 on:
   push:
     branches: [build-full-db-20260818]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
