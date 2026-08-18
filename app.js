@@ -1,6 +1,6 @@
 import { seedPlaces, seedEvents } from "./data/seed.js";
-import { kudagoPlaces, kudagoEvents, kudagoMeta } from "./data/kudago.generated.js";
-import { generateDates, replacePlanItem, planRows, formatMoney, formatDuration, estimateScenarioCount } from "./engine.js";
+import { kudagoPlaces, kudagoEvents } from "./data/kudago.generated.js";
+import { generateDates, replacePlanItem, planRows, formatMoney, formatDuration } from "./engine.js";
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -392,11 +392,6 @@ function closeOnBackdrop(dialog){dialog.addEventListener("click",(event)=>{if(ev
 $("#closeDetail").addEventListener("click",()=>detailDialog.close());$("#closeInvite").addEventListener("click",()=>inviteDialog.close());$("#closeLibrary").addEventListener("click",()=>libraryDialog.close());
 [detailDialog,inviteDialog,libraryDialog].forEach(closeOnBackdrop);
 
-function updateDataStatus(){
-  const status=$("#dataStatus"),scenarios=estimateScenarioCount(cityPlaces,cityEvents),scenarioLabel=scenarios>=1000000?`${(scenarios/1000000).toFixed(1).replace(".0","")} млн+`:scenarios>=1000?`${Math.floor(scenarios/1000)} тыс.+`:String(scenarios);
-  if(kudagoMeta.updatedAt){const date=new Date(kudagoMeta.updatedAt);status.textContent=`${cityPlaces.length} мест · ${cityEvents.length} событий · ${scenarioLabel} комбинаций · ${date.toLocaleDateString("ru-RU")}`;}
-  else status.textContent=`fallback: ${cityPlaces.length} мест · ${cityEvents.length} событий · ${scenarioLabel} возможных комбинаций`;
-}
 
-syncUI();updateDataStatus();updateLibraryCount();
-if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=12",{updateViaCache:"none"}).catch(()=>{});
+syncUI();updateLibraryCount();
+if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=13",{updateViaCache:"none"}).catch(()=>{});
