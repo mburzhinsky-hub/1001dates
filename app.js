@@ -4,8 +4,8 @@ import { generateDates, replacePlanItem, planRows, formatMoney, formatDuration, 
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
-const FILTERS_KEY = "1001dates.filters.v8";
-const PROFILE_KEY = "1001dates.profile.v8";
+const FILTERS_KEY = "1001dates.filters.v9";
+const PROFILE_KEY = "1001dates.profile.v9";
 
 const DEFAULTS = {
   duration:180, budget:7000, vibes:["romantic"], zone:"any", time:"19:00",
@@ -399,4 +399,4 @@ function updateDataStatus(){
 }
 
 syncUI();updateDataStatus();updateLibraryCount();
-if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=8",{updateViaCache:"none"}).catch(()=>{});
+if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=9",{updateViaCache:"none"}).catch(()=>{});

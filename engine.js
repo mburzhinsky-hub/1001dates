@@ -22,7 +22,7 @@ const TEMPLATE_BLUEPRINTS = [
   ["art","dinner"], ["walk","dinner"], ["activity","dinner"], ["dinner","view"],
   ["dinner","bar"], ["event","dinner"], ["dinner","event"], ["activity","art"],
   ["art","bar"], ["cafe","activity","dessert"], ["art","view","dessert"], ["walk","cafe","art"],
-  ["view","dinner","dessert"], ["activity","cafe","walk"], ["event","cafe","dessert"], ["art","cafe","walk"],
+  ["view","dinner","dessert"], ["activity","cafe","walk"], ["event","walk","dessert"], ["art","cafe","walk"],
 
   // Long: 4 hours.
   ["art","dinner","dessert"], ["activity","dinner","bar"], ["dinner","event","dessert"],
@@ -32,13 +32,13 @@ const TEMPLATE_BLUEPRINTS = [
   ["view","dinner","bar"], ["activity","event","dessert"], ["event","art","dinner"], ["walk","event","dinner"],
 
   // Grand: 6 hours.
-  ["art","dinner","view","dessert","bar"], ["cafe","art","dinner","dessert","walk"],
+  ["art","dinner","view","dessert","bar"], ["cafe","art","walk","dinner","view"],
   ["activity","art","dinner","dessert","walk"], ["walk","art","dinner","view","dessert"],
-  ["cafe","art","dinner","activity","dessert"], ["art","dinner","event","dessert"],
+  ["activity","cafe","art","dinner","view"], ["art","dinner","event","dessert"],
   ["dinner","event","dessert","bar"], ["activity","art","event","walk"],
   ["activity","dinner","event","dessert"], ["walk","activity","dinner","view","dessert"],
   ["cafe","activity","art","dinner","bar"], ["art","event","dinner","dessert"],
-  ["view","art","dinner","bar","dessert"], ["walk","cafe","art","dinner","dessert"],
+  ["view","art","dinner","dessert","bar"], ["walk","cafe","art","dinner","bar"],
   ["activity","event","dinner","bar"], ["art","activity","dinner","view","dessert"]
 ];
 
@@ -130,6 +130,62 @@ function targetFloor(duration) {
   const ratio = duration >= 330 ? .86 : duration >= 220 ? .84 : .83;
   return Math.floor((duration * ratio) / 5) * 5;
 }
+
+// Geography is a hidden feasibility constraint, not part of the displayed date duration.
+// We keep the date compact without showing or charging travel minutes to the user.
+function normalizedCoords(item) {
+  const lat = Number(item?.coords?.lat), lon = Number(item?.coords?.lon);
+  if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null;
+  return { lat, lon };
+}
+function haversineKm(a,b) {
+  const ca=normalizedCoords(a), cb=normalizedCoords(b); if(!ca||!cb) return null;
+  const R=6371, toRad=(v)=>v*Math.PI/180;
+  const dLat=toRad(cb.lat-ca.lat), dLon=toRad(cb.lon-ca.lon);
+  const x=Math.sin(dLat/2)**2+Math.cos(toRad(ca.lat))*Math.cos(toRad(cb.lat))*Math.sin(dLon/2)**2;
+  return 2*R*Math.asin(Math.sqrt(x));
+}
+function geoLimits(duration) {
+  if (duration <= 130) return { maxLegKm:3.6, maxSpanKm:4.8 };
+  if (duration <= 200) return { maxLegKm:4.4, maxSpanKm:5.8 };
+  if (duration <= 270) return { maxLegKm:5.0, maxSpanKm:6.8 };
+  return { maxLegKm:5.6, maxSpanKm:7.6 };
+}
+function fallbackZoneCompatible(a,b) {
+  // When coordinates are missing (mainly the offline seed), be conservative.
+  // Same coarse district is acceptable; cross-district pairs are rejected.
+  return Boolean(a?.zone && b?.zone && a.zone === b.zone);
+}
+function pairGeographicallyCompatible(a,b,filters,{span=false}={}) {
+  const distance=haversineKm(a,b);
+  if (distance === null) return fallbackZoneCompatible(a,b);
+  const limits=geoLimits(filters.duration);
+  return distance <= (span ? limits.maxSpanKm : limits.maxLegKm);
+}
+function geographicMetrics(items,filters) {
+  if (items.length < 2) return { ok:true,maxLegKm:0,maxSpanKm:0,mode:"single" };
+  let maxLegKm=0,maxSpanKm=0,measuredPairs=0;
+  for (let i=1;i<items.length;i++) {
+    const distance=haversineKm(items[i-1],items[i]);
+    if (distance === null) {
+      if (!fallbackZoneCompatible(items[i-1],items[i])) return {ok:false,maxLegKm:null,maxSpanKm:null,mode:"zone"};
+    } else {
+      measuredPairs++; maxLegKm=Math.max(maxLegKm,distance);
+      if (!pairGeographicallyCompatible(items[i-1],items[i],filters)) return {ok:false,maxLegKm,maxSpanKm,mode:"coords"};
+    }
+  }
+  for (let i=0;i<items.length;i++) for(let j=i+1;j<items.length;j++) {
+    const distance=haversineKm(items[i],items[j]);
+    if (distance === null) {
+      if (!fallbackZoneCompatible(items[i],items[j])) return {ok:false,maxLegKm:null,maxSpanKm:null,mode:"zone"};
+    } else {
+      measuredPairs++; maxSpanKm=Math.max(maxSpanKm,distance);
+      if (!pairGeographicallyCompatible(items[i],items[j],filters,{span:true})) return {ok:false,maxLegKm,maxSpanKm,mode:"coords"};
+    }
+  }
+  return {ok:true,maxLegKm,maxSpanKm,mode:measuredPairs?"coords":"zone"};
+}
+function geographicallyPlausible(items,filters) { return geographicMetrics(items,filters).ok; }
 function categoryForSlot(slot) { return CATEGORY_GROUPS[slot] || [slot]; }
 function placeMatchesSlot(item, slot) { return categoryForSlot(slot).includes(item.category); }
 function slotHasFood(slot) { return FOOD_SLOTS.has(slot); }
@@ -234,14 +290,17 @@ function buildPools(template, places, events, filters, anchorItem=null) {
   });
 }
 
-function cartesianLimited(pools, limit=520) {
+function cartesianLimited(pools, filters, limit=760) {
   const result = [];
   function walk(index, acc) {
     if (result.length >= limit) return;
     if (index === pools.length) { result.push(acc.slice()); return; }
     for (const item of pools[index]) {
       if (acc.some((x) => x.id === item.id)) continue;
-      acc.push(item); walk(index+1, acc); acc.pop();
+      acc.push(item);
+      // Prune impossible geography immediately instead of wasting the candidate budget on cross-city combinations.
+      if (geographicallyPlausible(acc,filters)) walk(index+1, acc);
+      acc.pop();
       if (result.length >= limit) break;
     }
   }
@@ -291,16 +350,14 @@ function moodCoverage(template, items, filters) {
   return requested.every((vibe) => template.vibes.includes(vibe) || items.some((item) => item.vibes?.includes(vibe)));
 }
 
-function geographicCoherence(items) {
-  const zones = items.map((x) => x.zone).filter(Boolean);
-  if (!zones.length) return 0;
-  const counts = new Map();
-  for (const zone of zones) counts.set(zone, (counts.get(zone) || 0) + 1);
-  const max = Math.max(...counts.values());
-  if (max === zones.length) return 12;
-  if (max >= zones.length - 1) return 6;
-  if (new Set(zones).size >= 4) return -10;
-  return -2;
+function geographicCoherence(items,filters) {
+  const metrics=geographicMetrics(items,filters);
+  if (!metrics.ok) return -1000;
+  if (metrics.mode === "zone") return 14;
+  const limits=geoLimits(filters.duration);
+  const legRatio=metrics.maxLegKm/Math.max(limits.maxLegKm,.1);
+  const spanRatio=metrics.maxSpanKm/Math.max(limits.maxSpanKm,.1);
+  return 18 - (legRatio*6 + spanRatio*7);
 }
 
 function planBaseScore(template, items, schedule, filters, variationSeed) {
@@ -308,7 +365,7 @@ function planBaseScore(template, items, schedule, filters, variationSeed) {
   const vibeHits = template.vibes.filter((v) => filters.vibes?.includes(v)).length;
   score += vibeHits * 9;
   score += items.reduce((sum,item) => sum + candidateScore(item, filters, template), 0) / Math.max(items.length,1) * .55;
-  score += geographicCoherence(items);
+  score += geographicCoherence(items,filters);
 
   if (filters.budget >= 900000) score += 4;
   else {
@@ -437,12 +494,12 @@ function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null})
     if (!templateEligible(template, filters)) continue;
     const pools = buildPools(template, places, events, filters, anchorItem);
     if (!pools || pools.some((pool) => !pool.length)) continue;
-    for (const items of cartesianLimited(pools)) {
+    for (const items of cartesianLimited(pools,filters)) {
       if (!moodCoverage(template, items, filters)) continue;
       const schedule = schedulePlan(items, filters);
       if (!schedule) continue;
       const baseScore = planBaseScore(template, items, schedule, filters, variationSeed);
-      candidates.push({ ...schedule, template, items, baseScore, filters });
+      candidates.push({ ...schedule, template, items, baseScore, filters, geo:geographicMetrics(items,filters) });
     }
   }
   candidates.sort((a,b) => b.baseScore-a.baseScore);
@@ -476,6 +533,7 @@ export function replacePlanItem({ plan, itemIndex, places, events, filters, vari
   let best = null;
   for (const alternative of alternatives.slice(0,30)) {
     const items = plan.items.slice(); items[itemIndex] = alternative;
+    if (!geographicallyPlausible(items,filters)) continue;
     if (!moodCoverage(plan.template,items,filters)) continue;
     const schedule = schedulePlan(items,filters);
     if (!schedule) continue;
@@ -521,5 +579,7 @@ export function estimateScenarioCount(places, events) {
   }
   return Math.round(total);
 }
+
+export function auditPlanGeography(plan,filters=plan?.filters||{}) { return geographicMetrics(plan?.items||[],filters); }
 
 export { TEMPLATES, ARCHETYPES };
