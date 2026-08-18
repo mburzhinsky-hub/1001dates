@@ -399,4 +399,4 @@ function updateDataStatus(){
 }
 
 syncUI();updateDataStatus();updateLibraryCount();
-if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=11",{updateViaCache:"none"}).catch(()=>{});
+if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=12",{updateViaCache:"none"}).catch(()=>{});

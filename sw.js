@@ -1,6 +1,6 @@
-const CACHE = "1001-dates-v11";
+const CACHE = "1001-dates-v12";
 const CORE = [
-  "./", "./index.html", "./styles.css?v=11", "./app.js?v=11", "./engine.js",
+  "./", "./index.html", "./styles.css?v=12", "./app.js?v=12", "./engine.js",
   "./data/seed.js", "./data/scenarios.js", "./data/kudago.generated.js", "./manifest.webmanifest", "./assets/icon.svg"
 ];
 
