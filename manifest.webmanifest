@@ -1,0 +1,13 @@
+{
+  "name": "1001 Dates",
+  "short_name": "1001 Dates",
+  "description": "Готовые сценарии свиданий под время, бюджет и настроение.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f1e9",
+  "theme_color": "#f5f1e9",
+  "icons": [
+    { "src": "./assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

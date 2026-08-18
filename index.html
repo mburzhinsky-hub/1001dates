@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1e9" />
+    <meta name="description" content="1001 Dates — готовые сценарии свиданий под ваше время, бюджет и настроение." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>1001 Dates — свидание уже спланировано</title>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar shell">
+      <a class="brand" href="#top" aria-label="1001 Dates">
+        <span class="brand-number">1001</span><span class="brand-word">Dates</span>
+      </a>
+      <button class="ghost-button" id="surpriseButton" type="button">Удиви меня</button>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="eyebrow">МОСКВА · БЕТА</div>
+        <h1>Вы выбираете человека.<br /><em>Мы придумываем свидание.</em></h1>
+        <p class="hero-copy">Скажите, сколько у вас времени и денег. Получите три цельных сценария — с таймингом, логистикой и приглашением.</p>
+
+        <form id="plannerForm" class="planner-card" novalidate>
+          <div class="planner-grid">
+            <label class="field">
+              <span>Когда</span>
+              <input id="dateInput" name="date" type="date" required />
+            </label>
+            <label class="field">
+              <span>Можете выйти</span>
+              <input id="timeInput" name="time" type="time" value="19:00" required />
+            </label>
+            <label class="field field-wide">
+              <span>Сколько у вас времени</span>
+              <div class="segmented" id="durationControl" role="radiogroup" aria-label="Продолжительность">
+                <button type="button" data-duration="150">2,5 ч</button>
+                <button type="button" data-duration="210">3,5 ч</button>
+                <button type="button" data-duration="270" class="active">4,5 ч</button>
+                <button type="button" data-duration="360">6 ч</button>
+              </div>
+            </label>
+            <label class="field field-wide budget-field">
+              <span>Бюджет на двоих <strong id="budgetValue">до 8 000 ₽</strong></span>
+              <input id="budgetInput" name="budget" type="range" min="2500" max="20000" step="500" value="8000" />
+              <div class="range-labels"><span>2 500 ₽</span><span>20 000 ₽</span></div>
+            </label>
+            <fieldset class="field field-wide chips-field">
+              <legend>Какое настроение</legend>
+              <div class="chips" id="vibeControl">
+                <button type="button" class="chip active" data-vibe="romantic">Романтично</button>
+                <button type="button" class="chip" data-vibe="fun">Весело</button>
+                <button type="button" class="chip" data-vibe="unusual">Необычно</button>
+                <button type="button" class="chip" data-vibe="calm">Спокойно</button>
+                <button type="button" class="chip" data-vibe="active">Активно</button>
+              </div>
+            </fieldset>
+            <label class="field">
+              <span>Откуда / куда домой</span>
+              <select id="zoneInput" name="zone">
+                <option value="any">Неважно / без привязки</option>
+                <option value="center">Центр</option>
+                <option value="city">Москва-Сити</option>
+                <option value="vdnh">ВДНХ / Останкино</option>
+                <option value="west">Запад</option>
+                <option value="south">Юг</option>
+                <option value="east">Восток</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Передвижение</span>
+              <select id="travelInput" name="travel">
+                <option value="mixed">Пешком + транспорт</option>
+                <option value="walk">Побольше пешком</option>
+                <option value="taxi">Такси</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="toggles-row">
+            <label class="toggle"><input id="foodInput" type="checkbox" checked /><span></span>Добавить еду</label>
+            <label class="toggle"><input id="indoorInput" type="checkbox" /><span></span>Только в помещении</label>
+            <label class="toggle"><input id="eventsInput" type="checkbox" checked /><span></span>Учитывать события</label>
+          </div>
+
+          <button class="primary-button" type="submit"><span>Придумать 3 свидания</span><span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <section id="resultsSection" class="results shell" hidden>
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">ТРИ ВАРИАНТА</div>
+            <h2>Можно просто выбрать.</h2>
+          </div>
+          <p id="returnPromise" class="return-promise"></p>
+        </div>
+        <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+        <p class="data-note">Цены — ориентир для планирования. Перед выходом проверьте актуальную стоимость, расписание и наличие мест у площадки.</p>
+      </section>
+
+      <section class="how shell">
+        <div class="how-card">
+          <span class="how-index">01</span><h3>Ограничения</h3><p>Время, бюджет, район и настроение становятся жёсткими условиями, а не просто фильтрами.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-index">02</span><h3>Маршрут</h3><p>Мы собираем совместимые точки и штрафуем сценарии за долгие переезды и лишнюю суету.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-index">03</span><h3>Приглашение</h3><p>Выбранный план превращается в стильную открытку, которую можно отправить второй половинке.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer shell"><span>1001 Dates</span><span>Свидание уже спланировано.</span></footer>
+
+    <dialog id="inviteDialog" class="invite-dialog">
+      <button class="dialog-close" id="closeInvite" aria-label="Закрыть">×</button>
+      <div id="inviteCard" class="invite-card"></div>
+      <div class="dialog-actions">
+        <button id="copyInvite" class="secondary-button" type="button">Скопировать текст</button>
+        <button id="shareInvite" class="primary-button compact" type="button">Поделиться</button>
+      </div>
+    </dialog>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

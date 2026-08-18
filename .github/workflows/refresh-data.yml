@@ -1,0 +1,28 @@
+name: Refresh KudaGo data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh Moscow places and events
+        run: node scripts/update-kudago.mjs
+      - name: Commit changed snapshot
+        run: |
+          if git diff --quiet -- data/kudago.generated.js; then
+            echo "No data changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/kudago.generated.js
+          git commit -m "chore: refresh KudaGo data"
+          git push
