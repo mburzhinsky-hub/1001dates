@@ -1,42 +1,111 @@
-name: Build Full DB Artifact
+name: Prepare 1001 Dates v13 Full
 
 on:
   push:
     branches: [build-full-db-20260818]
-  pull_request:
-    branches: [main]
+    paths:
+      - ".github/workflows/build-full-db.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: build-full-db-20260818
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Build full Moscow snapshot
+
+      - name: Patch production UI and importer
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+
+          let html=fs.readFileSync('index.html','utf8');
+          html=html.replace('./styles.css?v=11','./styles.css?v=13');
+          html=html.replace('./app.js?v=12','./app.js?v=13');
+          html=html.replace('<p class="data-note">Цены ориентировочные. Ссылки показываются только на конкретные страницы места/события или официальный сайт — общие страницы каталогов скрываются.</p>','<p class="data-note">Перед выходом проверь стоимость и расписание выбранных мест.</p>');
+          html=html.replace('<footer class="footer shell"><span>1001 Dates</span><span id="dataStatus">Готовим базу Москвы</span></footer>','<footer class="footer shell"><span>1001 Dates</span><span>Москва · идеи для двоих</span></footer>');
+          fs.writeFileSync('index.html',html);
+
+          let app=fs.readFileSync('app.js','utf8');
+          app=app.replace('import { kudagoPlaces, kudagoEvents, kudagoMeta } from "./data/kudago.generated.js";','import { kudagoPlaces, kudagoEvents } from "./data/kudago.generated.js";');
+          app=app.replace('import { generateDates, replacePlanItem, planRows, formatMoney, formatDuration, estimateScenarioCount } from "./engine.js";','import { generateDates, replacePlanItem, planRows, formatMoney, formatDuration } from "./engine.js";');
+          app=app.replace(/\nfunction updateDataStatus\(\)\{[\s\S]*?\n\}\n\nsyncUI\(\);updateDataStatus\(\);updateLibraryCount\(\);/, '\n\nsyncUI();updateLibraryCount();');
+          app=app.replace('navigator.serviceWorker.register("./sw.js?v=12"','navigator.serviceWorker.register("./sw.js?v=13"');
+          fs.writeFileSync('app.js',app);
+
+          let sw=fs.readFileSync('sw.js','utf8');
+          sw=sw.replace('1001-dates-v12','1001-dates-v13').replace('./styles.css?v=12','./styles.css?v=13').replace('./app.js?v=12','./app.js?v=13');
+          fs.writeFileSync('sw.js',sw);
+
+          let css=fs.readFileSync('styles.css','utf8');
+          if(!css.includes('v13: production mobile hardening')) css += `\n\n/* v13: production mobile hardening */\nhtml{-webkit-text-size-adjust:100%}img,svg{max-width:100%}button,input,select{min-width:0}.planner,.control,.choice-block,.results-grid,.result-card,.result-body,.result-meta,.route-preview li,.detail-title,.detail-route,.detail-stop,.detail-stop-main,.sheet-shell,.invite-controls,.invite-control-row,.invite-note-field,.invite-card,.dialog-actions,.library-cards article,.history-list article{min-width:0}.cover-bottom h3,.detail-title h2,.detail-stop-main h4,.invite-main h2,.library-cards h4,.history-list h4,.favorite-places span,.result-why,.route-preview strong,.route-preview small{overflow-wrap:anywhere;word-break:normal}.route-preview li{grid-template-columns:minmax(72px,82px) minmax(0,1fr)}.sheet-dialog{max-width:100vw;overflow:visible}.sheet-shell{overflow-y:auto;overscroll-behavior:contain}.sheet-close{z-index:20}.dialog-actions button,.results-actions button,.stop-actions button{white-space:normal;line-height:1.25}.invite-main h2{font-size:clamp(46px,8vw,74px)}.invite-note-field input{width:100%;min-width:0}.micro-tabs{min-width:0}.micro-tabs button{max-width:100%;white-space:normal}.history-list article>div{min-width:0}.footer{gap:18px;flex-wrap:wrap}.data-note{line-height:1.55}\n@media(max-width:720px){.choice-strip.five{grid-template-columns:repeat(3,minmax(0,1fr))}.choice-strip.four{grid-template-columns:repeat(2,minmax(0,1fr))}.choice-strip.three{grid-template-columns:repeat(3,minmax(0,1fr))}.choice-strip button{min-height:44px}.results-actions{display:grid;grid-template-columns:1fr;gap:6px}.result-meta{align-items:flex-start;flex-wrap:wrap}.route-preview li{grid-template-columns:minmax(76px,90px) minmax(0,1fr)}.detail-stop{grid-template-columns:34px minmax(0,1fr)}.invite-controls{margin-right:42px}.invite-control-row,.invite-note-field{grid-template-columns:1fr;gap:6px}.invite-card{width:100%;min-height:0;aspect-ratio:4/5}.invite-main{margin-top:clamp(24px,7vw,40px)}.invite-main h2{font-size:clamp(42px,13vw,57px)}.dialog-actions{padding-bottom:max(4px,env(safe-area-inset-bottom))}.history-list article{align-items:flex-start}.history-list b{flex:0 0 auto}.footer{padding-bottom:max(24px,env(safe-area-inset-bottom))}}\n@media(max-width:430px){.shell{width:calc(100% - 22px)}.top-actions{gap:4px}.icon-text-button{padding:9px 10px}.hero h1{font-size:clamp(46px,14vw,51px)}.planner{border-radius:24px}.choice-strip.five,.choice-strip.four,.choice-strip.three{gap:6px}.choice-strip button{padding:10px 7px}.cover-bottom h3{font-size:clamp(35px,11vw,42px)}.result-cover{height:300px}.detail-title h2{font-size:clamp(40px,13vw,48px)}.detail-meta{gap:7px}.invite-shell{padding:8px}.invite-controls{margin-right:38px}.invite-card{padding:20px;border-radius:20px}.invite-date-lockup{gap:10px;margin-top:20px}.invite-date-lockup>strong{font-size:clamp(68px,22vw,82px)}.invite-main h2{font-size:clamp(38px,12vw,51px);line-height:.9}.invite-main p{font-size:10px}.invite-footer{gap:7px}.invite-footer b{font-size:15px}.invite-actions{grid-template-columns:1fr}.invite-actions .primary-button{grid-column:auto}.dialog-actions button{min-height:48px}.profile-strip{grid-template-columns:1fr 1fr}.profile-strip>div:last-child{grid-column:1/-1}.history-list article{display:grid;grid-template-columns:minmax(0,1fr) auto}.favorite-places span{max-width:100%}}\n@media(max-width:360px){.choice-strip.five,.choice-strip.three{grid-template-columns:repeat(2,minmax(0,1fr))}.route-preview li{grid-template-columns:72px minmax(0,1fr)}.invite-topline{gap:7px}.invite-footer{grid-template-columns:1fr 1fr}.invite-footer>div:last-child{grid-column:1/-1}.micro-tabs button{font-size:8px;padding:7px 8px}}\n`;
+          fs.writeFileSync('styles.css',css);
+
+          let readme=fs.readFileSync('README.md','utf8');
+          readme=readme.replace('# 1001 Dates — v12 Clean','# 1001 Dates — v13 Full');
+          readme=readme.replace('Полная чистая сборка приложения для публикации через GitHub Desktop + GitHub Pages.','Production-сборка приложения для публикации через GitHub Desktop + GitHub Pages. Включает актуальный snapshot базы Москвы.');
+          fs.writeFileSync('README.md',readme);
+
+          let importer=fs.readFileSync('scripts/update-kudago.mjs','utf8');
+          const helper=`function normalizeISODate(value=""){\n  const match=String(value||"").trim().match(/^(\\d{4})-(\\d{1,2})-(\\d{1,2})$/);\n  if(!match)return null;\n  const year=Number(match[1]),month=Number(match[2]),day=Number(match[3]);\n  const date=new Date(Date.UTC(year,month-1,day));\n  if(date.getUTCFullYear()!==year||date.getUTCMonth()!==month-1||date.getUTCDate()!==day)return null;\n  return String(year)+'-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0');\n}\nfunction normalizeClock(value=""){\n  const match=String(value||"").trim().match(/^(\\d{1,2}):(\\d{2})(?::\\d{2})?$/);\n  if(!match)return null;\n  const hour=Number(match[1]),minute=Number(match[2]);\n  if(hour<0||hour>23||minute<0||minute>59)return null;\n  return String(hour).padStart(2,'0')+':'+String(minute).padStart(2,'0');\n}\nconst IMPORT_NOW=Math.floor(Date.now()/1000);\nconst WINDOW_START=moscowParts(IMPORT_NOW).date;\nconst WINDOW_END=moscowParts(IMPORT_NOW+60*24*60*60).date;\nfunction inImportWindow(date){return Boolean(date&&date>=WINDOW_START&&date<=WINDOW_END);}\n`;
+          if(!importer.includes('function normalizeISODate')) importer=importer.replace('function normalizeDates(dates=[]) {',helper+'function normalizeDates(dates=[]) {');
+          importer=importer.replace('const addOccurrence=(date,time)=>{if(!date)return;exactDates.add(date);if(time){if(!occurrences[date])occurrences[date]=[];if(!occurrences[date].includes(time))occurrences[date].push(time);}};','const addOccurrence=(date,time)=>{if(!inImportWindow(date))return;exactDates.add(date);if(time){if(!occurrences[date])occurrences[date]=[];if(!occurrences[date].includes(time))occurrences[date].push(time);}};');
+          importer=importer.replace('const startDate=d.start_date||startParts?.date||null,endDate=d.end_date||endParts?.date||startDate;','const startDate=normalizeISODate(d.start_date)||startParts?.date||null,endDate=normalizeISODate(d.end_date)||endParts?.date||startDate;');
+          importer=importer.replace('const startTime=d.start_time||startParts?.time||null;','const startTime=normalizeClock(d.start_time)||normalizeClock(startParts?.time)||null;');
+          importer=importer.replace('if(spanDays>=1){ranges.push([startDate,endDate]);continue;}','if(spanDays>=1){if(endDate<WINDOW_START||startDate>WINDOW_END)continue;ranges.push([startDate<WINDOW_START?WINDOW_START:startDate,endDate>WINDOW_END?WINDOW_END:endDate]);continue;}');
+          importer=importer.replace('const now=Math.floor(Date.now()/1000),until=now+60*24*60*60;','const now=IMPORT_NOW,until=now+60*24*60*60;');
+          fs.writeFileSync('scripts/update-kudago.mjs',importer);
+          NODE
+
+          cat > scripts/audit-production.mjs <<'EOF'
+          import { seedPlaces, seedEvents } from "../data/seed.js";
+          import { kudagoPlaces, kudagoEvents } from "../data/kudago.generated.js";
+          import { generateDates, auditPlanConstraints, auditPlanGeography } from "../engine.js";
+          const places=[...seedPlaces,...kudagoPlaces],events=[...seedEvents,...kudagoEvents];
+          const cases=[[120,"romantic","19:00",5000,true,false],[120,"fun","12:00",15000,true,true],[180,"unusual","19:00",15000,true,false],[180,"calm","12:00",7000,false,true],[240,"active","19:00",15000,true,false],[240,"romantic","12:00",15000,false,true],[360,"unusual","19:00",20000,true,false],[360,"calm","12:00",15000,true,true]];
+          let checked=0;
+          for(let i=0;i<cases.length;i++){
+            const [duration,vibe,time,budget,useEvents,noBars]=cases[i];
+            const filters={date:"2026-08-22",time,duration,budget,vibes:[vibe],zone:"any",food:true,useEvents,indoorOnly:false,noBars,avoidVisited:false,adventure:i%3===0?"safe":i%3===1?"balanced":"wild",likedItemIds:[],visitedItemIds:[],dislikedItemIds:[],recentlyShownItemIds:[]};
+            const plans=generateDates({places,events,filters,count:3,variationSeed:i});
+            if(plans.length!==3)throw new Error(`${duration}/${vibe}: expected 3 plans, got ${plans.length}`);
+            for(const plan of plans){checked++;const constraints=auditPlanConstraints(plan,filters),geo=auditPlanGeography(plan,filters);if(Object.values(constraints).some((ok)=>!ok)||!geo.ok)throw new Error(`Production constraint leak: ${plan.template.id}`);}
+          }
+          console.log(`Production audit OK: ${checked} plans over ${places.length} places + ${events.length} events.`);
+          EOF
+
+      - name: Build current Moscow database
         env:
           KUDAGO_PLACE_PAGES: 20
           KUDAGO_EVENT_PAGES: 8
           KUDAGO_PER_CATEGORY: 280
           KUDAGO_PER_SUBTYPE: 90
         run: node scripts/update-kudago.mjs
-      - name: Validate snapshot
-        continue-on-error: true
-        run: node scripts/validate-data.mjs --strict
-      - name: Audit planner
-        continue-on-error: true
+
+      - name: Validate everything
         run: |
+          node --check app.js
+          node --check engine.js
+          node --check scripts/update-kudago.mjs
+          node scripts/validate-data.mjs --strict
           node scripts/audit-scenarios.mjs
           node scripts/smoke-test.mjs
           node scripts/audit-filters.mjs
-      - name: Upload generated database
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: full-database
-          path: data/kudago.generated.js
-          retention-days: 1
+          node scripts/audit-production.mjs
+          ! grep -qE 'fallback:|комбинаций ·|Готовим базу Москвы' index.html app.js
+
+      - name: Commit v13 to temporary branch
+        run: |
+          git config user.name "1001-dates-builder"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html app.js styles.css sw.js README.md scripts/update-kudago.mjs scripts/audit-production.mjs data/kudago.generated.js
+          git commit -m "release: 1001 Dates v13 full database" || exit 0
+          git push origin HEAD:build-full-db-20260818
