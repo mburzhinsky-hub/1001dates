@@ -1,0 +1,69 @@
+/* 1001 Dates v15 — product UI layer
+   Scope: brand identity, visual system, mobile hierarchy and accessibility only. */
+
+:root{
+  --v15-space-1:6px;--v15-space-2:10px;--v15-space-3:14px;--v15-space-4:18px;--v15-space-5:24px;--v15-space-6:32px;
+  --v15-radius-sm:14px;--v15-radius-md:20px;--v15-radius-lg:30px;
+  --v15-focus:0 0 0 3px rgba(183,72,47,.22);
+  --v15-hairline:rgba(24,23,20,.13);
+}
+
+/* Brand lockup + signature language */
+.brand-lockup{display:flex;flex-direction:column;gap:4px;align-items:flex-start}.brand-lockup small{font-size:11px;line-height:1;text-transform:uppercase;letter-spacing:.11em;color:var(--soft)}
+.hero-copy-wrap{position:relative}.hero-copy-wrap:after{content:"1001";position:absolute;right:-90px;top:-34px;font-family:var(--display);font-size:178px;line-height:.75;color:rgba(183,72,47,.055);pointer-events:none;z-index:-1}
+.hero-manifesto{display:flex;gap:0;margin:0 0 18px;border-top:1px solid var(--v15-hairline);border-bottom:1px solid var(--v15-hairline)}.hero-manifesto span{flex:1;padding:11px 14px;font-size:11px;font-weight:700;letter-spacing:.11em;color:var(--muted);text-align:center}.hero-manifesto span+span{border-left:1px solid var(--v15-hairline)}
+
+/* System clarity */
+.planner,.result-card,.sheet-shell{border-color:var(--v15-hairline)}
+.control,.choice-block{transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}.control:focus-within,.choice-block:focus-within{border-color:rgba(183,72,47,.34);background:rgba(255,255,255,.62)}
+.choice-strip button,.mood,.micro-tabs button,.primary-button,.secondary-button,.icon-text-button,.text-button,.preferences-toggle,.heart-button,.stop-actions button,.stop-links a{transition:transform .16s ease,filter .16s ease,background-color .16s ease,border-color .16s ease,box-shadow .16s ease}
+.choice-strip button[aria-checked="true"],.mood[aria-pressed="true"],.micro-tabs button[aria-pressed="true"]{background:var(--dark);color:#fff;border-color:var(--dark)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px;box-shadow:var(--v15-focus)}
+.preference:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Legible information hierarchy: product UI never relies on microscopic labels. */
+.icon-text-button b,.choice-hint,.preference-count,.preference small,.adventure-setting small,.planner-footnote,.filter-recap span,.archetype-badge,.result-meta span,.route-preview span,.route-preview strong,.results-actions .secondary-button,.data-note,.footer,.detail-meta span,.why-panel span,.detail-section-head small,.detail-stop-overline,.detail-stop-main>small,.stop-links a,.stop-actions button,.invite-control-row>span,.invite-note-field>span,.micro-tabs button,.invite-note-field input,.invite-topline,.invite-date-lockup small,.invite-main>span,.invite-chapters span,.invite-footer span,.library-head p,.profile-strip span,.library-section-head button,.library-cards article>span,.library-cards p,.library-cards small,.history-list small,.history-list article>div>span,.favorite-places span,.empty-library p{font-size:11px}
+.result-why,.detail-title>p,.why-panel p,.detail-stop-main p{font-size:13px}.route-preview strong{font-size:12px}.result-meta span{line-height:1.45}.data-note,.planner-footnote{line-height:1.55}
+
+/* Planner feels like a composed editorial object, not a form stack. */
+.planner{position:relative;overflow:hidden}.planner:before{content:"PRIVATE PLAN / 1001";position:absolute;right:22px;top:17px;font-size:11px;font-weight:700;letter-spacing:.12em;color:rgba(183,72,47,.48);pointer-events:none}.planner-row-top{margin-top:26px}
+.choice-heading span,.control-label,.invite-note-field span{font-size:12px}.choice-heading strong{font-size:24px}.choice-strip button,.mood{min-height:46px;font-size:13px}.preference strong,.adventure-setting strong{font-size:13px}.preferences-toggle{min-height:44px}
+.primary-button,.secondary-button{min-height:56px}.planner-submit{font-size:14px}.surprise-button{font-size:13px}
+
+/* Honest 1–3 result composition */
+.results-grid[data-count="1"]{grid-template-columns:minmax(0,420px);justify-content:center}.results-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,420px));justify-content:center}.results-grid[data-count="3"]{grid-template-columns:repeat(3,minmax(0,1fr))}
+.result-card{position:relative}.result-card:after{content:"1001 DATES";position:absolute;right:17px;bottom:13px;font-size:11px;font-weight:700;letter-spacing:.11em;color:rgba(24,23,20,.16);pointer-events:none}.cover-bottom>span{font-size:17px;letter-spacing:.05em}.result-why{min-height:62px}.route-preview{gap:11px}.route-preview li{align-items:baseline}.result-open{font-size:13px}
+.result-selection-note{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}.result-selection-note span,.selection-context span{padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.45);font-size:11px;color:var(--muted)}
+
+/* Detail is a sequence of chapters, with context for the decision. */
+.detail-section-head h3:after{content:" / главы вечера";font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);white-space:nowrap}.selection-context{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.detail-stop-index{font-size:28px}.detail-stop-main h4{line-height:1.05}.stop-actions button,.stop-links a{min-height:36px;display:inline-flex;align-items:center}.stop-actions button[aria-pressed="true"]{border-color:rgba(183,72,47,.35);color:var(--accent);background:rgba(183,72,47,.06)}
+
+/* Invitation remains the most branded object. */
+.invite-controls{border:1px solid rgba(255,255,255,.08)}.invite-topline{line-height:1.35}.invite-main p{font-size:13px}.invite-chapters span{font-size:11px}.invite-footer span{font-size:11px}.invite-note-field input{font-size:12px}
+
+/* Library */
+.library-head p{font-size:13px}.profile-strip span,.library-cards p,.favorite-places span{font-size:11px}.library-cards small,.history-list small{font-size:11px;line-height:1.5}
+
+/* Empty state actions explicitly communicate what changes. */
+.empty-state{position:relative;overflow:hidden}.empty-state:before{content:"NO COMPROMISE";display:block;margin-bottom:9px;font-size:11px;font-weight:700;letter-spacing:.13em;color:var(--accent)}.empty-state p{font-size:13px}.empty-actions button{font-size:12px}
+
+@media(max-width:900px){
+  .results-grid[data-count="1"],.results-grid[data-count="2"],.results-grid[data-count="3"]{grid-template-columns:1fr}
+  .result-card:after{display:none}
+}
+
+@media(max-width:720px){
+  .brand-lockup small{display:none}.hero-copy-wrap:after{right:-42px;top:-12px;font-size:112px}.hero-manifesto{margin-bottom:12px}.hero-manifesto span{padding:9px 5px;font-size:10px;letter-spacing:.07em}
+  .planner:before{right:16px;top:14px}.planner-row-top{margin-top:24px}.choice-heading{align-items:flex-start}.choice-heading strong{font-size:21px}.result-why{min-height:0}.result-selection-note{margin-top:-2px}
+  .detail-section-head h3:after{display:block;margin-top:7px}.selection-context{margin-top:10px}.stop-actions{gap:8px}.stop-actions button,.stop-links a{min-height:40px}
+}
+
+@media(max-width:430px){
+  .shell{width:calc(100% - 20px)}.topbar{height:72px}.hero{padding-top:36px}.hero h1{line-height:.94}.hero-copy{font-size:15px;line-height:1.55}.hero-manifesto{display:grid;grid-template-columns:1fr 1fr}.hero-manifesto span:last-child{grid-column:1/-1;border-top:1px solid var(--v15-hairline)}.hero-manifesto span:nth-child(2){border-left:1px solid var(--v15-hairline)}.hero-manifesto span:last-child{border-left:0}
+  .planner-row-top{grid-template-columns:1fr}.control-place{grid-column:auto}.control{min-height:68px}.choice-heading{display:grid;gap:4px}.choice-heading strong{font-size:20px}.mood{font-size:12px}.planner-cta-row{position:relative}.planner-submit{min-height:60px}
+  .result-cover{height:276px}.cover-bottom h3{font-size:38px}.result-body{padding:17px}.result-meta{gap:8px}.route-preview li{grid-template-columns:78px minmax(0,1fr)}
+  .detail-title{padding-top:30px}.detail-title h2{line-height:.92}.detail-route{padding-left:16px;padding-right:16px}.detail-stop{grid-template-columns:30px minmax(0,1fr)}.detail-stop-index{font-size:23px}.detail-stop-main h4{font-size:27px}.stop-actions{display:grid;grid-template-columns:1fr 1fr}.stop-actions button{justify-content:center;text-align:center}
+  .invite-card{padding:20px}.invite-topline{font-size:10px}.invite-main p{font-size:12px}.invite-footer span{font-size:10px}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.choice-strip button,.mood,.micro-tabs button,.primary-button,.secondary-button,.icon-text-button,.text-button,.preferences-toggle,.heart-button,.stop-actions button,.stop-links a{transition:none}.choice-strip button:hover,.mood:hover,.primary-button:hover,.secondary-button:hover{transform:none}}
