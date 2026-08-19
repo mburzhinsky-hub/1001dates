@@ -1,4 +1,4 @@
-import "./app.js?v=14";
+import "./app.js?v=1511";
 
 const $ = (selector, root=document) => root.querySelector(selector);
 const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
@@ -107,6 +107,14 @@ function handleRadioKeys(event) {
 }
 
 document.addEventListener("keydown",handleRadioKeys);
+
+function syncPlannerCopy() {
+  const submit=$(".planner-submit");
+  const label=$(".planner-submit span:first-child");
+  if(!submit || !label)return;
+  const desired=submit.classList.contains("is-working") ? "Собираю варианты" : "Подобрать свидания";
+  if(label.textContent!==desired)label.textContent=desired;
+}
 
 function resultCountLabel(count) {
   if(count===1)return "ОДИН СИЛЬНЫЙ ВАРИАНТ";
@@ -220,6 +228,7 @@ function decorateLibrary() {
 }
 
 function syncAll() {
+  syncPlannerCopy();
   syncRadioSemantics();
   decorateResults();
   decorateDetail();
@@ -228,7 +237,10 @@ function syncAll() {
 }
 
 document.addEventListener("submit",(event)=>{
-  if(event.target?.id==="plannerForm")pendingSnapshot=snapshotFromControls();
+  if(event.target?.id==="plannerForm"){
+    pendingSnapshot=snapshotFromControls();
+    queueMicrotask(syncPlannerCopy);
+  }
 },true);
 
 document.addEventListener("click",(event)=>{
@@ -247,13 +259,13 @@ document.addEventListener("click",(event)=>{
 document.addEventListener("change",()=>queueMicrotask(syncAll),true);
 
 const observer=new MutationObserver(()=>queueMicrotask(syncAll));
-["#resultsGrid","#detailContent","#inviteCard","#libraryContent"].forEach((selector)=>{
+["#resultsGrid","#detailContent","#inviteCard","#libraryContent",".planner-submit"].forEach((selector)=>{
   const node=$(selector);
   if(node)observer.observe(node,{subtree:true,childList:true,attributes:true,attributeFilter:["class","disabled"]});
 });
 
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
-  navigator.serviceWorker.register("./sw.js?v=151",{updateViaCache:"none"}).catch(()=>{});
+  navigator.serviceWorker.register("./sw.js?v=1511",{updateViaCache:"none"}).catch(()=>{});
 }
 
 syncAll();
