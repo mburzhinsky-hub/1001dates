@@ -1,4 +1,4 @@
-const CACHE="1001-dates-final3";
+const CACHE="1001-dates-copy1";
 const CORE=["./","./index.html","./styles-final.css?v=final3","./app-final.js?v=final3","./engine-v14.js?v=final3","./engine.js?base=final3","./data/seed.js","./data/scenarios.js","./data/kudago.generated.js","./manifest.webmanifest","./assets/icon.svg"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));self.skipWaiting()});
 self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));self.clients.claim()});
