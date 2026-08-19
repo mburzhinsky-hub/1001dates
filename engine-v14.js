@@ -1,4 +1,4 @@
-import * as base from "./engine.js?base=v13";
+import * as base from "./engine.js?base=v1511";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
@@ -51,7 +51,7 @@ function prepare(items,filters,minimum){
 function guardedArgs(args){const filters=args?.filters||{};return {...args,places:prepare(args?.places||[],filters,100),events:prepare(args?.events||[],filters,30)};}
 
 export function generateDates(args){return base.generateDates(guardedArgs(args));}
-export function replacePlanItem(plan,itemIndex,args){return base.replacePlanItem(plan,itemIndex,guardedArgs(args));}
+export function replacePlanItem(args){return base.replacePlanItem(guardedArgs(args));}
 export const planRows=base.planRows;
 export const formatMoney=base.formatMoney;
 export const formatDuration=base.formatDuration;
