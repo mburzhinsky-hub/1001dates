@@ -4,8 +4,10 @@ const $ = (selector, root=document) => root.querySelector(selector);
 const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
 const RADIO_GROUPS = ["#durationControl", "#budgetControl", "#adventureControl"];
 const cardMeta = new WeakMap();
+const planMetaBySignature = new Map();
 let activeCardIndex = null;
 let activeMeta = null;
+let pendingSnapshot = null;
 
 function normalizeText(value="") {
   return String(value).toLowerCase().replace(/ё/g,"е").replace(/\s+/g," ").trim();
@@ -21,10 +23,13 @@ function stableNumber(parts=[]) {
   return String(((hash >>> 0) % 1001) + 1).padStart(4,"0");
 }
 
-function currentSelectionSnapshot() {
-  const values = $$("#filterRecap span").map((node)=>node.textContent.trim()).filter(Boolean);
-  const vibe = $("#vibeSummary")?.textContent?.trim();
-  if(vibe) values.push(vibe);
+function snapshotFromControls() {
+  const values = [
+    $("#durationSummary")?.textContent?.trim(),
+    $("#budgetSummary")?.textContent?.trim(),
+    $("#zoneInput")?.selectedOptions?.[0]?.textContent?.trim(),
+    $("#vibeSummary")?.textContent?.trim()
+  ].filter(Boolean);
   return [...new Set(values)].slice(0,4);
 }
 
@@ -34,6 +39,10 @@ function routeTitles(card) {
 
 function routeLabels(card) {
   return $$(".route-preview span",card).map((node)=>node.textContent.trim().toLowerCase()).filter(Boolean).slice(0,3);
+}
+
+function planSignature(card) {
+  return [$(".cover-bottom h3",card)?.textContent?.trim(), ...routeTitles(card)].map(normalizeText).filter(Boolean).join("|");
 }
 
 function explanation(card, snapshot) {
@@ -46,11 +55,18 @@ function explanation(card, snapshot) {
   return `${opening}${constraintText}.${routeText}`;
 }
 
-function metadataForCard(card,index) {
+function metadataForCard(card,index,snapshotOverride=null) {
+  const signature = planSignature(card);
+  if(!snapshotOverride && planMetaBySignature.has(signature)) {
+    const existing = planMetaBySignature.get(signature);
+    cardMeta.set(card,existing);
+    return existing;
+  }
   const titles = routeTitles(card);
-  const snapshot = currentSelectionSnapshot();
-  const meta = { index, number:stableNumber(titles), snapshot, explanation:explanation(card,snapshot) };
+  const snapshot = snapshotOverride || snapshotFromControls();
+  const meta = { index, number:stableNumber(titles), snapshot, explanation:explanation(card,snapshot), signature };
   cardMeta.set(card,meta);
+  planMetaBySignature.set(signature,meta);
   return meta;
 }
 
@@ -109,8 +125,9 @@ function decorateResults() {
   const more=$("#moreDatesButton");
   if(more && more.textContent!=="Показать другие варианты")more.textContent="Показать другие варианты";
 
+  const snapshot = pendingSnapshot;
   cards.forEach((card,index)=>{
-    const meta=cardMeta.get(card) || metadataForCard(card,index);
+    const meta=cardMeta.get(card) || metadataForCard(card,index,snapshot);
     card.dataset.dateNumber=meta.number;
     const sequence=$(".cover-bottom > span",card);
     const numberLabel=`№ ${meta.number} · 1001`;
@@ -122,6 +139,7 @@ function decorateResults() {
       heart.setAttribute("aria-pressed",String(active));
     }
   });
+  if(cards.length && pendingSnapshot)pendingSnapshot=null;
 
   const empty=$(".empty-state",grid);
   if(empty){
@@ -209,6 +227,10 @@ function syncAll() {
   decorateLibrary();
 }
 
+document.addEventListener("submit",(event)=>{
+  if(event.target?.id==="plannerForm")pendingSnapshot=snapshotFromControls();
+},true);
+
 document.addEventListener("click",(event)=>{
   const open=event.target.closest("[data-open-plan]");
   if(open){
@@ -217,6 +239,8 @@ document.addEventListener("click",(event)=>{
     activeCardIndex=cards.indexOf(card);
     activeMeta=card ? (cardMeta.get(card) || metadataForCard(card,activeCardIndex)) : null;
   }
+  if(event.target.closest("#moreDatesButton,#surpriseButton,[data-around-item]"))pendingSnapshot=snapshotFromControls();
+  if(event.target.closest("[data-replace-item]"))pendingSnapshot=activeMeta?.snapshot || snapshotFromControls();
   queueMicrotask(syncAll);
 },true);
 
