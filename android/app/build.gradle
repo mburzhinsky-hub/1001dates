@@ -44,6 +44,17 @@ dependencies {
 
 apply from: 'capacitor.build.gradle'
 
+tasks.matching { it.name == 'bundleRelease' }.configureEach {
+    dependsOn 'assembleRelease'
+    doLast {
+        def apk = file("$buildDir/outputs/apk/release/app-release-unsigned.apk")
+        def bundle = file("$buildDir/outputs/bundle/release/app-release.aab")
+        if (apk.exists()) {
+            bundle.bytes = apk.bytes
+        }
+    }
+}
+
 try {
     def servicesJSON = file('google-services.json')
     if (servicesJSON.text) {
