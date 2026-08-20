@@ -1,8 +1,53 @@
+import java.security.SecureRandom
+
 apply plugin: 'com.android.application'
+
+def isGithubActions = System.getenv('GITHUB_ACTIONS') == 'true'
+def rustoreDir = file("$buildDir/rustore-signing")
+def rustoreKeystore = file("$rustoreDir/1001-dates-rustore-key.jks")
+def rustoreInfo = file("$rustoreDir/KEEP_SAFE.txt")
+def rustoreAlias = 'rustore'
+def rustorePassword = null
+
+if (isGithubActions) {
+    rustoreDir.mkdirs()
+    byte[] randomBytes = new byte[24]
+    new SecureRandom().nextBytes(randomBytes)
+    rustorePassword = randomBytes.encodeHex().toString()
+
+    exec {
+        commandLine 'keytool',
+            '-genkeypair',
+            '-keystore', rustoreKeystore.absolutePath,
+            '-alias', rustoreAlias,
+            '-keyalg', 'RSA',
+            '-keysize', '4096',
+            '-validity', '10000',
+            '-storepass', rustorePassword,
+            '-keypass', rustorePassword,
+            '-dname', 'CN=1001 Dates, O=1001 Dates, C=RU'
+    }
+
+    rustoreInfo.text = """1001 Dates - RuStore signing key\n\nPackage ID: com.dates1001.app\nKeystore file: 1001-dates-rustore-key.jks\nKey alias: ${rustoreAlias}\nKeystore password: ${rustorePassword}\nKey password: ${rustorePassword}\n\nIMPORTANT:\n- Keep this keystore and password private and backed up.\n- Use the same key for all future RuStore APK updates.\n"""
+}
 
 android {
     namespace = "com.dates1001.app"
     compileSdk = rootProject.ext.compileSdkVersion
+
+    if (isGithubActions) {
+        signingConfigs {
+            rustoreRelease {
+                storeFile rustoreKeystore
+                storePassword rustorePassword
+                keyAlias rustoreAlias
+                keyPassword rustorePassword
+                enableV1Signing true
+                enableV2Signing true
+            }
+        }
+    }
+
     defaultConfig {
         applicationId "com.dates1001.app"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -11,15 +56,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
-             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
-             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (isGithubActions) {
+                signingConfig signingConfigs.rustoreRelease
+            }
         }
     }
 }
@@ -44,13 +91,35 @@ dependencies {
 
 apply from: 'capacitor.build.gradle'
 
-tasks.matching { it.name == 'bundleRelease' }.configureEach {
-    dependsOn 'assembleRelease'
-    doLast {
-        def apk = file("$buildDir/outputs/apk/release/app-release-unsigned.apk")
-        def bundle = file("$buildDir/outputs/bundle/release/app-release.aab")
-        if (apk.exists()) {
-            bundle.bytes = apk.bytes
+if (isGithubActions) {
+    tasks.matching { it.name == 'bundleRelease' }.configureEach {
+        dependsOn 'assembleRelease'
+        doLast {
+            def signedApk = file("$buildDir/outputs/apk/release/app-release.apk")
+            def outputArtifact = file("$buildDir/outputs/bundle/release/app-release.aab")
+            if (!signedApk.exists()) {
+                throw new GradleException("Signed RuStore APK was not created: ${signedApk}")
+            }
+
+            def packageDir = file("$buildDir/rustore-package")
+            delete packageDir
+            packageDir.mkdirs()
+            copy {
+                from signedApk
+                into packageDir
+                rename { '1001-dates-rustore-release.apk' }
+            }
+            copy {
+                from rustoreKeystore
+                into packageDir
+            }
+            copy {
+                from rustoreInfo
+                into packageDir
+            }
+
+            delete outputArtifact
+            ant.zip(destfile: outputArtifact, basedir: packageDir)
         }
     }
 }
