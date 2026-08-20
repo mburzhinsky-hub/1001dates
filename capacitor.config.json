@@ -1,0 +1,8 @@
+{
+  "appId": "com.dates1001.app",
+  "appName": "1001 Dates",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
