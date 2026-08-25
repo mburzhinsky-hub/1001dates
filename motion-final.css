@@ -1,0 +1,64 @@
+/* Web-only motion layer. No layout or recommendation logic lives here. */
+
+#resultsGrid .date-card{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 340ms cubic-bezier(.22,.61,.36,1),transform 340ms cubic-bezier(.22,.61,.36,1);
+}
+#resultsGrid.results-ready .date-card{opacity:1;transform:translateY(0)}
+#resultsGrid.results-ready .date-card:nth-child(2){transition-delay:60ms}
+#resultsGrid.results-ready .date-card:nth-child(3){transition-delay:120ms}
+
+.overlay.open{animation:motionBackdropIn 220ms ease-out both}
+#filtersOverlay.open .sheet-panel{animation:motionSheetIn 280ms cubic-bezier(.22,.61,.36,1) both}
+#detailOverlay.open .screen{animation:motionDetailIn 260ms cubic-bezier(.22,.61,.36,1) both}
+
+button,.chapter-actions a{
+  transition:transform 90ms ease,background-color 180ms ease,color 180ms ease,border-color 180ms ease,box-shadow 220ms ease;
+}
+button:active:not(:disabled),.chapter-actions a:active{transform:scale(.98)}
+.segments button,.moods button,.summary-chip{transition:transform 90ms ease,background-color 180ms ease,color 180ms ease,border-color 180ms ease}
+
+#surprise{display:flex;align-items:center;justify-content:center;gap:8px}
+#surprise .surprise-star{display:inline-block;transform-origin:50% 55%}
+#surprise.surprise-pop{box-shadow:0 0 0 4px rgba(184,77,52,.08)}
+#surprise.surprise-pop .surprise-star{animation:motionSpark 400ms cubic-bezier(.22,.61,.36,1)}
+
+@media(hover:hover) and (pointer:fine){
+  .date-card .date-photo img{transition:transform 500ms cubic-bezier(.22,.61,.36,1)}
+  .date-card:hover .date-photo img{transform:scale(1.025)}
+}
+
+.detail-progress{
+  flex:0 0 2px;
+  height:2px;
+  overflow:hidden;
+  background:rgba(184,77,52,.12);
+}
+.detail-progress>span{
+  display:block;
+  width:100%;
+  height:100%;
+  background:var(--accent);
+  transform:scaleX(0);
+  transform-origin:left center;
+  will-change:transform;
+}
+.chapter .chapter-no,.chapter .chapter-role{transition:color 180ms ease,opacity 180ms ease,transform 180ms ease}
+.chapter:not(.is-current) .chapter-no,.chapter:not(.is-current) .chapter-role{color:var(--soft);opacity:.68}
+.chapter.is-current .chapter-no,.chapter.is-current .chapter-role{color:var(--accent);opacity:1}
+.chapter.is-current .chapter-no{transform:translateX(2px)}
+
+@keyframes motionBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes motionSheetIn{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+@keyframes motionDetailIn{from{opacity:0;scale:.985}to{opacity:1;scale:1}}
+@keyframes motionSpark{0%{transform:rotate(0) scale(1)}45%{transform:rotate(24deg) scale(1.22)}100%{transform:rotate(0) scale(1)}}
+
+@media(prefers-reduced-motion:reduce){
+  #resultsGrid .date-card,#resultsGrid.results-ready .date-card{opacity:1!important;transform:none!important;transition:none!important}
+  .overlay.open,#filtersOverlay.open .sheet-panel,#detailOverlay.open .screen,#surprise.surprise-pop .surprise-star{animation:none!important}
+  button,.chapter-actions a,.segments button,.moods button,.summary-chip,.date-card .date-photo img,.chapter .chapter-no,.chapter .chapter-role{transition:none!important}
+  button:active:not(:disabled),.chapter-actions a:active{transform:none!important}
+  .date-card:hover .date-photo img{transform:none!important}
+  .chapter.is-current .chapter-no{transform:none!important}
+}
