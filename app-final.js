@@ -59,31 +59,31 @@ function renderInvite(){
   const p=latestPlans[activePlanIndex],f=activeFilters;
   if(!p||!f)return;
   const rows=planRows(p);
-  const d=new Date(\`\${f.date}T12:00:00\`);
+  const d=new Date(`${f.date}T12:00:00`);
   const day=String(d.getDate()).padStart(2,'0');
   const month=new Intl.DateTimeFormat('ru-RU',{month:'short'}).format(d).replace('.','').toUpperCase();
   const note=$("#inviteNote").value.trim()||'Просто освободи вечер. Остальное — сюрприз.';
   const posterUrl=inviteTheme!=="minimal"&&imageOK(p.coverImage)?p.coverImage:"";
   const planHtml=inviteReveal==="full"
-    ? \`<div class="poster-plan" aria-label="План свидания">
+    ? `<div class="poster-plan" aria-label="План свидания">
         <div class="poster-plan-title">ПЛАН ВЕЧЕРА</div>
-        \${rows.slice(0,4).map((row,i)=>\`<div class="poster-plan-row">
-          <span class="poster-plan-no">\${String(i+1).padStart(2,"0")}</span>
-          <div><small>\${esc(chapterRole(i,rows.length))}</small><b>\${esc(row.title)}</b></div>
-        </div>\`).join("")}
-      </div>\`
+        ${rows.slice(0,4).map((row,i)=>`<div class="poster-plan-row">
+          <span class="poster-plan-no">${String(i+1).padStart(2,"0")}</span>
+          <div><small>${esc(chapterRole(i,rows.length))}</small><b>${esc(row.title)}</b></div>
+        </div>`).join("")}
+      </div>`
     : "";
   const poster=$("#poster");
-  poster.className=\`poster \${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} \${inviteReveal==='full'?'plan-open':''}\`;
-  poster.innerHTML=\`\${posterUrl?'<div class="poster-bg" aria-hidden="true"></div>':""}
-    <div class="poster-top"><span>1001 DATES</span><span>№ \${stableNo(p)}</span></div>
-    <div class="poster-date"><strong>\${day}</strong><div><span>\${esc(month)}</span><span>\${esc(f.time)}</span></div></div>
-    \${planHtml}
-    <div class="poster-main"><span>\${inviteReveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>\${esc(p.title)}</h3><p>\${esc(note)}</p></div>
-    <div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>\${esc(formatDuration(p.totalMinutes))}</b></div><div><span>ПЛАН</span><b>\${inviteReveal==='full'?\`\${p.items.length} главы\`:'сюрприз'}</b></div></div>\`;
+  poster.className=`poster ${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} ${inviteReveal==='full'?'plan-open':''}`;
+  poster.innerHTML=`${posterUrl?'<div class="poster-bg" aria-hidden="true"></div>':""}
+    <div class="poster-top"><span>1001 DATES</span><span>№ ${stableNo(p)}</span></div>
+    <div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(f.time)}</span></div></div>
+    ${planHtml}
+    <div class="poster-main"><span>${inviteReveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>${esc(p.title)}</h3><p>${esc(note)}</p></div>
+    <div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(formatDuration(p.totalMinutes))}</b></div><div><span>ПЛАН</span><b>${inviteReveal==='full'?`${p.items.length} главы`:'сюрприз'}</b></div></div>`;
   if(posterUrl){
     const bg=$(".poster-bg",poster);
-    if(bg)bg.style.backgroundImage=\`url("\${posterUrl.replace(/"/g,'%22')}")\`;
+    if(bg)bg.style.backgroundImage=`url("${posterUrl.replace(/"/g,'%22')}")`;
   }
 }
 $$('[data-theme]').forEach(b=>b.addEventListener('click',()=>{inviteTheme=b.dataset.theme;$$('[data-theme]').forEach(x=>x.classList.toggle('active',x===b));syncPressed();renderInvite()}));$$('[data-reveal]').forEach(b=>b.addEventListener('click',()=>{inviteReveal=b.dataset.reveal;$$('[data-reveal]').forEach(x=>x.classList.toggle('active',x===b));syncPressed();renderInvite()}));$("#inviteNote")?.addEventListener('input',renderInvite);
@@ -91,9 +91,9 @@ function inviteText(){
   const p=latestPlans[activePlanIndex],f=activeFilters;
   if(!p)return'';
   const fullPlan=inviteReveal==="full"
-    ? \`\n\nПлан вечера:\n\${planRows(p).map((r,i)=>\`\${i+1}. \${r.title}\`).join("\n")}\`
+    ? `\n\nПлан вечера:\n${planRows(p).map((r,i)=>`${i+1}. ${r.title}`).join("\n")}`
     : "";
-  return \`Освободи вечер — у меня есть план ♡\n\n\${p.title}\n\${humanDate(f.date)}, \${f.time}\n\${formatDuration(p.totalMinutes)}\${fullPlan}\n\n1001 Dates\`
+  return `Освободи вечер — у меня есть план ♡\n\n${p.title}\n${humanDate(f.date)}, ${f.time}\n${formatDuration(p.totalMinutes)}${fullPlan}\n\n1001 Dates`
 }
 $("#copyInvite")?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(inviteText());$("#copyInvite").textContent='Скопировано ✓';setTimeout(()=>$("#copyInvite").textContent='Скопировать',1200)}catch{}});$("#calendarInvite")?.addEventListener('click',()=>{const p=latestPlans[activePlanIndex],f=activeFilters,start=new Date(`${f.date}T${f.time}:00`),end=new Date(start.getTime()+p.totalMinutes*60000),stamp=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z'),ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${stamp(start)}\r\nDTEND:${stamp(end)}\r\nSUMMARY:${p.title}\r\nEND:VEVENT\r\nEND:VCALENDAR`,blob=new Blob([ics],{type:'text/calendar'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='1001-dates.ics';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
 async function ensureCanvas(){if(window.html2canvas)return window.html2canvas;await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=res;s.onerror=rej;document.head.append(s)});return window.html2canvas}
