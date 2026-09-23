@@ -37,3 +37,58 @@
   body{padding-bottom:0}.desktop-only{display:inline-flex}.mobile-nav{display:none}.hero{padding:24px 0 60px}.hero-card{min-height:690px}.hero-content{max-width:680px;padding:50px}.hero h1{font-size:76px}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.screen{left:50%;top:50%;inset:auto;transform:translate(-50%,-50%);width:min(900px,calc(100% - 48px));height:min(92dvh,900px);border-radius:28px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.narrow-screen{width:min(720px,calc(100% - 48px))}.sheet-panel{left:50%;right:auto;bottom:24px;transform:translateX(-50%);width:min(760px,calc(100% - 48px));border-radius:28px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.detail-hero{display:grid;grid-template-columns:1.05fr .95fr}.detail-hero .hero-img{aspect-ratio:auto;min-height:430px}.detail-copy{padding:44px 32px}.chapter{grid-template-columns:40px minmax(0,1fr)}.poster{max-width:520px;margin-inline:auto}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* Mobile reference polish */
+@media(max-width:599px){
+  .topbar{height:56px}
+  .brand{font-size:25px}
+  .hero{padding-top:0}
+  .hero-card{min-height:min(690px,calc(100dvh - 76px));border-radius:28px}
+  .hero-content{min-height:min(690px,calc(100dvh - 76px));padding:20px 16px calc(18px + env(safe-area-inset-bottom))}
+  .hero h1{font-size:clamp(44px,12.7vw,56px);line-height:.91}
+  .hero-copy{font-size:13px;margin:12px 0 14px}
+  .summary-grid{gap:6px}
+  .summary-chip{min-height:58px;padding:9px;border-radius:14px}
+  .summary-chip span{font-size:9px}
+  .summary-chip b{font-size:11px}
+  .launch-actions{margin-top:8px}
+  .primary,.secondary,.ghost{min-height:50px}
+  .results{padding-top:32px}
+  .results h2{font-size:clamp(38px,10.4vw,48px)}
+  .date-card h3{font-size:34px}
+  .sheet-panel{max-height:96dvh}
+  .sheet-head{padding-top:14px}
+  .sheet-head h2{font-size:34px}
+  .sheet-scroll{padding-inline:12px}
+  .segments.five{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .segments.five button:nth-child(4),.segments.five button:nth-child(5){grid-column:span 1}
+  .setting-copy small{font-size:10px}
+  .setting-row select{max-width:122px}
+  .detail-copy h2{font-size:46px}
+  .detail-bottom{grid-template-columns:1fr 1.15fr}
+  .poster{padding:20px;border-radius:20px}
+  .poster-date strong{font-size:82px}
+  .poster-main h3{font-size:52px}
+  .invite-wrap{padding-inline:10px}
+}
+@media(max-width:374px){
+  .hero-card,.hero-content{min-height:calc(100dvh - 68px)}
+  .hero-content{padding-inline:14px}
+  .hero h1{font-size:44px}
+  .hero-copy{font-size:12px}
+  .summary-chip{min-height:54px}
+  .summary-chip b{font-size:10px}
+  .mobile-nav{width:calc(100% - 12px);bottom:max(5px,env(safe-area-inset-bottom))}
+  .mobile-nav button{min-height:52px;font-size:10px}
+  .date-card h3{font-size:31px}
+  .moods{grid-template-columns:1fr 1fr}
+  .segments button,.moods button{font-size:10px;padding-inline:5px}
+  .setting-row{grid-template-columns:30px minmax(0,1fr) auto;gap:7px}
+  .detail-bottom{grid-template-columns:1fr}
+  .detail-bottom .secondary,.detail-bottom .primary{min-height:46px}
+}
+@supports(padding:max(0px)){
+  .topbar{padding-top:env(safe-area-inset-top);height:calc(56px + env(safe-area-inset-top))}
+  @media(min-width:600px){.topbar{padding-top:0;height:64px}}
+}
