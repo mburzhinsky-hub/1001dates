@@ -198,3 +198,16 @@ body::-webkit-scrollbar,
   .poster-plan{margin-bottom:12px;padding:9px 0}
   .poster-plan-row{padding:5px 0}
 }
+
+
+/* Hard-hide browser scrollbars everywhere while preserving scrolling */
+*{
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+}
+*::-webkit-scrollbar{
+  width:0!important;
+  height:0!important;
+  display:none!important;
+  background:transparent!important;
+}
