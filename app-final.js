@@ -55,6 +55,25 @@ function openReplace(itemIndex){const p=latestPlans[activePlanIndex];if(!p)retur
 function renderLibrary(){const box=$("#libraryContent");$$("[data-library-tab]").forEach(b=>b.classList.toggle("active",b.dataset.libraryTab===libraryTab));if(libraryTab==="places"){const items=Object.values(profile.favoriteItems);box.innerHTML=items.length?items.map(entry=>`<article class="mini-card">${imageOK(entry.image)?`<img src="${esc(entry.image)}" alt="" loading="lazy">`:`<div class="mini-placeholder"></div>`}<div><h4>${esc(entry.title)}</h4><p>${esc(entry.category||"Место")}</p></div></article>`).join(""):`<div class="empty"><h3>Любимых мест пока нет.</h3><p>Сохраняйте места из глав свидания — они появятся здесь.</p></div>`;return}box.innerHTML=savedDates.length?savedDates.map((d,i)=>`<article class="saved-date">${imageOK(d.coverImage)?`<img src="${esc(d.coverImage)}" alt="">`:'<div class="mini-placeholder"></div>'}<div><div class="eyebrow">№ ${esc(d.number)}</div><h4>${esc(d.title)}</h4><p>${esc(formatDuration(d.totalMinutes))} · ${esc(formatMoney(d.totalCost))}</p><div class="saved-actions">${d.plan?`<button data-open-saved="${i}">Открыть сценарий</button>`:""}<button data-remove-saved="${i}">Убрать</button></div></div></article>`).join(""):`<div class="empty"><h3>Здесь будут ваши вечера.</h3><p>Сохраните понравившийся сценарий — и он останется в «Моих свиданиях».</p></div>`;$$("[data-open-saved]").forEach(b=>b.addEventListener("click",()=>{const d=savedDates[+b.dataset.openSaved];if(!d?.plan)return;latestPlans=[d.plan];activePlanIndex=0;activeFilters=d.plan.filters||collectFilters();renderDetail();openOverlay("#detailOverlay")}));$$("[data-remove-saved]").forEach(b=>b.addEventListener("click",()=>{savedDates.splice(+b.dataset.removeSaved,1);saveSavedDates();renderLibrary();renderResults()}))}$$("[data-library-tab]").forEach(b=>b.addEventListener("click",()=>{libraryTab=b.dataset.libraryTab;renderLibrary()}));$("#libraryButton")?.addEventListener("click",()=>{renderLibrary();openOverlay("#libraryOverlay")});$("#navLibrary")?.addEventListener("click",()=>{renderLibrary();openOverlay("#libraryOverlay")});
 function renderProfile(){const v=state.vibes.map(x=>VIBE_LABELS[x]).join(' + '),adv={safe:'Без сюрпризов',balanced:'Баланс',wild:'Смелее'}[state.adventure],favPlaces=Object.values(profile.favoriteItems).slice(0,4);$("#profileContent").innerHTML=`<div class="profile"><div class="eyebrow">ПРОФИЛЬ</div><h2>Ваш вкус<br><em>уже складывается.</em></h2><p>Мы запоминаем любимые места только на этом устройстве.</p><div class="profile-summary"><div><b>${savedDates.length}</b><span>сохранённых свиданий</span></div><div><b>${Object.keys(profile.favoriteItems).length}</b><span>любимых мест</span></div></div><div class="taste"><div class="eyebrow">ВАШИ ПРЕДПОЧТЕНИЯ</div><h3>${esc(v)}</h3><div class="chips"><span>${esc(ZONES[state.zone])}</span><span>${esc(adv)}</span>${favPlaces.map(x=>`<span>${esc(x.title)}</span>`).join('')}</div></div><div class="profile-links"><button id="profileFilters">Настроить предпочтения</button></div></div>`;$("#profileFilters")?.addEventListener('click',()=>{closeOverlay('#profileOverlay');openOverlay('#filtersOverlay')})}
 $("#navProfile")?.addEventListener('click',()=>{renderProfile();openOverlay('#profileOverlay')});$("#navDiscover")?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+function syncInviteControls(){
+  $$('[data-theme]').forEach(button=>{
+    const active=button.dataset.theme===inviteTheme;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
+  $$('[data-reveal]').forEach(button=>{
+    const active=button.dataset.reveal===inviteReveal;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
+}
+function animateInvitePoster(){
+  const poster=$("#poster");
+  if(!poster)return;
+  poster.classList.remove("theme-swap");
+  void poster.offsetWidth;
+  poster.classList.add("theme-swap");
+}
 function renderInvite(){
   const p=latestPlans[activePlanIndex],f=activeFilters;
   if(!p||!f)return;
@@ -74,7 +93,8 @@ function renderInvite(){
       </div>`
     : "";
   const poster=$("#poster");
-  poster.className=`poster ${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} ${inviteReveal==='full'?'plan-open':''}`;
+  poster.className=`poster theme-${inviteTheme} ${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} ${inviteReveal==='full'?'plan-open':''}`;
+  poster.dataset.theme=inviteTheme;
   poster.innerHTML=`${posterUrl?'<div class="poster-bg" aria-hidden="true"></div>':""}
     <div class="poster-top"><span>1001 DATES</span><span>№ ${stableNo(p)}</span></div>
     <div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(f.time)}</span></div></div>
@@ -85,8 +105,20 @@ function renderInvite(){
     const bg=$(".poster-bg",poster);
     if(bg)bg.style.backgroundImage=`url("${posterUrl.replace(/"/g,'%22')}")`;
   }
+  syncInviteControls();
 }
-$$('[data-theme]').forEach(b=>b.addEventListener('click',()=>{inviteTheme=b.dataset.theme;$$('[data-theme]').forEach(x=>x.classList.toggle('active',x===b));syncPressed();renderInvite()}));$$('[data-reveal]').forEach(b=>b.addEventListener('click',()=>{inviteReveal=b.dataset.reveal;$$('[data-reveal]').forEach(x=>x.classList.toggle('active',x===b));syncPressed();renderInvite()}));$("#inviteNote")?.addEventListener('input',renderInvite);
+$$('[data-theme]').forEach(button=>button.addEventListener('click',()=>{
+  if(inviteTheme===button.dataset.theme)return;
+  inviteTheme=button.dataset.theme;
+  renderInvite();
+  animateInvitePoster();
+}));
+$$('[data-reveal]').forEach(button=>button.addEventListener('click',()=>{
+  if(inviteReveal===button.dataset.reveal)return;
+  inviteReveal=button.dataset.reveal;
+  renderInvite();
+}));
+$("#inviteNote")?.addEventListener('input',renderInvite);
 function inviteText(){
   const p=latestPlans[activePlanIndex],f=activeFilters;
   if(!p)return'';
@@ -99,4 +131,4 @@ $("#copyInvite")?.addEventListener('click',async()=>{try{await navigator.clipboa
 async function ensureCanvas(){if(window.html2canvas)return window.html2canvas;await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=res;s.onerror=rej;document.head.append(s)});return window.html2canvas}
 async function posterBlob(){const h=await ensureCanvas(),canvas=await h($("#poster"),{backgroundColor:null,scale:Math.max(2,window.devicePixelRatio||2),useCORS:true,logging:false});return await new Promise((res,rej)=>canvas.toBlob(b=>b?res(b):rej(new Error('PNG failed')),'image/png'))}
 $("#shareInvite")?.addEventListener('click',async()=>{try{const blob=await posterBlob(),file=new File([blob],'1001-dates.png',{type:'image/png'});if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]})))return navigator.share({title:'1001 Dates',text:inviteText(),files:[file]});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='1001-dates.png';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}catch{try{await navigator.clipboard.writeText(inviteText())}catch{}}});
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=ref5",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=ref6",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();

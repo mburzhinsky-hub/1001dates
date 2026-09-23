@@ -211,3 +211,51 @@ body::-webkit-scrollbar,
   display:none!important;
   background:transparent!important;
 }
+
+
+/* Strongly distinct invitation themes */
+.poster.theme-warm{
+  background:
+    radial-gradient(circle at 74% 18%,rgba(242,132,83,.46),transparent 26%),
+    linear-gradient(155deg,#4f2018 0%,#7e3222 46%,#2b120e 100%);
+}
+.poster.theme-warm .poster-bg{
+  filter:sepia(.24) saturate(1.18) hue-rotate(-8deg) brightness(.56) contrast(1.04);
+}
+.poster.theme-warm .poster-bg:after{
+  background:
+    linear-gradient(180deg,rgba(84,27,14,.18),rgba(93,32,17,.42) 42%,rgba(31,12,8,.88)),
+    linear-gradient(115deg,rgba(210,78,42,.22),transparent 55%);
+}
+.poster.theme-warm .poster-date strong,
+.poster.theme-warm .poster-plan-no{color:#ef6a47}
+
+.poster.theme-night{
+  background:
+    radial-gradient(circle at 76% 16%,rgba(96,107,220,.24),transparent 24%),
+    linear-gradient(155deg,#080a14 0%,#10182a 50%,#05070d 100%);
+}
+.poster.theme-night .poster-bg{
+  filter:saturate(.72) hue-rotate(18deg) brightness(.46) contrast(1.12);
+}
+.poster.theme-night .poster-bg:after{
+  background:
+    linear-gradient(180deg,rgba(5,8,18,.14),rgba(5,10,24,.46) 42%,rgba(2,4,10,.9)),
+    radial-gradient(circle at 72% 18%,rgba(84,100,210,.28),transparent 32%);
+}
+.poster.theme-night .poster-date strong,
+.poster.theme-night .poster-plan-no{color:#8fa3ff}
+
+.poster.theme-minimal{
+  color:#181714;
+  background:
+    linear-gradient(180deg,#f3ece2,#e9ded0);
+}
+.poster.theme-minimal .poster-bg{display:none!important}
+.poster.theme-minimal .poster-date strong,
+.poster.theme-minimal .poster-plan-no{color:#b45136}
+.poster.theme-minimal:after{display:none}
+
+.micro button.active{
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
