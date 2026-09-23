@@ -1,4 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#b5442c"/>
-  <text x="256" y="294" text-anchor="middle" font-family="Georgia, serif" font-size="190" font-weight="700" fill="#fff8ee">1001</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="1001 Dates">
+  <defs>
+    <linearGradient id="terracotta" x1="70" y1="55" x2="440" y2="465" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c95f3a"/>
+      <stop offset="1" stop-color="#bd4d2d"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#terracotta)"/>
+  <text
+    x="256"
+    y="252"
+    text-anchor="middle"
+    fill="#fff7ef"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="146"
+    font-weight="400"
+    letter-spacing="-3">1001</text>
+  <text
+    x="256"
+    y="334"
+    text-anchor="middle"
+    fill="#fff7ef"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="52"
+    font-weight="400"
+    letter-spacing="13">DATES</text>
 </svg>
