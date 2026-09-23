@@ -62,3 +62,47 @@ button:active:not(:disabled),.chapter-actions a:active{transform:scale(.98)}
   .date-card:hover .date-photo img{transform:none!important}
   .chapter.is-current .chapter-no{transform:none!important}
 }
+
+
+/* Invitation and navigation micro-motion */
+#inviteOverlay.open .invite-screen{
+  animation:motionInviteIn 280ms cubic-bezier(.22,.61,.36,1) both;
+}
+.invite-controls,.poster,.invite-actions{
+  transition:opacity 220ms ease,transform 260ms cubic-bezier(.22,.61,.36,1);
+}
+.micro button{
+  transition:transform 100ms ease,background-color 180ms ease,color 180ms ease,border-color 180ms ease;
+}
+.micro button:active{transform:scale(.97)}
+.poster-bg{
+  transition:opacity 260ms ease,filter 260ms ease,transform 500ms cubic-bezier(.22,.61,.36,1);
+}
+.poster-plan{
+  animation:motionPlanReveal 260ms cubic-bezier(.22,.61,.36,1) both;
+  transform-origin:top center;
+}
+.poster-main,.poster-foot,.poster-date{
+  transition:margin 260ms cubic-bezier(.22,.61,.36,1),font-size 260ms cubic-bezier(.22,.61,.36,1),transform 260ms cubic-bezier(.22,.61,.36,1);
+}
+.mobile-nav{
+  transition:transform 220ms cubic-bezier(.22,.61,.36,1),opacity 180ms ease;
+}
+.screen-scroll{
+  scroll-behavior:smooth;
+}
+
+@keyframes motionInviteIn{
+  from{opacity:0;transform:translateY(10px) scale(.995)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes motionPlanReveal{
+  from{opacity:0;transform:translateY(-6px) scaleY(.96)}
+  to{opacity:1;transform:translateY(0) scaleY(1)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #inviteOverlay.open .invite-screen,.poster-plan{animation:none!important}
+  .invite-controls,.poster,.invite-actions,.micro button,.poster-bg,.poster-main,.poster-foot,.poster-date,.mobile-nav{transition:none!important}
+  .screen-scroll{scroll-behavior:auto}
+}
