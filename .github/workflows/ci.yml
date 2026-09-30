@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: node --check app-final.js
       - run: node scripts/validate-data.mjs --strict
       - run: node scripts/audit-scenarios.mjs
       - run: node scripts/smoke-test.mjs
