@@ -25,6 +25,14 @@ function slotSubtypes(value) {
 }
 function slotHasFood(value) { return FOOD_CATEGORIES.has(slotCategory(value)); }
 function itemIncludesFood(item) { return FOOD_CATEGORIES.has(item?.category) || Boolean(item?.includesFood); }
+function itemIsBar(item) {
+  if (!item) return false;
+  if (item.category === "bar") return true;
+  const title=String(item.title||"").toLowerCase().replace(/ё/g,"е");
+  const subtype=String(item.subtype||"").toLowerCase();
+  return ["cocktail","wine","jazz"].includes(subtype) ||
+    /(^|[^а-яa-z])(бар|паб|pub|bar)([^а-яa-z]|$)|гастробар|пивн(?:ая|ой)|cocktail\s*bar|wine\s*bar/i.test(title);
+}
 function textForSubtype(item) { return `${item?.title || ""} ${item?.description || ""}`.toLowerCase(); }
 function inferSubtype(item) {
   if (item?.subtype) return item.subtype;
@@ -263,6 +271,9 @@ function eventTimesForDate(event,date){
   if(Array.isArray(dated))return dated;
   return Array.isArray(event?.startTimes)?event.startTimes:[];
 }
+function eventRequiresFixedStart(event) {
+  return new Set(["concert","theater","standup","show","movie","lecture","excursion","party"]).has(inferSubtype(event));
+}
 function eventAvailable(event, date) {
   const exact=event.exactDates?.includes(date) || Boolean(event.occurrences?.[date]);
   const inRange=Boolean(event.activeFrom||event.activeUntil) && (!event.activeFrom||date>=event.activeFrom) && (!event.activeUntil||date<=event.activeUntil);
@@ -272,7 +283,9 @@ function eventAvailable(event, date) {
     const weekday = new Date(`${date}T12:00:00`).getDay();
     if (!event.allowedWeekdays.includes(weekday)) return false;
   }
-  return hasCalendar || eventTimesForDate(event,date).length>0;
+  const times=eventTimesForDate(event,date);
+  if (eventRequiresFixedStart(event) && !times.length) return false;
+  return hasCalendar || times.length>0;
 }
 
 function templateTone(template) {
@@ -326,8 +339,9 @@ function templateEligible(template, filters) {
 }
 
 function itemFitsPreferences(item, filters) {
+  if (item?.scheduleConfidence === "parse_failed") return false;
   if (filters.indoorOnly && item.indoor === false) return false;
-  if (filters.noBars && item.category === "bar") return false;
+  if (filters.noBars && itemIsBar(item)) return false;
   if (filters.food === false && itemIncludesFood(item)) return false;
   if (filters.zone !== "any" && item.zone !== filters.zone) return false;
   if (filters.dislikedItemIds?.includes(item.id)) return false;
@@ -396,7 +410,7 @@ function cartesianLimited(pools, filters, template, limit=180) {
 
 function schedulePlan(items, filters, template) {
   const startAt = timeToMinutes(filters.time);
-  let cursor = startAt, totalCost = 0, activityMinutes = 0, waitingMinutes = 0, transferMinutes = 0;
+  let cursor = startAt, totalCost = 0, budgetCost = 0, activityMinutes = 0, waitingMinutes = 0, transferMinutes = 0;
   const timeline = [];
 
   for (let index=0; index<items.length; index++) {
@@ -432,7 +446,9 @@ function schedulePlan(items, filters, template) {
     const start = cursor;
     cursor += plannedDuration;
     activityMinutes += plannedDuration;
-    totalCost += item.costForTwo || 0;
+    const itemCost=Number(item.costForTwo||0);
+    totalCost += itemCost;
+    budgetCost += item.costEstimated ? itemCost*1.20 : itemCost;
     timeline.push({ type:"stop", start, end:cursor, duration:plannedDuration, slot:template.slots[index], item, fixedStart });
   }
 
@@ -440,9 +456,9 @@ function schedulePlan(items, filters, template) {
   const totalMinutes = elapsedMinutes;
   if (totalMinutes > filters.duration + 5) return null;
   if (totalMinutes < targetFloor(filters.duration)) return null;
-  if (filters.budget < 900000 && totalCost > filters.budget) return null;
+  if (filters.budget < 900000 && budgetCost > filters.budget) return null;
 
-  return { timeline, totalMinutes, activityMinutes, waitingMinutes, transferMinutes, elapsedMinutes, finishTime:minutesToTime(cursor), totalCost };
+  return { timeline, totalMinutes, activityMinutes, waitingMinutes, transferMinutes, elapsedMinutes, finishTime:minutesToTime(cursor), totalCost, budgetCost };
 }
 
 function moodCoverage(template, items, filters) {
@@ -490,7 +506,7 @@ function planBaseScore(template, items, schedule, filters, variationSeed) {
 
   if (filters.budget >= 900000) score += 4;
   else {
-    const budgetRatio = schedule.totalCost / Math.max(filters.budget,1);
+    const budgetRatio = schedule.budgetCost / Math.max(filters.budget,1);
     score += 14 - Math.abs(.72 - budgetRatio) * 9;
   }
 
@@ -515,7 +531,7 @@ function archetypeScore(plan, archetype, filters) {
   const hasView = items.some((item) => item.category === "viewpoint");
   const hasImage = items.some((item) => item.image);
   const estimatedCount = items.filter((item) => item.costEstimated).length;
-  const budgetUse = filters.budget >= 900000 ? .7 : plan.totalCost / Math.max(filters.budget,1);
+  const budgetUse = filters.budget >= 900000 ? .7 : plan.budgetCost / Math.max(filters.budget,1);
 
   if (archetype === "reliable") {
     return plan.baseScore + avgQuality * 4 - estimatedCount * 2 + (plan.template.tone === "reliable" ? 10 : 0) + (hasEvent ? -1 : 4);
@@ -658,7 +674,17 @@ function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null})
 
 export function generateDates({ places, events, filters, count=3, variationSeed=0, anchorItem=null }) {
   const candidates = makeCandidates({places,events,filters,variationSeed,anchorItem});
-  const chosen = chooseArchetypes(candidates,count);
+  let chosen = chooseArchetypes(candidates,count);
+  if (filters.useEvents && count >= 2 && !chosen.some((plan)=>plan.items.some((item)=>item.category==="event"))) {
+    const eventCandidate=candidates.find((plan)=>
+      plan.items.some((item)=>item.category==="event") &&
+      chosen.slice(0,-1).every((other)=>plan.template.id!==other.template.id && plan.template.structureKey!==other.template.structureKey && planSimilarity(plan,other)<.72)
+    );
+    if(eventCandidate){
+      eventCandidate.archetype=chosen.at(-1)?.archetype||ARCHETYPES[Math.min(chosen.length-1,ARCHETYPES.length-1)]||ARCHETYPES[1];
+      chosen=[...chosen.slice(0,-1),eventCandidate];
+    }
+  }
   const usedTitles = new Set();
   return chosen.map((plan,index) => {
     let enriched = enrichPlan(plan,filters,index,variationSeed);
@@ -735,12 +761,13 @@ export function auditPlanConstraints(plan,filters=plan?.filters||{}) {
   const items=plan?.items||[],food=items.some(itemIncludesFood);
   return {
     duration:Boolean(plan)&&plan.totalMinutes<=Number(filters.duration)+5&&plan.totalMinutes>=targetFloor(Number(filters.duration)),
-    budget:filters.budget>=900000||Number(plan?.totalCost||0)<=Number(filters.budget),
+    budget:filters.budget>=900000||Number(plan?.budgetCost??plan?.totalCost??0)<=Number(filters.budget),
     vibes:moodCoverage(plan?.template||{vibes:[]},items,filters),
     food:filters.food===true?food:filters.food===false?!food:true,
     events:filters.useEvents===false?!items.some((x)=>x.category==="event"):true,
     indoor:filters.indoorOnly?!items.some((x)=>x.indoor===false):true,
-    bars:filters.noBars?!items.some((x)=>x.category==="bar"):true,
+    bars:filters.noBars?!items.some(itemIsBar):true,
+    eventTimes:items.filter((x)=>x.category==="event"&&eventRequiresFixedStart(x)).every((x)=>eventTimesForDate(x,filters.date).length>0),
     zone:filters.zone&&filters.zone!=="any"?items.every((x)=>x.zone===filters.zone):true,
     geography:geographicMetrics(items,filters,plan?.template||null).ok
   };
