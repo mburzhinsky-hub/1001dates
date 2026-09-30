@@ -27,7 +27,7 @@ assert(appJs.includes("./data/kudago.generated.js"),"app-final.js does not impor
 assert(appJs.includes("kudagoMeta"),"app-final.js does not bind UI dates to monthly snapshot metadata");
 assert(appJs.includes("clampDataDate"),"app-final.js does not clamp selectable dates to snapshot coverage");
 assert(indexHtml.includes("season-stats"),"October seasonal visual block is missing");
-assert(!appJs.includes('$("[data-date-preset]").forEach'),"UI runtime regression: querySelector result is used as a NodeList");
+assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(appJs),"UI runtime regression: querySelector result is used as a NodeList");
 assert(appJs.includes("OCTOBER_HERO_IMAGE"),"October hero is not pinned to a seasonal production image");
 assert(indexHtml.includes("https://media.kudago.com/images/place/a6/54/a6549e6c298c995a05a5ccab6af0f8a8.jpg"),"October hero image is not wired in index.html");
 assert(appJs.includes("./engine-v14.js?v=duration4"),"app-final.js does not import the production engine wrapper");
