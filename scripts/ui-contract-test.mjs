@@ -33,6 +33,11 @@ assert(app.includes("function postcardSvg(")&&app.includes("async function invit
 assert(app.includes("canvas.width=1080")&&app.includes("canvas.height=1350"),"Invitation PNG export is not fixed at 1080x1350");
 assert(!app.includes("html2canvas"),"Invitation export still depends on html2canvas");
 assert(app.includes("showSharedInviteFromHash()"),"Shared invitation deep-link renderer is missing");
+assert(app.includes("buildPreparationTasks"),"Preparation task builder is not wired");
+assert(app.includes("PREPARATION_KEY"),"Preparation storage key is not wired");
+assert(app.includes("function renderPreparation()"),"Preparation renderer is missing");
+assert(app.includes("function openPreparation()"),"Preparation CTA is not wired");
+assert(app.includes("downloadCalendarInvite"),"Preparation calendar action is missing");
 assert(seasonCss.includes(".october-stats")&&seasonCss.includes(".phone-frame")&&seasonCss.includes(".quick-filters"),"Reference visual layer is incomplete");
 assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(app),"querySelector/forEach runtime regression returned");
 
