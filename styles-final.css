@@ -260,3 +260,105 @@ body::-webkit-scrollbar,
 .micro button.active{
   box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
+
+
+/* Invitation layout hardening and deterministic PNG export */
+.poster{
+  box-sizing:border-box;
+}
+.poster-top,.poster-date,.poster-foot{flex:0 0 auto}
+.poster-main{min-width:0;min-height:0}
+.poster-main h3{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  text-wrap:balance;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.poster-main p{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.poster.title-long .poster-main h3{font-size:48px;line-height:.9}
+.poster.title-xlong .poster-main h3{font-size:40px;line-height:.94}
+.poster.note-long .poster-main p{font-size:12px;line-height:1.38}
+.poster.plan-open .poster-plan{
+  flex:0 1 auto;
+  min-height:0;
+  margin-top:14px;
+}
+.poster.plan-open .poster-main{
+  flex:0 1 auto;
+  min-height:0;
+}
+.poster.plan-open .poster-main h3{
+  -webkit-line-clamp:2;
+}
+.poster.plan-open.title-long .poster-main h3{font-size:34px;line-height:.94}
+.poster.plan-open.title-xlong .poster-main h3{font-size:30px;line-height:.96}
+.poster.plan-open .poster-main p{-webkit-line-clamp:2}
+.poster.plan-dense .poster-plan-row{padding:4px 0}
+.poster.plan-dense .poster-plan-row b{font-size:10px}
+.poster-plan-row>div{min-width:0}
+.poster-plan-row b{
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.invite-actions .invite-download{
+  grid-column:1/-1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-inline:16px;
+}
+.invite-actions button[disabled]{opacity:.62;cursor:wait}
+.poster-export-host{
+  position:fixed;
+  left:-10000px;
+  top:0;
+  width:540px;
+  height:675px;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:1;
+  z-index:-1;
+}
+.poster-export-host .poster{
+  width:540px!important;
+  height:675px!important;
+  max-width:none!important;
+  aspect-ratio:auto!important;
+  margin:0!important;
+  border-radius:28px!important;
+  padding:28px!important;
+}
+.poster-export-host .poster-date strong{font-size:98px}
+.poster-export-host .poster-main h3{font-size:60px}
+.poster-export-host .poster.title-long .poster-main h3{font-size:50px}
+.poster-export-host .poster.title-xlong .poster-main h3{font-size:42px}
+.poster-export-host .poster.plan-open{padding:24px!important}
+.poster-export-host .poster.plan-open .poster-date strong{font-size:76px}
+.poster-export-host .poster.plan-open .poster-main h3{font-size:42px}
+.poster-export-host .poster.plan-open.title-long .poster-main h3{font-size:36px}
+.poster-export-host .poster.plan-open.title-xlong .poster-main h3{font-size:32px}
+.poster-export-host .poster.plan-open .poster-main p{font-size:12px}
+
+@media(max-width:599px){
+  .poster-main h3{font-size:46px;line-height:.9}
+  .poster.title-long .poster-main h3{font-size:40px}
+  .poster.title-xlong .poster-main h3{font-size:34px}
+  .poster.plan-open .poster-main h3{font-size:34px}
+  .poster.plan-open.title-long .poster-main h3{font-size:30px}
+  .poster.plan-open.title-xlong .poster-main h3{font-size:27px}
+  .poster-main p{font-size:13px}
+  .poster.note-long .poster-main p{font-size:11px}
+}

@@ -151,7 +151,12 @@ function renderInvite(){
       </div>`
     : "";
   const poster=$("#poster");
-  poster.className=`poster theme-${inviteTheme} ${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} ${inviteReveal==='full'?'plan-open':''}`;
+  const titleLength=[...String(p.title||'')].length;
+  const noteLength=[...note].length;
+  const densePlan=rows.slice(0,4).some(row=>[...String(row.title||'')].length>34);
+  const titleFit=titleLength>58?'title-xlong':titleLength>38?'title-long':'';
+  const noteFit=noteLength>64?'note-long':'';
+  poster.className=`poster theme-${inviteTheme} ${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} ${inviteReveal==='full'?'plan-open':''} ${titleFit} ${noteFit} ${densePlan?'plan-dense':''}`.replace(/\s+/g,' ').trim();
   poster.dataset.theme=inviteTheme;
   poster.innerHTML=`${posterUrl?'<div class="poster-bg" aria-hidden="true"></div>':""}
     <div class="poster-top"><span>1001 DATES</span><span>№ ${stableNo(p)}</span></div>
@@ -216,8 +221,65 @@ $("#copyInvite")?.addEventListener('click',async()=>{
   }
 });
 $("#calendarInvite")?.addEventListener('click',()=>{const p=latestPlans[activePlanIndex],f=activeFilters,start=new Date(`${f.date}T${f.time}:00`),end=new Date(start.getTime()+p.totalMinutes*60000),stamp=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z'),ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${stamp(start)}\r\nDTEND:${stamp(end)}\r\nSUMMARY:${p.title}\r\nEND:VEVENT\r\nEND:VCALENDAR`,blob=new Blob([ics],{type:'text/calendar'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='1001-dates.ics';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
-async function ensureCanvas(){if(window.html2canvas)return window.html2canvas;await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=res;s.onerror=rej;document.head.append(s)});return window.html2canvas}
-async function posterBlob(){const h=await ensureCanvas(),canvas=await h($("#poster"),{backgroundColor:null,scale:Math.max(2,window.devicePixelRatio||2),useCORS:true,logging:false});return await new Promise((res,rej)=>canvas.toBlob(b=>b?res(b):rej(new Error('PNG failed')),'image/png'))}
+async function ensureCanvas(){
+  if(window.html2canvas)return window.html2canvas;
+  await new Promise((res,rej)=>{
+    const s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+    s.onload=res;
+    s.onerror=rej;
+    document.head.append(s);
+  });
+  return window.html2canvas;
+}
+async function posterBlob(){
+  const source=$("#poster");
+  if(!source)throw new Error('Poster unavailable');
+  if(document.fonts?.ready)await document.fonts.ready;
+  const host=document.createElement('div');
+  host.className='poster-export-host';
+  const clone=source.cloneNode(true);
+  clone.removeAttribute('id');
+  host.append(clone);
+  document.body.append(host);
+  try{
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const h=await ensureCanvas();
+    const canvas=await h(clone,{
+      backgroundColor:null,
+      width:540,
+      height:675,
+      scale:2,
+      useCORS:true,
+      allowTaint:false,
+      imageTimeout:5000,
+      logging:false,
+      scrollX:0,
+      scrollY:0,
+      windowWidth:540,
+      windowHeight:675
+    });
+    return await new Promise((res,rej)=>canvas.toBlob(b=>b?res(b):rej(new Error('PNG failed')),'image/png'));
+  }finally{
+    host.remove();
+  }
+}
+function downloadBlob(blob,filename){
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=filename;
+  a.rel='noopener';
+  document.body.append(a);
+  a.click();
+  a.remove();
+  window.setTimeout(()=>URL.revokeObjectURL(url),10000);
+}
+function invitationFilename(){
+  const p=latestPlans[activePlanIndex];
+  const no=p?stableNo(p):'date';
+  return `1001-dates-${no}.png`;
+}
 let inviteShareFile=null,inviteShareTimer=0;
 function scheduleInviteShareFile(){
   inviteShareFile=null;
@@ -248,5 +310,20 @@ async function shareInvitation(){
   }
   setInviteShareStatus('Не удалось отправить',1600);
 }
+$("#downloadInvite")?.addEventListener('click',async()=>{
+  const button=$("#downloadInvite"),label=button?.querySelector('span:first-child');
+  if(button)button.disabled=true;
+  if(label)label.textContent='Готовим PNG…';
+  try{
+    const blob=await posterBlob();
+    downloadBlob(blob,invitationFilename());
+    if(label)label.textContent='PNG скачан ✓';
+  }catch{
+    if(label)label.textContent='Не удалось скачать';
+  }finally{
+    if(button)button.disabled=false;
+    window.setTimeout(()=>{if(label)label.textContent='Скачать PNG'},1500);
+  }
+});
 $("#shareInvite")?.addEventListener('click',shareInvitation);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly9",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly10",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();
