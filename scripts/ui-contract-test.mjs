@@ -15,7 +15,7 @@ assert(!duplicates.length,`Duplicate ids in index.html: ${duplicates.join(", ")}
 const required=[
   "quickGenerate","surprise","quickDate","quickTime","quickBudget","quickDuration","quickVibe",
   "seasonPlaces","seasonEvents","seasonDays","deviceGenerate","devicePreviewDate","devicePreviewVibe",
-  "devicePreviewDuration","devicePreviewBudget","filtersOverlay","resultsGrid","moreDates","downloadInvite","sharedInviteOverlay","sharedInvitePoster","sharedInviteSave","inviteSaveOverlay","inviteSaveImage"
+  "devicePreviewDuration","devicePreviewBudget","filtersOverlay","resultsGrid","moreDates","downloadInvite","sharedInviteOverlay","sharedInvitePoster","sharedInviteSave","inviteSaveOverlay","inviteSaveImage","prepareDate","prepareDateStatus","preparationOverlay","preparationProgressBar","preparationList"
 ];
 for(const id of required)assert(ids.includes(id),`Missing UI contract id #${id}`);
 
