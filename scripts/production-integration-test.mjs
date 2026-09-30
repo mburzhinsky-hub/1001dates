@@ -31,7 +31,7 @@ assert(indexHtml.includes("hero-device-wrap"),"October reference device composit
 assert(indexHtml.includes("./october-reference.css?v=ref1"),"October reference stylesheet is missing");
 assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(appJs),"UI runtime regression: querySelector result is used as a NodeList");
 assert(appJs.includes("OCTOBER_HERO_IMAGE"),"October hero is not pinned to a seasonal production image");
-assert(indexHtml.includes("https://media.kudago.com/images/place/a6/54/a6549e6c298c995a05a5ccab6af0f8a8.jpg"),"October hero image is not wired in index.html");
+assert(indexHtml.includes("https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg"),"October reference hero image is not wired in index.html");
 assert(appJs.includes("./engine-v14.js?v=duration4"),"app-final.js does not import the production engine wrapper");
 assert(engineV14.includes("./engine.js?base=duration4"),"engine-v14.js is not wired to the duration-aware base engine");
 assert(serviceWorker.includes('SNAPSHOT_PATH="/data/kudago.generated.js"'),"service worker does not special-case the monthly snapshot");
