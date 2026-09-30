@@ -164,6 +164,7 @@ function renderInvite(){
     if(bg)bg.style.backgroundImage=`url("${posterUrl.replace(/"/g,'%22')}")`;
   }
   syncInviteControls();
+  scheduleInviteShareFile();
 }
 $$('[data-theme]').forEach(button=>button.addEventListener('click',()=>{
   if(inviteTheme===button.dataset.theme)return;
@@ -185,8 +186,67 @@ function inviteText(){
     : "";
   return `Освободи вечер — у меня есть план ♡\n\n${p.title}\n${humanDate(f.date)}, ${f.time}\n${formatDuration(p.totalMinutes)}${fullPlan}\n\n1001 Dates`
 }
-$("#copyInvite")?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(inviteText());$("#copyInvite").textContent='Скопировано ✓';setTimeout(()=>$("#copyInvite").textContent='Скопировать',1200)}catch{}});$("#calendarInvite")?.addEventListener('click',()=>{const p=latestPlans[activePlanIndex],f=activeFilters,start=new Date(`${f.date}T${f.time}:00`),end=new Date(start.getTime()+p.totalMinutes*60000),stamp=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z'),ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${stamp(start)}\r\nDTEND:${stamp(end)}\r\nSUMMARY:${p.title}\r\nEND:VEVENT\r\nEND:VCALENDAR`,blob=new Blob([ics],{type:'text/calendar'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='1001-dates.ics';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
+async function copyInviteText(text){
+  try{
+    if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);return true}
+  }catch{}
+  const textarea=document.createElement('textarea');
+  textarea.value=text;
+  textarea.setAttribute('readonly','');
+  textarea.style.position='fixed';
+  textarea.style.opacity='0';
+  document.body.append(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0,textarea.value.length);
+  let copied=false;
+  try{copied=document.execCommand('copy')}catch{}
+  textarea.remove();
+  return copied;
+}
+function setInviteShareStatus(label,delay=0){
+  const button=$("#shareInvite"),textNode=button?.querySelector('span:first-child');
+  if(!textNode)return;
+  textNode.textContent=label;
+  if(delay)window.setTimeout(()=>{textNode.textContent='Отправить приглашение'},delay);
+}
+$("#copyInvite")?.addEventListener('click',async()=>{
+  if(await copyInviteText(inviteText())){
+    $("#copyInvite").textContent='Скопировано ✓';
+    setTimeout(()=>$("#copyInvite").textContent='Скопировать',1200);
+  }
+});
+$("#calendarInvite")?.addEventListener('click',()=>{const p=latestPlans[activePlanIndex],f=activeFilters,start=new Date(`${f.date}T${f.time}:00`),end=new Date(start.getTime()+p.totalMinutes*60000),stamp=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z'),ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${stamp(start)}\r\nDTEND:${stamp(end)}\r\nSUMMARY:${p.title}\r\nEND:VEVENT\r\nEND:VCALENDAR`,blob=new Blob([ics],{type:'text/calendar'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='1001-dates.ics';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
 async function ensureCanvas(){if(window.html2canvas)return window.html2canvas;await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=res;s.onerror=rej;document.head.append(s)});return window.html2canvas}
 async function posterBlob(){const h=await ensureCanvas(),canvas=await h($("#poster"),{backgroundColor:null,scale:Math.max(2,window.devicePixelRatio||2),useCORS:true,logging:false});return await new Promise((res,rej)=>canvas.toBlob(b=>b?res(b):rej(new Error('PNG failed')),'image/png'))}
-$("#shareInvite")?.addEventListener('click',async()=>{try{const blob=await posterBlob(),file=new File([blob],'1001-dates.png',{type:'image/png'});if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]})))return navigator.share({title:'1001 Dates',text:inviteText(),files:[file]});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='1001-dates.png';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}catch{try{await navigator.clipboard.writeText(inviteText())}catch{}}});
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly8",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();
+let inviteShareFile=null,inviteShareTimer=0;
+function scheduleInviteShareFile(){
+  inviteShareFile=null;
+  clearTimeout(inviteShareTimer);
+  inviteShareTimer=window.setTimeout(async()=>{
+    try{
+      const blob=await posterBlob();
+      inviteShareFile=new File([blob],'1001-dates.png',{type:'image/png'});
+    }catch{inviteShareFile=null}
+  },350);
+}
+async function shareInvitation(){
+  const text=inviteText();
+  if(!text)return;
+  const data={title:'1001 Dates',text};
+  if(inviteShareFile&&navigator.canShare?.({files:[inviteShareFile]}))data.files=[inviteShareFile];
+  if(navigator.share){
+    try{
+      await navigator.share(data);
+      return;
+    }catch(error){
+      if(error?.name==='AbortError')return;
+    }
+  }
+  if(await copyInviteText(text)){
+    setInviteShareStatus('Скопировано ✓',1400);
+    return;
+  }
+  setInviteShareStatus('Не удалось отправить',1600);
+}
+$("#shareInvite")?.addEventListener('click',shareInvitation);
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly9",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();
