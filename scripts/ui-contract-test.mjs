@@ -20,7 +20,7 @@ const required=[
 for(const id of required)assert(ids.includes(id),`Missing UI contract id #${id}`);
 
 assert(html.includes("./october-reference.css?v=ref2"),"Seasonal reference stylesheet is not wired");
-assert(html.includes("./app-final.js?v=oct4"),"Production app asset version is stale");
+assert(html.includes("./app-final.js?v=oct5"),"Production app asset version is stale");
 assert(html.includes("october-phone"),"Reference phone composition is missing");
 assert(html.includes("october-stats"),"Premium seasonal stats block is missing");
 assert(app.includes('$("#deviceGenerate")?.addEventListener'),"Reference hero CTA is not wired");

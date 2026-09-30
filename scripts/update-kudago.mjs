@@ -32,15 +32,28 @@ function nearestZone(coords) {
 }
 function textOf(value) { return Array.isArray(value) ? value.join(" ") : String(value || ""); }
 function classifyPlace(categories=[], title="", description="") {
-  const text=`${textOf(categories)} ${title} ${description}`.toLowerCase();
-  if (/restaurant|restaurants|ресторан|гастробар|гастроном/.test(text)) return "dinner";
-  if (/coffee|coffee-shop|кофейн|\bcafe\b|(?:^|[^а-я])кафе(?:[^а-я]|$)|(?:^|[^а-я])чай(?:[^а-я]|$)|чайная/.test(text)) return "cafe";
-  if (/dessert|ice-cream|кондитер|морожен|десерт/.test(text)) return "dessert";
-  if (/bar|pub|бар|паб/.test(text)) return "bar";
-  if (/viewpoint|observation|смотров|панорам/.test(text)) return "viewpoint";
-  if (/museum|gallery|art-space|exhibition|музе|галере|искусств|арт-простран/.test(text)) return "art";
-  if (/quest|entertainment|amusement|bowling|karting|climbing|батут|квест|развлеч|боулинг|каток|скалодром|мастер-класс|гончар|керами|рисован|кулинар|танц|бильярд|караоке|виртуальн|vr|мини.?гольф|книж|винил|маркет|рынок/.test(text)) return "activity";
-  if (/park|garden|estate|landmark|attraction|парк|сад|усадьб|набереж|прогул/.test(text)) return "walk";
+  const titleText=String(title||"").toLowerCase().replace(/ё/g,"е");
+  const categoryText=textOf(categories).toLowerCase().replace(/ё/g,"е");
+  const primary=`${titleText} ${categoryText}`;
+  const fallback=`${primary} ${String(description||"").toLowerCase().replace(/ё/g,"е")}`;
+  const strongBar=/(^|[^а-яa-z])(бар|паб|pub|bar)([^а-яa-z]|$)|гастробар|пивная|cocktail\s*bar|wine\s*bar/i;
+  if (strongBar.test(titleText)) return "bar";
+  if (/(^|\s)(парк|сад)(\s|$)/i.test(titleText)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар)/i.test(titleText)) return "walk";
+  if (/restaurant|restaurants|ресторан|гастроном/.test(primary)) return "dinner";
+  if (/coffee|coffee-shop|кофейн|\bcafe\b|(?:^|[^а-я])кафе(?:[^а-я]|$)|(?:^|[^а-я])чай(?:[^а-я]|$)|чайная/.test(primary)) return "cafe";
+  if (/dessert|ice-cream|кондитер|морожен|десерт/.test(primary)) return "dessert";
+  if (strongBar.test(categoryText)) return "bar";
+  if (/viewpoint|observation|смотров|панорам/.test(primary)) return "viewpoint";
+  if (/museum|gallery|art-space|exhibition|музе|галере|искусств|арт-простран/.test(primary)) return "art";
+  if (/quest|entertainment|amusement|bowling|karting|climbing|батут|квест|развлеч|боулинг|каток|скалодром|мастер-класс|гончар|керами|рисован|кулинар|танц|бильярд|караоке|виртуальн|vr|мини.?гольф|книж|винил|маркет|рынок/.test(primary)) return "activity";
+  if (/park|garden|estate|landmark|attraction|парк|сад|усадьб|набереж|прогул/.test(primary)) return "walk";
+  if (/restaurant|restaurants|ресторан|гастроном/.test(fallback)) return "dinner";
+  if (/coffee|coffee-shop|кофейн|\bcafe\b|(?:^|[^а-я])кафе(?:[^а-я]|$)|чайная/.test(fallback)) return "cafe";
+  if (/dessert|ice-cream|кондитер|морожен|десерт/.test(fallback)) return "dessert";
+  if (/viewpoint|observation|смотров|панорам/.test(fallback)) return "viewpoint";
+  if (/museum|gallery|art-space|exhibition|музе|галере|искусств|арт-простран/.test(fallback)) return "art";
+  if (/quest|entertainment|amusement|bowling|karting|climbing|батут|квест|развлеч|боулинг|каток|скалодром|мастер-класс|гончар|керами|рисован|кулинар|танц|бильярд|караоке|виртуальн|vr|мини.?гольф|книж|винил|маркет|рынок/.test(fallback)) return "activity";
+  if (/park|garden|estate|landmark|attraction|парк|сад|усадьб|набереж|прогул/.test(fallback)) return "walk";
   return null;
 }
 
@@ -125,11 +138,11 @@ function daysFromExpr(expr=""){
   return[...out];
 }
 function parseTimetable(value=""){
-  const text=String(value||"").toLowerCase().replace(/ё/g,"е").replace(/—/g,"–");
-  if(!text.trim())return null;
-  if(/круглосуточ/.test(text))return Object.fromEntries([0,1,2,3,4,5,6].map((d)=>[d,[["00:00","23:59"]]]));
+  const text=String(value||"").toLowerCase().replace(/ё/g,"е").replace(/[−–—]/g,"-").replace(/\s*;\s*/g," ").replace(/\s+/g," ").trim();
+  if(!text)return null;
+  if(/круглосуточ|24\s*час|весь день/.test(text))return Object.fromEntries([0,1,2,3,4,5,6].map((d)=>[d,[["00:00","23:59"]]]));
   const result={};
-  const re=/(ежедневно|(?:(?:пн|вт|ср|чт|пт|сб|вс)(?:\s*[–-]\s*(?:пн|вт|ср|чт|пт|сб|вс))?(?:\s*,\s*(?:пн|вт|ср|чт|пт|сб|вс))*))\s+(\d{1,2}:\d{2})\s*[–-]\s*(\d{1,2}:\d{2})/g;
+  const re=/(ежедневно|(?:(?:пн|вт|ср|чт|пт|сб|вс)(?:\s*-\s*(?:пн|вт|ср|чт|пт|сб|вс))?(?:\s*,\s*(?:пн|вт|ср|чт|пт|сб|вс))*))\s+(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})/g;
   let match;
   while((match=re.exec(text))){
     const days=daysFromExpr(match[1]);if(!days.length)continue;
@@ -161,7 +174,7 @@ function normalizePlace(p) {
   const rawText=`${textOf(p.categories||[])} ${textOf(p.tags||[])} ${p.title||""} ${p.description||""}`;
   const category=classifyPlace(p.categories||[],p.title,p.description); if(!category||!knownCategories.has(category)||p.is_closed||!validCoords(p.coords))return null;
   const subtype=classifySubtype(category,rawText);
-  return {id:`kudago-place-${p.id}`,title:p.title,category,subtype,zone:nearestZone(p.coords),address:p.address||(p.subway?`метро ${p.subway}`:"Москва"),costForTwo:roughPlaceCost(category,subtype),costEstimated:true,duration:roughDuration(category,subtype),indoor:indoorFor(category,subtype,rawText),includesFood:["dinner","cafe","dessert"].includes(category),vibes:vibesFor(category,rawText),quality:Math.min(9.7,7+Math.log10(1+(p.favorites_count||0))*.58),description:trimText(p.description),timetable:p.timetable||null,weeklyHours:parseTimetable(p.timetable),image:p.images?.[0]?.image||null,coords:p.coords||null,source:"KudaGo API",sourceUrl:concreteKudaGo(p.site_url),officialUrl:isHTTP(p.foreign_url)?p.foreign_url:null};
+  const weeklyHours=parseTimetable(p.timetable),rawTimetable=String(p.timetable||"").trim(); return {id:`kudago-place-${p.id}`,title:p.title,category,subtype,zone:nearestZone(p.coords),address:p.address||(p.subway?`метро ${p.subway}`:"Москва"),costForTwo:roughPlaceCost(category,subtype),costEstimated:true,duration:roughDuration(category,subtype),indoor:indoorFor(category,subtype,rawText),includesFood:["dinner","cafe","dessert"].includes(category),vibes:vibesFor(category,rawText),quality:Math.min(9.7,7+Math.log10(1+(p.favorites_count||0))*.58),description:trimText(p.description),timetable:p.timetable||null,weeklyHours,scheduleConfidence:weeklyHours?"known":rawTimetable?"parse_failed":"unknown",image:p.images?.[0]?.image||null,coords:p.coords||null,source:"KudaGo API",sourceUrl:concreteKudaGo(p.site_url),officialUrl:isHTTP(p.foreign_url)?p.foreign_url:null};
 }
 function balancePlaces(items) {
   const categoryGroups=new Map(); for(const item of items){if(!categoryGroups.has(item.category))categoryGroups.set(item.category,[]);categoryGroups.get(item.category).push(item);}
@@ -248,7 +261,7 @@ function normalizeDates(dates=[]) {
 function normalizeEvent(e) {
   const place=e.place||{},pricing=parsePrice(e.price||"",e.is_free),type=eventCategory(e.categories||[],e.title||""),categoryText=textOf(e.categories).toLowerCase();
   if(!validCoords(place.coords)) return null;
-  return {id:`kudago-event-${e.id}`,title:e.short_title||e.title,category:"event",subtype:type,eventType:type,zone:nearestZone(place.coords),address:place.address||place.title||"Москва",costForTwo:pricing.value,costEstimated:pricing.estimated,duration:type==="exhibition"?80:type==="theater"?130:type==="concert"?110:type==="standup"?100:type==="lecture"?90:type==="excursion"?100:type==="movie"?120:type==="party"?120:105,indoor:!(/festival|excursion|open-air/.test(categoryText)),vibes:vibesFor("event",`${e.title||""} ${e.description||""}`),quality:Math.min(9.8,7.2+Math.log10(1+(e.favorites_count||0))*.58),description:trimText(e.description),...normalizeDates(e.dates||[]),image:e.images?.[0]?.image||null,coords:place.coords||null,source:"KudaGo API",sourceUrl:concreteKudaGo(e.site_url),officialUrl:null};
+  const fixedTimeRequired=["concert","theater","standup","show","movie","lecture","excursion","party"].includes(type); return {id:`kudago-event-${e.id}`,title:e.short_title||e.title,category:"event",subtype:type,eventType:type,fixedTimeRequired,zone:nearestZone(place.coords),address:place.address||place.title||"Москва",costForTwo:pricing.value,costEstimated:pricing.estimated,duration:type==="exhibition"?80:type==="theater"?130:type==="concert"?110:type==="standup"?100:type==="lecture"?90:type==="excursion"?100:type==="movie"?120:type==="party"?120:105,indoor:!(/festival|excursion|open-air/.test(categoryText)),vibes:vibesFor("event",`${e.title||""} ${e.description||""}`),quality:Math.min(9.8,7.2+Math.log10(1+(e.favorites_count||0))*.58),description:trimText(e.description),...normalizeDates(e.dates||[]),image:e.images?.[0]?.image||null,coords:place.coords||null,source:"KudaGo API",sourceUrl:concreteKudaGo(e.site_url),officialUrl:null};
 }
 function uniqueById(items){const map=new Map();for(const item of items)if(item?.id&&!map.has(item.id))map.set(item.id,item);return[...map.values()];}
 
@@ -261,7 +274,7 @@ const events=uniqueById(rawEvents.map(normalizeEvent).filter((e)=>e?.title&&(e.e
 const categoryCounts=Object.fromEntries([...knownCategories].map((category)=>[category,places.filter((item)=>item.category===category).length]));
 const subtypeCounts=Object.fromEntries([...new Set(places.map((x)=>x.subtype))].sort().map((subtype)=>[subtype,places.filter((x)=>x.subtype===subtype).length]));
 const updatedAt=new Date().toISOString();
-const meta={updatedAt,city:CITY,source:"KudaGo public API",targetMonth:IMPORT_WINDOW.targetMonth,windowStart:WINDOW_START,windowEnd:WINDOW_END,rawPlaces:rawPlaces.length,rawEvents:rawEvents.length,places:places.length,events:events.length,categoryCounts,subtypeCounts,concretePlaceLinks:places.filter((x)=>x.sourceUrl||x.officialUrl).length,concreteEventLinks:events.filter((x)=>x.sourceUrl).length};
+const meta={updatedAt,city:CITY,source:"KudaGo public API",targetMonth:IMPORT_WINDOW.targetMonth,windowStart:WINDOW_START,windowEnd:WINDOW_END,rawPlaces:rawPlaces.length,rawEvents:rawEvents.length,places:places.length,events:events.length,categoryCounts,subtypeCounts,concretePlaceLinks:places.filter((x)=>x.sourceUrl||x.officialUrl).length,concreteEventLinks:events.filter((x)=>x.sourceUrl).length,rawTimetables:places.filter((x)=>String(x.timetable||"").trim()).length,parsedTimetables:places.filter((x)=>x.weeklyHours).length,unparsedTimetables:places.filter((x)=>x.scheduleConfidence==="parse_failed").length};
 const js=`// Generated automatically from the KudaGo public API. Do not edit manually.\nexport const kudagoPlaces = ${JSON.stringify(places,null,2)};\n\nexport const kudagoEvents = ${JSON.stringify(events,null,2)};\n\nexport const kudagoMeta = ${JSON.stringify(meta,null,2)};\n`;
 await writeFile(OUT,js,"utf8");
 console.log(`Saved ${places.length} balanced places and ${events.length} current events to ${OUT}`);
