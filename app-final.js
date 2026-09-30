@@ -2,6 +2,7 @@ import {seedPlaces,seedEvents} from "./data/seed.js";
 import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
 import {generateDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5";
 import {selectScenarioCover} from "./scenario-visuals.js?v=1";
+import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress} from "./preparation.js?v=1";
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const FILTERS_KEY="1001dates.filters.v11", PROFILE_KEY="1001dates.profile.v11", SAVED_KEY="1001dates.saved.v1";
@@ -11,7 +12,7 @@ const ZONES={any:"Вся Москва",center:"Центр",city:"Москва-С
 const OCTOBER_HERO_IMAGE="https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg";
 const FOCUSABLE='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 let state={...DEFAULTS,...loadJSON(FILTERS_KEY,{})}; if(!Array.isArray(state.vibes)||!state.vibes.length)state.vibes=["romantic"];
-let profile=normalizeProfile(loadJSON(PROFILE_KEY,{})),savedDates=loadJSON(SAVED_KEY,[]),latestPlans=[],activePlanIndex=null,activeFilters=null,variationSeed=0,currentAnchor=null,inviteTheme="warm",inviteReveal="secret",focusStack=[],libraryTab="dates"; if(!Array.isArray(savedDates))savedDates=[];
+let profile=normalizeProfile(loadJSON(PROFILE_KEY,{})),savedDates=loadJSON(SAVED_KEY,[]),preparationStore=loadJSON(PREPARATION_KEY,{}),latestPlans=[],activePlanIndex=null,activeFilters=null,variationSeed=0,currentAnchor=null,inviteTheme="warm",inviteReveal="secret",focusStack=[],libraryTab="dates"; if(!Array.isArray(savedDates))savedDates=[];if(!preparationStore||typeof preparationStore!=="object"||Array.isArray(preparationStore))preparationStore={};
 const places=dedupe([...seedPlaces,...kudagoPlaces].map(sanitize)),events=dedupe([...seedEvents,...kudagoEvents].map(sanitize));
 const DATA_START=kudagoMeta?.windowStart||localISODate(), DATA_END=kudagoMeta?.windowEnd||DATA_START;
 
@@ -104,7 +105,7 @@ function cardHTML(p,i){
 function relax(type){if(type==='zone')state.zone='any';if(type==='budget')state.budget=state.budget>=15000?999999:15000;if(type==='time')state.duration=Math.min(360,Math.max(240,state.duration+60));persist();syncUI();variationSeed++;runPlanner(false)}
 function chapterRole(i,n){if(i===0)return'Начало';if(i===n-1)return'Финал';if(n===4&&i===1)return'Развитие';return'Главная часть'}
 function openDetail(i){activePlanIndex=i;renderDetail();openOverlay('#detailOverlay')}
-function renderDetail(){const p=latestPlans[activePlanIndex];if(!p)return;const rows=planRows(p),cover=selectScenarioCover(p),img=cover?`<img src="${esc(cover)}" alt="">`:'';$("#detailScreenTitle").textContent=`Свидание № ${stableNo(p)}`;$("#detailContent").innerHTML=`<div class="detail-hero"><div class="hero-img ${img?'':'placeholder'}">${img}</div><div class="detail-copy"><div class="eyebrow">СВИДАНИЕ № ${stableNo(p)}</div><h2>${esc(p.title)}</h2><p>${esc(p.story)}</p><div class="detail-meta"><span>${esc(formatDuration(p.totalMinutes))}</span><span>${p.items.some(x=>x.costEstimated)?'≈ ':''}${esc(formatMoney(p.totalCost))}</span><span>${p.items.length} главы</span></div></div></div><div class="why-box"><b>ПОЧЕМУ ПОДОЙДЁТ</b><p>${esc(p.why)}</p></div><section class="chapters"><h3>План вечера</h3>${rows.map((r,i)=>chapterHTML(r,i,rows.length)).join('')}</section>`;$("#chooseDate").onclick=()=>{renderInvite();openOverlay("#inviteOverlay")};const saveButton=$("#saveDate");if(saveButton){const sync=()=>{saveButton.textContent=isPlanSaved(p)?"♥ Сохранено":"♡ Сохранить себе"};sync();saveButton.onclick=()=>{toggleSavedPlan(activePlanIndex);sync();renderResults()}};$$('[data-replace]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>openReplace(+b.dataset.replace)));$$('[data-around]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>{currentAnchor=p.items[+b.dataset.around];variationSeed++;closeOverlay('#detailOverlay');runPlanner(true)}));$$('[data-like-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>toggleItem(p.items[+b.dataset.likeItem],b)));$$('[data-dislike-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>dislikeItem(p.items[+b.dataset.dislikeItem],b)))}
+function renderDetail(){const p=latestPlans[activePlanIndex];if(!p)return;const rows=planRows(p),cover=selectScenarioCover(p),img=cover?`<img src="${esc(cover)}" alt="">`:'';$("#detailScreenTitle").textContent=`Свидание № ${stableNo(p)}`;$("#detailContent").innerHTML=`<div class="detail-hero"><div class="hero-img ${img?'':'placeholder'}">${img}</div><div class="detail-copy"><div class="eyebrow">СВИДАНИЕ № ${stableNo(p)}</div><h2>${esc(p.title)}</h2><p>${esc(p.story)}</p><div class="detail-meta"><span>${esc(formatDuration(p.totalMinutes))}</span><span>${p.items.some(x=>x.costEstimated)?'≈ ':''}${esc(formatMoney(p.totalCost))}</span><span>${p.items.length} главы</span></div></div></div><div class="why-box"><b>ПОЧЕМУ ПОДОЙДЁТ</b><p>${esc(p.why)}</p></div><section class="chapters"><h3>План вечера</h3>${rows.map((r,i)=>chapterHTML(r,i,rows.length)).join('')}</section>`;$("#chooseDate").onclick=()=>{renderInvite();openOverlay("#inviteOverlay")};const prepareButton=$("#prepareDate");if(prepareButton){prepareButton.onclick=openPreparation;syncPreparationDetailStatus()}const saveButton=$("#saveDate");if(saveButton){const sync=()=>{saveButton.textContent=isPlanSaved(p)?"♥ Сохранено":"♡ Сохранить себе"};sync();saveButton.onclick=()=>{toggleSavedPlan(activePlanIndex);sync();renderResults()}};$$('[data-replace]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>openReplace(+b.dataset.replace)));$$('[data-around]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>{currentAnchor=p.items[+b.dataset.around];variationSeed++;closeOverlay('#detailOverlay');runPlanner(true)}));$$('[data-like-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>toggleItem(p.items[+b.dataset.likeItem],b)));$$('[data-dislike-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>dislikeItem(p.items[+b.dataset.dislikeItem],b)))}
 function chapterHTML(r,i,n){const links=[r.officialUrl&&`<a href="${esc(r.officialUrl)}" target="_blank" rel="noreferrer">Сайт ↗</a>`,r.sourceUrl&&`<a href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Подробнее ↗</a>`].filter(Boolean).join('');const liked=Boolean(profile.favoriteItems[r.itemId]),disliked=profile.dislikedItemIds.includes(r.itemId);return `<article class="chapter"><div class="chapter-no">${String(i+1).padStart(2,'0')}</div><div><span class="chapter-role">${chapterRole(i,n).toUpperCase()}</span><h4>${esc(r.title)}</h4><p>${esc(r.description)}</p><div class="chapter-meta">${esc(r.duration)} · ${r.costEstimated?'≈ ':''}${esc(r.cost)}</div><div class="chapter-actions"><button class="chapter-primary" data-replace="${i}">Заменить</button><button class="icon-action" data-around="${i}" aria-label="Собрать свидание вокруг этого места">✦</button><button class="icon-action" data-like-item="${i}" aria-label="${liked?'Убрать место из любимых':'Сохранить место'}">${liked?'♥':'♡'}</button><button class="icon-action" data-dislike-item="${i}" aria-label="${disliked?'Место уже исключено':'Больше не предлагать это место'}" ${disliked?'disabled':''}>${disliked?'✓':'⊘'}</button>${links}</div></div></article>`}
 function toggleItem(item,b){if(profile.favoriteItems[item.id])delete profile.favoriteItems[item.id];else profile.favoriteItems[item.id]={id:item.id,title:item.title,category:item.category,image:item.image||null,savedAt:new Date().toISOString()};saveProfile();b.textContent=profile.favoriteItems[item.id]?'♥':'♡';b.setAttribute('aria-label',profile.favoriteItems[item.id]?'Убрать место из любимых':'Сохранить место')}
 function dislikeItem(item,b){if(!profile.dislikedItemIds.includes(item.id))profile.dislikedItemIds.unshift(item.id);profile.dislikedItemIds=profile.dislikedItemIds.slice(0,150);saveProfile();b.disabled=true;b.textContent='✓';b.setAttribute('aria-label','Место уже исключено')}
@@ -113,6 +114,60 @@ function openReplace(itemIndex){const p=latestPlans[activePlanIndex];if(!p)retur
 function renderLibrary(){const box=$("#libraryContent");$$("[data-library-tab]").forEach(b=>b.classList.toggle("active",b.dataset.libraryTab===libraryTab));if(libraryTab==="places"){const items=Object.values(profile.favoriteItems);box.innerHTML=items.length?items.map(entry=>`<article class="mini-card">${imageOK(entry.image)?`<img src="${esc(entry.image)}" alt="" loading="lazy">`:`<div class="mini-placeholder"></div>`}<div><h4>${esc(entry.title)}</h4><p>${esc(entry.category||"Место")}</p></div></article>`).join(""):`<div class="empty"><h3>Любимых мест пока нет.</h3><p>Сохраняйте места из глав свидания — они появятся здесь.</p></div>`;return}box.innerHTML=savedDates.length?savedDates.map((d,i)=>`<article class="saved-date">${imageOK(d.coverImage)?`<img src="${esc(d.coverImage)}" alt="">`:'<div class="mini-placeholder"></div>'}<div><div class="eyebrow">№ ${esc(d.number)}</div><h4>${esc(d.title)}</h4><p>${esc(formatDuration(d.totalMinutes))} · ${esc(formatMoney(d.totalCost))}</p><div class="saved-actions">${d.plan?`<button data-open-saved="${i}">Открыть сценарий</button>`:""}<button data-remove-saved="${i}">Убрать</button></div></div></article>`).join(""):`<div class="empty"><h3>Здесь будут ваши вечера.</h3><p>Сохраните понравившийся сценарий — и он останется в «Моих свиданиях».</p></div>`;$$("[data-open-saved]").forEach(b=>b.addEventListener("click",()=>{const d=savedDates[+b.dataset.openSaved];if(!d?.plan)return;latestPlans=[d.plan];activePlanIndex=0;activeFilters=d.plan.filters||collectFilters();renderDetail();openOverlay("#detailOverlay")}));$$("[data-remove-saved]").forEach(b=>b.addEventListener("click",()=>{savedDates.splice(+b.dataset.removeSaved,1);saveSavedDates();renderLibrary();renderResults()}))}$$("[data-library-tab]").forEach(b=>b.addEventListener("click",()=>{libraryTab=b.dataset.libraryTab;renderLibrary()}));$("#libraryButton")?.addEventListener("click",()=>{renderLibrary();openOverlay("#libraryOverlay")});$("#navLibrary")?.addEventListener("click",()=>{renderLibrary();openOverlay("#libraryOverlay")});
 function renderProfile(){const v=state.vibes.map(x=>VIBE_LABELS[x]).join(' + '),adv={safe:'Без сюрпризов',balanced:'Баланс',wild:'Смелее'}[state.adventure],favPlaces=Object.values(profile.favoriteItems).slice(0,4);$("#profileContent").innerHTML=`<div class="profile"><div class="eyebrow">ПРОФИЛЬ</div><h2>Ваш вкус<br><em>уже складывается.</em></h2><p>Мы запоминаем любимые места только на этом устройстве.</p><div class="profile-summary"><div><b>${savedDates.length}</b><span>сохранённых свиданий</span></div><div><b>${Object.keys(profile.favoriteItems).length}</b><span>любимых мест</span></div></div><div class="taste"><div class="eyebrow">ВАШИ ПРЕДПОЧТЕНИЯ</div><h3>${esc(v)}</h3><div class="chips"><span>${esc(ZONES[state.zone])}</span><span>${esc(adv)}</span>${favPlaces.map(x=>`<span>${esc(x.title)}</span>`).join('')}</div></div><div class="profile-links"><button id="profileFilters">Настроить предпочтения</button></div></div>`;$("#profileFilters")?.addEventListener('click',()=>{closeOverlay('#profileOverlay');openOverlay('#filtersOverlay')})}
 $("#navProfile")?.addEventListener('click',()=>{renderProfile();openOverlay('#profileOverlay')});$("#navDiscover")?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+function activePreparationContext(){
+  const plan=latestPlans[activePlanIndex],filters=activeFilters;
+  if(!plan||!filters)return null;
+  const tasks=buildPreparationTasks(plan,filters);
+  const key=preparationStateKey(planKey(plan),filters.date,filters.time);
+  const current=preparationStore[key]&&typeof preparationStore[key]==="object"?preparationStore[key]:{};
+  return {plan,filters,tasks,key,state:current,progress:preparationProgress(tasks,current)};
+}
+function persistPreparation(){localStorage.setItem(PREPARATION_KEY,JSON.stringify(preparationStore));}
+function setPreparationDone(taskId,done){
+  const context=activePreparationContext();if(!context)return;
+  preparationStore[context.key]={...context.state,[taskId]:Boolean(done)};
+  persistPreparation();renderPreparation();syncPreparationDetailStatus();
+}
+function syncPreparationDetailStatus(){
+  const context=activePreparationContext(),button=$("#prepareDate"),status=$("#prepareDateStatus");
+  if(!context||!button||!status)return;
+  const p=context.progress;
+  button.classList.toggle("complete",p.done);
+  status.textContent=p.done?"✓ Всё готово":(p.completed?String(p.completed)+"/"+String(p.total):"");
+  button.setAttribute("aria-label",p.done?"Подготовка свидания завершена":(p.completed?String(p.completed)+" из "+String(p.total)+" шагов подготовки готово":"Подготовить свидание"));
+}
+function downloadCalendarInvite(plan,filters){
+  if(!plan||!filters)return;
+  const start=new Date(filters.date+"T"+filters.time+":00"),end=new Date(start.getTime()+plan.totalMinutes*60000);
+  const stamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
+  const ics="BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:"+stamp(start)+"\r\nDTEND:"+stamp(end)+"\r\nSUMMARY:"+plan.title+"\r\nEND:VEVENT\r\nEND:VCALENDAR";
+  const blob=new Blob([ics],{type:"text/calendar"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="1001-dates.ics";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function preparationTaskHTML(task,done){
+  let action="";
+  if(task.type==="calendar")action='<button class="preparation-action" type="button" data-prep-action="calendar">Добавить в календарь</button>';
+  else if(task.type==="invite")action='<button class="preparation-action" type="button" data-prep-action="invite">Открыть приглашение</button>';
+  else if(task.url)action='<a class="preparation-link" href="'+esc(task.url)+'" target="_blank" rel="noreferrer">'+(task.type==="ticket"?"Открыть билеты ↗":"Открыть сайт ↗")+'</a>';
+  else action='<span class="preparation-unavailable">Ссылка недоступна</span>';
+  return '<article class="preparation-task '+(done?'done':'')+'"><button class="preparation-check" type="button" data-prep-toggle="'+esc(task.id)+'" aria-pressed="'+String(done)+'" aria-label="'+(done?'Отметить как неготовое':'Отметить готовым')+'">'+(done?'✓':'○')+'</button><div class="preparation-task-body"><div class="preparation-task-title"><span>'+esc(task.title)+'</span>'+(done?'<b>ГОТОВО</b>':'')+'</div>'+(task.itemTitle?'<strong>'+esc(task.itemTitle)+'</strong>':'')+'<p>'+esc(task.subtitle||'')+'</p><div class="preparation-task-actions">'+action+'<button class="preparation-done-button" type="button" data-prep-toggle="'+esc(task.id)+'" aria-pressed="'+String(done)+'">'+(done?'Отменить':'Отметить готовым')+'</button></div></div></article>';
+}
+function renderPreparation(){
+  const context=activePreparationContext();if(!context)return;
+  const plan=context.plan,filters=context.filters,tasks=context.tasks,stateForDate=context.state,p=context.progress;
+  $("#preparationNumber").textContent="СВИДАНИЕ № "+stableNo(plan);
+  $("#preparationPlanTitle").textContent=plan.title;
+  $("#preparationMeta").textContent=humanDate(filters.date)+" · "+filters.time;
+  $("#preparationProgressLabel").textContent=p.done?"Всё готово ♡":String(p.completed)+" из "+String(p.total)+" готово";
+  $("#preparationPercent").textContent=String(p.percent)+"%";
+  $("#preparationProgressBar").style.width=String(p.percent)+"%";
+  const left=p.total-p.completed;
+  $("#preparationRemaining").textContent=p.done?"Осталось только хорошо провести вечер.":(left===1?"Остался последний шаг":"Осталось "+String(left)+" шага");
+  $("#preparationList").innerHTML=tasks.map(task=>preparationTaskHTML(task,Boolean(stateForDate[task.id]))).join("");
+  $('[data-prep-toggle]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.prepToggle;const now=activePreparationContext();setPreparationDone(id,!Boolean(now&&now.state&&now.state[id]));}));
+  $('[data-prep-action]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{if(button.dataset.prepAction==="calendar")downloadCalendarInvite(plan,filters);if(button.dataset.prepAction==="invite"){renderInvite();openOverlay("#inviteOverlay");}}));
+}
+function openPreparation(){renderPreparation();openOverlay("#preparationOverlay");}
 function syncInviteControls(){
   $$('[data-theme]').forEach(button=>{
     const active=button.dataset.theme===inviteTheme;
@@ -240,7 +295,7 @@ $("#copyInvite")?.addEventListener("click",async()=>{
   const payload=currentInvitePayload(); if(!payload)return;
   if(await copyInviteText(inviteLink(payload))){$("#copyInvite").textContent="Ссылка скопирована ✓";setTimeout(()=>$("#copyInvite").textContent="Скопировать ссылку",1400)}
 });
-$("#calendarInvite")?.addEventListener("click",()=>{const p=latestPlans[activePlanIndex],f=activeFilters,start=new Date(`${f.date}T${f.time}:00`),end=new Date(start.getTime()+p.totalMinutes*60000),stamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z"),ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${stamp(start)}\r\nDTEND:${stamp(end)}\r\nSUMMARY:${p.title}\r\nEND:VEVENT\r\nEND:VCALENDAR`,blob=new Blob([ics],{type:"text/calendar"}),u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="1001-dates.ics";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
+$("#calendarInvite")?.addEventListener("click",()=>downloadCalendarInvite(latestPlans[activePlanIndex],activeFilters));
 async function shareInvitation(){
   const payload=currentInvitePayload(); if(!payload)return;
   const url=inviteLink(payload),data={title:"Приглашение на свидание — 1001 Dates",text:"Я приготовил для нас свидание ♡",url};
@@ -302,4 +357,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly11",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly12",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
