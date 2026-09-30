@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles-final.css?v=oct1&invite=3">
+  <link rel="stylesheet" href="./styles-final.css?v=oct1&invite=3&prep=1">
   <link rel="stylesheet" href="./motion-final.css?v=motion2">
   <link rel="stylesheet" href="./october-reference.css?v=ref2&rollback=2&portrait=1">
   <title>1001 Dates — октябрь 2026 в Москве</title>
@@ -281,10 +281,39 @@
       <button class="close" type="button" data-close="#detailOverlay" aria-label="Закрыть">×</button>
     </header>
     <div class="screen-scroll" id="detailContent"></div>
-    <footer class="detail-bottom">
+    <footer class="detail-bottom detail-bottom-prep">
       <button class="secondary" id="saveDate" type="button">♡ Сохранить себе</button>
+      <button class="secondary prep-detail-cta" id="prepareDate" type="button"><span>Подготовить свидание</span><span id="prepareDateStatus"></span></button>
       <button class="primary" id="chooseDate" type="button"><span>Приглашение</span><span aria-hidden="true">→</span></button>
     </footer>
+  </section>
+</div>
+
+<div class="overlay" id="preparationOverlay" aria-hidden="true" data-dismiss="false">
+  <section class="screen preparation-screen" role="dialog" aria-modal="true" aria-labelledby="preparationTitle">
+    <header class="screen-head">
+      <button class="back-button" type="button" data-close="#preparationOverlay" aria-label="Назад">←</button>
+      <div><div class="eyebrow">ПОДГОТОВКА</div><h2 id="preparationTitle">Подготовить свидание</h2></div>
+      <button class="close" type="button" data-close="#preparationOverlay" aria-label="Закрыть">×</button>
+    </header>
+    <div class="screen-scroll">
+      <div class="preparation-wrap">
+        <div class="preparation-intro">
+          <div class="eyebrow" id="preparationNumber">СВИДАНИЕ</div>
+          <h3 id="preparationPlanTitle"></h3>
+          <p id="preparationMeta"></p>
+        </div>
+        <section class="preparation-progress-card" aria-labelledby="preparationProgressLabel">
+          <div class="preparation-progress-head">
+            <div><span>ГОТОВНОСТЬ ВЕЧЕРА</span><strong id="preparationProgressLabel">0 из 0</strong></div>
+            <b id="preparationPercent">0%</b>
+          </div>
+          <div class="preparation-progress-track" aria-hidden="true"><i id="preparationProgressBar"></i></div>
+          <p id="preparationRemaining">Осталось подготовить вечер</p>
+        </section>
+        <div class="preparation-list" id="preparationList"></div>
+      </div>
+    </div>
   </section>
 </div>
 
@@ -402,7 +431,7 @@
   </section>
 </div>
 
-<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3"></script>
+<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=1"></script>
 <script type="module" src="./motion-final.js?v=motion2"></script>
 </body>
 </html>
