@@ -362,3 +362,30 @@ body::-webkit-scrollbar,
   .poster-main p{font-size:13px}
   .poster.note-long .poster-main p{font-size:11px}
 }
+
+
+/* Shareable invitation postcard screens */
+.shared-invite-wrap{width:min(620px,100%);margin:0 auto;padding:18px 12px 32px}
+.shared-invite-lead{margin:0 4px 14px}
+.shared-invite-lead .eyebrow{color:#ef9e82}
+.shared-invite-lead p{margin:6px 0 0;color:rgba(255,255,255,.68);font-size:13px}
+.shared-invite-actions{display:grid;gap:8px;margin-top:14px}
+.shared-invite-actions .secondary{
+  min-height:52px;border-color:rgba(255,255,255,.2);color:#fff;
+  display:flex;align-items:center;justify-content:space-between
+}
+.shared-invite-actions .primary{width:100%}
+.invite-save-wrap{width:min(620px,100%);margin:0 auto;padding:18px 14px 36px}
+.invite-save-hint{margin:0 0 14px;color:rgba(255,255,255,.75);font-size:13px;line-height:1.5}
+.invite-save-image{
+  display:block;width:100%;height:auto;border-radius:22px;
+  box-shadow:0 24px 70px rgba(0,0,0,.34);background:#2b120e;
+  -webkit-touch-callout:default;user-select:auto
+}
+.invite-save-file{
+  min-height:52px;margin-top:14px;border:1px solid rgba(255,255,255,.2);border-radius:16px;
+  display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-weight:700
+}
+@media(max-width:599px){
+  .shared-invite-wrap,.invite-save-wrap{padding-inline:10px}
+}
