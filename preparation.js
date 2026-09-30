@@ -17,12 +17,13 @@ export function needsReservation(item){
 }
 
 export function needsTickets(item){
-  const t=text(item);
-  if(item?.category==="event")return true;
-  if(["concert","theater","standup","show","movie","lecture","excursion","exhibition"].includes(item?.eventType))return true;
-  if(item?.category==="art"&&/(музей|museum|выстав|галере|gallery|экспозиц)/i.test(t))return true;
-  if(item?.category==="activity"&&/(квест|quest|каток|rink|bowling|боулинг|vr|виртуал|мастер-класс|workshop)/i.test(t))return true;
-  if(item?.category==="viewpoint"&&Number(item?.costForTwo||0)>0)return true;
+  const t=text(item),paid=Number(item?.costForTwo||0)>0;
+  if(/бесплатн|free admission|свободный вход/i.test(t)&&!/регистрац|registration|билет|ticket/i.test(t))return false;
+  if(["concert","theater","standup","show","movie","excursion"].includes(item?.eventType))return true;
+  if(item?.category==="event")return paid||/(концерт|театр|спектак|стендап|шоу|кино|выстав|экскурс|билет|ticket)/i.test(t);
+  if(item?.category==="art"&&paid&&/(музей|museum|выстав|галере|gallery|экспозиц)/i.test(t))return true;
+  if(item?.category==="activity"&&paid&&/(квест|quest|каток|rink|bowling|боулинг|vr|виртуал|мастер-класс|workshop)/i.test(t))return true;
+  if(item?.category==="viewpoint"&&paid)return true;
   return false;
 }
 
