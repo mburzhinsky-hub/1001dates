@@ -25,13 +25,13 @@ To build an explicit month:
 KUDAGO_MONTH=2026-10 node scripts/update-kudago.mjs
 ```
 
-To build the month after the current Moscow month:
+To refresh the current Moscow month:
 
 ```bash
-KUDAGO_MONTH_OFFSET=1 node scripts/update-kudago.mjs
+KUDAGO_MONTH_OFFSET=0 node scripts/update-kudago.mjs
 ```
 
-The scheduled workflow `.github/workflows/monthly-kudago.yml` runs on the 28th of every month at 02:17 UTC (05:17 Moscow) and prepares the next calendar month. It validates and tests the snapshot before committing it to `main`. A manual workflow run may specify any `YYYY-MM`.
+The scheduled workflow `.github/workflows/monthly-kudago.yml` runs on the 1st of every month at 02:17 UTC (05:17 Moscow) and refreshes that calendar month. It validates and tests the snapshot before committing it to `main`. A manual workflow run may specify any `YYYY-MM`.
 
 ## Validation and tests
 
