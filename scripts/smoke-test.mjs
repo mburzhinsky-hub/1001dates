@@ -62,14 +62,14 @@ for (const vibes of [["romantic","unusual"],["romantic","active"],["fun","active
   assertAudited(plans,filters,`multivibe/${vibes.join("+")}`);
 }
 
-const indoorNoBarsFilters={...base,duration:360,indoorOnly:true,noBars:true};
+const indoorNoBarsFilters={...base,duration:240,indoorOnly:true,noBars:true};
 const indoorNoBars = generateDates({ places:seedPlaces, events:seedEvents, filters:indoorNoBarsFilters, count:3, variationSeed:3 });
 assert(indoorNoBars.length > 0, "Expected indoor/no-bar plans");
 assertAudited(indoorNoBars,indoorNoBarsFilters,"indoor-no-bars");
 
-const noFoodFilters={...base,duration:360,food:false,vibes:["unusual"],adventure:"wild"};
+const noFoodFilters={...base,duration:180,food:false,vibes:["unusual"],adventure:"wild"};
 const noFood = generateDates({ places:seedPlaces, events:seedEvents, filters:noFoodFilters, count:3, variationSeed:7 });
-assert(noFood.length > 0, "Expected six-hour no-food plans");
+assert(noFood.length > 0, "Expected no-food plans with elapsed-time duration accounting");
 assert(noFood.every((plan)=>plan.items.every((item)=>!foodCategories.has(item.category) && !item.includesFood)), "No-food plan contains food");
 assertAudited(noFood,noFoodFilters,"no-food");
 
