@@ -2,11 +2,11 @@ name: Monthly KudaGo Snapshot
 
 on:
   schedule:
-    - cron: "17 2 28 * *"
+    - cron: "17 2 1 * *"
   workflow_dispatch:
     inputs:
       month:
-        description: "Target month in YYYY-MM. Leave blank to build next month."
+        description: "Target month in YYYY-MM. Leave blank to refresh the current month."
         required: false
         type: string
 
@@ -34,7 +34,7 @@ jobs:
           if [ -n "${{ inputs.month }}" ]; then
             KUDAGO_MONTH="${{ inputs.month }}" node scripts/update-kudago.mjs
           else
-            KUDAGO_MONTH_OFFSET=1 node scripts/update-kudago.mjs
+            KUDAGO_MONTH_OFFSET=0 node scripts/update-kudago.mjs
           fi
       - run: node scripts/validate-data.mjs --strict
       - run: node scripts/audit-scenarios.mjs
