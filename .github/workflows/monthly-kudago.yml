@@ -1,0 +1,56 @@
+name: Monthly KudaGo Snapshot
+
+on:
+  schedule:
+    - cron: "17 2 1 * *"
+  workflow_dispatch:
+    inputs:
+      month:
+        description: "Target month in YYYY-MM. Leave blank to refresh the current month."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monthly-kudago-snapshot
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Refresh target month
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.month }}" ]; then
+            KUDAGO_MONTH="${{ inputs.month }}" node scripts/update-kudago.mjs
+          else
+            KUDAGO_MONTH_OFFSET=0 node scripts/update-kudago.mjs
+          fi
+      - run: node scripts/validate-data.mjs --strict
+      - run: node scripts/audit-scenarios.mjs
+      - run: node scripts/smoke-test.mjs
+      - run: node scripts/audit-filters.mjs
+      - run: node scripts/production-integration-test.mjs
+      - name: Commit monthly snapshot
+        shell: bash
+        run: |
+          git add data/kudago.generated.js
+          if git diff --cached --quiet; then
+            echo "Snapshot is unchanged."
+            exit 0
+          fi
+          MONTH=$(node --input-type=module -e "import('./data/kudago.generated.js').then(m=>process.stdout.write(m.kudagoMeta.targetMonth))")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: refresh KudaGo snapshot for ${MONTH}"
+          git push origin HEAD:main

@@ -62,14 +62,14 @@ for (const vibes of [["romantic","unusual"],["romantic","active"],["fun","active
   assertAudited(plans,filters,`multivibe/${vibes.join("+")}`);
 }
 
-const indoorNoBarsFilters={...base,duration:360,indoorOnly:true,noBars:true};
+const indoorNoBarsFilters={...base,duration:240,indoorOnly:true,noBars:true};
 const indoorNoBars = generateDates({ places:seedPlaces, events:seedEvents, filters:indoorNoBarsFilters, count:3, variationSeed:3 });
 assert(indoorNoBars.length > 0, "Expected indoor/no-bar plans");
 assertAudited(indoorNoBars,indoorNoBarsFilters,"indoor-no-bars");
 
-const noFoodFilters={...base,duration:360,food:false,vibes:["unusual"],adventure:"wild"};
+const noFoodFilters={...base,duration:180,food:false,vibes:["unusual"],adventure:"wild"};
 const noFood = generateDates({ places:seedPlaces, events:seedEvents, filters:noFoodFilters, count:3, variationSeed:7 });
-assert(noFood.length > 0, "Expected six-hour no-food plans");
+assert(noFood.length > 0, "Expected no-food plans with elapsed-time duration accounting");
 assert(noFood.every((plan)=>plan.items.every((item)=>!foodCategories.has(item.category) && !item.includesFood)), "No-food plan contains food");
 assertAudited(noFood,noFoodFilters,"no-food");
 
@@ -151,7 +151,7 @@ assert(withoutDisliked.every((plan)=>plan.items.every((item)=>item.id!==excluded
 // Date-specific event times must stay attached to their actual date. Anchoring a
 // one-day event on another date must never force it into a plan.
 const datedEvent={id:"test-occurrence",title:"Тестовая лекция",category:"event",eventType:"lecture",subtype:"lecture",zone:"center",address:"Москва",costForTwo:1000,duration:80,indoor:true,vibes:["fun","unusual","calm"],quality:10,occurrences:{"2026-08-22":["18:15"],"2026-08-23":["21:00"]}};
-const datedFilters={...base,date:"2026-08-22",time:"18:00",duration:120,vibes:["unusual"],zone:"center",food:true};
+const datedFilters={...base,date:"2026-08-22",time:"18:00",duration:180,vibes:["unusual"],zone:"center",food:false};
 const onDate=generateDates({places:seedPlaces,events:[datedEvent],filters:datedFilters,count:3,variationSeed:17,anchorItem:datedEvent});
 assert(onDate.length>0,"Date-specific event should be usable on its occurrence date");
 assert(onDate.every((plan)=>plan.items.some((item)=>item.id===datedEvent.id)),"Date-specific anchor was lost");

@@ -7,7 +7,7 @@ const OUT = resolve(HERE, "../data/kudago.generated.js");
 const API = "https://kudago.com/public-api/v1.4";
 const CITY = process.env.KUDAGO_CITY || "msk";
 const PLACE_PAGES = Number(process.env.KUDAGO_PLACE_PAGES || 20);
-const EVENT_PAGES = Number(process.env.KUDAGO_EVENT_PAGES || 8);
+const EVENT_PAGES = Number(process.env.KUDAGO_EVENT_PAGES || 10);
 const PER_CATEGORY = Number(process.env.KUDAGO_PER_CATEGORY || 280);
 const PER_SUBTYPE = Number(process.env.KUDAGO_PER_SUBTYPE || 90);
 
@@ -34,7 +34,7 @@ function textOf(value) { return Array.isArray(value) ? value.join(" ") : String(
 function classifyPlace(categories=[], title="", description="") {
   const text=`${textOf(categories)} ${title} ${description}`.toLowerCase();
   if (/restaurant|restaurants|ресторан|гастробар|гастроном/.test(text)) return "dinner";
-  if (/coffee|coffee-shop|кофейн|cafe|кафе|чай/.test(text)) return "cafe";
+  if (/coffee|coffee-shop|кофейн|\bcafe\b|(?:^|[^а-я])кафе(?:[^а-я]|$)|(?:^|[^а-я])чай(?:[^а-я]|$)|чайная/.test(text)) return "cafe";
   if (/dessert|ice-cream|кондитер|морожен|десерт/.test(text)) return "dessert";
   if (/bar|pub|бар|паб/.test(text)) return "bar";
   if (/viewpoint|observation|смотров|панорам/.test(text)) return "viewpoint";
@@ -199,9 +199,31 @@ function normalizeClock(value=""){
   if(hour<0||hour>23||minute<0||minute>59)return null;
   return String(hour).padStart(2,'0')+':'+String(minute).padStart(2,'0');
 }
-const IMPORT_NOW=Math.floor(Date.now()/1000);
-const WINDOW_START=moscowParts(IMPORT_NOW).date;
-const WINDOW_END=moscowParts(IMPORT_NOW+60*24*60*60).date;
+function targetMonthWindow() {
+  const explicit=String(process.env.KUDAGO_MONTH || "").trim();
+  const offset=Number(process.env.KUDAGO_MONTH_OFFSET || 0);
+  let year,month;
+  if (explicit) {
+    const match=explicit.match(/^(\d{4})-(\d{2})$/);
+    if(!match)throw new Error("KUDAGO_MONTH must use YYYY-MM");
+    year=Number(match[1]);month=Number(match[2]);
+    if(month<1||month>12)throw new Error("KUDAGO_MONTH has invalid month");
+  } else {
+    const now=moscowParts(Math.floor(Date.now()/1000));
+    year=Number(now.date.slice(0,4));month=Number(now.date.slice(5,7))+offset;
+    while(month>12){month-=12;year++;}while(month<1){month+=12;year--;}
+  }
+  const targetMonth=String(year)+"-"+String(month).padStart(2,"0");
+  const lastDay=new Date(Date.UTC(year,month,0)).getUTCDate();
+  const startDate=targetMonth+"-01";
+  const endDate=targetMonth+"-"+String(lastDay).padStart(2,"0");
+  const startUnix=Math.floor(Date.parse(startDate+"T00:00:00+03:00")/1000);
+  const endUnix=Math.floor(Date.parse(endDate+"T23:59:59+03:00")/1000);
+  return {targetMonth,startDate,endDate,startUnix,endUnix};
+}
+const IMPORT_WINDOW=targetMonthWindow();
+const WINDOW_START=IMPORT_WINDOW.startDate;
+const WINDOW_END=IMPORT_WINDOW.endDate;
 function inImportWindow(date){return Boolean(date&&date>=WINDOW_START&&date<=WINDOW_END);}
 function normalizeDates(dates=[]) {
   const clean=dates.filter((d)=>d?.start||d?.start_date);
@@ -230,16 +252,16 @@ function normalizeEvent(e) {
 }
 function uniqueById(items){const map=new Map();for(const item of items)if(item?.id&&!map.has(item.id))map.set(item.id,item);return[...map.values()];}
 
-const now=IMPORT_NOW,until=now+60*24*60*60;
-console.log(`Fetching KudaGo data for ${CITY}: up to ${PLACE_PAGES*100} places and ${EVENT_PAGES*100} events...`);
+const now=IMPORT_WINDOW.startUnix,until=IMPORT_WINDOW.endUnix;
+console.log(`Fetching KudaGo data for ${CITY}, ${IMPORT_WINDOW.targetMonth}: up to ${PLACE_PAGES*100} places and ${EVENT_PAGES*100} events...`);
 const rawPlaces=await fetchPages("/places/",{location:CITY,order_by:"-favorites_count",text_format:"text",fields:"id,title,slug,address,coords,subway,site_url,foreign_url,categories,tags,timetable,is_closed,images,favorites_count,description",expand:"images"},PLACE_PAGES);
-const rawEvents=await fetchPages("/events/",{location:CITY,actual_since:now,actual_until:until,order_by:"-favorites_count",text_format:"text",fields:"id,title,short_title,dates,place,description,categories,age_restriction,price,is_free,images,favorites_count,site_url",expand:"place,dates,images"},EVENT_PAGES);
+const rawEvents=await fetchPages("/events/",{location:CITY,actual_since:now,actual_until:until,order_by:"-favorites_count",text_format:"text",fields:"id,title,short_title,dates,place,description,categories,age_restriction,price,is_free,images,favorites_count,site_url",expand:"place,images"},EVENT_PAGES);
 const places=balancePlaces(uniqueById(rawPlaces.map(normalizePlace).filter(Boolean)));
 const events=uniqueById(rawEvents.map(normalizeEvent).filter((e)=>e?.title&&(e.exactDates?.length||e.activeFrom||e.activeUntil)));
 const categoryCounts=Object.fromEntries([...knownCategories].map((category)=>[category,places.filter((item)=>item.category===category).length]));
 const subtypeCounts=Object.fromEntries([...new Set(places.map((x)=>x.subtype))].sort().map((subtype)=>[subtype,places.filter((x)=>x.subtype===subtype).length]));
 const updatedAt=new Date().toISOString();
-const meta={updatedAt,city:CITY,source:"KudaGo public API",rawPlaces:rawPlaces.length,rawEvents:rawEvents.length,places:places.length,events:events.length,categoryCounts,subtypeCounts,concretePlaceLinks:places.filter((x)=>x.sourceUrl||x.officialUrl).length,concreteEventLinks:events.filter((x)=>x.sourceUrl).length};
+const meta={updatedAt,city:CITY,source:"KudaGo public API",targetMonth:IMPORT_WINDOW.targetMonth,windowStart:WINDOW_START,windowEnd:WINDOW_END,rawPlaces:rawPlaces.length,rawEvents:rawEvents.length,places:places.length,events:events.length,categoryCounts,subtypeCounts,concretePlaceLinks:places.filter((x)=>x.sourceUrl||x.officialUrl).length,concreteEventLinks:events.filter((x)=>x.sourceUrl).length};
 const js=`// Generated automatically from the KudaGo public API. Do not edit manually.\nexport const kudagoPlaces = ${JSON.stringify(places,null,2)};\n\nexport const kudagoEvents = ${JSON.stringify(events,null,2)};\n\nexport const kudagoMeta = ${JSON.stringify(meta,null,2)};\n`;
 await writeFile(OUT,js,"utf8");
 console.log(`Saved ${places.length} balanced places and ${events.length} current events to ${OUT}`);

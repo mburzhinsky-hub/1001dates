@@ -1,5 +1,5 @@
 import { seedPlaces, seedEvents } from "../data/seed.js";
-import { kudagoPlaces, kudagoEvents } from "../data/kudago.generated.js";
+import { kudagoPlaces, kudagoEvents, kudagoMeta } from "../data/kudago.generated.js";
 
 const strict = process.argv.includes("--strict");
 const validCategories = new Set(["dinner","cafe","bar","dessert","walk","viewpoint","art","activity","event"]);
@@ -29,6 +29,19 @@ function validOccurrences(value) {
     if(!times.every((x)=>/^\d{2}:\d{2}$/.test(String(x))))return false;
   }
   return true;
+}
+function monthEnd(month) {
+  const match=String(month||"").match(/^(\d{4})-(\d{2})$/);
+  if(!match)return null;
+  const year=Number(match[1]),m=Number(match[2]);
+  if(m<1||m>12)return null;
+  const day=new Date(Date.UTC(year,m,0)).getUTCDate();
+  return `${match[1]}-${match[2]}-${String(day).padStart(2,"0")}`;
+}
+function eventTouchesWindow(item,start,end) {
+  if(item.exactDates?.some((date)=>date>=start&&date<=end))return true;
+  if(item.occurrences&&Object.keys(item.occurrences).some((date)=>date>=start&&date<=end))return true;
+  return Boolean(item.activeFrom||item.activeUntil) && (!item.activeFrom||item.activeFrom<=end) && (!item.activeUntil||item.activeUntil>=start);
 }
 function validWeeklyHours(value) {
   if (value == null) return true;
@@ -60,6 +73,11 @@ validate(seedPlaces, "seedPlaces");
 validate(seedEvents, "seedEvents");
 validate(kudagoPlaces, "kudagoPlaces", true);
 validate(kudagoEvents, "kudagoEvents", true);
+
+assert(/^\d{4}-\d{2}$/.test(String(kudagoMeta?.targetMonth||"")), "kudagoMeta: missing/invalid targetMonth");
+assert(kudagoMeta.windowStart===`${kudagoMeta.targetMonth}-01`, "kudagoMeta: windowStart must be first day of targetMonth");
+assert(kudagoMeta.windowEnd===monthEnd(kudagoMeta.targetMonth), "kudagoMeta: windowEnd must be last day of targetMonth");
+assert(kudagoEvents.every((item)=>eventTouchesWindow(item,kudagoMeta.windowStart,kudagoMeta.windowEnd)), "kudagoEvents: event outside monthly snapshot window");
 
 if (strict) {
   assert(kudagoPlaces.length >= 100, `Strict mode: expected >=100 imported places, got ${kudagoPlaces.length}`);

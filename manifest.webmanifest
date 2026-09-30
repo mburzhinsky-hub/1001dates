@@ -1,12 +1,12 @@
 {
   "name": "1001 Dates",
   "short_name": "1001 Dates",
-  "description": "Сценарии свиданий под ваше время, бюджет и настроение.",
+  "description": "Октябрьские сценарии свиданий в Москве на весь месяц.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f5efe7",
-  "theme_color": "#f5efe7",
+  "background_color": "#efe1d0",
+  "theme_color": "#efe1d0",
   "icons": [
     { "src": "./assets/icon.svg?v=2", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]

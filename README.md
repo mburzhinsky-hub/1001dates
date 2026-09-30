@@ -1,73 +1,74 @@
-# 1001 Dates — v13 Full
+# 1001 Dates
 
-Production-сборка приложения для публикации через GitHub Desktop + GitHub Pages. Включает актуальный snapshot базы Москвы.
+Production web app for generating curated date scenarios in Moscow.
 
-## Что находится в архиве
+## Runtime
 
-- `index.html` — приложение и интерфейс.
-- `styles.css` — вся дизайн-система и mobile UI.
-- `app.js` — интерфейс, состояние, избранное, история, приглашения, PNG-share и календарь.
-- `engine.js` — генератор свиданий, hard/soft constraints, география, scoring и разнообразие.
-- `data/scenarios.js` — библиотека из 1001 сценарного blueprint.
-- `data/seed.js` — curated fallback-база мест и событий.
-- `data/kudago.generated.js` — место для импортированного snapshot KudaGo.
-- `scripts/update-kudago.mjs` — ручное обновление snapshot.
-- `scripts/validate-data.mjs` — проверка данных.
-- `scripts/audit-scenarios.mjs` — структурный аудит 1001 сценария.
-- `scripts/audit-filters.mjs` — матричный аудит фильтров.
-- `scripts/smoke-test.mjs` — smoke/regression tests движка.
-- `scripts/export-scenario-catalog.mjs` — экспорт каталога сценариев.
-- `SCENARIO_CATALOG.md` — читаемый каталог всех сценариев.
-- `manifest.webmanifest`, `sw.js`, `assets/icon.svg` — PWA.
-- `.nojekyll` — корректная публикация GitHub Pages.
-- `.gitignore`, `.gitattributes` — настройки Git.
+The published app is wired as:
 
-**В этой сборке специально нет `.github/workflows`.** Она не создаёт автоматические коммиты, не обновляет `main` ботом и не запускает собственный competing deploy.
+`index.html → app-final.js → engine-v14.js → engine.js → data/scenarios.js + data/seed.js + data/kudago.generated.js`
 
-## Как полностью заменить старый проект
+The catalogue contains exactly 1001 curated scenario blueprints. Concrete dates are assembled from the monthly Moscow venue/event snapshot and then filtered by time, budget, mood, geography, opening hours and user preferences.
 
-В своей локальной папке репозитория оставьте только скрытую папку `.git`. Удалите все остальные старые файлы и папки. Затем скопируйте в корень содержимое папки `1001-dates` из этого архива.
+## Monthly KudaGo snapshot
 
-Итоговый корень должен содержать `index.html`, `styles.css`, `app.js`, `engine.js`, `data/`, `scripts/`, `assets/` и остальные файлы из списка выше. **Не должна оставаться старая папка `.github`.**
+`data/kudago.generated.js` now represents one complete calendar month. The snapshot metadata contains:
 
-После этого в GitHub Desktop: `Commit to main` → `Push origin`.
+- `targetMonth` — `YYYY-MM`
+- `windowStart` — first day of the month
+- `windowEnd` — last day of the month
+- source counts and normalized counts
 
-## GitHub Pages
+To build an explicit month:
 
-В репозитории GitHub откройте `Settings → Pages` и выберите:
+```bash
+KUDAGO_MONTH=2026-10 node scripts/update-kudago.mjs
+```
 
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/ (root)`
+To refresh the current Moscow month:
 
-После этого публикацией занимается стандартный GitHub Pages workflow.
+```bash
+KUDAGO_MONTH_OFFSET=0 node scripts/update-kudago.mjs
+```
 
-## Локальная проверка
+The scheduled workflow `.github/workflows/monthly-kudago.yml` runs on the 1st of every month at 02:17 UTC (05:17 Moscow) and refreshes that calendar month. It validates and tests the snapshot before committing it to `main`. A manual workflow run may specify any `YYYY-MM`.
 
-Из корня проекта:
+## Validation and tests
+
+Run from the repository root:
+
+```bash
+node scripts/validate-data.mjs --strict
+node scripts/audit-scenarios.mjs
+node scripts/smoke-test.mjs
+node scripts/audit-filters.mjs
+node scripts/production-integration-test.mjs
+```
+
+`production-integration-test.mjs` verifies the actual production asset chain, the complete target-month window, daily event coverage, three valid default plans for every day in the month, real elapsed duration, and repeated-result mechanics.
+
+## Duration semantics
+
+The duration shown to the user is the real elapsed date duration: activities + routing buffers + waiting time. The same duration is used for calendar exports. Hidden transfer/wait time can no longer make a selected 3-hour date silently last longer than three hours (within the existing 5-minute tolerance).
+
+## Service worker
+
+The monthly KudaGo snapshot is network-first with cached offline fallback. Versioned application assets remain cache-first and respect their query-string versions. Updating `data/kudago.generated.js` therefore no longer requires a service-worker cache-version bump.
+
+## Local preview
 
 ```bash
 python -m http.server 8080
 ```
 
-Откройте `http://localhost:8080`.
+Open `http://localhost:8080`.
 
-## Тесты движка
+## GitHub Pages
 
-Если установлен Node.js:
+Use:
 
-```bash
-node scripts/audit-scenarios.mjs
-node scripts/smoke-test.mjs
-node scripts/audit-filters.mjs
-node scripts/validate-data.mjs
-```
+- Source: Deploy from a branch
+- Branch: `main`
+- Folder: `/ (root)`
 
-## Обновление базы KudaGo вручную
-
-```bash
-node scripts/update-kudago.mjs
-node scripts/validate-data.mjs --strict
-```
-
-После успешного обновления `data/kudago.generated.js` можно закоммитить через GitHub Desktop как обычный файл.
+The standard GitHub Pages deployment can coexist with the two repository workflows: Production CI and Monthly KudaGo Snapshot.

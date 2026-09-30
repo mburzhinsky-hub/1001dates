@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f4eee6">
-  <meta name="description" content="1001 Dates — продуманные сценарии свиданий в Москве под ваше время, бюджет и настроение.">
+  <meta name="theme-color" content="#efe1d0">
+  <meta name="description" content="1001 Dates — октябрьские сценарии свиданий в Москве на весь месяц: места, события, время и бюджет.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icon.svg?v=2" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles-final.css?v=ref7">
+  <link rel="stylesheet" href="./styles-final.css?v=oct1">
   <link rel="stylesheet" href="./motion-final.css?v=motion2">
-  <title>1001 Dates — продуманные свидания в Москве</title>
+  <title>1001 Dates — октябрь 2026 в Москве</title>
 </head>
 <body>
 <header class="topbar shell">
@@ -28,9 +28,15 @@
         <div class="hero-vignette"></div>
       </div>
       <div class="hero-content">
-        <div class="hero-brandline"><span>МОСКВА</span><i></i><span>СВИДАНИЯ ДЛЯ ДВОИХ</span></div>
-        <h1 id="heroTitle">Какой вечер<br><em>хочется сегодня?</em></h1>
-        <p class="hero-copy">Мы соберём готовый сценарий: места, последовательность, атмосферу и детали — под ваше время и бюджет.</p>
+        <div class="hero-brandline"><span>МОСКВА</span><i></i><span id="seasonMonthLabel">ОКТЯБРЬ 2026</span></div>
+        <h1 id="heroTitle"><span id="seasonMonthTitle">Октябрь</span> создан<br><em>для нас.</em></h1>
+        <p class="hero-copy" id="seasonCopy">Идеи свиданий на весь месяц: актуальные события, любимые места и готовые маршруты под ваше время, бюджет и настроение.</p>
+
+        <div class="season-stats" aria-label="Октябрьская база">
+          <div><b id="seasonDays">31</b><span>день</span></div>
+          <div><b id="seasonEvents">297</b><span>событий</span></div>
+          <div><b id="seasonPlaces">578</b><span>мест</span></div>
+        </div>
 
         <div class="summary-grid" aria-label="Текущие параметры">
           <button class="summary-chip" data-open-filter type="button"><span>Дата</span><b id="quickDate">Сегодня</b></button>
@@ -51,7 +57,7 @@
   <section class="results shell" id="resultsSection" hidden>
     <header class="results-head">
       <div>
-        <div class="eyebrow" id="resultsEyebrow">ДЛЯ ВАС СЕГОДНЯ</div>
+        <div class="eyebrow" id="resultsEyebrow">ОКТЯБРЬСКАЯ ПОДБОРКА</div>
         <h2>Выберите не место.<br><em>Выберите вечер.</em></h2>
       </div>
       <button class="filter-fab" id="editFilters" type="button" aria-label="Изменить параметры">⌘</button>
@@ -73,7 +79,7 @@
 <div class="overlay" id="filtersOverlay" aria-hidden="true">
   <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="filtersTitle">
     <header class="sheet-head">
-      <div><div class="eyebrow">ВАШ ВЕЧЕР</div><h2 id="filtersTitle">Настроить вечер</h2></div>
+      <div><div class="eyebrow">ОКТЯБРЬСКИЙ ВЕЧЕР</div><h2 id="filtersTitle">Настроить вечер</h2></div>
       <button class="close" type="button" data-close="#filtersOverlay" aria-label="Закрыть">×</button>
     </header>
 
@@ -81,8 +87,8 @@
       <div class="filter-block first">
         <div class="filter-block-head"><span>Дата</span></div>
         <div class="segments three date-presets">
-          <button type="button" data-date-preset="0"><span>Сегодня</span><small id="todayLabel"></small></button>
-          <button type="button" data-date-preset="1"><span>Завтра</span><small id="tomorrowLabel"></small></button>
+          <button type="button" data-date-preset="0"><span id="preset0Title">Сегодня</span><small id="todayLabel"></small></button>
+          <button type="button" data-date-preset="1"><span id="preset1Title">Завтра</span><small id="tomorrowLabel"></small></button>
           <label class="date-picker"><span>Выбрать дату</span><input id="dateInput" type="date" aria-label="Выбрать дату"></label>
         </div>
       </div>
@@ -275,7 +281,7 @@
   </section>
 </div>
 
-<script type="module" src="./app-final.js?v=ref6"></script>
+<script type="module" src="./app-final.js?v=oct1"></script>
 <script type="module" src="./motion-final.js?v=motion2"></script>
 </body>
 </html>

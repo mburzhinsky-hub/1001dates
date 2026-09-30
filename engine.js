@@ -436,12 +436,13 @@ function schedulePlan(items, filters, template) {
     timeline.push({ type:"stop", start, end:cursor, duration:plannedDuration, slot:template.slots[index], item, fixedStart });
   }
 
-  const totalMinutes = activityMinutes;
+  const elapsedMinutes = cursor - startAt;
+  const totalMinutes = elapsedMinutes;
   if (totalMinutes > filters.duration + 5) return null;
   if (totalMinutes < targetFloor(filters.duration)) return null;
   if (filters.budget < 900000 && totalCost > filters.budget) return null;
 
-  return { timeline, totalMinutes, activityMinutes, waitingMinutes, transferMinutes, elapsedMinutes:cursor-startAt, finishTime:minutesToTime(cursor), totalCost };
+  return { timeline, totalMinutes, activityMinutes, waitingMinutes, transferMinutes, elapsedMinutes, finishTime:minutesToTime(cursor), totalCost };
 }
 
 function moodCoverage(template, items, filters) {
