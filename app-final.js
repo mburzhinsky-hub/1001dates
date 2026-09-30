@@ -114,6 +114,60 @@ function openReplace(itemIndex){const p=latestPlans[activePlanIndex];if(!p)retur
 function renderLibrary(){const box=$("#libraryContent");$$("[data-library-tab]").forEach(b=>b.classList.toggle("active",b.dataset.libraryTab===libraryTab));if(libraryTab==="places"){const items=Object.values(profile.favoriteItems);box.innerHTML=items.length?items.map(entry=>`<article class="mini-card">${imageOK(entry.image)?`<img src="${esc(entry.image)}" alt="" loading="lazy">`:`<div class="mini-placeholder"></div>`}<div><h4>${esc(entry.title)}</h4><p>${esc(entry.category||"Место")}</p></div></article>`).join(""):`<div class="empty"><h3>Любимых мест пока нет.</h3><p>Сохраняйте места из глав свидания — они появятся здесь.</p></div>`;return}box.innerHTML=savedDates.length?savedDates.map((d,i)=>`<article class="saved-date">${imageOK(d.coverImage)?`<img src="${esc(d.coverImage)}" alt="">`:'<div class="mini-placeholder"></div>'}<div><div class="eyebrow">№ ${esc(d.number)}</div><h4>${esc(d.title)}</h4><p>${esc(formatDuration(d.totalMinutes))} · ${esc(formatMoney(d.totalCost))}</p><div class="saved-actions">${d.plan?`<button data-open-saved="${i}">Открыть сценарий</button>`:""}<button data-remove-saved="${i}">Убрать</button></div></div></article>`).join(""):`<div class="empty"><h3>Здесь будут ваши вечера.</h3><p>Сохраните понравившийся сценарий — и он останется в «Моих свиданиях».</p></div>`;$$("[data-open-saved]").forEach(b=>b.addEventListener("click",()=>{const d=savedDates[+b.dataset.openSaved];if(!d?.plan)return;latestPlans=[d.plan];activePlanIndex=0;activeFilters=d.plan.filters||collectFilters();renderDetail();openOverlay("#detailOverlay")}));$$("[data-remove-saved]").forEach(b=>b.addEventListener("click",()=>{savedDates.splice(+b.dataset.removeSaved,1);saveSavedDates();renderLibrary();renderResults()}))}$$("[data-library-tab]").forEach(b=>b.addEventListener("click",()=>{libraryTab=b.dataset.libraryTab;renderLibrary()}));$("#libraryButton")?.addEventListener("click",()=>{renderLibrary();openOverlay("#libraryOverlay")});$("#navLibrary")?.addEventListener("click",()=>{renderLibrary();openOverlay("#libraryOverlay")});
 function renderProfile(){const v=state.vibes.map(x=>VIBE_LABELS[x]).join(' + '),adv={safe:'Без сюрпризов',balanced:'Баланс',wild:'Смелее'}[state.adventure],favPlaces=Object.values(profile.favoriteItems).slice(0,4);$("#profileContent").innerHTML=`<div class="profile"><div class="eyebrow">ПРОФИЛЬ</div><h2>Ваш вкус<br><em>уже складывается.</em></h2><p>Мы запоминаем любимые места только на этом устройстве.</p><div class="profile-summary"><div><b>${savedDates.length}</b><span>сохранённых свиданий</span></div><div><b>${Object.keys(profile.favoriteItems).length}</b><span>любимых мест</span></div></div><div class="taste"><div class="eyebrow">ВАШИ ПРЕДПОЧТЕНИЯ</div><h3>${esc(v)}</h3><div class="chips"><span>${esc(ZONES[state.zone])}</span><span>${esc(adv)}</span>${favPlaces.map(x=>`<span>${esc(x.title)}</span>`).join('')}</div></div><div class="profile-links"><button id="profileFilters">Настроить предпочтения</button></div></div>`;$("#profileFilters")?.addEventListener('click',()=>{closeOverlay('#profileOverlay');openOverlay('#filtersOverlay')})}
 $("#navProfile")?.addEventListener('click',()=>{renderProfile();openOverlay('#profileOverlay')});$("#navDiscover")?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+function activePreparationContext(){
+  const plan=latestPlans[activePlanIndex],filters=activeFilters;
+  if(!plan||!filters)return null;
+  const tasks=buildPreparationTasks(plan,filters);
+  const key=preparationStateKey(planKey(plan),filters.date,filters.time);
+  const current=preparationStore[key]&&typeof preparationStore[key]==="object"?preparationStore[key]:{};
+  return {plan,filters,tasks,key,state:current,progress:preparationProgress(tasks,current)};
+}
+function persistPreparation(){localStorage.setItem(PREPARATION_KEY,JSON.stringify(preparationStore));}
+function setPreparationDone(taskId,done){
+  const context=activePreparationContext();if(!context)return;
+  preparationStore[context.key]={...context.state,[taskId]:Boolean(done)};
+  persistPreparation();renderPreparation();syncPreparationDetailStatus();
+}
+function syncPreparationDetailStatus(){
+  const context=activePreparationContext(),button=$("#prepareDate"),status=$("#prepareDateStatus");
+  if(!context||!button||!status)return;
+  const p=context.progress;
+  button.classList.toggle("complete",p.done);
+  status.textContent=p.done?"✓ Всё готово":(p.completed?String(p.completed)+"/"+String(p.total):"");
+  button.setAttribute("aria-label",p.done?"Подготовка свидания завершена":(p.completed?String(p.completed)+" из "+String(p.total)+" шагов подготовки готово":"Подготовить свидание"));
+}
+function downloadCalendarInvite(plan,filters){
+  if(!plan||!filters)return;
+  const start=new Date(filters.date+"T"+filters.time+":00"),end=new Date(start.getTime()+plan.totalMinutes*60000);
+  const stamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
+  const ics="BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:"+stamp(start)+"\r\nDTEND:"+stamp(end)+"\r\nSUMMARY:"+plan.title+"\r\nEND:VEVENT\r\nEND:VCALENDAR";
+  const blob=new Blob([ics],{type:"text/calendar"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="1001-dates.ics";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function preparationTaskHTML(task,done){
+  let action="";
+  if(task.type==="calendar")action='<button class="preparation-action" type="button" data-prep-action="calendar">Добавить в календарь</button>';
+  else if(task.type==="invite")action='<button class="preparation-action" type="button" data-prep-action="invite">Открыть приглашение</button>';
+  else if(task.url)action='<a class="preparation-link" href="'+esc(task.url)+'" target="_blank" rel="noreferrer">'+(task.type==="ticket"?"Открыть билеты ↗":"Открыть сайт ↗")+'</a>';
+  else action='<span class="preparation-unavailable">Ссылка недоступна</span>';
+  return '<article class="preparation-task '+(done?'done':'')+'"><button class="preparation-check" type="button" data-prep-toggle="'+esc(task.id)+'" aria-pressed="'+String(done)+'" aria-label="'+(done?'Отметить как неготовое':'Отметить готовым')+'">'+(done?'✓':'○')+'</button><div class="preparation-task-body"><div class="preparation-task-title"><span>'+esc(task.title)+'</span>'+(done?'<b>ГОТОВО</b>':'')+'</div>'+(task.itemTitle?'<strong>'+esc(task.itemTitle)+'</strong>':'')+'<p>'+esc(task.subtitle||'')+'</p><div class="preparation-task-actions">'+action+'<button class="preparation-done-button" type="button" data-prep-toggle="'+esc(task.id)+'" aria-pressed="'+String(done)+'">'+(done?'Отменить':'Отметить готовым')+'</button></div></div></article>';
+}
+function renderPreparation(){
+  const context=activePreparationContext();if(!context)return;
+  const plan=context.plan,filters=context.filters,tasks=context.tasks,stateForDate=context.state,p=context.progress;
+  $("#preparationNumber").textContent="СВИДАНИЕ № "+stableNo(plan);
+  $("#preparationPlanTitle").textContent=plan.title;
+  $("#preparationMeta").textContent=humanDate(filters.date)+" · "+filters.time;
+  $("#preparationProgressLabel").textContent=p.done?"Всё готово ♡":String(p.completed)+" из "+String(p.total)+" готово";
+  $("#preparationPercent").textContent=String(p.percent)+"%";
+  $("#preparationProgressBar").style.width=String(p.percent)+"%";
+  const left=p.total-p.completed;
+  $("#preparationRemaining").textContent=p.done?"Осталось только хорошо провести вечер.":(left===1?"Остался последний шаг":"Осталось "+String(left)+" шага");
+  $("#preparationList").innerHTML=tasks.map(task=>preparationTaskHTML(task,Boolean(stateForDate[task.id]))).join("");
+  $('[data-prep-toggle]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.prepToggle;const now=activePreparationContext();setPreparationDone(id,!Boolean(now&&now.state&&now.state[id]));}));
+  $('[data-prep-action]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{if(button.dataset.prepAction==="calendar")downloadCalendarInvite(plan,filters);if(button.dataset.prepAction==="invite"){renderInvite();openOverlay("#inviteOverlay");}}));
+}
+function openPreparation(){renderPreparation();openOverlay("#preparationOverlay");}
 function syncInviteControls(){
   $$('[data-theme]').forEach(button=>{
     const active=button.dataset.theme===inviteTheme;
