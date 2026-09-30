@@ -19,6 +19,7 @@ jobs:
           node-version: 22
       - run: node --check app-final.js
       - run: node scripts/ui-contract-test.mjs
+      - run: node scripts/scenario-visuals-test.mjs
       - run: node scripts/validate-data.mjs --strict
       - run: node scripts/audit-scenarios.mjs
       - run: node scripts/smoke-test.mjs
