@@ -22,15 +22,16 @@ const [indexHtml,appJs,engineV14,serviceWorker]=await Promise.all([
   readFile(new URL("../sw.js",import.meta.url),"utf8")
 ]);
 
-assert(indexHtml.includes("./app-final.js?v=oct3"),"index.html is not wired to the October reference production app asset");
+assert(indexHtml.includes("./app-final.js?v=oct4"),"index.html is not wired to the October editorial production app asset");
 assert(appJs.includes("./data/kudago.generated.js"),"app-final.js does not import the production snapshot");
 assert(appJs.includes("kudagoMeta"),"app-final.js does not bind UI dates to monthly snapshot metadata");
 assert(appJs.includes("clampDataDate"),"app-final.js does not clamp selectable dates to snapshot coverage");
-assert(indexHtml.includes("season-ledger"),"October premium seasonal stats block is missing");
-assert(indexHtml.includes("hero-device-wrap"),"October reference device composition is missing");
-assert(indexHtml.includes("./october-reference.css?v=ref1"),"October reference stylesheet is missing");
+assert(indexHtml.includes("october-stats"),"October premium seasonal stats block is missing");
+assert(indexHtml.includes("october-phone"),"October reference device composition is missing");
+assert(indexHtml.includes("./october-reference.css?v=ref2"),"October reference stylesheet is missing");
 assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(appJs),"UI runtime regression: querySelector result is used as a NodeList");
 assert(appJs.includes("OCTOBER_HERO_IMAGE"),"October hero is not pinned to a seasonal production image");
+assert(appJs.includes("selectScenarioCover"),"Semantic scenario cover module is not wired into production");
 assert(indexHtml.includes("https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg"),"October reference hero image is not wired in index.html");
 assert(appJs.includes("./engine-v14.js?v=duration4"),"app-final.js does not import the production engine wrapper");
 assert(engineV14.includes("./engine.js?base=duration4"),"engine-v14.js is not wired to the duration-aware base engine");
