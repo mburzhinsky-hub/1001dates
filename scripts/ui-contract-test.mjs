@@ -26,6 +26,9 @@ assert(html.includes("october-stats"),"Premium seasonal stats block is missing")
 assert(app.includes('$("#deviceGenerate")?.addEventListener'),"Reference hero CTA is not wired");
 assert(app.includes("selectScenarioCover"),"Semantic scenario cover selection is not wired");
 assert(app.includes('$("#devicePreviewDate")'),"Reference preview does not sync with selected date");
+assert(app.includes("async function shareInvitation()"),"Invitation share handler is missing");
+assert(app.includes("await navigator.share(data)"),"Invitation share does not use the native share sheet");
+assert(app.includes("scheduleInviteShareFile()"),"Invitation poster is not pre-rendered for file sharing");
 assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(app),"querySelector/forEach runtime regression returned");
 assert(seasonCss.includes(".october-stats")&&seasonCss.includes(".phone-frame")&&seasonCss.includes(".quick-filters"),"Reference visual layer is incomplete");
 
