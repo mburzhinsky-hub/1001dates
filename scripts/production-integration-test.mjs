@@ -22,8 +22,11 @@ const [indexHtml,appJs,engineV14,serviceWorker]=await Promise.all([
   readFile(new URL("../sw.js",import.meta.url),"utf8")
 ]);
 
-assert(indexHtml.includes("./app-final.js?v=ref7"),"index.html is not wired to the production app asset");
+assert(indexHtml.includes("./app-final.js?v=oct1"),"index.html is not wired to the October production app asset");
 assert(appJs.includes("./data/kudago.generated.js"),"app-final.js does not import the production snapshot");
+assert(appJs.includes("kudagoMeta"),"app-final.js does not bind UI dates to monthly snapshot metadata");
+assert(appJs.includes("clampDataDate"),"app-final.js does not clamp selectable dates to snapshot coverage");
+assert(indexHtml.includes("season-stats"),"October seasonal visual block is missing");
 assert(appJs.includes("./engine-v14.js?v=duration4"),"app-final.js does not import the production engine wrapper");
 assert(engineV14.includes("./engine.js?base=duration4"),"engine-v14.js is not wired to the duration-aware base engine");
 assert(serviceWorker.includes('SNAPSHOT_PATH="/data/kudago.generated.js"'),"service worker does not special-case the monthly snapshot");
