@@ -43,6 +43,8 @@ function parseRuntimeTimetable(value=""){
 }
 function repairItem(item){
   let fixed={...item};
+  const title=cleanTitle(fixed.title||"");
+  if(/(^|\s)(парк|сад)(\s|$)/i.test(title)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар)/i.test(title)&&!["walk","viewpoint"].includes(fixed.category))fixed={...fixed,category:"walk",subtype:"park",indoor:false,includesFood:false};
   if(semanticBar(fixed)&&["dinner","cafe"].includes(fixed.category))fixed={...fixed,category:"bar",subtype:/винн|wine/i.test(fixed.title||"")?"wine":/джаз|piano|пиано/i.test(fixed.title||"")?"jazz":"cocktail",includesFood:false};
   if(!fixed.weeklyHours&&String(fixed.timetable||"").trim()){
     const parsed=parseRuntimeTimetable(fixed.timetable);
@@ -122,7 +124,18 @@ function editorialWhy(plan,filters){
 }
 function enrichPlan(plan,filters){if(!plan)return plan;return {...plan,title:editorialTitle(plan),coverImage:chooseCover(plan,filters),why:editorialWhy(plan,filters),story:editorialStory(plan)};}
 
-export function generateDates(args){const guarded=guardedArgs(args),filters=guarded.filters||{};return base.generateDates(guarded).map((plan)=>enrichPlan(plan,filters));}
+export function generateDates(args){
+  const guarded=guardedArgs(args),filters=guarded.filters||{},used=new Set();
+  return base.generateDates(guarded).map((plan)=>{
+    let enriched=enrichPlan(plan,filters),title=enriched.title;
+    if(used.has(title)){
+      const hint=CATEGORY_LABEL[enriched.items?.[0]?.category]||shortVenueTitle(enriched.items?.[0]?.title||"",24);
+      title=`${title} — ${hint}`;
+    }
+    used.add(title);
+    return {...enriched,title};
+  });
+}
 export function replacePlanItem(args){const guarded=guardedArgs(args),filters=guarded.filters||{};return enrichPlan(base.replacePlanItem(guarded),filters);}
 export const planRows=base.planRows;
 export const formatMoney=base.formatMoney;
