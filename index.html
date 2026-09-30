@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles-final.css?v=oct1&invite=2">
+  <link rel="stylesheet" href="./styles-final.css?v=oct1&invite=3">
   <link rel="stylesheet" href="./motion-final.css?v=motion2">
   <link rel="stylesheet" href="./october-reference.css?v=ref2&rollback=2&portrait=1">
   <title>1001 Dates — октябрь 2026 в Москве</title>
@@ -357,8 +357,8 @@
 
         <div class="invite-actions">
           <button class="secondary" id="calendarInvite" type="button">В календарь</button>
-          <button class="secondary" id="copyInvite" type="button">Скопировать</button>
-          <button class="secondary invite-download" id="downloadInvite" type="button"><span>Скачать PNG</span><span aria-hidden="true">↓</span></button>
+          <button class="secondary" id="copyInvite" type="button">Скопировать ссылку</button>
+          <button class="secondary invite-download" id="downloadInvite" type="button"><span>Сохранить открытку</span><span aria-hidden="true">↓</span></button>
           <button class="primary" id="shareInvite" type="button"><span>Отправить приглашение</span><span aria-hidden="true">→</span></button>
         </div>
       </div>
@@ -366,7 +366,43 @@
   </section>
 </div>
 
-<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=2"></script>
+<div class="overlay" id="sharedInviteOverlay" aria-hidden="true" data-dismiss="false">
+  <section class="screen invite-screen shared-invite-screen" role="dialog" aria-modal="true" aria-labelledby="sharedInviteTitle">
+    <header class="screen-head">
+      <div><div class="eyebrow">1001 DATES</div><h2 id="sharedInviteTitle">Вас пригласили</h2></div>
+      <button class="close" id="sharedInviteClose" type="button" data-close="#sharedInviteOverlay" aria-label="Закрыть">×</button>
+    </header>
+    <div class="screen-scroll">
+      <div class="shared-invite-wrap">
+        <div class="shared-invite-lead"><div class="eyebrow">ПРИГЛАШЕНИЕ НА СВИДАНИЕ</div><p id="sharedInviteMeta"></p></div>
+        <div class="poster" id="sharedInvitePoster"></div>
+        <div class="shared-invite-actions">
+          <button class="secondary" id="sharedInviteSave" type="button"><span>Сохранить открытку</span><span aria-hidden="true">↓</span></button>
+          <button class="primary" id="sharedInviteHome" type="button"><span>Открыть 1001 Dates</span><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="overlay" id="inviteSaveOverlay" aria-hidden="true" data-dismiss="false">
+  <section class="screen invite-screen invite-save-screen" role="dialog" aria-modal="true" aria-labelledby="inviteSaveTitle">
+    <header class="screen-head">
+      <button class="back-button" type="button" data-close="#inviteSaveOverlay" aria-label="Назад">←</button>
+      <div><div class="eyebrow">1001 DATES</div><h2 id="inviteSaveTitle">Открытка готова</h2></div>
+      <button class="close" type="button" data-close="#inviteSaveOverlay" aria-label="Закрыть">×</button>
+    </header>
+    <div class="screen-scroll">
+      <div class="invite-save-wrap">
+        <p class="invite-save-hint">На iPhone зажмите изображение и выберите «Сохранить в Фото».</p>
+        <img class="invite-save-image" id="inviteSaveImage" alt="Открытка-приглашение на свидание">
+        <a class="invite-save-file" id="inviteSaveDirect" href="#" download="1001-dates.png">Скачать PNG-файл</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3"></script>
 <script type="module" src="./motion-final.js?v=motion2"></script>
 </body>
 </html>
