@@ -1,17 +1,17 @@
-const CACHE="1001-dates-reference-ui-v16";
+const CACHE="1001-dates-reference-ui-v17";
 const CORE=[
   "./",
   "./index.html",
   "./styles-final.css?v=oct1",
   "./motion-final.css?v=motion2",
-  "./october-reference.css?v=ref2&rollback=2",
-  "./app-final.js?v=oct5&rollback=2",
+  "./october-reference.css?v=ref2&rollback=2&portrait=1",
+  "./app-final.js?v=oct5&rollback=2&portrait=1",
   "./engine-v14.js?v=duration5",
   "./scenario-visuals.js?v=1",
   "./engine.js?base=duration5",
   "./data/seed.js",
   "./data/scenarios.js",
-  "./manifest.webmanifest",
+  "./manifest.webmanifest?v=portrait1",
   "./assets/icon.svg?v=2"
 ];
 const SNAPSHOT_PATH="/data/kudago.generated.js";

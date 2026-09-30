@@ -8,6 +8,12 @@
   "background_color": "#efe1d0",
   "theme_color": "#efe1d0",
   "icons": [
-    { "src": "./assets/icon.svg?v=2", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
-  ]
+    {
+      "src": "./assets/icon.svg?v=2",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait-primary"
 }
