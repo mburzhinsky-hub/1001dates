@@ -2,6 +2,7 @@ import {seedPlaces,seedEvents} from "./data/seed.js";
 import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
 import {generateDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5";
 import {selectScenarioCover} from "./scenario-visuals.js?v=1";
+import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress} from "./preparation.js?v=1";
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const FILTERS_KEY="1001dates.filters.v11", PROFILE_KEY="1001dates.profile.v11", SAVED_KEY="1001dates.saved.v1";
@@ -11,7 +12,7 @@ const ZONES={any:"Вся Москва",center:"Центр",city:"Москва-С
 const OCTOBER_HERO_IMAGE="https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg";
 const FOCUSABLE='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 let state={...DEFAULTS,...loadJSON(FILTERS_KEY,{})}; if(!Array.isArray(state.vibes)||!state.vibes.length)state.vibes=["romantic"];
-let profile=normalizeProfile(loadJSON(PROFILE_KEY,{})),savedDates=loadJSON(SAVED_KEY,[]),latestPlans=[],activePlanIndex=null,activeFilters=null,variationSeed=0,currentAnchor=null,inviteTheme="warm",inviteReveal="secret",focusStack=[],libraryTab="dates"; if(!Array.isArray(savedDates))savedDates=[];
+let profile=normalizeProfile(loadJSON(PROFILE_KEY,{})),savedDates=loadJSON(SAVED_KEY,[]),preparationStore=loadJSON(PREPARATION_KEY,{}),latestPlans=[],activePlanIndex=null,activeFilters=null,variationSeed=0,currentAnchor=null,inviteTheme="warm",inviteReveal="secret",focusStack=[],libraryTab="dates"; if(!Array.isArray(savedDates))savedDates=[];if(!preparationStore||typeof preparationStore!=="object"||Array.isArray(preparationStore))preparationStore={};
 const places=dedupe([...seedPlaces,...kudagoPlaces].map(sanitize)),events=dedupe([...seedEvents,...kudagoEvents].map(sanitize));
 const DATA_START=kudagoMeta?.windowStart||localISODate(), DATA_END=kudagoMeta?.windowEnd||DATA_START;
 
