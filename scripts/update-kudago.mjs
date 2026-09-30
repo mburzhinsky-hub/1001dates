@@ -38,6 +38,7 @@ function classifyPlace(categories=[], title="", description="") {
   const fallback=`${primary} ${String(description||"").toLowerCase().replace(/ё/g,"е")}`;
   const strongBar=/(^|[^а-яa-z])(бар|паб|pub|bar)([^а-яa-z]|$)|гастробар|пивная|cocktail\s*bar|wine\s*bar/i;
   if (strongBar.test(titleText)) return "bar";
+  if (/(^|\s)(парк|сад)(\s|$)/i.test(titleText)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар)/i.test(titleText)) return "walk";
   if (/restaurant|restaurants|ресторан|гастроном/.test(primary)) return "dinner";
   if (/coffee|coffee-shop|кофейн|\bcafe\b|(?:^|[^а-я])кафе(?:[^а-я]|$)|(?:^|[^а-я])чай(?:[^а-я]|$)|чайная/.test(primary)) return "cafe";
   if (/dessert|ice-cream|кондитер|морожен|десерт/.test(primary)) return "dessert";
