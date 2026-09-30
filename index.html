@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#efe1d0">
+  <meta name="theme-color" content="#f3e5d6">
   <meta name="description" content="1001 Dates — октябрьские сценарии свиданий в Москве на весь месяц: места, события, время и бюджет.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icon.svg?v=2" type="image/svg+xml">
@@ -12,43 +12,123 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles-final.css?v=oct1">
   <link rel="stylesheet" href="./motion-final.css?v=motion2">
+  <link rel="stylesheet" href="./october-reference.css?v=ref1">
   <title>1001 Dates — октябрь 2026 в Москве</title>
 </head>
 <body>
 <header class="topbar shell">
   <a class="brand" href="#top" aria-label="1001 Dates"><span>1001</span> Dates</a>
+  <div class="topbar-note desktop-only"><i></i><span>Больше чем свидания</span></div>
   <button class="top-link desktop-only" id="libraryButton" type="button">Мои свидания <b id="libraryCount" hidden>0</b></button>
 </header>
 
 <main id="top">
   <section class="hero shell" aria-labelledby="heroTitle">
-    <div class="hero-card">
+    <div class="hero-card reference-hero">
       <div class="hero-media" aria-hidden="true">
-        <img id="homeHeroImage" src="https://media.kudago.com/images/place/a6/54/a6549e6c298c995a05a5ccab6af0f8a8.jpg" alt="" fetchpriority="high" decoding="async">
+        <img id="homeHeroImage" src="https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg" alt="" fetchpriority="high" decoding="async">
         <div class="hero-vignette"></div>
       </div>
-      <div class="hero-content">
-        <div class="hero-brandline"><span>МОСКВА</span><i></i><span id="seasonMonthLabel">ОКТЯБРЬ 2026</span></div>
-        <h1 id="heroTitle"><span id="seasonMonthTitle">Октябрь</span> создан<br><em>для нас.</em></h1>
-        <p class="hero-copy" id="seasonCopy">Идеи свиданий на весь месяц: актуальные события, любимые места и готовые маршруты под ваше время, бюджет и настроение.</p>
+      <div class="hero-glow" aria-hidden="true"></div>
 
-        <div class="season-stats" aria-label="Октябрьская база">
-          <div><b id="seasonDays">31</b><span>день</span></div>
-          <div><b id="seasonEvents">297</b><span>событий</span></div>
-          <div><b id="seasonPlaces">578</b><span>мест</span></div>
+      <div class="hero-layout">
+        <div class="hero-editorial">
+          <div class="hero-brandline"><span>МОСКВА</span><i></i><span id="seasonMonthLabel">ОКТЯБРЬ 2026</span></div>
+          <div class="hero-kicker"><span>БОЛЬШЕ ЧЕМ СВИДАНИЯ</span><i></i><span aria-hidden="true">♡</span></div>
+          <h1 id="heroTitle"><span id="seasonMonthTitle">Октябрь</span><br><em>создан для нас.</em></h1>
+          <p class="hero-copy" id="seasonCopy">Идеи свиданий на весь месяц: актуальные события, любимые места и готовые маршруты под ваше время, бюджет и настроение.</p>
+
+          <div class="season-ledger" aria-label="Октябрьская база">
+            <div class="season-stat">
+              <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg></span>
+              <b id="seasonPlaces">578</b><small>мест</small>
+            </div>
+            <div class="season-stat">
+              <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5h16v3a2.5 2.5 0 0 0 0 5v3H4v-3a2.5 2.5 0 0 0 0-5v-3Z"/><path d="M9 7.5v11"/></svg></span>
+              <b id="seasonEvents">297</b><small>событий</small>
+            </div>
+            <div class="season-stat">
+              <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M8 3.5v4M16 3.5v4M4 10h16"/></svg></span>
+              <b id="seasonDays">31</b><small>день</small>
+            </div>
+          </div>
+
+          <div class="launch-actions reference-actions">
+            <button class="primary" id="quickGenerate" type="button"><span>Открыть идеи на октябрь</span><span aria-hidden="true">→</span></button>
+            <button class="secondary light" id="surprise" type="button">✦ Удиви меня</button>
+          </div>
+
+          <div class="hero-promises" aria-label="Преимущества">
+            <div><span class="promise-icon" aria-hidden="true">◷</span><b>Под любое время</b></div>
+            <div><span class="promise-icon" aria-hidden="true">◉</span><b>Под любой бюджет</b></div>
+            <div><span class="promise-icon" aria-hidden="true">♡</span><b>Под ваше настроение</b></div>
+          </div>
         </div>
 
-        <div class="summary-grid" aria-label="Текущие параметры">
+        <div class="hero-device-wrap" aria-label="Как выглядит подборка">
+          <div class="device-shell">
+            <div class="device-notch" aria-hidden="true"></div>
+            <div class="device-appbar">
+              <div><b>1001 Dates</b><span>МОСКВА⌄</span></div>
+              <span class="device-heart" aria-hidden="true">♥</span>
+            </div>
+            <div class="device-month-nav" aria-label="Месяц подборки">
+              <span>‹</span><span>Сен</span><b id="deviceMonth">Октябрь 2026</b><span>Ноя</span><span>›</span><span class="device-calendar" aria-hidden="true">▣</span>
+            </div>
+
+            <button class="device-feature" id="deviceGenerate" type="button" aria-label="Собрать октябрьский сценарий">
+              <img src="https://media.kudago.com/images/place/a4/d1/a4d11e1a1f20d1bbeb3f93fab5eb8aee.jpg" alt="" loading="eager">
+              <span class="device-feature-shade"></span>
+              <span class="device-date" id="devicePreviewDate">14 октября</span>
+              <span class="device-save" aria-hidden="true">♡</span>
+              <span class="device-feature-copy">
+                <strong>Ваш вечер в Москве</strong>
+                <small>Маршрут, места и актуальное событие — уже собраны в один сценарий.</small>
+                <span class="device-chips">
+                  <i>♥ <span id="devicePreviewVibe">романтично</span></i>
+                  <i>◷ <span id="devicePreviewDuration">3 часа</span></i>
+                  <i>₽ <span id="devicePreviewBudget">до 7 000 ₽</span></i>
+                </span>
+              </span>
+            </button>
+
+            <div class="device-ideas-head">
+              <b>Идеи на октябрь</b>
+              <button type="button" data-open-filter>Смотреть все →</button>
+            </div>
+            <div class="device-tiles">
+              <button class="device-tile tall" type="button" data-open-filter>
+                <img src="https://media.kudago.com/images/place/63/de/63deea586d31e8cdc9b464e6d298747f.png" alt="" loading="lazy">
+                <span><b>Мастер-класс</b><small>Творить вместе</small></span>
+              </button>
+              <button class="device-tile" type="button" data-open-filter>
+                <img src="https://media.kudago.com/images/place/72/fd/72fdca056b037c8f7eff5ac304d73282.jpg" alt="" loading="lazy">
+                <span><b>Концерт</b><small>Живая атмосфера</small></span>
+              </button>
+              <button class="device-tile" type="button" data-open-filter>
+                <img src="https://media.kudago.com/images/place/93/82/9382326f165ab8b8368748965cba0fbe.jpg" alt="" loading="lazy">
+                <span><b>Кофе</b><small>Уютные разговоры</small></span>
+              </button>
+              <button class="device-tile wide" type="button" data-open-filter>
+                <img src="https://media.kudago.com/images/place/04/57/0457723ead218dfe634a156e32e72b13.jpg" alt="" loading="lazy">
+                <span><b>Музей</b><small>Культура сближает</small></span>
+              </button>
+              <button class="device-tile wide" type="button" data-open-filter>
+                <img src="https://media.kudago.com/images/place/f7/90/f79044eeb4b682b5afbeb577e988f1b1.jpg" alt="" loading="lazy">
+                <span><b>Видовая точка</b><small>Город влюбляет</small></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-control-dock" aria-label="Текущие параметры">
+        <div class="summary-grid">
           <button class="summary-chip" data-open-filter type="button"><span>Дата</span><b id="quickDate">Сегодня</b></button>
           <button class="summary-chip" data-open-filter type="button"><span>Время</span><b id="quickTime">19:00</b></button>
           <button class="summary-chip" data-open-filter type="button"><span>Бюджет</span><b id="quickBudget">до 7 000 ₽</b></button>
           <button class="summary-chip" data-open-filter type="button"><span>Длительность</span><b id="quickDuration">3 часа</b></button>
-          <button class="summary-chip wide" data-open-filter type="button"><span>Атмосфера</span><b id="quickVibe">Романтично</b></button>
-        </div>
-
-        <div class="launch-actions">
-          <button class="primary" id="quickGenerate" type="button"><span>Подобрать свидания</span><span aria-hidden="true">→</span></button>
-          <button class="secondary light" id="surprise" type="button">✦ Удиви меня</button>
+          <button class="summary-chip wide" data-open-filter type="button"><span>Атмосфера</span><b id="quickVibe">Романтика</b></button>
         </div>
       </div>
     </div>
@@ -281,7 +361,7 @@
   </section>
 </div>
 
-<script type="module" src="./app-final.js?v=oct2"></script>
+<script type="module" src="./app-final.js?v=oct3"></script>
 <script type="module" src="./motion-final.js?v=motion2"></script>
 </body>
 </html>
