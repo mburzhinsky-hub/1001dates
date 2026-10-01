@@ -1,4 +1,4 @@
-import { itemCoordinates as engineCoordinates, distanceKm, estimateTransferMinutes } from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=1";
+import { itemCoordinates as engineCoordinates, distanceKm, estimateTransferMinutes } from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=2";
 
 const LEAFLET_CSS="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css";
 const LEAFLET_JS="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js";
@@ -59,8 +59,22 @@ function loadLeaflet(){
   });
   return leafletPromise;
 }
-function numberedIcon(L,index){
-  return L.divIcon({className:"scenario-map-marker-shell",html:`<span class="scenario-map-marker">${index}</span>`,iconSize:[34,34],iconAnchor:[17,17]});
+function numberedIcon(L,index,offsetX=0){
+  return L.divIcon({className:"scenario-map-marker-shell",html:`<span class="scenario-map-marker">${index}</span>`,iconSize:[34,34],iconAnchor:[17-offsetX,17]});
+}
+// Chapters inside one venue complex (a museum with a bistro, an exhibition at VDNH) share almost the same coordinates.
+// Their numbered pins are fanned out sideways in screen pixels so every chapter stays visible and clickable.
+export const MARKER_CLUSTER_KM=0.15, MARKER_FAN_PX=38;
+export function markerFanOffsets(points){
+  const offsets=points.map(()=>0),seen=new Set();
+  points.forEach((point,i)=>{
+    if(seen.has(i))return;
+    const group=[i];
+    points.forEach((other,j)=>{if(j!==i&&!seen.has(j)&&distanceKm({coords:{lat:point.lat,lon:point.lng}},{coords:{lat:other.lat,lon:other.lng}})<MARKER_CLUSTER_KM)group.push(j)});
+    group.forEach(j=>seen.add(j));
+    if(group.length>1)group.forEach((j,k)=>{offsets[j]=Math.round((k-(group.length-1)/2)*MARKER_FAN_PX)});
+  });
+  return offsets;
 }
 export function destroyScenarioMap(container){
   if(!container)return;
@@ -81,8 +95,9 @@ export async function renderScenarioMap(container,plan,{onMarker=null}={}){
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
     const latLngs=points.map(p=>[p.lat,p.lng]);
     L.polyline(latLngs,{weight:3,opacity:.72,dashArray:"8 8",interactive:false}).addTo(map);
-    points.forEach(point=>{
-      const marker=L.marker([point.lat,point.lng],{icon:numberedIcon(L,point.index)}).addTo(map);
+    const fan=markerFanOffsets(points);
+    points.forEach((point,i)=>{
+      const marker=L.marker([point.lat,point.lng],{icon:numberedIcon(L,point.index,fan[i])}).addTo(map);
       marker.on("click",()=>onMarker?.(point));
     });
     map.fitBounds(L.latLngBounds(latLngs),{padding:[34,34],maxZoom:15});

@@ -29,6 +29,13 @@ export function needsTickets(item){
   return false;
 }
 
+// Activities with a time slot (quests, workshops, karting...) are booked by time, not bought as a ticket.
+const SLOT_SUBTYPES=new Set(["climbing","karting","mini_golf","dance","workshop","pottery","painting","cooking","games","bowling","billiards","vr","quest","karaoke"]);
+export function needsSlotBooking(item){
+  if(item?.category!=="activity")return false;
+  return SLOT_SUBTYPES.has(String(item?.subtype||"").toLowerCase())||/скалодром|картинг|мини.?гольф|танц|квест|боулинг|бильярд|vr|виртуал|мастер.?класс|караоке|лазертаг/i.test(text(item));
+}
+
 export function buildPreparationTasks(plan,filters={}){
   const tasks=[
     {id:"calendar",type:"calendar",title:"Добавить в календарь",subtitle:`${formatPrepDate(filters.date)} · ${filters.time||""}`.replace(/^ · /,"").trim()},
@@ -36,12 +43,13 @@ export function buildPreparationTasks(plan,filters={}){
   ];
   for(const item of plan?.items||[]){
     if(needsTickets(item)){
-      const freeEvent=item.category==="event"&&Number(item.costForTwo||0)<=0;
+      const freeEvent=item.category==="event"&&Number(item.costForTwo||0)<=0,slot=needsSlotBooking(item);
       tasks.push({
         id:`ticket:${item.id}`,type:"ticket",
-        title:freeEvent?"Проверить вход и регистрацию":"Купить билеты",
+        title:freeEvent?"Проверить вход и регистрацию":slot?"Записаться на время":"Купить билеты",
         itemTitle:item.title,
-        subtitle:freeEvent?"Проверьте условия входа и нужна ли регистрация":"Лучше проверить и купить заранее",
+        subtitle:freeEvent?"Проверьте условия входа и нужна ли регистрация":slot?"Удобное время лучше занять заранее":"Лучше проверить и купить заранее",
+        linkLabel:slot?"Открыть запись ↗":"Открыть билеты ↗",
         url:preparationUrl(item)
       });
     }

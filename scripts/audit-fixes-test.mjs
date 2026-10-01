@@ -2,8 +2,12 @@
 // night plans respect opening hours, the calendar file is time-zone safe, 6-hour dates stay fast.
 import { seedPlaces, seedEvents } from "../data/seed.js";
 import { kudagoPlaces, kudagoEvents, kudagoMeta } from "../data/kudago.generated.js";
-import { generateDates, replacePlanItem, generateNearbyDates, repairScenarioItem } from "../engine-v14.js?v=duration5";
-import { buildCalendarICS, buildPreparationTasks } from "../preparation.js";
+import { generateDates, replacePlanItem, generateNearbyDates, repairScenarioItem, generateTemplateDates } from "../engine-v14.js?v=duration5";
+import { scenarioBlueprints } from "../data/scenarios.js";
+import { selectScenarioCover, scenarioImageUsable } from "../scenario-visuals.js";
+import { scenarioMapPoints } from "../scenario-map.js";
+import { readFileSync } from "node:fs";
+import { buildCalendarICS, buildPreparationTasks, needsSlotBooking } from "../preparation.js";
 
 function assert(c, m) { if (!c) throw new Error(m); }
 const places = [...seedPlaces, ...kudagoPlaces], events = [...seedEvents, ...kudagoEvents];
@@ -97,5 +101,69 @@ assert(repairScenarioItem({ id: "x3", title: "Парк Горького", catego
   const filters = { ...plans[0].filters };
   const next = replacePlanItem({ plan: plans[0], itemIndex: 0, places, events, filters, variationSeed: 11 });
   assert(next.nearby && Number.isFinite(next.nearby.startDistanceKm), "nearby summary lost after replacing a chapter");
+}
+// 9. Scenario audit: every blueprint must fit its duration together with the hidden transfers between chapters.
+{
+  const EV = { exhibition: 80, lecture: 90, excursion: 100, concert: 110, theater: 130, standup: 100, movie: 120, show: 105, festival: 105, party: 120, event: 105 };
+  const nominal = (s) => (!s.useItemDuration ? Number(s.minutes || 60) : EV[(String(s.select).split(":")[1] || "event").split("|")[0]] || 105);
+  for (const b of scenarioBlueprints) {
+    const total = b.slots.reduce((a, s) => a + nominal(s), 0) + 8 * (b.slots.length - 1);
+    assert(total <= b.duration + 5, `${b.id}: chapters (${total} min with the shortest transfers) can never fit ${b.duration} min`);
+    assert(b.concept && b.concept.length <= 48, `${b.id}: concept is empty or too long for a card title`);
+  }
+}
+
+// 10. Scenario audit: every chapter of every generated plan can be shown on the map, opened, and described;
+// the cover is the photo of the main chapter; no two food or two exhibition chapters sit on one spot.
+{
+  const eating = (x) => ["cafe", "dessert", "dinner", "bar"].includes(x.category), visiting = (x) => ["art", "event"].includes(x.category);
+  const km = (a, b) => { const R = 6371, r = (x) => x * Math.PI / 180, dp = r(b.lat - a.lat), dl = r(b.lon - a.lon), q = Math.sin(dp / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dl / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(q)); };
+  let checked = 0;
+  for (let n = 1; n <= scenarioBlueprints.length; n += 9) {
+    const b = scenarioBlueprints[n - 1];
+    const hasFood = b.slots.some((s) => ["cafe", "dessert", "dinner"].includes(String(s.select).split(":")[0]));
+    for (const time of b.dayparts?.includes("morning") ? ["10:00"] : ["13:00", "19:00"]) {
+      const filters = { ...base, date: day(10), time, duration: b.duration, budget: 999999, vibes: [b.vibes[0]], food: hasFood };
+      const plan = generateTemplateDates({ places, events, filters, templateId: b.id, count: 1 })[0];
+      if (!plan) continue;
+      checked++;
+      assert(scenarioMapPoints(plan).length === plan.items.length, `${b.id}: a chapter has no coordinates and is missing from the map`);
+      for (const item of plan.items) {
+        assert(item.sourceUrl || item.officialUrl, `${b.id}: «${item.title}» has no link`);
+        assert(String(item.description || "").trim().length >= 20, `${b.id}: «${item.title}» has no description`);
+      }
+      const cover = selectScenarioCover(plan);
+      assert(plan.coverImage === cover, `${b.id}: engine cover differs from the cover shown on the card`);
+      if (cover) assert(scenarioImageUsable(cover) && plan.items.some((i) => i.image === cover), `${b.id}: cover is not a photo of a chapter`);
+      for (let i = 0; i < plan.items.length; i++) for (let j = i + 1; j < plan.items.length; j++) {
+        const [x, y] = [plan.items[i], plan.items[j]];
+        if (km({ lat: x.coords.lat, lon: x.coords.lon }, { lat: y.coords.lat, lon: y.coords.lon }) < 0.03) assert(!((eating(x) && eating(y)) || (visiting(x) && visiting(y))), `${b.id}: «${x.title}» and «${y.title}» are one spot`);
+      }
+    }
+  }
+  assert(checked > 40, `scenario sample produced only ${checked} plans`);
+}
+
+// 11. Coffee shops and pastry shops filed under restaurants are found by cafe and dessert slots.
+{
+  const cafe = repairScenarioItem({ id: "kudago-t1", title: "Кофейня «Тест»", category: "dinner", subtype: "breakfast", coords: { lat: 55.75, lon: 37.6 } });
+  assert(cafe.category === "cafe", "coffee shop stays a restaurant");
+  const sweets = repairScenarioItem({ id: "kudago-t2", title: "кондитерская «Тест»", category: "dinner", coords: { lat: 55.75, lon: 37.6 } });
+  assert(sweets.category === "dessert", "pastry shop stays a restaurant");
+}
+
+// 12. Planner wording: slot-based activities are booked by time, not bought as tickets.
+{
+  const quest = { id: "q", title: "Квест", category: "activity", subtype: "quest", costForTwo: 3000, sourceUrl: "https://example.com/q" };
+  assert(needsSlotBooking(quest), "quest should be booked by time slot");
+  const task = buildPreparationTasks({ items: [quest] }, { date: day(3), time: "19:00" }).find((t) => t.type === "ticket");
+  assert(task && task.title === "Записаться на время" && /запись/i.test(task.linkLabel), "quest task wording");
+}
+
+// 13. UI: chapter counts decline correctly and long evenings do not break the invite poster.
+{
+  const app = readFileSync(new URL("../app-final.js", import.meta.url), "utf8");
+  assert(!/\$\{[^}]*\}\s*главы/.test(app), "hard-coded «N главы» label is back");
+  assert(app.includes("chaptersLabel(") && app.includes("posterTitles("), "plural helper or poster row limiter missing");
 }
 console.log("Audit fixes OK");

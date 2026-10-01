@@ -1,4 +1,4 @@
-import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1&fix=1";
+import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1&fix=2";
 
 const FOOD_CATEGORIES = new Set(["cafe", "dessert", "dinner"]);
 
@@ -431,6 +431,20 @@ function normalizeVenueTitleUncached(value="") {
 
 // A search-effort cap keeps long (5-6 chapter) dates from freezing the page when few combinations fit geography.
 const MAX_SEARCH_NODES = 6000;
+// Two different catalogue entries can describe the very same building (an exhibition event inside the museum it is held in,
+// two cafes of one bookshop). A date must not spend two chapters on one spot.
+const SPOT_KM = 0.03;
+function sameSpotRepeat(acc, item) {
+  const eating = (x) => FOOD_CATEGORIES.has(x.category) || x.category === "bar";
+  const visiting = (x) => x.category === "art" || x.category === "event";
+  for (const other of acc) {
+    const distance = haversineKm(other, item);
+    if (distance === null || distance >= SPOT_KM) continue;
+    if (eating(other) && eating(item)) return true;
+    if (visiting(other) && visiting(item)) return true;
+  }
+  return false;
+}
 function cartesianLimited(pools, filters, template, limit=180) {
   const result = [];
   let visited = 0;
@@ -438,7 +452,7 @@ function cartesianLimited(pools, filters, template, limit=180) {
     if (result.length >= limit || visited >= MAX_SEARCH_NODES) return;
     if (index === pools.length) { result.push(acc.slice()); return; }
     for (const item of pools[index]) {
-      if (acc.some((x) => x.id === item.id || normalizedVenueTitle(x.title) === normalizedVenueTitle(item.title))) continue;
+      if (acc.some((x) => x.id === item.id || normalizedVenueTitle(x.title) === normalizedVenueTitle(item.title)) || sameSpotRepeat(acc, item)) continue;
       visited++;
       acc.push(item);
       // Prune impossible geography immediately instead of wasting the candidate budget on cross-city combinations.

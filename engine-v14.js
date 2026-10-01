@@ -1,10 +1,10 @@
-import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=1";
+import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=2";
+import {pickScenarioCover} from "./scenario-visuals.js?v=2";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
 const GENERIC=new Set(["сеть","ресторан","ресторанов","кафе","кофейня","кофеен","бар","баров","паб","бистро","клуб","клубов","гастробар","пиццерия","кондитерская","restaurant","cafe","coffee","bar","pub","bistro","club"]);
 const GENERIC_TITLE=/^(?:торговый центр|торгово-развлекательный центр|торговый комплекс|трц|тц|развлекательный центр|культурный центр|арт[- ]?пространство|пространство|центр|кафе|кофейня|ресторан|бар|паб|парк|сад|музей|галерея|выставка|театр|кинотеатр|клуб)$/i;
-const COVER_WEIGHT={art:11,viewpoint:10,activity:9,dinner:8,dessert:7,cafe:6,walk:5,event:3,bar:3};
 const VIBE_WORD={romantic:"романтичный",fun:"весёлый",unusual:"необычный",calm:"спокойный",active:"активный"};
 const CATEGORY_LABEL={art:"искусство",viewpoint:"панорама",activity:"активность",dinner:"ужин",dessert:"десерт",cafe:"кофе",walk:"прогулка",event:"событие",bar:"бар"};
 const LIVE_MIN={dinner:18,cafe:8,bar:8,dessert:6,walk:30,viewpoint:8,art:30,activity:30};
@@ -17,7 +17,7 @@ function coords(item){const a=item?.coords?.lat,b=item?.coords?.lon;if(a==null||
 function distanceKm(a,b){const R=6371,r=(x)=>x*Math.PI/180,dp=r(b.lat-a.lat),dl=r(b.lon-a.lon),q=Math.sin(dp/2)**2+Math.cos(r(a.lat))*Math.cos(r(b.lat))*Math.sin(dl/2)**2;return 2*R*Math.asin(Math.sqrt(q));}
 function live(item){return String(item?.id||"").startsWith("kudago-");}
 function semanticBar(item){const t=cleanTitle(item?.title||"");return item?.category==="bar"||/(^|\s)(бар|паб|pub|bar)(\s|$)|гастробар|пивная|cocktail bar|wine bar/i.test(t);}
-function titleSane(item){const t=cleanTitle(item?.title||"");if(!t||GENERIC_TITLE.test(t))return false;if(/^сеть\s+/.test(t)&&(!item.address||/^(москва|центр москвы)$/i.test(String(item.address))))return false;if(/детск(?:ий|ая|ое|ие)|для детей|для малышей/i.test(t))return false;if(item.category==="event"&&(/^\d[\d\s./-]*$/.test(t)||t.replace(/[^a-zа-я0-9]/gi,"").length<4))return false;if(item.category==="cafe"&&/(собор|храм|церков|музей|галере|парк|сад|театр|стадион|торгов)/i.test(t))return false;if(item.category==="bar"&&/(парк|сад|музей|галере|собор|храм|церков|стадион|торгов)/i.test(t))return false;if(item.category==="dinner"&&/(парк|сад|музей|галере|собор|храм|церков|стадион|торгов)/i.test(t)&&!/(ресторан|кафе|бистро|гастро)/i.test(t))return false;if(item.category==="dessert"&&/(фабрик|завод|парк|сад|музей|галере|театр|трц|торгов)/i.test(t)&&!/(кондитер|десерт|морож|джелат|шоколадн|пекар|cake|gelato)/i.test(t))return false;return true;}
+function titleSane(item){const t=cleanTitle(item?.title||"");if(!t||GENERIC_TITLE.test(t))return false;if(/^сеть\s+/.test(t)&&(!item.address||/^(москва|центр москвы)$/i.test(String(item.address))))return false;if(/детск(?:ий|ая|ое|ие)|для детей|для малышей/i.test(t))return false;if(item.category==="event"&&(/^\d[\d\s./-]*$/.test(t)||t.replace(/[^a-zа-я0-9]/gi,"").length<4))return false;if(item.category==="cafe"&&/(собор|храм|церков|музей|галере|парк|сад|театр|стадион|торгов|коворкинг|гостиниц|отель)/i.test(t))return false;if(item.category==="bar"&&/(парк|сад|музей|галере|собор|храм|церков|стадион|торгов)/i.test(t))return false;if(item.category==="dinner"&&/(парк|сад|музей|галере|собор|храм|церков|стадион|торгов)/i.test(t)&&!/(ресторан|кафе|бистро|гастро)/i.test(t))return false;if(item.category==="dinner"&&/(курорт|банкетн|стендап)/i.test(t))return false;if(item.category==="dessert"&&/(фабрик|завод|парк|сад|музей|галере|театр|трц|торгов)/i.test(t)&&!/(кондитер|десерт|морож|джелат|шоколадн|пекар|cake|gelato)/i.test(t))return false;return true;}
 function validLive(item){const c=coords(item);return Boolean(titleSane(item)&&c&&distanceKm(CENTER,c)<=RADIUS_KM);}
 function normalizeDashes(value=""){return String(value).replace(/[−–—]/g,"-").replace(/\s*;\s*/g," ");}
 
@@ -58,6 +58,9 @@ function repairItem(item){
   if(/люмьер.?холл|мультимедийн.+выстав/i.test(text))fixed={...fixed,category:"art",subtype:"digital",indoor:true,includesFood:false};
   if(fixed.category==="art"&&/(собор|храм|церков|монастыр)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false,costForTwo:0,costEstimated:false};
   if(fixed.category==="viewpoint"&&/мост/i.test(title))fixed={...fixed,costForTwo:0,costEstimated:false,indoor:false};
+  // The live feed files coffee shops, pastry shops and the Sparrow Hills deck under restaurants / walks; put them where a date planner looks for them.
+  if(fixed.category==="dinner"&&/(^|\s)кофейн/i.test(title)&&!/ресторан/i.test(title))fixed={...fixed,category:"cafe",subtype:"coffee",includesFood:true};
+  if(fixed.category==="dinner"&&/кондитерск|джелат|gelato|мороженое/i.test(title))fixed={...fixed,category:"dessert",subtype:/джелат|gelato|мороженое/i.test(title)?"icecream":"pastry",includesFood:true};
   if(semanticBar(fixed)&&["dinner","cafe"].includes(fixed.category))fixed={...fixed,category:"bar",subtype:/винн|wine/i.test(fixed.title||"")?"wine":/джаз|piano|пиано/i.test(fixed.title||"")?"jazz":"cocktail",includesFood:false};
   if(!fixed.weeklyHours&&String(fixed.timetable||"").trim()){
     const parsed=parseRuntimeTimetable(fixed.timetable);
@@ -70,9 +73,35 @@ function repairItem(item){
   }
   return fixed;
 }
+// The live feed is thin on coffee shops, pastry shops and viewpoints, but many venues honestly play a second role:
+// a coffee-led cafe is a fine coffee or dessert stop, a famous bridge or hill is a viewpoint. Those venues are offered
+// to the matching slots as a separate entry (same real place, same coordinates, link and photo) next to the original.
+function cafeLike(item){
+  if(!live(item)||item.category!=="dinner")return false;
+  const t=cleanTitle(item.title||""),d=cleanTitle(item.description||"");
+  if(/ресторан/.test(t)&&!/кофемания/.test(t))return false;
+  if(/кофейн|кофемания/.test(t))return true;
+  if(/кафе[\s-]*(книжн|библиот|литератур)|литературное кафе|поляндрия/.test(t))return true;
+  return /(^|\s)(кафе|бистро)/.test(t)&&/(капучино|кан+ел|круассан|эспрессо|кофе(?!ман)|кофейн|фильтр|десерт|выпечк)/.test(d);
+}
+const VIEW_LIKE=/^(?:воробьевы горы|большой москворецкий мост|мост богдана хмельницкого|патриарший мост|парк зарядье|ростовская набережная|ммдц москва-сити|поклонная гора)/;
+function alternateRoles(item){
+  if(!live(item))return [];
+  const out=[],t=cleanTitle(item.title||"");
+  if(cafeLike(item)){
+    const sweet=/джелат|мороженое|gelato/.test(t);
+    out.push({...item,id:`${item.id}~cafe`,category:"cafe",subtype:"coffee",duration:Math.min(Number(item.duration)||45,60),costForTwo:Math.min(Number(item.costForTwo)||1800,1800),costEstimated:true,includesFood:true});
+    out.push({...item,id:`${item.id}~dessert`,category:"dessert",subtype:sweet?"icecream":"pastry",duration:Math.min(Number(item.duration)||45,55),costForTwo:Math.min(Number(item.costForTwo)||1500,1500),costEstimated:true,includesFood:true});
+  }
+  if(item.category==="walk"&&VIEW_LIKE.test(t))out.push({...item,id:`${item.id}~view`,category:"viewpoint",subtype:"observation",indoor:false,includesFood:false,duration:Math.min(Number(item.duration)||40,45),costForTwo:0,costEstimated:false,weeklyHours:Object.fromEntries([0,1,2,3,4,5,6].map(d=>[d,[["00:00","23:59"]]])),scheduleConfidence:"open_air"});
+  return out;
+}
+// Curated fallback venues carry no coordinates, so next to a live feed they would be chapters that cannot be placed on the map.
+// They are used only when there is no live feed at all (offline / first build) or when they do carry coordinates.
 function preparePlaces(items,filters,anchorItem=null){
-  const repaired=(items||[]).map(repairItem).filter(titleSane);
-  const liveValid=repaired.filter(live).filter(validLive),fallback=repaired.filter(x=>!live(x));
+  const base=(items||[]).map(repairItem).filter(titleSane);
+  const repaired=[...base,...base.flatMap(alternateRoles)];
+  const liveValid=repaired.filter(live).filter(validLive),fallback=repaired.filter(x=>!live(x)&&(!liveValid.length||coords(x)));
   const categories=new Set([...liveValid.map(x=>x.category),...fallback.map(x=>x.category)]);
   let source=[];
   for(const category of categories){
@@ -97,7 +126,7 @@ function eventHasUsableTime(item){
 }
 function prepareEvents(items,filters,anchorItem=null){
   const repaired=(items||[]).map(repairItem).filter(titleSane).filter(eventHasUsableTime);
-  const liveValid=repaired.filter(live).filter(validLive),fallback=repaired.filter(x=>!live(x));
+  const liveValid=repaired.filter(live).filter(validLive),fallback=repaired.filter(x=>!live(x)&&(!liveValid.length||coords(x)));
   const source=liveValid.length>=30?liveValid:[...liveValid,...fallback];
   const recentIds=filters?.allowRecentRepeats?new Set():new Set(filters?.recentlyShownItemIds||[]),anchorKey=anchorItem?key(anchorItem.title):null,best=new Map();
   for(const item of source){
@@ -109,9 +138,8 @@ function prepareEvents(items,filters,anchorItem=null){
 }
 function guardedArgs(args){const filters=args?.filters||{},anchorItem=args?.anchorItem||null;return {...args,places:preparePlaces(args?.places||[],filters,anchorItem),events:prepareEvents(args?.events||[],filters,anchorItem)};}
 
-function imageSuitable(item){const src=String(item?.image||"");if(!/^https?:\/\//i.test(src)||/logo|poster|banner|afisha|афиш|sprite|icon/i.test(src))return false;return titleSane(item);}
-function coverScore(item,filters,index){let score=(COVER_WEIGHT[item?.category]||4)+Math.min(10,Number(item?.quality||0));if((filters?.vibes||[]).some((v)=>item?.vibes?.includes?.(v)))score+=4;if(item?.costEstimated)score-=.5;if(index===0)score+=1;if(/торгов|трц|тц|молл|mall/i.test(String(item?.title||"")))score-=14;return score;}
-function chooseCover(plan,filters){const ranked=(plan?.items||[]).map((item,index)=>({item,index,score:coverScore(item,filters,index)})).filter(({item})=>imageSuitable(item)).sort((a,b)=>b.score-a.score);return ranked[0]?.item?.image||(/^https?:\/\//i.test(String(plan?.coverImage||""))?plan.coverImage:null);}
+// Single cover algorithm shared with the UI (scenario-visuals.js): the photo of the chapter that defines the scenario.
+function chooseCover(plan){return pickScenarioCover(plan?.items)||(/^https?:\/\//i.test(String(plan?.coverImage||""))?plan.coverImage:null);}
 function moodPhrase(filters){const words=(filters?.vibes||[]).slice(0,2).map(v=>VIBE_WORD[v]).filter(Boolean);return words.length?words.join(" и "):"сбалансированный";}
 function shortVenueTitle(value="",max=44){const t=String(value).replace(/\s+/g," ").trim();return t.length<=max?t:`${t.slice(0,max-1).trim()}…`;}
 function roleFor(plan,index){return String(plan?.template?.slots?.[index]?.role||CATEGORY_LABEL[plan?.items?.[index]?.category]||"глава").replace(/[.]+$/,"");}
@@ -137,10 +165,12 @@ function editorialStory(plan){
     return role;
   };
   const parts=items.map((item,index)=>`${freshRole(item,index)} — ${shortVenueTitle(item.title)}`);
+  // A shortened venue name ends with "…": it must not be followed by one more full stop ("…").
+  const end=(text)=>/[….!?]$/.test(text)?text:`${text}.`;
   if(parts.length===0)return"Маршрут собран под ваши условия.";
-  if(parts.length===1)return`${parts[0]}.`;
-  if(parts.length===2)return`Сначала ${parts[0]}. Затем ${parts[1]}.`;
-  return`Сначала ${parts[0]}. Затем ${parts.slice(1,-1).join(". После этого ")}. Финал — ${parts.at(-1)}.`;
+  if(parts.length===1)return end(parts[0]);
+  if(parts.length===2)return`Сначала ${end(parts[0])} Затем ${end(parts[1])}`;
+  return`Сначала ${end(parts[0])} Затем ${parts.slice(1,-1).map(end).join(" После этого ")} Финал — ${end(parts.at(-1))}`;
 }
 function editorialWhy(plan,filters){
   const bits=[];
@@ -154,7 +184,7 @@ function editorialWhy(plan,filters){
   if(plan.geo?.maxSpanKm!=null&&plan.geo.maxSpanKm>0)bits.push(`маршрут компактный: до ${plan.geo.maxSpanKm.toFixed(1).replace(".",",")} км между крайними точками`);
   return `${bits.map(b=>b.charAt(0).toUpperCase()+b.slice(1)).join(". ")}.`;
 }
-function enrichPlan(plan,filters){if(!plan)return plan;return {...plan,title:editorialTitle(plan),coverImage:chooseCover(plan,filters),why:editorialWhy(plan,filters),story:editorialStory(plan)};}
+function enrichPlan(plan,filters){if(!plan)return plan;return {...plan,title:editorialTitle(plan),coverImage:chooseCover(plan),why:editorialWhy(plan,filters),story:editorialStory(plan)};}
 
 export function diagnoseTemplate(args){return base.diagnoseTemplate(guardedArgs(args));}
 export function generateTemplateDates(args){

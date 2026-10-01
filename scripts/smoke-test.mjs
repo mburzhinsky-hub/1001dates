@@ -151,7 +151,7 @@ assert(withoutDisliked.every((plan)=>plan.items.every((item)=>item.id!==excluded
 // Date-specific event times must stay attached to their actual date. Anchoring a
 // one-day event on another date must never force it into a plan.
 const datedEvent={id:"test-occurrence",title:"Тестовая лекция",category:"event",eventType:"lecture",subtype:"lecture",zone:"center",address:"Москва",costForTwo:1000,duration:80,indoor:true,vibes:["fun","unusual","calm"],quality:10,occurrences:{"2026-08-22":["18:15"],"2026-08-23":["21:00"]}};
-const datedFilters={...base,date:"2026-08-22",time:"18:00",duration:180,vibes:["unusual"],zone:"center",food:false};
+const datedFilters={...base,date:"2026-08-22",time:"17:00",duration:180,vibes:["unusual"],zone:"center",food:false};
 const onDate=generateDates({places:seedPlaces,events:[datedEvent],filters:datedFilters,count:3,variationSeed:17,anchorItem:datedEvent});
 assert(onDate.length>0,"Date-specific event should be usable on its occurrence date");
 assert(onDate.every((plan)=>plan.items.some((item)=>item.id===datedEvent.id)),"Date-specific anchor was lost");

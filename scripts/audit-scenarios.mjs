@@ -19,7 +19,9 @@ let semanticIssues=0;
 for(const t of TEMPLATES){
   const cats=t.slots.map(baseCategory),sum=t.slots.reduce((a,b)=>a+nominal(b),0),key=`${t.duration}|${t.slots.map(selector).join(">")}`;
   assert(!selectorFlows.has(key),`${t.id}: duplicate selector flow`);selectorFlows.add(key);
-  assert(sum>=floor(t.duration)&&sum<=t.duration+5,`${t.id}: nominal duration ${sum} outside ${floor(t.duration)}..${t.duration+5}`);
+  // The planner adds a hidden 8-26 min transfer (about 12) between chapters, so the window is checked with transfers included.
+  const hops=t.slots.length-1;
+  assert(sum+8*hops>=floor(t.duration)&&sum+12*hops<=t.duration+5,`${t.id}: nominal duration ${sum} (+${hops} transfers) outside ${floor(t.duration)}..${t.duration+5}`);
   assert(cats.filter((x)=>foodCats.has(x)).length<=2,`${t.id}: too many food chapters`);
   assert(cats.filter((x)=>x==="event").length<=1,`${t.id}: more than one fixed event`);
   if(cats.includes("bar"))assert(cats.at(-1)==="bar",`${t.id}: bar is not final`);

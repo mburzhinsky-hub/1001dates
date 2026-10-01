@@ -407,7 +407,7 @@ const recipes = [
   R("6-coffee-creative-event-art-dinner",360,"event","Кофе, мастер-класс, событие, искусство и ужин",["coffee35","creative75","eventCulture","art60","dinner80"],["calm","unusual","fun","active","romantic"],3,{routeMode:"district"}),
   R("6-art-event-creative-dinner-dessert",360,"event","Искусство, событие, мастер-класс, ужин и десерт",["art60","eventCulture","creative75","dinner80","dessert35"],["romantic","unusual","fun","active"],3,{routeMode:"district"}),
   R("6-creative-event-art-dinner-dessert",360,"event","Мастер-класс, событие, искусство, ужин и десерт",["creative75","eventCulture","art60","dinner80","dessert35"],["romantic","unusual","fun","active"],3,{routeMode:"district"}),
-  R("6-art-creative-walk-view-slowactivity",360,"nofd","Искусство, совместное дело и большой городской маршрут",["art75","creative75","walk55","view45","slowActivity60"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
+  R("6-art-creative-walk-view-slowactivity",360,"nofd","Искусство, мастерская и большой маршрут",["art75","creative75","walk55","view45","slowActivity60"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-walk-art-active-view-slowactivity",360,"nofd","Городской день без гастрономической части",["walk55","art75","active85","view45","slowActivity60"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-creative-art-walk-active-view",360,"nofd","Делать, смотреть, гулять и двигаться",["creative75","art75","walk55","active85","view45"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-art-play-walk-view-slowactivity",360,"nofd","Искусство, игра и исследование города",["art75","play75","walk55","view45","slowActivity60"],["active","unusual","fun","calm"],3,{routeMode:"district"}),
@@ -419,7 +419,7 @@ const recipes = [
   R("6-brunch-walk-art-dinner-view",360,"daytime","Бранч, город, искусство, ужин и вид",["brunch75","walk55","art75","dinner80","view45"],["calm","romantic","unusual","active"],1,{routeMode:"district",dayparts:["morning","day"]}),
   R("6-brunch-play-art-walk-dessert",360,"daytime","Бранч, игра, искусство, прогулка и десерт",["brunch75","play75","art75","walk55","dessert35"],["fun","active","unusual","romantic"],2,{routeMode:"district",dayparts:["morning","day"]}),
   R("6-coffee-slowactivity-art-creative-dinner",360,"discover","Кофе, исследование, искусство, мастер-класс и ужин",["coffee35","slowActivity60","art75","creative75","dinner90"],["calm","unusual","active","romantic"],2,{routeMode:"district"}),
-  R("6-view-slowactivity-art-dinner-dessert",360,"discover","Панорама, маленькое исследование, искусство, ужин и десерт",["view45","slowActivity60","art75","dinner90","dessert35"],["romantic","unusual","calm"],2,{routeMode:"district"}),
+  R("6-view-slowactivity-art-dinner-dessert",360,"discover","Панорама, находки, искусство, ужин и десерт",["view45","slowActivity60","art75","dinner90","dessert35"],["romantic","unusual","calm"],2,{routeMode:"district"}),
   R("6-play-art-walk-dinner-dessert",360,"play","Игра, искусство, прогулка, ужин и десерт",["play75","art60","walk45","dinner90","dessert35"],["active","fun","unusual","romantic"],2,{routeMode:"district"}),
   R("6-active-art-walk-dinner-dessert",360,"active","Активность, искусство, прогулка, ужин и десерт",["active85","art60","walk45","dinner90","dessert35"],["active","unusual","romantic","calm"],2,{routeMode:"district"}),
   R("6-creative-view-walk-dinner-dessert",360,"make","Мастер-класс, панорама, прогулка, ужин и десерт",["creative75","view45","walk45","dinner90","dessert35"],["active","unusual","romantic","calm"],2,{routeMode:"district"}),
@@ -478,7 +478,13 @@ function nominalSlotMinutes(value){
   const subtype=(String(value.select).split(":")[1]||"event").split("|")[0];return EVENT_NOMINAL[subtype]||105;
 }
 function nominalScenarioMinutes(item){return item.slots.reduce((sum,value)=>sum+nominalSlotMinutes(value),0);}
-function nominallyFeasible(item){const total=nominalScenarioMinutes(item);return total>=targetFloor(item.duration)&&total<=item.duration+5;}
+// The engine adds a hidden routing buffer between chapters (8-26 min, about 12 on average). A flow that only fits
+// without those transfers can never be scheduled, so feasibility is checked with the buffer included.
+const HOP_MIN=8,HOP_TYPICAL=12;
+function nominallyFeasible(item){
+  const total=nominalScenarioMinutes(item),hops=Math.max(0,item.slots.length-1);
+  return total+HOP_MIN*hops>=targetFloor(item.duration)&&total+HOP_TYPICAL*hops<=item.duration+5;
+}
 
 function balancedSelect(duration,target){
   const raw=allCandidates.filter((x)=>x.duration===duration&&nominallyFeasible(x));

@@ -1,9 +1,9 @@
 import {seedPlaces,seedEvents} from "./data/seed.js";
 import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
-import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=1";
-import {selectScenarioCover} from "./scenario-visuals.js?v=1";
-import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress,buildCalendarICS} from "./preparation.js?v=3&catalog=2";
-import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl} from "./scenario-map.js?v=1";
+import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=2";
+import {selectScenarioCover} from "./scenario-visuals.js?v=2";
+import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress,buildCalendarICS} from "./preparation.js?v=4&catalog=2";
+import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl} from "./scenario-map.js?v=2";
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const FILTERS_KEY="1001dates.filters.v11", PROFILE_KEY="1001dates.profile.v11", SAVED_KEY="1001dates.saved.v1";
@@ -152,9 +152,16 @@ function cardHTML(p,i){
   </article>`;
 }
 function relax(type){if(type==='zone')state.zone='any';if(type==='budget')state.budget=[4000,7000,10000,15000,999999].find(x=>x>state.budget)||999999;if(type==='time')state.duration=[120,180,240,360].find(x=>x>state.duration)||360;persist();syncUI();variationSeed++;nearbyOrigin?runNearbyPlanner(false):runPlanner(false)}
-function chapterRole(i,n){if(i===0)return'Начало';if(i===n-1)return'Финал';if(n===4&&i===1)return'Развитие';return'Главная часть'}
+const CHAPTER_ROLES={2:['Начало','Финал'],3:['Начало','Главная часть','Финал'],4:['Начало','Развитие','Главная часть','Финал'],5:['Начало','Развитие','Главная часть','Продолжение','Финал'],6:['Начало','Развитие','Главная часть','Поворот','Продолжение','Финал']};
+function chapterRole(i,n){return CHAPTER_ROLES[n]?.[i]||(i===0?'Начало':i===n-1?'Финал':'Главная часть')}
+function pluralRu(n,one,few,many){n=Math.abs(Number(n)||0);const m10=n%10,m100=n%100;return m10===1&&m100!==11?one:[2,3,4].includes(m10)&&![12,13,14].includes(m100)?few:many}
+function chaptersLabel(n){return `${Math.abs(Number(n)||0)} ${pluralRu(n,'глава','главы','глав')}`}
+const POSTER_ROWS=4;
+// The poster has room for four lines. Longer evenings keep the first chapters and end with a teaser line for the rest.
+function posterTitles(titles){const list=titles.map(x=>String(x||"").slice(0,80));if(list.length<=POSTER_ROWS)return list;const rest=list.length-(POSTER_ROWS-1);return [...list.slice(0,POSTER_ROWS-1),`И ещё ${chaptersLabel(rest)}`]}
+function posterRole(i,count,shown){return count>POSTER_ROWS&&i===shown-1?'Дальше':chapterRole(i,count)}
 function openDetail(i){activePlanIndex=i;renderDetail();openOverlay('#detailOverlay');requestAnimationFrame(()=>mountScenarioMap())}
-function renderDetail(){const p=latestPlans[activePlanIndex];if(!p)return;const rows=planRows(p),cover=selectScenarioCover(p),img=cover?`<img src="${esc(cover)}" alt="">`:'';$("#detailScreenTitle").textContent=`Свидание № ${stableNo(p)}`;$("#detailContent").innerHTML=`<div class="detail-hero"><div class="hero-img ${img?'':'placeholder'}">${img}</div><div class="detail-copy"><div class="eyebrow">СВИДАНИЕ № ${stableNo(p)}</div><h2>${esc(p.title)}</h2><p>${esc(p.story)}</p><div class="detail-meta"><span>${esc(formatDuration(p.totalMinutes))}</span><span>${p.items.some(x=>x.costEstimated)?'≈ ':''}${esc(formatMoney(p.totalCost))}</span><span>${p.items.length} главы</span></div></div></div><div class="why-box"><b>ПОЧЕМУ ПОДОЙДЁТ</b><p>${esc(p.why)}</p></div>${scenarioMapSectionHTML(p,rows)}<section class="chapters"><h3>План вечера</h3>${rows.map((r,i)=>chapterHTML(r,i,rows.length)).join('')}</section>`;$("#chooseDate").onclick=()=>{renderInvite();openOverlay("#inviteOverlay")};const prepareButton=$("#prepareDate");if(prepareButton){prepareButton.onclick=openPreparation;syncPreparationDetailStatus()}const saveButton=$("#saveDate");if(saveButton){const sync=()=>{saveButton.textContent=isPlanSaved(p)?"♥ Сохранено":"♡ Сохранить себе"};sync();saveButton.onclick=()=>{toggleSavedPlan(activePlanIndex);sync();refreshResults()}};$$('[data-replace]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>openReplace(+b.dataset.replace)));$$('[data-around]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>{currentAnchor=p.items[+b.dataset.around];variationSeed++;closeOverlay('#detailOverlay');nearbyOrigin?runNearbyPlanner(true):runPlanner(true)}));$$('[data-like-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>toggleItem(p.items[+b.dataset.likeItem],b)));$$('[data-dislike-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>dislikeItem(p.items[+b.dataset.dislikeItem],b)));if($("#detailOverlay")?.classList.contains("open"))requestAnimationFrame(()=>mountScenarioMap())}
+function renderDetail(){const p=latestPlans[activePlanIndex];if(!p)return;const rows=planRows(p),cover=selectScenarioCover(p),img=cover?`<img src="${esc(cover)}" alt="">`:'';$("#detailScreenTitle").textContent=`Свидание № ${stableNo(p)}`;$("#detailContent").innerHTML=`<div class="detail-hero"><div class="hero-img ${img?'':'placeholder'}">${img}</div><div class="detail-copy"><div class="eyebrow">СВИДАНИЕ № ${stableNo(p)}</div><h2>${esc(p.title)}</h2><p>${esc(p.story)}</p><div class="detail-meta"><span>${esc(formatDuration(p.totalMinutes))}</span><span>${p.items.some(x=>x.costEstimated)?'≈ ':''}${esc(formatMoney(p.totalCost))}</span><span>${chaptersLabel(p.items.length)}</span></div></div></div><div class="why-box"><b>ПОЧЕМУ ПОДОЙДЁТ</b><p>${esc(p.why)}</p></div>${scenarioMapSectionHTML(p,rows)}<section class="chapters"><h3>План вечера</h3>${rows.map((r,i)=>chapterHTML(r,i,rows.length)).join('')}</section>`;$("#chooseDate").onclick=()=>{renderInvite();openOverlay("#inviteOverlay")};const prepareButton=$("#prepareDate");if(prepareButton){prepareButton.onclick=openPreparation;syncPreparationDetailStatus()}const saveButton=$("#saveDate");if(saveButton){const sync=()=>{saveButton.textContent=isPlanSaved(p)?"♥ Сохранено":"♡ Сохранить себе"};sync();saveButton.onclick=()=>{toggleSavedPlan(activePlanIndex);sync();refreshResults()}};$$('[data-replace]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>openReplace(+b.dataset.replace)));$$('[data-around]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>{currentAnchor=p.items[+b.dataset.around];variationSeed++;closeOverlay('#detailOverlay');nearbyOrigin?runNearbyPlanner(true):runPlanner(true)}));$$('[data-like-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>toggleItem(p.items[+b.dataset.likeItem],b)));$$('[data-dislike-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>dislikeItem(p.items[+b.dataset.dislikeItem],b)));if($("#detailOverlay")?.classList.contains("open"))requestAnimationFrame(()=>mountScenarioMap())}
 function scenarioMapSectionHTML(plan,rows){
   const points=scenarioMapPoints(plan);
   if(points.length<2)return "";
@@ -164,7 +171,7 @@ function scenarioMapSectionHTML(plan,rows){
     const mapUrl=externalMapUrl(point);
     return `<div class="scenario-map-stop" data-map-stop="${point.index-1}"><span>${point.index}</span><div><b>${esc(row?.title||point.item.title)}</b>${next?`<small>≈ ${next.minutes} мин в пути до следующей точки</small>`:""}${mapUrl?`<a href="${esc(mapUrl)}" target="_blank" rel="noreferrer">Открыть на карте ↗</a>`:""}</div></div>`;
   }).join("");
-  return `<section class="scenario-map-section"><div class="scenario-map-head"><div><div class="eyebrow">МАРШРУТ ВЕЧЕРА</div><h3>${points.length} точки · ≈ ${summary.totalMinutes} мин в пути</h3></div><small>Линия показывает порядок точек, не точный путь по улицам</small></div><div class="scenario-map" id="scenarioMap" aria-label="Карта маршрута"><div class="scenario-map-loading">Загружаем карту…</div></div><div class="scenario-map-stops">${list}</div></section>`;
+  return `<section class="scenario-map-section"><div class="scenario-map-head"><div><div class="eyebrow">МАРШРУТ ВЕЧЕРА</div><h3>${points.length} ${pluralRu(points.length,'точка','точки','точек')} · ≈ ${summary.totalMinutes} мин в пути</h3></div><small>Линия показывает порядок точек, не точный путь по улицам</small></div><div class="scenario-map" id="scenarioMap" aria-label="Карта маршрута"><div class="scenario-map-loading">Загружаем карту…</div></div><div class="scenario-map-stops">${list}</div></section>`;
 }
 function highlightChapter(index){
   $$("[data-chapter-index]",$("#detailContent")).forEach(node=>node.classList.toggle("map-highlight",Number(node.dataset.chapterIndex)===Number(index)));
@@ -216,7 +223,7 @@ function preparationTaskHTML(task,done){
   let action="";
   if(task.type==="calendar")action='<button class="preparation-action" type="button" data-prep-action="calendar">Добавить в календарь</button>';
   else if(task.type==="invite")action='<button class="preparation-action" type="button" data-prep-action="invite">Открыть приглашение</button>';
-  else if(task.url)action='<a class="preparation-link" href="'+esc(task.url)+'" target="_blank" rel="noreferrer">'+(task.type==="ticket"?"Открыть билеты ↗":"Открыть сайт ↗")+'</a>';
+  else if(task.url)action='<a class="preparation-link" href="'+esc(task.url)+'" target="_blank" rel="noreferrer">'+(task.linkLabel||(task.type==="ticket"?"Открыть билеты ↗":"Открыть сайт ↗"))+'</a>';
   else action='<span class="preparation-unavailable">Ссылка недоступна</span>';
   return '<article class="preparation-task '+(done?'done':'')+'"><button class="preparation-check" type="button" data-prep-toggle="'+esc(task.id)+'" aria-pressed="'+String(done)+'" aria-label="'+(done?'Отметить как неготовое':'Отметить готовым')+'">'+(done?'✓':'○')+'</button><div class="preparation-task-body"><div class="preparation-task-title"><span>'+esc(task.title)+'</span>'+(done?'<b>ГОТОВО</b>':'')+'</div>'+(task.itemTitle?'<strong>'+esc(task.itemTitle)+'</strong>':'')+'<p>'+esc(task.subtitle||'')+'</p><div class="preparation-task-actions">'+action+'<button class="preparation-done-button" type="button" data-prep-toggle="'+esc(task.id)+'" aria-pressed="'+String(done)+'">'+(done?'Отменить':'Отметить готовым')+'</button></div></div></article>';
 }
@@ -267,16 +274,16 @@ function renderInvite(){
   const planHtml=inviteReveal==="full"
     ? `<div class="poster-plan" aria-label="План свидания">
         <div class="poster-plan-title">ПЛАН ВЕЧЕРА</div>
-        ${rows.slice(0,4).map((row,i)=>`<div class="poster-plan-row">
+        ${posterTitles(rows.map(row=>row.title)).map((title,i,shownRows)=>`<div class="poster-plan-row">
           <span class="poster-plan-no">${String(i+1).padStart(2,"0")}</span>
-          <div><small>${esc(chapterRole(i,rows.length))}</small><b>${esc(row.title)}</b></div>
+          <div><small>${esc(posterRole(i,rows.length,shownRows.length))}</small><b>${esc(title)}</b></div>
         </div>`).join("")}
       </div>`
     : "";
   const poster=$("#poster");
   const titleLength=[...String(p.title||'')].length;
   const noteLength=[...note].length;
-  const densePlan=rows.slice(0,4).some(row=>[...String(row.title||'')].length>34);
+  const densePlan=posterTitles(rows.map(row=>row.title)).some(title=>[...String(title||'')].length>34);
   const titleFit=titleLength>58?'title-xlong':titleLength>38?'title-long':'';
   const noteFit=noteLength>64?'note-long':'';
   poster.className=`poster theme-${inviteTheme} ${inviteTheme==='night'?'night':inviteTheme==='minimal'?'minimal':''} ${inviteReveal==='full'?'plan-open':''} ${titleFit} ${noteFit} ${densePlan?'plan-dense':''}`.replace(/\s+/g,' ').trim();
@@ -286,7 +293,7 @@ function renderInvite(){
     <div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(f.time)}</span></div></div>
     ${planHtml}
     <div class="poster-main"><span>${inviteReveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>${esc(p.title)}</h3><p>${esc(note)}</p></div>
-    <div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(formatDuration(p.totalMinutes))}</b></div><div><span>ПЛАН</span><b>${inviteReveal==='full'?`${p.items.length} главы`:'сюрприз'}</b></div></div>`;
+    <div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(formatDuration(p.totalMinutes))}</b></div><div><span>ПЛАН</span><b>${inviteReveal==='full'?chaptersLabel(p.items.length):'сюрприз'}</b></div></div>`;
   if(posterUrl){
     const bg=$(".poster-bg",poster);
     if(bg)bg.style.backgroundImage=`url("${posterUrl.replace(/"/g,'%22')}")`;
@@ -314,7 +321,7 @@ function currentInvitePayload(){
     duration:formatDuration(p.totalMinutes),
     note:($("#inviteNote")?.value.trim()||"Просто освободи вечер. Остальное — сюрприз.").slice(0,100),
     theme:inviteTheme,reveal:inviteReveal,
-    items:rows.slice(0,4).map(row=>String(row.title||"").slice(0,80)),
+    items:posterTitles(rows.map(row=>row.title)),
     itemCount:p.items.length
   };
 }
@@ -390,7 +397,7 @@ function postcardSvg(payload){
   const titleLines=wrapPostcardText(data.title,data.reveal==="full"?24:20,data.reveal==="full"?2:3),titleY=data.reveal==="full"?870:770,titleLH=Math.round(titleSize*.92),noteLines=wrapPostcardText(data.note,42,2),noteY=titleY+titleLines.length*titleLH+42;
   const texts=(lines,x,y,size,lh,fill,family="Georgia, serif",weight="400")=>lines.map((line,i)=>`<text x="${x}" y="${y+i*lh}" fill="${fill}" font-family="${family}" font-size="${size}" font-weight="${weight}">${svgSafe(line)}</text>`).join("");
   const plan=data.reveal==="full"?`<text x="88" y="450" fill="${p.muted}" font-family="Arial, sans-serif" font-size="24" font-weight="700">ПЛАН ВЕЧЕРА</text>${data.items.map((item,i)=>`<text x="88" y="${515+i*72}" fill="${p.accent}" font-family="Georgia, serif" font-size="36">${String(i+1).padStart(2,"0")}</text><text x="160" y="${515+i*72}" fill="${p.text}" font-family="Arial, sans-serif" font-size="28" font-weight="600">${svgSafe(wrapPostcardText(item,36,1)[0]||"")}</text>`).join("")}`:"";
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${p.a}"/><stop offset="52%" stop-color="${p.b}"/><stop offset="100%" stop-color="${p.c}"/></linearGradient></defs><rect width="1080" height="1350" rx="56" fill="url(#bg)"/><text x="88" y="105" fill="${p.text}" font-family="Arial, sans-serif" font-size="28" font-weight="700">1001 DATES</text><text x="992" y="105" text-anchor="end" fill="${p.muted}" font-family="Arial, sans-serif" font-size="28">№ ${svgSafe(data.no)}</text><text x="82" y="335" fill="${p.accent}" font-family="Georgia, serif" font-size="210">${day}</text><text x="360" y="245" fill="${p.text}" font-family="Arial, sans-serif" font-size="50" font-weight="700">${svgSafe(month)}</text><text x="360" y="302" fill="${p.muted}" font-family="Arial, sans-serif" font-size="30">${svgSafe(data.time)}</text>${plan}<text x="88" y="${titleY-52}" fill="${p.muted}" font-family="Arial, sans-serif" font-size="22" font-weight="700">${data.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</text>${texts(titleLines,88,titleY,titleSize,titleLH,p.text)}${texts(noteLines,88,noteY,30,42,p.muted,"Arial, sans-serif")}<line x1="88" x2="992" y1="1195" y2="1195" stroke="${p.line}" stroke-width="2"/><text x="88" y="1245" fill="${p.muted}" font-family="Arial, sans-serif" font-size="20">ДЛИТЕЛЬНОСТЬ</text><text x="88" y="1298" fill="${p.text}" font-family="Georgia, serif" font-size="44">${svgSafe(data.duration)}</text><text x="620" y="1245" fill="${p.muted}" font-family="Arial, sans-serif" font-size="20">ПЛАН</text><text x="620" y="1298" fill="${p.text}" font-family="Georgia, serif" font-size="44">${data.reveal==="full"?`${data.itemCount} главы`:"сюрприз"}</text></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${p.a}"/><stop offset="52%" stop-color="${p.b}"/><stop offset="100%" stop-color="${p.c}"/></linearGradient></defs><rect width="1080" height="1350" rx="56" fill="url(#bg)"/><text x="88" y="105" fill="${p.text}" font-family="Arial, sans-serif" font-size="28" font-weight="700">1001 DATES</text><text x="992" y="105" text-anchor="end" fill="${p.muted}" font-family="Arial, sans-serif" font-size="28">№ ${svgSafe(data.no)}</text><text x="82" y="335" fill="${p.accent}" font-family="Georgia, serif" font-size="210">${day}</text><text x="360" y="245" fill="${p.text}" font-family="Arial, sans-serif" font-size="50" font-weight="700">${svgSafe(month)}</text><text x="360" y="302" fill="${p.muted}" font-family="Arial, sans-serif" font-size="30">${svgSafe(data.time)}</text>${plan}<text x="88" y="${titleY-52}" fill="${p.muted}" font-family="Arial, sans-serif" font-size="22" font-weight="700">${data.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</text>${texts(titleLines,88,titleY,titleSize,titleLH,p.text)}${texts(noteLines,88,noteY,30,42,p.muted,"Arial, sans-serif")}<line x1="88" x2="992" y1="1195" y2="1195" stroke="${p.line}" stroke-width="2"/><text x="88" y="1245" fill="${p.muted}" font-family="Arial, sans-serif" font-size="20">ДЛИТЕЛЬНОСТЬ</text><text x="88" y="1298" fill="${p.text}" font-family="Georgia, serif" font-size="44">${svgSafe(data.duration)}</text><text x="620" y="1245" fill="${p.muted}" font-family="Arial, sans-serif" font-size="20">ПЛАН</text><text x="620" y="1298" fill="${p.text}" font-family="Georgia, serif" font-size="44">${data.reveal==="full"?chaptersLabel(data.itemCount):"сюрприз"}</text></svg>`;
 }
 async function invitePngBlob(payload){
   const blob=new Blob([postcardSvg(payload)],{type:"image/svg+xml;charset=utf-8"}),url=URL.createObjectURL(blob);
@@ -414,8 +421,8 @@ $("#downloadInvite")?.addEventListener("click",()=>{const payload=currentInviteP
 function renderPayloadPoster(target,payload){
   const poster=$(target);if(!poster)return;const d=new Date(`${payload.date}T12:00:00`),day=String(d.getDate()).padStart(2,"0"),month=new Intl.DateTimeFormat("ru-RU",{month:"short"}).format(d).replace(".","").toUpperCase();
   poster.className=`poster theme-${payload.theme} ${payload.theme==="night"?"night":payload.theme==="minimal"?"minimal":""} ${payload.reveal==="full"?"plan-open":""}`;
-  const plan=payload.reveal==="full"?`<div class="poster-plan"><div class="poster-plan-title">ПЛАН ВЕЧЕРА</div>${payload.items.map((item,i)=>`<div class="poster-plan-row"><span class="poster-plan-no">${String(i+1).padStart(2,"0")}</span><div><small>${chapterRole(i,payload.itemCount)}</small><b>${esc(item)}</b></div></div>`).join("")}</div>`:"";
-  poster.innerHTML=`<div class="poster-top"><span>1001 DATES</span><span>№ ${esc(payload.no)}</span></div><div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(payload.time)}</span></div></div>${plan}<div class="poster-main"><span>${payload.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>${esc(payload.title)}</h3><p>${esc(payload.note)}</p></div><div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(payload.duration)}</b></div><div><span>ПЛАН</span><b>${payload.reveal==="full"?`${payload.itemCount} главы`:"сюрприз"}</b></div></div>`;
+  const plan=payload.reveal==="full"?`<div class="poster-plan"><div class="poster-plan-title">ПЛАН ВЕЧЕРА</div>${payload.items.map((item,i)=>`<div class="poster-plan-row"><span class="poster-plan-no">${String(i+1).padStart(2,"0")}</span><div><small>${posterRole(i,payload.itemCount,payload.items.length)}</small><b>${esc(item)}</b></div></div>`).join("")}</div>`:"";
+  poster.innerHTML=`<div class="poster-top"><span>1001 DATES</span><span>№ ${esc(payload.no)}</span></div><div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(payload.time)}</span></div></div>${plan}<div class="poster-main"><span>${payload.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>${esc(payload.title)}</h3><p>${esc(payload.note)}</p></div><div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(payload.duration)}</b></div><div><span>ПЛАН</span><b>${payload.reveal==="full"?chaptersLabel(payload.itemCount):"сюрприз"}</b></div></div>`;
 }
 function showSharedInviteFromHash(){
   if(!location.hash.startsWith("#invite="))return;const payload=decodeInvitePayload(location.hash.slice(8));if(!payload)return;
@@ -425,4 +432,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly23",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly24",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();

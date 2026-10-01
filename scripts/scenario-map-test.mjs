@@ -1,4 +1,4 @@
-import { itemCoordinates, scenarioMapPoints, scenarioGeoBounds, scenarioLegs, scenarioRouteSummary } from "../scenario-map.js";
+import { itemCoordinates, scenarioMapPoints, scenarioGeoBounds, scenarioLegs, scenarioRouteSummary, markerFanOffsets } from "../scenario-map.js";
 
 function assert(condition,message){if(!condition)throw new Error(message);}
 
@@ -27,5 +27,11 @@ assert(legs.every(leg=>leg.km>0&&leg.minutes>0),"Route legs must contain distanc
 
 const summary=scenarioRouteSummary(plan);
 assert(summary.pointCount===3&&summary.totalMinutes===legs.reduce((sum,leg)=>sum+leg.minutes,0),"Route summary is inconsistent");
+
+// Chapters in the same venue complex get fanned-out pins; distant chapters keep the exact position.
+const twin={id:"t",title:"T",coords:{lat:55.7501,lon:37.6101}};
+const fan=markerFanOffsets(scenarioMapPoints({items:[a,twin,c]}));
+assert(fan[0]!==0&&fan[1]!==0&&fan[0]!==fan[1]&&fan[2]===0,"Overlapping pins must be fanned out sideways, distant pins left alone");
+assert(markerFanOffsets(points).every(x=>x===0),"Well separated pins must not move");
 
 console.log("Scenario map model OK");

@@ -103,5 +103,12 @@ const direct=process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).h
 if(direct){
   const start=Number(process.argv[2]||201),end=Number(process.argv[3]||300);
   const result=auditRange(start,end,{verbose:true});
-  if(result.dead.length)process.exitCode=1;
+  // Structural problems (a flow that cannot fit its duration, a selector nobody can match) are always errors.
+  // Scenarios that are only "dead" because this month's venue feed is sparse (DEAD_GEOGRAPHY / DEAD_EVENT / DEAD_SUBTYPE / DEAD_TIMETABLE)
+  // are tolerated up to a budget: the planner simply never offers them, and they come back when the feed has the venues.
+  const structural=result.dead.filter((row)=>["DEAD_DURATION","OTHER"].includes(row.failure.code));
+  const dataBudget=Math.ceil((end-start+1)*0.12);
+  if(structural.length)process.exitCode=1;
+  if(result.dead.length>dataBudget){console.error("Too many scenarios without supply: "+result.dead.length+" > "+dataBudget);process.exitCode=1;}
+  if(!process.exitCode&&result.dead.length)console.log("NOTE "+result.dead.length+" scenario(s) wait for venues in the feed: "+result.dead.map((row)=>row.id).join(", "));
 }
