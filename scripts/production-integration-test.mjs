@@ -35,10 +35,10 @@ assert(appJs.includes("selectScenarioCover"),"Semantic scenario cover module is 
 assert(indexHtml.includes("https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg"),"October reference hero image is not wired in index.html");
 assert(appJs.includes("./engine-v14.js?v=duration5"),"app-final.js does not import the audited production engine wrapper");
 assert(engineV14.includes("./engine.js?base=duration5"),"engine-v14.js is not wired to the audited base engine");
-assert(indexHtml.includes("audit300=1"),"index.html is missing the scenario 201-300 cache-bust");
-assert(appJs.includes("audit300=1"),"app-final.js is missing the audited engine cache-bust");
-assert(engineV14.includes("audit300=1"),"engine-v14.js is missing the audited base-engine cache-bust");
-assert(serviceWorker.includes('1001-dates-reference-ui-v28'),"service worker cache version was not bumped for scenario audit fixes");
+assert(indexHtml.includes("audit300=2"),"index.html is missing the scenario 201-300 cache-bust");
+assert(appJs.includes("audit300=2"),"app-final.js is missing the audited engine cache-bust");
+assert(engineV14.includes("audit300=2"),"engine-v14.js is missing the audited base-engine cache-bust");
+assert(serviceWorker.includes('1001-dates-reference-ui-v29'),"service worker cache version was not bumped for scenario audit fixes");
 assert(serviceWorker.includes('SNAPSHOT_PATH="/data/kudago.generated.js"'),"service worker does not special-case the monthly snapshot");
 assert(serviceWorker.includes("networkFirst(event.request)"),"monthly snapshot is not network-first");
 assert(scenarioStats.total===1001,`Expected 1001 blueprints, got ${scenarioStats.total}`);
