@@ -46,9 +46,9 @@ function repairItem(item){
   const title=cleanTitle(fixed.title||""),text=`${title} ${cleanTitle(fixed.description||"")}`;
   if(/(^|\s)(парк|сад)(\s|$)/i.test(title)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар|кинотеатр|cinema)/i.test(title)&&!["walk","viewpoint"].includes(fixed.category))fixed={...fixed,category:"walk",subtype:"park",indoor:false,includesFood:false};
   if(/кинотеатр|cinema/i.test(title))fixed={...fixed,category:"activity",subtype:"cinema",indoor:true,includesFood:false};
-  if(fixed.category==="activity"&&fixed.subtype==="water"&&!/(аква|водн|бассейн|water|плаван|купал)/i.test(text)&&/(дворец|усадьб|замок)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false};
   if(fixed.category==="activity"&&!/театр/i.test(title)&&/(танцеваль|школа танц|dance|galladance|galla\s*dance)/i.test(text))fixed={...fixed,category:"activity",subtype:"dance",indoor:true,includesFood:false};
   if(/аква(?:комплекс|парк)|водных развлечений|бассейн|bassein|water park/i.test(text))fixed={...fixed,category:"activity",subtype:"water",indoor:true,includesFood:false};
+  if(fixed.category==="activity"&&fixed.subtype==="water"&&/(дворец|усадьб|замок)/i.test(title)&&!/(аква|водн|бассейн|water|плаван|купал)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false};
   if(/музей.?панорам|панорам.+музей|бородинск.+битв/i.test(text))fixed={...fixed,category:"art",subtype:"museum",indoor:true,includesFood:false};
   if(fixed.category==="activity"&&!/кинотеатр|cinema/i.test(title)&&/(^|\\s)театр(\\s|$)|музыкальн.+театр|драматическ.+театр|театр имени/i.test(title))fixed={...fixed,category:"art",subtype:"theater",indoor:true,includesFood:false};
   if(/студия рисован|школа рисован|zuart/i.test(text))fixed={...fixed,category:"activity",subtype:"painting",indoor:true,includesFood:false};
