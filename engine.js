@@ -77,10 +77,23 @@ function inferSubtype(item) {
   }
   return item?.category || "place";
 }
+const SEMANTIC_SLOT_SUBTYPES=Object.freeze({
+  art:new Set(["gallery","museum","contemporary","digital","photo","science"]),
+  creative:new Set(["workshop","pottery","painting","cooking","dance"]),
+  play:new Set(["games","bowling","billiards","vr","quest","karaoke"]),
+  active:new Set(["climbing","skating","karting","mini_golf","water","dance"]),
+  slow:new Set(["bookstore","vinyl","market","games"])
+});
 function placeMatchesSlot(item,value) {
   if (!item || item.category !== slotCategory(value)) return false;
-  const allowed=slotSubtypes(value); if(!allowed.length)return true;
-  return allowed.includes(inferSubtype(item));
+  const spec=slotSpec(value),allowed=slotSubtypes(value),subtype=inferSubtype(item);
+  if(allowed.length && !allowed.includes(subtype))return false;
+  const semantic=String(spec.semantic||"");
+  if(semantic && String(item.id||"").startsWith("kudago-")){
+    const semanticAllowed=SEMANTIC_SLOT_SUBTYPES[semantic];
+    if(semanticAllowed && !semanticAllowed.has(subtype))return false;
+  }
+  return true;
 }
 function slotLabel(value) {
   const category=slotCategory(value),subtypes=slotSubtypes(value);
