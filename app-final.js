@@ -164,8 +164,8 @@ function renderPreparation(){
   const left=p.total-p.completed;
   $("#preparationRemaining").textContent=p.done?"Осталось только хорошо провести вечер.":(left===1?"Остался последний шаг":"Осталось "+String(left)+" шага");
   $("#preparationList").innerHTML=tasks.map(task=>preparationTaskHTML(task,Boolean(stateForDate[task.id]))).join("");
-  $('[data-prep-toggle]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.prepToggle;const now=activePreparationContext();setPreparationDone(id,!Boolean(now&&now.state&&now.state[id]));}));
-  $('[data-prep-action]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{if(button.dataset.prepAction==="calendar")downloadCalendarInvite(plan,filters);if(button.dataset.prepAction==="invite"){renderInvite();openOverlay("#inviteOverlay");}}));
+  $$('[data-prep-toggle]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.prepToggle;const now=activePreparationContext();setPreparationDone(id,!Boolean(now&&now.state&&now.state[id]));}));
+  $$('[data-prep-action]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{if(button.dataset.prepAction==="calendar")downloadCalendarInvite(plan,filters);if(button.dataset.prepAction==="invite"){renderInvite();openOverlay("#inviteOverlay");}}));
 }
 function openPreparation(){renderPreparation();openOverlay("#preparationOverlay");}
 function syncInviteControls(){
@@ -357,4 +357,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly12",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly13",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
