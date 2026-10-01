@@ -145,6 +145,11 @@ function editorialWhy(plan,filters){
 }
 function enrichPlan(plan,filters){if(!plan)return plan;return {...plan,title:editorialTitle(plan),coverImage:chooseCover(plan,filters),why:editorialWhy(plan,filters),story:editorialStory(plan)};}
 
+export function diagnoseTemplate(args){return base.diagnoseTemplate(guardedArgs(args));}
+export function generateTemplateDates(args){
+  const guarded=guardedArgs(args),filters=guarded.filters||{};
+  return base.generateTemplateDates(guarded).map((plan)=>enrichPlan(plan,filters));
+}
 export function generateDates(args){
   const guarded=guardedArgs(args),filters=guarded.filters||{},used=new Set();
   return base.generateDates(guarded).map((plan)=>{
