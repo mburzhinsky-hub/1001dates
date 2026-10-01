@@ -1,8 +1,9 @@
 import {seedPlaces,seedEvents} from "./data/seed.js";
 import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
-import {generateDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5";
+import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5";
 import {selectScenarioCover} from "./scenario-visuals.js?v=1";
 import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress} from "./preparation.js?v=1";
+import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl} from "./scenario-map.js?v=1";
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const FILTERS_KEY="1001dates.filters.v11", PROFILE_KEY="1001dates.profile.v11", SAVED_KEY="1001dates.saved.v1";
@@ -12,7 +13,7 @@ const ZONES={any:"Вся Москва",center:"Центр",city:"Москва-С
 const OCTOBER_HERO_IMAGE="https://media.kudago.com/images/place/53/16/53166fcbdf44a0f34a7a8de5fa7e07e9.jpg";
 const FOCUSABLE='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 let state={...DEFAULTS,...loadJSON(FILTERS_KEY,{})}; if(!Array.isArray(state.vibes)||!state.vibes.length)state.vibes=["romantic"];
-let profile=normalizeProfile(loadJSON(PROFILE_KEY,{})),savedDates=loadJSON(SAVED_KEY,[]),preparationStore=loadJSON(PREPARATION_KEY,{}),latestPlans=[],activePlanIndex=null,activeFilters=null,variationSeed=0,currentAnchor=null,inviteTheme="warm",inviteReveal="secret",focusStack=[],libraryTab="dates"; if(!Array.isArray(savedDates))savedDates=[];if(!preparationStore||typeof preparationStore!=="object"||Array.isArray(preparationStore))preparationStore={};
+let profile=normalizeProfile(loadJSON(PROFILE_KEY,{})),savedDates=loadJSON(SAVED_KEY,[]),preparationStore=loadJSON(PREPARATION_KEY,{}),latestPlans=[],activePlanIndex=null,activeFilters=null,variationSeed=0,currentAnchor=null,nearbyOrigin=null,nearbyRadiusKm=null,inviteTheme="warm",inviteReveal="secret",focusStack=[],libraryTab="dates"; if(!Array.isArray(savedDates))savedDates=[];if(!preparationStore||typeof preparationStore!=="object"||Array.isArray(preparationStore))preparationStore={};
 const places=dedupe([...seedPlaces,...kudagoPlaces].map(sanitize)),events=dedupe([...seedEvents,...kudagoEvents].map(sanitize));
 const DATA_START=kudagoMeta?.windowStart||localISODate(), DATA_END=kudagoMeta?.windowEnd||DATA_START;
 
@@ -42,7 +43,7 @@ function stableNo(p){let h=2166136261;for(const c of planKey(p)){h^=c.charCodeAt
 function collectFilters(){return{date:clampDataDate(state.date),time:state.time,duration:Number(state.duration),budget:Number(state.budget),vibes:[...state.vibes],zone:state.zone,food:state.food,useEvents:state.useEvents,indoorOnly:state.indoorOnly,noBars:state.noBars,avoidVisited:false,adventure:state.adventure,likedItemIds:Object.keys(profile.favoriteItems),visitedItemIds:[],dislikedItemIds:profile.dislikedItemIds,recentlyShownItemIds:profile.recentlyShownItemIds}}
 function visibleOverlay(){return $$(".overlay.open").at(-1)||null}
 function openOverlay(id){const o=$(id);if(!o)return;focusStack.push(document.activeElement);o.classList.add("open");o.setAttribute("aria-hidden","false");document.body.classList.add("modal-open");requestAnimationFrame(()=>$(FOCUSABLE,o)?.focus())}
-function closeOverlay(id){const o=$(id);if(!o)return;o.classList.remove("open");o.setAttribute("aria-hidden","true");if(!visibleOverlay())document.body.classList.remove("modal-open");const target=focusStack.pop();requestAnimationFrame(()=>target?.focus?.())}
+function closeOverlay(id){const o=$(id);if(!o)return;if(id==="#detailOverlay")destroyScenarioMap($("#scenarioMap"));o.classList.remove("open");o.setAttribute("aria-hidden","true");if(!visibleOverlay())document.body.classList.remove("modal-open");const target=focusStack.pop();requestAnimationFrame(()=>target?.focus?.())}
 function trapFocus(e){const o=visibleOverlay();if(!o)return;if(e.key==="Escape"){e.preventDefault();closeOverlay(`#${o.id}`);return}if(e.key!=="Tab")return;const nodes=$$(FOCUSABLE,o).filter(n=>n.offsetParent!==null);if(!nodes.length){e.preventDefault();return}const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}
 document.addEventListener("keydown",trapFocus);$$('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o&&o.dataset.dismiss!=="false")closeOverlay(`#${o.id}`)}));$$('[data-close]').forEach(b=>b.addEventListener('click',()=>closeOverlay(b.dataset.close)));
 function syncPressed(){$$('[data-duration],[data-budget],[data-vibe],[data-adventure],[data-theme],[data-reveal],[data-timepreset],[data-date-preset]').forEach(b=>b.setAttribute('aria-pressed',String(b.classList.contains('active'))))}
@@ -62,7 +63,7 @@ function syncUI(){
 }
 $$('[data-duration]').forEach(b=>b.addEventListener('click',()=>{state.duration=+b.dataset.duration;persist();syncUI()}));$$("[data-timepreset]").forEach(b=>b.addEventListener("click",()=>{state.time=b.dataset.timepreset;persist();syncUI()}));$$("[data-date-preset]").forEach(b=>b.addEventListener("click",()=>{state.date=presetDate(Number(b.dataset.datePreset));persist();syncUI()}));$$('[data-budget]').forEach(b=>b.addEventListener('click',()=>{state.budget=+b.dataset.budget;persist();syncUI()}));$$('[data-adventure]').forEach(b=>b.addEventListener('click',()=>{state.adventure=b.dataset.adventure;persist();syncUI()}));$$('[data-vibe]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.vibe;if(state.vibes.includes(v)){if(state.vibes.length>1)state.vibes=state.vibes.filter(x=>x!==v)}else state.vibes=state.vibes.length>=2?[state.vibes[1],v]:[...state.vibes,v];persist();syncUI()}));
 ['zoneInput','dateInput','timeInput','foodInput','eventsInput','indoorInput','noBarsInput'].forEach(id=>$("#"+id)?.addEventListener('change',()=>{state.zone=$("#zoneInput").value;state.date=clampDataDate($("#dateInput").value);state.time=$("#timeInput").value;state.food=$("#foodInput").checked;state.useEvents=$("#eventsInput").checked;state.indoorOnly=$("#indoorInput").checked;state.noBars=$("#noBarsInput").checked;persist();syncUI()}));$("#prefsToggle")?.addEventListener('click',()=>{$("#prefs").hidden=!$("#prefs").hidden;$("#prefsToggle").setAttribute('aria-expanded',String(!$("#prefs").hidden))});
-$("#openFilters")?.addEventListener('click',()=>openOverlay('#filtersOverlay'));$$('[data-open-filter]').forEach(b=>b.addEventListener('click',()=>openOverlay('#filtersOverlay')));$("#filtersForm")?.addEventListener('submit',e=>{e.preventDefault();variationSeed=0;currentAnchor=null;closeOverlay('#filtersOverlay');runPlanner(true)});$("#quickGenerate")?.addEventListener('click',()=>{variationSeed=0;currentAnchor=null;runPlanner(true)});$("#deviceGenerate")?.addEventListener('click',()=>{variationSeed=0;currentAnchor=null;runPlanner(true)});$("#surprise")?.addEventListener('click',()=>{variationSeed+=17+Math.floor(Math.random()*900);currentAnchor=null;runPlanner(true)});$("#moreDates")?.addEventListener('click',()=>{variationSeed++;currentAnchor=null;runPlanner(false)});$("#editFilters")?.addEventListener('click',()=>openOverlay('#filtersOverlay'));
+$("#openFilters")?.addEventListener('click',()=>openOverlay('#filtersOverlay'));$$('[data-open-filter]').forEach(b=>b.addEventListener('click',()=>openOverlay('#filtersOverlay')));$("#filtersForm")?.addEventListener('submit',e=>{e.preventDefault();variationSeed=0;currentAnchor=null;closeOverlay('#filtersOverlay');runPlanner(true)});$("#quickGenerate")?.addEventListener('click',()=>{resetNearbyMode();variationSeed=0;currentAnchor=null;runPlanner(true)});$("#deviceGenerate")?.addEventListener('click',()=>{resetNearbyMode();variationSeed=0;currentAnchor=null;runPlanner(true)});$("#surprise")?.addEventListener('click',()=>{resetNearbyMode();variationSeed+=17+Math.floor(Math.random()*900);currentAnchor=null;runPlanner(true)});$("#moreDates")?.addEventListener('click',()=>{variationSeed++;currentAnchor=null;nearbyOrigin?runNearbyPlanner(false):runPlanner(false)});$("#editFilters")?.addEventListener('click',()=>openOverlay('#filtersOverlay'));$("#nearbyGenerate")?.addEventListener("click",requestNearbyPlanning);$("#nearbyReset")?.addEventListener("click",()=>{resetNearbyMode();variationSeed++;runPlanner(false)});$("#nearbyChooseZone")?.addEventListener("click",()=>{resetNearbyMode();closeOverlay("#filtersOverlay");openOverlay("#filtersOverlay");$("#zoneInput")?.focus()});
 function updateHomeHero(){const hero=$("#homeHeroImage");if(!hero)return;hero.src=OCTOBER_HERO_IMAGE;hero.hidden=false}
 function renderDevicePreview(plan){
   if(!plan)return;
@@ -77,7 +78,40 @@ function renderDevicePreview(plan){
   $("#devicePreviewBudget")&&($("#devicePreviewBudget").textContent=shortMoney(plan.totalCost));
   $("#devicePreviewDate")&&($("#devicePreviewDate").textContent=shortDate(activeFilters?.date||state.date));
 }
-function runPlanner(scroll){const filters=collectFilters();activeFilters=filters;latestPlans=generateDates({places,events,filters,count:3,variationSeed,anchorItem:currentAnchor});rememberShown();renderResults();renderDevicePreview(latestPlans[0]);updateHomeHero();$("#resultsSection").hidden=false;if(scroll)$("#resultsSection").scrollIntoView({behavior:'smooth',block:'start'})}
+function syncNearbyPanel(message=null,error=false){
+  const panel=$("#nearbyPanel"),choose=$("#nearbyChooseZone");if(!panel)return;
+  panel.hidden=!nearbyOrigin&&!message;
+  $("#nearbyTitle").textContent=error?"Не получилось определить местоположение":"Свидания рядом с вами";
+  $("#nearbyStatus").textContent=message||(nearbyRadiusKm?`Компактные маршруты в радиусе до ${nearbyRadiusKm} км`:"Ищем компактные маршруты поблизости");
+  if(choose)choose.hidden=!error;
+}
+function resetNearbyMode(){nearbyOrigin=null;nearbyRadiusKm=null;syncNearbyPanel();}
+function runPlanner(scroll){
+  const filters=collectFilters();activeFilters=filters;
+  latestPlans=generateDates({places,events,filters,count:3,variationSeed,anchorItem:currentAnchor});
+  rememberShown();renderResults();renderDevicePreview(latestPlans[0]);updateHomeHero();$("#resultsSection").hidden=false;
+  if(scroll)$("#resultsSection").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function runNearbyPlanner(scroll=true){
+  if(!nearbyOrigin)return;
+  const filters=collectFilters();
+  const result=generateNearbyDates({places,events,filters,count:3,variationSeed,origin:nearbyOrigin,radii:[2,4,6]});
+  nearbyRadiusKm=result.radiusKm;activeFilters={...filters,zone:"any",nearbyOrigin:{...nearbyOrigin},nearbyRadiusKm};latestPlans=result.plans;
+  rememberShown();renderResults();renderDevicePreview(latestPlans[0]);updateHomeHero();$("#resultsSection").hidden=false;syncNearbyPanel();
+  if(scroll)$("#resultsSection").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function requestNearbyPlanning(){
+  const button=$("#nearbyGenerate");if(button)button.disabled=true;syncNearbyPanel("Собираем свидание вокруг вас…");
+  if(!navigator.geolocation){if(button)button.disabled=false;syncNearbyPanel("Геолокация недоступна. Можно выбрать район вручную.",true);return}
+  navigator.geolocation.getCurrentPosition(
+    position=>{
+      nearbyOrigin={lat:Number(position.coords.latitude),lon:Number(position.coords.longitude)};
+      variationSeed=0;currentAnchor=null;if(button)button.disabled=false;runNearbyPlanner(true);
+    },
+    ()=>{if(button)button.disabled=false;nearbyOrigin=null;nearbyRadiusKm=null;syncNearbyPanel("Разрешите доступ к геопозиции или выберите район вручную.",true)},
+    {enableHighAccuracy:false,timeout:9000,maximumAge:120000}
+  );
+}
 function rememberShown(){const ids=latestPlans.flatMap(p=>p.items.map(i=>i.id));profile.recentlyShownItemIds=[...new Set([...ids,...profile.recentlyShownItemIds])].slice(0,90);saveProfile()}
 function renderResults(){const grid=$("#resultsGrid"),f=activeFilters||collectFilters();$("#resultsEyebrow").textContent=latestPlans.length===1?"ОДИН ХОРОШИЙ ВАРИАНТ":latestPlans.length===2?"2 ВАРИАНТА НА ВЕЧЕР":latestPlans.length===3?"3 ВАРИАНТА НА ВЕЧЕР":"ВАРИАНТЫ НА ВЕЧЕР";$("#filterRecap").innerHTML=`<span>${esc(formatDuration(f.duration))}</span><span>${esc(shortMoney(f.budget))}</span><span>${esc(ZONES[f.zone]||"Москва")}</span>`;if(!latestPlans.length){grid.innerHTML=`<div class="empty"><div class="eyebrow">ПОКА НЕ НАШЛОСЬ</div><h3>Под эти условия хорошего варианта сейчас нет.</h3><p>Лучше немного изменить параметры, чем предлагать случайное свидание.</p><div class="empty-actions"><button class="secondary" data-relax="zone">Расширить район</button><button class="secondary" data-relax="budget">Увеличить бюджет</button><button class="secondary" data-relax="time">Добавить времени</button></div></div>`;$$('[data-relax]',grid).forEach(b=>b.addEventListener('click',()=>relax(b.dataset.relax)));return}grid.innerHTML=latestPlans.map(cardHTML).join('');$$('[data-open-plan]',grid).forEach(b=>b.addEventListener('click',()=>openDetail(+b.dataset.openPlan)));$$('[data-save-plan]',grid).forEach(b=>b.addEventListener('click',()=>{toggleSavedPlan(+b.dataset.savePlan);renderResults()}))}
 function snapshotPlan(p){return{key:planKey(p),number:stableNo(p),title:p.title,story:p.story,why:p.why,coverImage:selectScenarioCover(p),totalMinutes:p.totalMinutes,totalCost:p.totalCost,savedAt:new Date().toISOString(),plan:p}}
@@ -357,4 +391,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly13",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly14",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
