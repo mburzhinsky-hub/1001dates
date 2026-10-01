@@ -1,18 +1,18 @@
-const CACHE="1001-dates-reference-ui-v27";
+const CACHE="1001-dates-reference-ui-v28";
 const CORE=[
   "./",
   "./index.html",
   "./styles-final.css?v=oct1&invite=3&prep=1&map=1",
   "./motion-final.css?v=motion2",
   "./october-reference.css?v=ref2&rollback=2&portrait=1",
-  "./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3&audit=1&catalog=2",
-  "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2",
+  "./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3&audit=1&catalog=2&audit300=1",
+  "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2&audit300=1",
   "./scenario-visuals.js?v=1",
   "./preparation.js?v=2&catalog=2",
   "./scenario-map.js?v=1",
-  "./engine.js?base=duration5&nearby=1&audit=1&catalog=2",
+  "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=1",
   "./data/seed.js",
-  "./data/scenarios.js?catalog=2",
+  "./data/scenarios.js?catalog=2&audit300=1",
   "./manifest.webmanifest?v=portrait1",
   "./assets/icon.svg?v=2"
 ];

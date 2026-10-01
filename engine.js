@@ -1,4 +1,4 @@
-import { scenarioBlueprints } from "./data/scenarios.js?catalog=2";
+import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=1";
 
 const FOOD_CATEGORIES = new Set(["cafe", "dessert", "dinner"]);
 
@@ -414,13 +414,17 @@ function buildPools(template, places, events, filters, anchorItem=null) {
   });
 }
 
+function normalizedVenueTitle(value="") {
+  return String(value).toLowerCase().replace(/ё/g,"е").replace(/[«»“”„"'.,:;!?()—–−/\\-]+/g," ").replace(/\s+/g," ").trim();
+}
+
 function cartesianLimited(pools, filters, template, limit=180) {
   const result = [];
   function walk(index, acc) {
     if (result.length >= limit) return;
     if (index === pools.length) { result.push(acc.slice()); return; }
     for (const item of pools[index]) {
-      if (acc.some((x) => x.id === item.id)) continue;
+      if (acc.some((x) => x.id === item.id || normalizedVenueTitle(x.title) === normalizedVenueTitle(item.title))) continue;
       acc.push(item);
       // Prune impossible geography immediately instead of wasting the candidate budget on cross-city combinations.
       if (geographicallyPlausible(acc,filters,template)) walk(index+1, acc);
@@ -703,6 +707,52 @@ function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null})
   }
   candidates.sort((a,b) => b.baseScore-a.baseScore);
   return candidates;
+}
+
+
+export function diagnoseTemplate({ places, events, filters, templateId, anchorItem=null }) {
+  const template=TEMPLATES.find((candidate)=>candidate.id===templateId);
+  if(!template)return {templateId,exists:false,eligible:false,poolSizes:[],emptySelectors:[],geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes:null};
+  const eligible=templateEligible(template,filters);
+  if(!eligible)return {templateId,exists:true,eligible:false,poolSizes:[],emptySelectors:[],geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes:null};
+  const pools=buildPools(template,places,events,filters,anchorItem);
+  if(!pools)return {templateId,exists:true,eligible:true,poolSizes:[],emptySelectors:template.slots.map(slotSelector),geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes:null};
+  const poolSizes=pools.map((pool)=>pool.length);
+  const emptySelectors=template.slots.filter((_,index)=>!poolSizes[index]).map(slotSelector);
+  const minActivityMinutes=template.slots.reduce((sum,value,index)=>{
+    const spec=slotSpec(value);
+    if(spec.useItemDuration||slotCategory(value)==="event"){
+      const durations=(pools[index]||[]).map((item)=>Number(item?.duration||spec.minutes||60)).filter(Number.isFinite);
+      return sum+(durations.length?Math.min(...durations):Number(spec.minutes||60));
+    }
+    return sum+Number(spec.minutes||60);
+  },0);
+  if(emptySelectors.length)return {templateId,exists:true,eligible:true,poolSizes,emptySelectors,geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes};
+  const combinations=cartesianLimited(pools,filters,template);
+  let moodPass=0,schedulePass=0;
+  for(const items of combinations){
+    if(!moodCoverage(template,items,filters))continue;
+    moodPass++;
+    if(schedulePlan(items,filters,template))schedulePass++;
+  }
+  return {templateId,exists:true,eligible:true,poolSizes,emptySelectors,geographicCombinations:combinations.length,moodPass,schedulePass,minActivityMinutes};
+}
+
+export function generateTemplateDates({ places, events, filters, templateId, count=1, variationSeed=0, anchorItem=null }) {
+  const template=TEMPLATES.find((candidate)=>candidate.id===templateId);
+  if(!template||!templateEligible(template,filters))return [];
+  const pools=buildPools(template,places,events,filters,anchorItem);
+  if(!pools||pools.some((pool)=>!pool.length))return [];
+  const candidates=[];
+  for(const items of cartesianLimited(pools,filters,template)){
+    if(!moodCoverage(template,items,filters))continue;
+    const schedule=schedulePlan(items,filters,template);
+    if(!schedule)continue;
+    const baseScore=planBaseScore(template,items,schedule,filters,variationSeed);
+    candidates.push({...schedule,template,items,baseScore,filters,geo:geographicMetrics(items,filters,template)});
+  }
+  candidates.sort((a,b)=>b.baseScore-a.baseScore);
+  return candidates.slice(0,Math.max(1,Number(count)||1)).map((plan,index)=>enrichPlan(plan,filters,index,variationSeed));
 }
 
 export function generateDates({ places, events, filters, count=3, variationSeed=0, anchorItem=null }) {

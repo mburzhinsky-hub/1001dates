@@ -74,7 +74,7 @@ const P = Object.freeze({
     slot("walk",45,"оставить время на разговор"),
     slot("walk:waterfront",45,"погулять вдоль воды"),
     slot("walk:architecture",45,"посмотреть на город"),
-    slot("walk:park",45,"погулять в зелени")
+    slot("walk:park|waterfront",45,"погулять в зелени или у воды")
   ),
   walk55: variants(
     slot("walk",55,"нормально прогуляться вдвоём"),
@@ -86,6 +86,11 @@ const P = Object.freeze({
     slot("viewpoint",35,"поймать красивый вид"),
     slot("viewpoint:observation",35,"посмотреть на город сверху"),
     slot("viewpoint:observation|rooftop",35,"выйти к панораме")
+  ),
+  cityScenery45: variants(
+    slot("walk:architecture|waterfront",45,"посмотреть на красивый город"),
+    slot("walk:park|architecture",45,"пройтись по красивому городскому маршруту"),
+    slot("walk:park|waterfront",45,"погулять в зелени или у воды")
   ),
   view45: variants(
     slot("viewpoint",45,"сделать визуальный акцент вечера"),
@@ -129,7 +134,7 @@ const P = Object.freeze({
   ),
   creative75: variants(
     slot("activity",75,"сделать что-то руками вместе",{semantic:"creative"}),
-    slot("activity:workshop",75,"сходить на мастер-класс"),
+    slot("activity:workshop|painting|cooking",75,"сходить на мастер-класс"),
     slot("activity:painting|pottery",75,"создать что-то вместе"),
     slot("activity:painting",75,"порисовать вместе"),
     slot("activity:cooking",75,"приготовить блюдо вместе"),
@@ -145,7 +150,7 @@ const P = Object.freeze({
   ),
   play75: variants(
     slot("activity",75,"добавить игру в вечер",{semantic:"play"}),
-    slot("activity:games",75,"поиграть без спешки"),
+    slot("activity:games|bowling|billiards",75,"поиграть без спешки"),
     slot("activity:bowling",75,"устроить мини-турнир"),
     slot("activity:games|billiards",75,"устроить полноценную игру"),
     slot("activity:vr",75,"уйти в VR на один раунд"),
@@ -163,7 +168,7 @@ const P = Object.freeze({
   active85: variants(
     slot("activity",85,"сделать активность центральной главой",{semantic:"active"}),
     slot("activity:water|climbing",85,"сделать активность главным впечатлением"),
-    slot("activity:skating",85,"покататься подольше"),
+    slot("activity:skating|dance",85,"покататься или потанцевать подольше"),
     slot("activity:karting",85,"устроить полноценный заезд"),
     slot("activity:karting|mini_golf",85,"провести время за активной игрой"),
     slot("activity:dance",85,"сходить на танцевальное занятие")
@@ -182,17 +187,29 @@ const P = Object.freeze({
     slot("activity:market",60,"исследовать маркет"),
     slot("activity:bookstore|market",60,"медленно исследовать новое место")
   ),
+  dinner45: variants(
+    slot("dinner",45,"коротко поужинать перед событием"),
+    slot("dinner:restaurant",45,"зайти на короткий ужин"),
+    slot("dinner:restaurant|casual",45,"выбрать лёгкий ресторан"),
+    slot("dinner:restaurant|gastropub",45,"поесть без долгого застолья")
+  ),
+  dinner60: variants(
+    slot("dinner",60,"поужинать и поговорить"),
+    slot("dinner:restaurant",60,"сесть за короткий ужин"),
+    slot("dinner:restaurant|casual",60,"выбрать лёгкий ресторан"),
+    slot("dinner:restaurant|gastropub",60,"поужинать без лишнего пафоса")
+  ),
   dinner80: variants(
     slot("dinner",80,"поужинать и поговорить"),
     slot("dinner:restaurant",80,"сесть за нормальный ужин"),
-    slot("dinner:casual",80,"выбрать лёгкий ресторан"),
-    slot("dinner:gastropub",80,"поужинать без лишнего пафоса")
+    slot("dinner:restaurant|casual",80,"выбрать лёгкий ресторан"),
+    slot("dinner:restaurant|gastropub",80,"поужинать без лишнего пафоса")
   ),
   dinner90: variants(
     slot("dinner",90,"сделать ужин центральной паузой"),
     slot("dinner:restaurant",90,"поужинать без спешки"),
-    slot("dinner:casual",90,"выбрать расслабленный ресторан"),
-    slot("dinner:gastropub",90,"поесть и спокойно поговорить")
+    slot("dinner:restaurant|casual",90,"выбрать расслабленный ресторан"),
+    slot("dinner:restaurant|gastropub",90,"поесть и спокойно поговорить")
   ),
   brunch75: variants(
     slot("dinner:breakfast|brunch",75,"встретиться за завтраком или бранчем"),
@@ -208,19 +225,19 @@ const P = Object.freeze({
   bar70: variants(
     slot("bar",70,"не заканчивать вечер сразу"),
     slot("bar:cocktail",70,"перейти в коктейльный бар"),
-    slot("bar:wine",70,"продолжить в винном баре"),
+    slot("bar:cocktail|wine",70,"продолжить в хорошем баре"),
     slot("bar:jazz",70,"закончить вечер музыкой и напитком")
   ),
   eventCulture: variants(
     slot("event:exhibition",null,"попасть на актуальную выставку",{useItemDuration:true}),
-    slot("event:lecture",null,"сходить на интересную лекцию",{useItemDuration:true}),
-    slot("event:excursion",null,"попасть на необычную экскурсию",{useItemDuration:true}),
+    slot("event:exhibition|lecture",null,"сходить на интересную лекцию или выставку",{useItemDuration:true}),
+    slot("event:exhibition|excursion",null,"попасть на необычную экскурсию или выставку",{useItemDuration:true}),
     slot("event",null,"выбрать актуальное культурное событие",{useItemDuration:true})
   ),
   eventStage: variants(
     slot("event:concert",null,"сходить на концерт",{useItemDuration:true}),
     slot("event:theater",null,"сходить на спектакль",{useItemDuration:true}),
-    slot("event:standup",null,"сходить на стендап",{useItemDuration:true}),
+    slot("event:standup|show",null,"сходить на стендап или живое шоу",{useItemDuration:true}),
     slot("event:movie",null,"сходить на специальный кинопоказ",{useItemDuration:true}),
     slot("event:show",null,"попасть на шоу",{useItemDuration:true}),
     slot("event",null,"сделать событие центром вечера",{useItemDuration:true})
@@ -287,7 +304,7 @@ const recipes = [
   R("3-art-bar",180,"night","Искусство и бар",["art75","bar70"],["romantic","unusual","fun"],2,{dayparts:["evening","late"]}),
   R("3-play-bar",180,"night","Игра и бар",["play75","bar70"],["active","fun","unusual"],2,{dayparts:["evening","late"]}),
   R("3-event-dinner",180,"event","Событие и ужин после",["eventCulture","dinner80"],["fun","unusual","romantic"],2),
-  R("3-dinner-event",180,"event","Ужин перед событием",["dinner80","eventStage"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
+  R("3-dinner-event",180,"event","Ужин перед событием",["dinner45","eventStage"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
   R("3-event-dessert",180,"event","Событие и десерт после",["eventStage","dessert35"],["fun","unusual","romantic"],2),
   R("3-art-event",180,"event","Искусство и актуальное событие",["art60","eventCulture"],["unusual","calm","fun"],2),
   R("3-event-art",180,"event","Событие и ещё немного искусства",["eventCulture","art60"],["unusual","calm","fun"],2),
@@ -300,13 +317,13 @@ const recipes = [
   R("3-walk-art-dessert",180,"culture","Прогулка, искусство и десерт",["walk45","art60","dessert45"],["romantic","calm","unusual","active"],1,{routeMode:"micro"}),
   R("3-art-walk-dessert",180,"culture","Искусство, прогулка и десерт",["art60","walk45","dessert45"],["romantic","calm","unusual","active"],1,{routeMode:"micro"}),
   R("3-play-view-dessert",180,"play","Игра, красивый вид и десерт",["play60","view45","dessert35"],["active","fun","unusual","romantic"],2),
-  R("3-view-art-dessert",180,"culture","Панорама, искусство и десерт",["view45","art60","dessert45"],["romantic","unusual","calm"],2),
-  R("3-art-view-dessert",180,"culture","Искусство, панорама и десерт",["art60","view45","dessert45"],["romantic","unusual","calm"],2),
+  R("3-view-art-dessert",180,"culture","Красивый город, искусство и десерт",["cityScenery45","art60","dessert45"],["romantic","unusual","calm"],2,{routeMode:"compact"}),
+  R("3-art-view-dessert",180,"culture","Искусство, красивый город и десерт",["art60","cityScenery45","dessert45"],["romantic","unusual","calm"],2,{routeMode:"compact"}),
   R("3-event-walk-dessert",180,"event","Событие, прогулка и десерт",["eventCulture","walk35","dessert35"],["fun","unusual","romantic","calm"],2,{routeMode:"micro"}),
   R("3-walk-event-dessert",180,"event","Прогулка, событие и десерт",["walk35","eventCulture","dessert35"],["fun","unusual","romantic","calm"],2,{routeMode:"micro"}),
   R("3-active-view-walk",180,"active","Активность и городской маршрут",["active70","view45","walk45"],["active","unusual","fun","romantic"],2),
   R("3-walk-creative-view",180,"make","Прогулка, мастер-класс и вид",["walk35","creative75","view45"],["active","unusual","romantic","calm"],2),
-  R("3-book-coffee-walk",180,"discover","Маленькое исследование, кофе и прогулка",["slowActivity60","coffee45","walk45"],["calm","unusual","fun","active"],2,{routeMode:"micro"}),
+  R("3-book-coffee-walk",180,"discover","Маленькое исследование, кофе и прогулка",["slowActivity60","coffee45","walk45"],["calm","unusual","fun","active"],2,{routeMode:"compact"}),
   R("3-brunch-art",180,"daytime","Бранч и выставка",["brunch75","art75"],["calm","romantic","unusual"],1,{dayparts:["morning","day"]}),
   R("3-brunch-walk-coffee",180,"daytime","Бранч, прогулка и кофе",["brunch75","walk45","coffee35"],["calm","romantic","active"],1,{dayparts:["morning","day"],routeMode:"micro"}),
   R("3-coffee-play-dessert",180,"play","Кофе, игра и десерт",["coffee35","play75","dessert35"],["fun","active","romantic"],2,{routeMode:"micro"}),
