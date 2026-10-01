@@ -1,6 +1,6 @@
 import {seedPlaces,seedEvents} from "./data/seed.js";
 import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
-import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5";
+import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1";
 import {selectScenarioCover} from "./scenario-visuals.js?v=1";
 import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress} from "./preparation.js?v=1";
 import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl} from "./scenario-map.js?v=1";
