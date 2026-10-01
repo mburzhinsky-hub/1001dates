@@ -14,7 +14,7 @@ for(const blueprint of slice){
   const fixed=blueprint.slots.filter((slot)=>!slot.useItemDuration).reduce((sum,slot)=>sum+Number(slot.minutes||0),0);
   assert(fixed<=blueprint.duration+5,blueprint.id+": fixed chapter time exceeds duration");
 }
-const palace=repairScenarioItem({id:"palace",title:"Петровский путевой дворец",description:"исторический дворец",category:"activity",subtype:"water",costForTwo:0});
+const palace=repairScenarioItem({id:"palace",title:"Петровский путевой дворец",description:"исторический дворец рядом с бассейном и водными объектами",category:"activity",subtype:"water",costForTwo:0});
 assert(!(palace.category==="activity"&&palace.subtype==="water"),"Palace still leaks into water activity");
 const dance=repairScenarioItem({id:"dance",title:"танцевальные клубы GallaDance",description:"занятия танцами",category:"activity",subtype:"cooking",costForTwo:3000});
 assert(dance.category==="activity"&&dance.subtype==="dance","Dance club still leaks into cooking activity");
