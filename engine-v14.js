@@ -1,4 +1,4 @@
-import * as base from "./engine.js?base=duration5&nearby=1&audit=1";
+import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
