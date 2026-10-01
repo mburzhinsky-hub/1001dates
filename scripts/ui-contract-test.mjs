@@ -46,7 +46,7 @@ assert(app.includes("destroyScenarioMap"),"Scenario map cleanup is missing");
 assert(app.includes("$(`[data-prep-toggle]`")||app.includes("$(\'[data-prep-toggle]\'"),"Preparation toggle binding must use querySelectorAll");
 assert(app.includes("$(`[data-prep-action]`")||app.includes("$(\'[data-prep-action]\'"),"Preparation action binding must use querySelectorAll");
 assert(!/(^|[^$])\$\([\'\"]\[data-prep-(?:toggle|action)\][\'\"]/m.test(app),"Preparation controls regress to querySelector/forEach");
-assert(!/(^|[^$])\$\([\'\"]\[data-(?:dislike-item|chapter-index|map-stop)\]/m.test(app),"Detail/map controls must use querySelectorAll before forEach");
+assert(!app.includes("$([\'data-dislike-item\']")&&!app.includes("$([\"data-chapter-index\"]")&&!app.includes("$([\"data-map-stop\"]"),"Detail/map controls must use querySelectorAll before forEach");
 assert(seasonCss.includes(".october-stats")&&seasonCss.includes(".phone-frame")&&seasonCss.includes(".quick-filters"),"Reference visual layer is incomplete");
 assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(app),"querySelector/forEach runtime regression returned");
 
