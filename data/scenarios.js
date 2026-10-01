@@ -81,14 +81,14 @@ const P = Object.freeze({
     slot("viewpoint:rooftop",55,"посидеть у панорамы")
   ),
   art45: variants(
-    slot("art:gallery|museum|contemporary|digital|photo|science",45,"посмотреть что-то новое"),
+    slot("art",45,"посмотреть что-то новое",{semantic:"art"}),
     slot("art:gallery",45,"зайти в небольшую галерею"),
     slot("art:contemporary",45,"посмотреть современное искусство"),
     slot("art:photo",45,"посмотреть фотографию"),
     slot("art:digital",45,"зайти на мультимедийную выставку")
   ),
   art60: variants(
-    slot("art:gallery|museum|contemporary|digital|photo|science",60,"посмотреть и обсудить"),
+    slot("art",60,"посмотреть и обсудить",{semantic:"art"}),
     slot("art:gallery",60,"пройти выставку без спешки"),
     slot("art:museum",60,"выбрать один музейный маршрут"),
     slot("art:contemporary",60,"посмотреть современное искусство"),
@@ -97,21 +97,21 @@ const P = Object.freeze({
     slot("art:science",60,"найти тему для разговора в научной экспозиции")
   ),
   art75: variants(
-    slot("art:gallery|museum|contemporary|digital|photo|science",75,"провести время в искусстве"),
+    slot("art",75,"провести время в искусстве",{semantic:"art"}),
     slot("art:gallery|contemporary",75,"посмотреть сильную выставку"),
     slot("art:museum",75,"пройти выбранную часть музея"),
     slot("art:digital",75,"погрузиться в мультимедийный проект"),
     slot("art:photo",75,"посмотреть большую фотовыставку")
   ),
   creative60: variants(
-    slot("activity:workshop|pottery|painting|cooking|dance",60,"сделать что-то вместе"),
+    slot("activity",60,"сделать что-то вместе",{semantic:"creative"}),
     slot("activity:workshop",60,"попробовать мастер-класс"),
     slot("activity:pottery",60,"поработать с керамикой"),
     slot("activity:painting",60,"порисовать вместе"),
     slot("activity:cooking",60,"приготовить что-то вместе")
   ),
   creative75: variants(
-    slot("activity:workshop|pottery|painting|cooking|dance",75,"сделать что-то руками вместе"),
+    slot("activity",75,"сделать что-то руками вместе",{semantic:"creative"}),
     slot("activity:workshop",75,"сходить на мастер-класс"),
     slot("activity:pottery",75,"сделать что-то из керамики"),
     slot("activity:painting",75,"порисовать вместе"),
@@ -119,7 +119,7 @@ const P = Object.freeze({
     slot("activity:dance",75,"попробовать танцевальный класс")
   ),
   play60: variants(
-    slot("activity:games|bowling|billiards|vr|quest",60,"добавить лёгкое соревнование"),
+    slot("activity",60,"добавить лёгкое соревнование",{semantic:"play"}),
     slot("activity:games",60,"поиграть вместе"),
     slot("activity:bowling",60,"сыграть пару партий"),
     slot("activity:billiards",60,"сыграть в бильярд"),
@@ -127,7 +127,7 @@ const P = Object.freeze({
     slot("activity:quest",60,"пройти короткий квест")
   ),
   play75: variants(
-    slot("activity:games|bowling|billiards|vr|quest|karaoke",75,"добавить игру в вечер"),
+    slot("activity",75,"добавить игру в вечер",{semantic:"play"}),
     slot("activity:games",75,"поиграть без спешки"),
     slot("activity:bowling",75,"устроить мини-турнир"),
     slot("activity:billiards",75,"поиграть в бильярд"),
@@ -136,7 +136,7 @@ const P = Object.freeze({
     slot("activity:karaoke",75,"спеть несколько любимых песен")
   ),
   active70: variants(
-    slot("activity:climbing|skating|karting|mini_golf|dance|water",70,"немного подвигаться вместе"),
+    slot("activity",70,"немного подвигаться вместе",{semantic:"active"}),
     slot("activity:climbing",70,"попробовать скалодром"),
     slot("activity:skating",70,"покататься вместе"),
     slot("activity:karting",70,"устроить заезд"),
@@ -144,7 +144,7 @@ const P = Object.freeze({
     slot("activity:dance",70,"потанцевать")
   ),
   active85: variants(
-    slot("activity:climbing|skating|karting|mini_golf|dance|water",85,"сделать активность центральной главой"),
+    slot("activity",85,"сделать активность центральной главой",{semantic:"active"}),
     slot("activity:climbing",85,"провести время на скалодроме"),
     slot("activity:skating",85,"покататься подольше"),
     slot("activity:karting",85,"устроить полноценный заезд"),
@@ -152,14 +152,14 @@ const P = Object.freeze({
     slot("activity:dance",85,"сходить на танцевальное занятие")
   ),
   slowActivity45: variants(
-    slot("activity:bookstore|vinyl|market|games",45,"добавить маленькое совместное занятие"),
+    slot("activity",45,"добавить маленькое совместное занятие",{semantic:"slow"}),
     slot("activity:bookstore",45,"побродить по книжному"),
     slot("activity:vinyl",45,"посмотреть винил и музыку"),
     slot("activity:market",45,"погулять по интересному маркету"),
     slot("activity:games",45,"сыграть в короткую игру")
   ),
   slowActivity60: variants(
-    slot("activity:bookstore|vinyl|market|games",60,"заняться чем-то вместе без спешки"),
+    slot("activity",60,"заняться чем-то вместе без спешки",{semantic:"slow"}),
     slot("activity:bookstore",60,"выбрать друг другу книгу"),
     slot("activity:vinyl",60,"послушать и выбрать музыку"),
     slot("activity:market",60,"исследовать маркет"),
