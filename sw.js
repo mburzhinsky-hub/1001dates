@@ -1,11 +1,11 @@
-const CACHE="1001-dates-reference-ui-v24";
+const CACHE="1001-dates-reference-ui-v25";
 const CORE=[
   "./",
   "./index.html",
   "./styles-final.css?v=oct1&invite=3&prep=1&map=1",
   "./motion-final.css?v=motion2",
   "./october-reference.css?v=ref2&rollback=2&portrait=1",
-  "./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=2",
+  "./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3",
   "./engine-v14.js?v=duration5&nearby=1",
   "./scenario-visuals.js?v=1",
   "./preparation.js?v=1",
