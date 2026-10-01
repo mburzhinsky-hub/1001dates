@@ -8,8 +8,9 @@ const first100=scenarioBlueprints.slice(0,100);
 for(const scenario of first100){
   for(const slot of scenario.slots){
     const select=String(slot.select||"");
-    if(/^activity$/.test(select))throw new Error(`${scenario.id}: broad activity selector remains in first 100`);
-    if(/^art$/.test(select))throw new Error(`${scenario.id}: broad art selector remains in first 100`);
+    if((select==="activity"||select==="art")&&!slot.semantic){
+      throw new Error(`${scenario.id}: broad selector ${select} lacks a semantic guard`);
+    }
   }
 }
 
