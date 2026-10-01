@@ -171,3 +171,4 @@ export const formatDuration=base.formatDuration;
 export const estimateScenarioCount=base.estimateScenarioCount;
 export const auditPlanConstraints=base.auditPlanConstraints;
 export const auditPlanGeography=base.auditPlanGeography;
+export const repairScenarioItem=repairItem;
