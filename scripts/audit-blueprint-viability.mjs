@@ -76,10 +76,13 @@ export function auditRange(start=201,end=300,{verbose=true}={}){
     for(const [name,ok] of Object.entries(hard))assert(ok,blueprint.id+": hard constraint failed: "+name);
     assert(new Set(chosen.items.map((item)=>item.id)).size===chosen.items.length,blueprint.id+": duplicate item");
     const cover=selectScenarioCover(chosen);
+    assert(cover,blueprint.id+": representative plan has no usable cover image");
     if(cover){
       assert(scenarioImageUsable(cover),blueprint.id+": selected cover is unusable");
       assert(chosen.items.some((item)=>item.image===cover),blueprint.id+": cover does not belong to a real scenario item");
     }
+    const venueKeys=chosen.items.map((item)=>String(item.title||"").toLowerCase().replace(/ё/g,"е").replace(/[«»“”„"'.,:;!?()—–−/\\-]+/g," ").replace(/\s+/g," ").trim());
+    assert(new Set(venueKeys).size===venueKeys.length,blueprint.id+": the same real venue appears in multiple chapters");
     const prep=selectedPreparation(chosen,chosenFilters);
     const row={
       number,id:blueprint.id,concept:blueprint.concept,status:"OK",
