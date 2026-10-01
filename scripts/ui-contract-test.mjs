@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 
 function assert(condition,message){if(!condition)throw new Error(message);}
 
@@ -28,9 +29,9 @@ assert(app.includes("selectScenarioCover"),"Semantic scenario cover selection is
 assert(app.includes('$("#devicePreviewDate")'),"Reference preview does not sync with selected date");
 assert(app.includes("async function shareInvitation()"),"Invitation share handler is missing");
 assert(app.includes("await navigator.share(data)"),"Invitation share does not use the native share sheet");
-assert(app.includes("function inviteLink("),"Shareable invitation link is missing");
-assert(app.includes("function postcardSvg(")&&app.includes("async function invitePngBlob("),"Native postcard PNG renderer is missing");
-assert(app.includes("canvas.width=1080")&&app.includes("canvas.height=1350"),"Invitation PNG export is not fixed at 1080x1350");
+assert(app.includes("async function prepareInviteLink(")&&app.includes("function inviteLinkNow("),"Shareable invitation link is missing");
+assert(app.includes("drawPostcard(")&&app.includes("async function invitePngBlob("),"Native postcard PNG renderer is missing");
+assert(app.includes("canvas.width=POSTCARD.width")&&app.includes("canvas.height=POSTCARD.height")&&/POSTCARD = \{ width: 1080, height: 1350/.test(readFileSync(new URL("../invite.js",import.meta.url),"utf8")),"Invitation PNG export is not fixed at 1080x1350");
 assert(!app.includes("html2canvas"),"Invitation export still depends on html2canvas");
 assert(app.includes("showSharedInviteFromHash()"),"Shared invitation deep-link renderer is missing");
 assert(app.includes("buildPreparationTasks"),"Preparation task builder is not wired");

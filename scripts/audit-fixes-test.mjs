@@ -207,7 +207,7 @@ assert(repairScenarioItem({ id: "x3", title: "Парк Горького", catego
   // fonts: the old pair had no Cyrillic; the new ones are self-hosted and cached by the service worker
   assert(!html.includes("fonts.googleapis.com"), "Google Fonts link is back");
   assert(/--serif:"Cormorant"/.test(css) && /--sans:"Onest"/.test(css), "font variables are not switched to Cormorant/Onest");
-  for (const file of ["onest-cyr", "onest-lat", "onest-rub", "cormorant-cyr", "cormorant-lat", "cormorant-rub", "cormorant-cyr-italic", "cormorant-lat-italic", "cormorant-rub-italic"]) {
+  for (const file of ["onest-cyr", "onest-lat", "onest-rub", "cormorant-cyr", "cormorant-lat", "cormorant-rub", "cormorant-cyr-italic", "cormorant-lat-italic", "cormorant-rub-italic", "cormorant-digits"]) {
     assert(existsSync(new URL(`../assets/fonts/${file}.woff2`, import.meta.url)), `font file ${file} is missing`);
     assert(css.includes(`${file}.woff2`) && sw.includes(`${file}.woff2`), `font ${file} is not declared in CSS and precached`);
   }
@@ -248,5 +248,18 @@ assert(repairScenarioItem({ id: "x3", title: "Парк Горького", catego
   assert(/@media \(prefers-reduced-motion:no-preference\)\{[\s\S]*results-ready \.date-photo img/.test(css), "surprise animation is not gated by reduced motion");
   // a broken photo becomes a tinted placeholder instead of a hole
   assert(app.includes('box.classList.add("placeholder")'), "failed photos do not turn into placeholders");
+}
+// 17. Sharing: the link preview has a title, text and picture; the invitation is built from the real text width
+{
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../app-final.js", import.meta.url), "utf8");
+  const sw = readFileSync(new URL("../sw.js", import.meta.url), "utf8");
+  for (const tag of ["og:title", "og:description", "og:image", "og:url", "twitter:card"]) assert(html.includes(tag), `${tag} is missing: the link preview would be empty`);
+  const ogImage = /property="og:image" content="https:\/\/mburzhinsky-hub\.github\.io\/1001dates\/(assets\/[^"]+)"/.exec(html);
+  assert(ogImage && existsSync(new URL(`../${ogImage[1]}`, import.meta.url)), "preview image file is missing");
+  assert(html.includes('rel="apple-touch-icon"') && existsSync(new URL("../assets/apple-touch-icon.png", import.meta.url)), "touch icon is missing");
+  assert(app.includes('from "./invite.js') && sw.includes("./invite.js"), "invite module is not wired or cached");
+  assert(!app.includes("postcardSvg") && app.includes("drawPostcard("), "the saved picture must come from the measured canvas renderer");
+  assert(app.includes("Открой приглашение") && app.includes("inviteMessage("), "the shared message lost its text");
 }
 console.log("Audit fixes OK");

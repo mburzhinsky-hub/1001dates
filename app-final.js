@@ -3,6 +3,7 @@ import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
 import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=3";
 import {selectScenarioCover,scenarioCoverSources} from "./scenario-visuals.js?v=3";
 import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress,buildCalendarICS} from "./preparation.js?v=5&catalog=2";
+import {encodeInvite,encodeInviteSync,decodeInvite,normalizeInvite,drawPostcard,POSTCARD,coverPath,coverUrl} from "./invite.js?v=1";
 import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl,routeSchematic} from "./scenario-map.js?v=3";
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -351,6 +352,7 @@ function renderInvite(){
     if(bg)bg.style.backgroundImage=`url("${posterUrl.replace(/"/g,'%22')}")`;
   }
   syncInviteControls();
+  warmInviteLink();
 }
 $$('[data-theme]').forEach(button=>button.addEventListener('click',()=>{
   if(inviteTheme===button.dataset.theme)return;
@@ -368,45 +370,35 @@ function currentInvitePayload(){
   const p=latestPlans[activePlanIndex],f=activeFilters;
   if(!p||!f)return null;
   const rows=planRows(p);
-  return {
-    v:1,no:stableNo(p),title:String(p.title||"").slice(0,120),date:f.date,time:f.time,
+  return normalizeInvite({
+    no:stableNo(p),title:p.title,date:f.date,time:f.time,
     duration:formatDuration(p.totalMinutes),
-    note:($("#inviteNote")?.value.trim()||"Просто освободи вечер. Остальное — сюрприз.").slice(0,100),
+    note:$("#inviteNote")?.value.trim()||"Просто освободи вечер. Остальное — сюрприз.",
     theme:inviteTheme,reveal:inviteReveal,
     items:posterTitles(rows.map(row=>row.title)),
-    itemCount:p.items.length
-  };
+    itemCount:p.items.length,
+    bg:inviteTheme!=="minimal"&&imageOK(p.coverImage)?coverPath(p.coverImage):""
+  });
 }
-function encodeInvitePayload(payload){
-  const bytes=new TextEncoder().encode(JSON.stringify(payload));
-  let binary=""; for(const byte of bytes)binary+=String.fromCharCode(byte);
-  return btoa(binary).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
-}
-function decodeInvitePayload(token){
-  try{
-    let base=String(token||"").replace(/-/g,"+").replace(/_/g,"/");
-    while(base.length%4)base+="=";
-    const binary=atob(base),bytes=Uint8Array.from(binary,ch=>ch.charCodeAt(0));
-    const raw=JSON.parse(new TextDecoder().decode(bytes));
-    if(!raw||raw.v!==1||!raw.title||!/^\d{4}-\d{2}-\d{2}$/.test(raw.date||""))return null;
-    return {
-      v:1,no:String(raw.no||"001").replace(/\D/g,"").slice(0,4)||"001",
-      title:String(raw.title).slice(0,120),date:raw.date,time:/^\d{2}:\d{2}$/.test(raw.time||"")?raw.time:"19:00",
-      duration:String(raw.duration||"вечер").slice(0,32),note:String(raw.note||"").slice(0,100),
-      theme:["warm","night","minimal"].includes(raw.theme)?raw.theme:"warm",
-      reveal:raw.reveal==="full"?"full":"secret",
-      items:Array.isArray(raw.items)?raw.items.slice(0,4).map(x=>String(x).slice(0,80)):[],
-      itemCount:Math.max(1,Math.min(9,Number(raw.itemCount)||1))
-    };
-  }catch{return null}
-}
-function inviteLink(payload=currentInvitePayload()){
+// The link is built ahead of time (compressed, so it stays short) so that sharing can happen inside the tap itself.
+let inviteLinkCache={key:"",url:""},inviteLinkPending=null;
+function inviteBase(){return `${location.origin}${location.pathname}#invite=`}
+function inviteLinkNow(payload){
   if(!payload)return location.href;
-  return `${location.origin}${location.pathname}#invite=${encodeInvitePayload(payload)}`;
+  const key=JSON.stringify(payload);
+  return inviteLinkCache.key===key?inviteLinkCache.url:inviteBase()+encodeInviteSync(payload);
 }
-function inviteText(payload=currentInvitePayload()){
-  if(!payload)return "";
-  return `Я приготовил для нас свидание ♡\n${payload.title}\n${humanDate(payload.date)}, ${payload.time}\n\nОткрой приглашение: ${inviteLink(payload)}`;
+async function prepareInviteLink(payload=currentInvitePayload()){
+  if(!payload)return location.href;
+  const key=JSON.stringify(payload);
+  if(inviteLinkCache.key===key)return inviteLinkCache.url;
+  const url=inviteBase()+await encodeInvite(payload);
+  if(JSON.stringify(currentInvitePayload()||{})===key)inviteLinkCache={key,url};
+  return url;
+}
+function warmInviteLink(){clearTimeout(inviteLinkPending);inviteLinkPending=setTimeout(()=>{prepareInviteLink().catch(()=>{})},120)}
+function inviteMessage(payload,url){
+  return `Я приготовил для нас свидание ♡\n«${payload.title}»\n${humanDate(payload.date)}, ${payload.time}\n\nОткрой приглашение:\n${url}`;
 }
 async function copyInviteText(text){
   try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);return true}}catch{}
@@ -420,44 +412,47 @@ function setInviteShareStatus(label,delay=0){
 }
 $("#copyInvite")?.addEventListener("click",async()=>{
   const payload=currentInvitePayload(); if(!payload)return;
-  if(await copyInviteText(inviteLink(payload))){$("#copyInvite").textContent="Ссылка скопирована";setTimeout(()=>$("#copyInvite").textContent="Скопировать ссылку",1400)}
+  const url=await prepareInviteLink(payload).catch(()=>inviteLinkNow(payload));
+  if(await copyInviteText(inviteMessage(payload,url))){$("#copyInvite").textContent="Скопировано";setTimeout(()=>$("#copyInvite").textContent="Скопировать приглашение",1400)}
 });
 $("#calendarInvite")?.addEventListener("click",()=>downloadCalendarInvite(latestPlans[activePlanIndex],activeFilters));
 async function shareInvitation(){
   const payload=currentInvitePayload(); if(!payload)return;
-  const url=inviteLink(payload),data={title:"Приглашение на свидание — 1001 Dates",text:"Я приготовил для нас свидание ♡",url};
+  const url=inviteLinkNow(payload),message=inviteMessage(payload,url);
+  const data={title:"Приглашение на свидание",text:message.slice(0,message.lastIndexOf(url)).trimEnd(),url};
   if(navigator.share){try{await navigator.share(data);return}catch(error){if(error?.name==="AbortError")return}}
-  if(await copyInviteText(`${data.text}\n${url}`)){setInviteShareStatus("Ссылка скопирована",1600);return}
+  if(await copyInviteText(message)){setInviteShareStatus("Приглашение скопировано",1600);return}
   setInviteShareStatus("Не удалось отправить",1600);
 }
 $("#shareInvite")?.addEventListener("click",shareInvitation);
-function wrapPostcardText(value,maxChars,maxLines){
-  const words=String(value||"").trim().split(/\s+/).filter(Boolean),lines=[]; let line="";
-  for(const word of words){const next=line?`${line} ${word}`:word;if(next.length<=maxChars){line=next;continue}if(line)lines.push(line);line=word;if(lines.length>=maxLines){line="";break}}
-  if(line&&lines.length<maxLines)lines.push(line);
-  if(lines.length===maxLines&&words.join(" ").length>lines.join(" ").length)lines[maxLines-1]=lines[maxLines-1].slice(0,Math.max(1,maxChars-1)).trimEnd()+"…";
-  return lines.slice(0,maxLines);
+async function loadPostcardFonts(){
+  if(!document.fonts?.load)return;
+  const sample="Абвгдеёжзийклмнопрстуфхцчшщъыьэюя АБВГ 0123456789 №";
+  await Promise.all(['500 64px "Cormorant"','400 28px "Onest"','500 28px "Onest"','600 28px "Onest"','700 28px "Onest"'].map(f=>document.fonts.load(f,sample).catch(()=>{})));
+  await document.fonts.ready.catch(()=>{});
 }
-function svgSafe(value=""){return String(value).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]))}
-function postcardSvg(payload){
-  const data=payload, palettes={
-    warm:{a:"#4f2018",b:"#7e3222",c:"#2b120e",text:"#fff4e9",muted:"#e9cfc3",accent:"#ef6a47",line:"#b97c69"},
-    night:{a:"#080a14",b:"#10182a",c:"#05070d",text:"#f4f3ff",muted:"#c9cde7",accent:"#8fa3ff",line:"#56627f"},
-    minimal:{a:"#f3ece2",b:"#ede3d6",c:"#e9ded0",text:"#181714",muted:"#6d6259",accent:"#b45136",line:"#b9aa9d"}
-  },p=palettes[data.theme]||palettes.warm,d=new Date(`${data.date}T12:00:00`),day=String(d.getDate()).padStart(2,"0"),month=new Intl.DateTimeFormat("ru-RU",{month:"long"}).format(d).toUpperCase();
-  const titleSize=data.reveal==="full"?(data.title.length>58?62:data.title.length>38?72:84):(data.title.length>58?74:data.title.length>38?88:104);
-  const titleLines=wrapPostcardText(data.title,data.reveal==="full"?24:20,data.reveal==="full"?2:3),titleY=data.reveal==="full"?870:770,titleLH=Math.round(titleSize*.92),noteLines=wrapPostcardText(data.note,42,2),noteY=titleY+titleLines.length*titleLH+42;
-  const texts=(lines,x,y,size,lh,fill,family="Georgia, serif",weight="400")=>lines.map((line,i)=>`<text x="${x}" y="${y+i*lh}" fill="${fill}" font-family="${family}" font-size="${size}" font-weight="${weight}">${svgSafe(line)}</text>`).join("");
-  const plan=data.reveal==="full"?`<text x="88" y="450" fill="${p.muted}" font-family="Arial, sans-serif" font-size="24" font-weight="700">ПЛАН ВЕЧЕРА</text>${data.items.map((item,i)=>`<text x="88" y="${515+i*72}" fill="${p.accent}" font-family="Georgia, serif" font-size="36">${String(i+1).padStart(2,"0")}</text><text x="160" y="${515+i*72}" fill="${p.text}" font-family="Arial, sans-serif" font-size="28" font-weight="600">${svgSafe(wrapPostcardText(item,36,1)[0]||"")}</text>`).join("")}`:"";
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${p.a}"/><stop offset="52%" stop-color="${p.b}"/><stop offset="100%" stop-color="${p.c}"/></linearGradient></defs><rect width="1080" height="1350" rx="56" fill="url(#bg)"/><text x="88" y="105" fill="${p.text}" font-family="Arial, sans-serif" font-size="28" font-weight="700">1001 DATES</text><text x="992" y="105" text-anchor="end" fill="${p.muted}" font-family="Arial, sans-serif" font-size="28">№ ${svgSafe(data.no)}</text><text x="82" y="335" fill="${p.accent}" font-family="Georgia, serif" font-size="210">${day}</text><text x="360" y="245" fill="${p.text}" font-family="Arial, sans-serif" font-size="50" font-weight="700">${svgSafe(month)}</text><text x="360" y="302" fill="${p.muted}" font-family="Arial, sans-serif" font-size="30">${svgSafe(data.time)}</text>${plan}<text x="88" y="${titleY-52}" fill="${p.muted}" font-family="Arial, sans-serif" font-size="22" font-weight="700">${data.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</text>${texts(titleLines,88,titleY,titleSize,titleLH,p.text)}${texts(noteLines,88,noteY,30,42,p.muted,"Arial, sans-serif")}<line x1="88" x2="992" y1="1195" y2="1195" stroke="${p.line}" stroke-width="2"/><text x="88" y="1245" fill="${p.muted}" font-family="Arial, sans-serif" font-size="20">ДЛИТЕЛЬНОСТЬ</text><text x="88" y="1298" fill="${p.text}" font-family="Georgia, serif" font-size="44">${svgSafe(data.duration)}</text><text x="620" y="1245" fill="${p.muted}" font-family="Arial, sans-serif" font-size="20">ПЛАН</text><text x="620" y="1298" fill="${p.text}" font-family="Georgia, serif" font-size="44">${data.reveal==="full"?chaptersLabel(data.itemCount):"сюрприз"}</text></svg>`;
+// The cover photo is optional: it is only used when the server lets the page read it; otherwise the card keeps its gradient.
+function loadPostcardPhoto(url){
+  return new Promise(resolve=>{
+    if(!url)return resolve(null);
+    const img=new Image(),done=value=>{clearTimeout(timer);resolve(value)},timer=setTimeout(()=>done(null),9000);
+    img.crossOrigin="anonymous";img.referrerPolicy="no-referrer";
+    img.onload=()=>done(img.naturalWidth?img:null);img.onerror=()=>done(null);img.src=url;
+  });
 }
 async function invitePngBlob(payload){
-  const blob=new Blob([postcardSvg(payload)],{type:"image/svg+xml;charset=utf-8"}),url=URL.createObjectURL(blob);
-  try{
-    const img=new Image(); await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
-    const canvas=document.createElement("canvas");canvas.width=1080;canvas.height=1350;const ctx=canvas.getContext("2d");if(!ctx)throw new Error("Canvas unavailable");ctx.drawImage(img,0,0);
-    return await new Promise((resolve,reject)=>canvas.toBlob(out=>out?resolve(out):reject(new Error("PNG failed")),"image/png"));
-  }finally{URL.revokeObjectURL(url)}
+  await loadPostcardFonts();
+  const canvas=document.createElement("canvas");canvas.width=POSTCARD.width;canvas.height=POSTCARD.height;
+  const ctx=canvas.getContext("2d");if(!ctx)throw new Error("Canvas unavailable");
+  const photo=payload.theme==="minimal"?null:await loadPostcardPhoto(coverUrl(payload.bg));
+  drawPostcard(ctx,payload,{photo});
+  try{return await new Promise((resolve,reject)=>canvas.toBlob(out=>out?resolve(out):reject(new Error("PNG failed")),"image/png"))}
+  catch(error){
+    if(!photo)throw error; // a tainted canvas cannot be exported: draw again without the photo
+    const plain=document.createElement("canvas");plain.width=POSTCARD.width;plain.height=POSTCARD.height;
+    drawPostcard(plain.getContext("2d"),payload,{photo:null});
+    return await new Promise((resolve,reject)=>plain.toBlob(out=>out?resolve(out):reject(new Error("PNG failed")),"image/png"));
+  }
 }
 let invitePreviewUrl=null;
 function showInvitePreview(blob,payload){
@@ -472,12 +467,14 @@ async function saveInvitePostcard(payload,button){
 $("#downloadInvite")?.addEventListener("click",()=>{const payload=currentInvitePayload();if(payload)saveInvitePostcard(payload,$("#downloadInvite"))});
 function renderPayloadPoster(target,payload){
   const poster=$(target);if(!poster)return;const d=new Date(`${payload.date}T12:00:00`),day=String(d.getDate()).padStart(2,"0"),month=new Intl.DateTimeFormat("ru-RU",{month:"short"}).format(d).replace(".","").toUpperCase();
-  poster.className=`poster theme-${payload.theme} ${payload.theme==="night"?"night":payload.theme==="minimal"?"minimal":""} ${payload.reveal==="full"?"plan-open":""}`;
+  const titleLength=[...payload.title].length,noteLength=[...payload.note].length,densePlan=payload.items.some(t=>[...String(t)].length>34),bgUrl=payload.theme!=="minimal"?coverUrl(payload.bg):"";
+  poster.className=`poster theme-${payload.theme} ${payload.theme==="night"?"night":payload.theme==="minimal"?"minimal":""} ${payload.reveal==="full"?"plan-open":""} ${titleLength>58?"title-xlong":titleLength>38?"title-long":""} ${noteLength>64?"note-long":""} ${densePlan?"plan-dense":""}`.replace(/\s+/g," ").trim();
   const plan=payload.reveal==="full"?`<div class="poster-plan"><div class="poster-plan-title">ПЛАН ВЕЧЕРА</div>${payload.items.map((item,i)=>`<div class="poster-plan-row"><span class="poster-plan-no">${String(i+1).padStart(2,"0")}</span><div><small>${posterRole(i,payload.itemCount,payload.items.length)}</small><b>${esc(item)}</b></div></div>`).join("")}</div>`:"";
-  poster.innerHTML=`<div class="poster-top"><span>1001 DATES</span><span>№ ${esc(payload.no)}</span></div><div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(payload.time)}</span></div></div>${plan}<div class="poster-main"><span>${payload.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>${esc(payload.title)}</h3><p>${esc(payload.note)}</p></div><div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(payload.duration)}</b></div><div><span>ПЛАН</span><b>${payload.reveal==="full"?chaptersLabel(payload.itemCount):"сюрприз"}</b></div></div>`;
+  poster.innerHTML=`${bgUrl?'<div class="poster-bg" aria-hidden="true"></div>':""}<div class="poster-top"><span>1001 DATES</span><span>№ ${esc(payload.no)}</span></div><div class="poster-date"><strong>${day}</strong><div><span>${esc(month)}</span><span>${esc(payload.time)}</span></div></div>${plan}<div class="poster-main"><span>${payload.reveal==="full"?"ВЕЧЕР ПО ГЛАВАМ":"ОСВОБОДИ ВЕЧЕР. У МЕНЯ ЕСТЬ ПЛАН."}</span><h3>${esc(payload.title)}</h3><p>${esc(payload.note)}</p></div><div class="poster-foot"><div><span>ДЛИТЕЛЬНОСТЬ</span><b>${esc(payload.duration)}</b></div><div><span>ПЛАН</span><b>${payload.reveal==="full"?chaptersLabel(payload.itemCount):"сюрприз"}</b></div></div>`;
+  if(bgUrl){const bg=$(".poster-bg",poster);if(bg)bg.style.backgroundImage=`url("${bgUrl.replace(/"/g,"%22")}")`}
 }
-function showSharedInviteFromHash(){
-  if(!location.hash.startsWith("#invite="))return;const payload=decodeInvitePayload(location.hash.slice(8));if(!payload)return;
+async function showSharedInviteFromHash(){
+  if(!location.hash.startsWith("#invite="))return;const payload=await decodeInvite(location.hash.slice(8));if(!payload)return;
   renderPayloadPoster("#sharedInvitePoster",payload);$("#sharedInviteMeta").textContent=`${humanDate(payload.date)}, ${payload.time} · ${payload.duration}`;
   $("#sharedInviteSave").onclick=()=>saveInvitePostcard(payload,$("#sharedInviteSave")); openOverlay("#sharedInviteOverlay");
 }
