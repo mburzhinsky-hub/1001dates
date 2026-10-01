@@ -1,4 +1,4 @@
-import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2";
+import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1";
 
 const FOOD_CATEGORIES = new Set(["cafe", "dessert", "dinner"]);
 
