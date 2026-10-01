@@ -251,9 +251,9 @@ const P = Object.freeze({
   eventPreDinner: variants(
     slot("event:exhibition",null,"попасть на выставку после ужина",{useItemDuration:true}),
     slot("event:exhibition|lecture",null,"сходить на выставку или лекцию после ужина",{useItemDuration:true}),
-    slot("event:standup|show|exhibition",null,"выбрать короткое вечернее событие",{useItemDuration:true}),
-    slot("event:movie|exhibition",null,"сходить на кинопоказ или выставку",{useItemDuration:true}),
-    slot("event:show|exhibition",null,"попасть на шоу или выставку",{useItemDuration:true}),
+    slot("event:exhibition|excursion",null,"выбрать выставку или экскурсию после ужина",{useItemDuration:true}),
+    slot("event:exhibition|festival",null,"сходить на выставку или фестивальное событие",{useItemDuration:true}),
+    slot("event:exhibition|lecture|excursion",null,"выбрать короткое культурное событие",{useItemDuration:true}),
     slot("event",null,"сделать событие финалом вечера",{useItemDuration:true})
   ),
   eventFun: variants(
