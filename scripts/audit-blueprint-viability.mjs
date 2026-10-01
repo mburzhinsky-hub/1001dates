@@ -67,7 +67,7 @@ export function auditRange(start=201,end=300,{verbose=true}={}){
         }
       }
       const failure=classifyDead(blueprint,diagnostics);
-      const row={number,id:blueprint.id,concept:blueprint.concept,status:"DEAD",failure};
+      const row={number,id:blueprint.id,concept:blueprint.concept,status:"DEAD",slots:blueprint.slots.map((slot)=>({select:slot.select,minutes:slot.minutes,useItemDuration:Boolean(slot.useItemDuration),semantic:slot.semantic||null})),routeMode:blueprint.routeMode,failure};
       rows.push(row);dead.push(row);
       if(verbose)console.log("AUDIT "+JSON.stringify(row));
       continue;

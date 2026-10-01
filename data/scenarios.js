@@ -113,7 +113,7 @@ const P = Object.freeze({
     slot("art",60,"посмотреть и обсудить",{semantic:"art"}),
     slot("art:gallery",60,"пройти выставку без спешки"),
     slot("art:museum",60,"выбрать один музейный маршрут"),
-    slot("art:contemporary",60,"посмотреть современное искусство"),
+    slot("art:contemporary|gallery|photo",60,"посмотреть современное искусство или камерную выставку"),
     slot("art:digital",60,"получить визуальное впечатление"),
     slot("art:photo",60,"посмотреть фотографию"),
     slot("art:science",60,"найти тему для разговора в научной экспозиции")
@@ -134,10 +134,10 @@ const P = Object.freeze({
   ),
   creative75: variants(
     slot("activity",75,"сделать что-то руками вместе",{semantic:"creative"}),
-    slot("activity:workshop|painting|cooking",75,"сходить на мастер-класс"),
+    slot("activity:workshop|painting|cooking|dance",75,"сходить на мастер-класс или занятие вдвоём"),
     slot("activity:painting|pottery",75,"создать что-то вместе"),
     slot("activity:painting",75,"порисовать вместе"),
-    slot("activity:cooking",75,"приготовить блюдо вместе"),
+    slot("activity:cooking|painting|pottery",75,"сделать что-то руками вместе"),
     slot("activity:dance",75,"попробовать танцевальный класс")
   ),
   play60: variants(
@@ -151,7 +151,7 @@ const P = Object.freeze({
   play75: variants(
     slot("activity",75,"добавить игру в вечер",{semantic:"play"}),
     slot("activity:games|bowling|billiards",75,"поиграть без спешки"),
-    slot("activity:bowling",75,"устроить мини-турнир"),
+    slot("activity:bowling|billiards|games",75,"устроить мини-турнир"),
     slot("activity:games|billiards",75,"устроить полноценную игру"),
     slot("activity:vr",75,"уйти в VR на один раунд"),
     slot("activity:quest",75,"пройти квест вдвоём"),
@@ -169,7 +169,7 @@ const P = Object.freeze({
     slot("activity",85,"сделать активность центральной главой",{semantic:"active"}),
     slot("activity:water|climbing",85,"сделать активность главным впечатлением"),
     slot("activity:skating|dance",85,"покататься или потанцевать подольше"),
-    slot("activity:karting",85,"устроить полноценный заезд"),
+    slot("activity:karting|mini_golf|dance|water|climbing",85,"сделать активность главным впечатлением"),
     slot("activity:karting|mini_golf",85,"провести время за активной игрой"),
     slot("activity:dance",85,"сходить на танцевальное занятие")
   ),
@@ -186,6 +186,12 @@ const P = Object.freeze({
     slot("activity:bookstore|vinyl",60,"посмотреть книги и музыку"),
     slot("activity:market",60,"исследовать маркет"),
     slot("activity:bookstore|market",60,"медленно исследовать новое место")
+  ),
+  dinner35: variants(
+    slot("dinner",35,"быстро поужинать перед событием"),
+    slot("dinner:restaurant",35,"зайти на короткий ужин перед событием"),
+    slot("dinner:restaurant|casual",35,"выбрать лёгкий ресторан перед событием"),
+    slot("dinner:restaurant|gastropub",35,"поесть без долгого застолья перед событием")
   ),
   dinner45: variants(
     slot("dinner",45,"коротко поужинать перед событием"),
@@ -226,7 +232,7 @@ const P = Object.freeze({
     slot("bar",70,"не заканчивать вечер сразу"),
     slot("bar:cocktail",70,"перейти в коктейльный бар"),
     slot("bar:cocktail|wine",70,"продолжить в хорошем баре"),
-    slot("bar:jazz",70,"закончить вечер музыкой и напитком")
+    slot("bar:jazz|cocktail",70,"закончить вечер музыкой или хорошим коктейлем")
   ),
   eventCulture: variants(
     slot("event:exhibition",null,"попасть на актуальную выставку",{useItemDuration:true}),
@@ -241,6 +247,14 @@ const P = Object.freeze({
     slot("event:movie",null,"сходить на специальный кинопоказ",{useItemDuration:true}),
     slot("event:show",null,"попасть на шоу",{useItemDuration:true}),
     slot("event",null,"сделать событие центром вечера",{useItemDuration:true})
+  ),
+  eventPreDinner: variants(
+    slot("event:exhibition",null,"попасть на выставку после ужина",{useItemDuration:true}),
+    slot("event:exhibition|lecture",null,"сходить на выставку или лекцию после ужина",{useItemDuration:true}),
+    slot("event:exhibition|excursion",null,"выбрать выставку или экскурсию после ужина",{useItemDuration:true}),
+    slot("event:exhibition|festival",null,"сходить на выставку или фестивальное событие",{useItemDuration:true}),
+    slot("event:exhibition|lecture|excursion",null,"выбрать короткое культурное событие",{useItemDuration:true}),
+    slot("event",null,"сделать событие финалом вечера",{useItemDuration:true})
   ),
   eventFun: variants(
     slot("event:standup",null,"посмеяться на стендапе",{useItemDuration:true}),
@@ -304,7 +318,7 @@ const recipes = [
   R("3-art-bar",180,"night","Искусство и бар",["art75","bar70"],["romantic","unusual","fun"],2,{dayparts:["evening","late"]}),
   R("3-play-bar",180,"night","Игра и бар",["play75","bar70"],["active","fun","unusual"],2,{dayparts:["evening","late"]}),
   R("3-event-dinner",180,"event","Событие и ужин после",["eventCulture","dinner80"],["fun","unusual","romantic"],2),
-  R("3-dinner-event",180,"event","Ужин перед событием",["dinner45","eventStage"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
+  R("3-dinner-event",180,"event","Ужин перед событием",["dinner35","eventPreDinner"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
   R("3-event-dessert",180,"event","Событие и десерт после",["eventStage","dessert35"],["fun","unusual","romantic"],2),
   R("3-art-event",180,"event","Искусство и актуальное событие",["art60","eventCulture"],["unusual","calm","fun"],2),
   R("3-event-art",180,"event","Событие и ещё немного искусства",["eventCulture","art60"],["unusual","calm","fun"],2),
