@@ -242,7 +242,7 @@ const P = Object.freeze({
   ),
   eventStage: variants(
     slot("event:concert",null,"сходить на концерт",{useItemDuration:true}),
-    slot("event:theater|show",null,"сходить на спектакль или сценическое шоу",{useItemDuration:true}),
+    slot("event:theater|show|exhibition",null,"сходить на спектакль, шоу или выставку",{useItemDuration:true}),
     slot("event:standup|show|concert",null,"сходить на стендап, шоу или концерт",{useItemDuration:true}),
     slot("event:movie",null,"сходить на специальный кинопоказ",{useItemDuration:true}),
     slot("event:show",null,"попасть на шоу",{useItemDuration:true}),
