@@ -414,4 +414,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly14",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly15",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
