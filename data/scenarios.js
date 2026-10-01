@@ -11,41 +11,58 @@ const variants = (...items) => items;
 // Slot packs. The first option in every pack is deliberately broad so the curated
 // fallback database can still produce results before the live KudaGo snapshot is built.
 const P = Object.freeze({
+  walk25: variants(
+    slot("walk",25,"немного прогуляться"),
+    slot("walk:waterfront",25,"коротко пройтись у воды"),
+    slot("walk:architecture",25,"сделать короткую городскую прогулку"),
+    slot("walk:park",25,"немного пройтись по парку")
+  ),
+  dessert25: variants(
+    slot("dessert",25,"оставить короткий сладкий финал"),
+    slot("dessert:pastry",25,"взять десерт и продолжить вечер"),
+    slot("dessert:pastry|icecream",25,"разделить быстрый десерт"),
+    slot("dessert:pastry|chocolate",25,"сделать короткую сладкую паузу")
+  ),
+  brunch60: variants(
+    slot("dinner:breakfast|brunch",60,"встретиться за завтраком или бранчем"),
+    slot("dinner:breakfast",60,"устроить красивый завтрак"),
+    slot("dinner:breakfast|brunch",60,"встретиться за поздним завтраком")
+  ),
   coffee35: variants(
     slot("cafe",35,"настроиться друг на друга"),
     slot("cafe:coffee",35,"начать с хорошего кофе"),
-    slot("cafe:tea",35,"начать спокойно за чаем"),
-    slot("cafe:bakery",35,"взять кофе и что-нибудь свежее")
+    slot("cafe:coffee|tea",35,"начать спокойно в хорошей кофейне"),
+    slot("cafe:coffee|bakery",35,"взять кофе и что-нибудь к нему")
   ),
   coffee45: variants(
     slot("cafe",45,"поговорить без спешки"),
     slot("cafe:coffee",45,"посидеть за хорошим кофе"),
-    slot("cafe:tea",45,"устроить чайную паузу"),
-    slot("cafe:bakery",45,"зайти в красивую пекарню")
+    slot("cafe:coffee|tea",45,"устроить спокойную паузу"),
+    slot("cafe:coffee|bakery",45,"зайти за кофе и чем-нибудь свежим")
   ),
   coffee55: variants(
     slot("cafe",55,"дать разговору нормально начаться"),
     slot("cafe:coffee",55,"не спешить за кофе"),
-    slot("cafe:tea",55,"посидеть в чайной"),
-    slot("cafe:bakery",55,"начать с уютного кафе")
+    slot("cafe:coffee|tea",55,"посидеть в спокойной кофейне"),
+    slot("cafe:coffee|bakery",55,"начать с уютного кофе")
   ),
   dessert35: variants(
     slot("dessert",35,"закончить чем-то вкусным"),
     slot("dessert:pastry",35,"разделить красивый десерт"),
-    slot("dessert:icecream",35,"взять мороженое на двоих"),
-    slot("dessert:chocolate",35,"сделать сладкую паузу")
+    slot("dessert:pastry|icecream",35,"взять десерт на двоих"),
+    slot("dessert:pastry|chocolate",35,"сделать сладкую паузу")
   ),
   dessert45: variants(
     slot("dessert",45,"оставить сладкий финал"),
     slot("dessert:pastry",45,"зайти за десертом"),
-    slot("dessert:icecream",45,"завершить мороженым"),
-    slot("dessert:chocolate",45,"закончить чем-то шоколадным")
+    slot("dessert:pastry|icecream",45,"завершить чем-то сладким"),
+    slot("dessert:pastry|chocolate",45,"закончить десертом")
   ),
   dessert55: variants(
     slot("dessert",55,"оставить время на десерт и разговор"),
     slot("dessert:pastry",55,"спокойно посидеть за десертом"),
-    slot("dessert:icecream",55,"взять мороженое и не спешить"),
-    slot("dessert:chocolate",55,"сделать длинную сладкую паузу")
+    slot("dessert:pastry|icecream",55,"взять десерт и не спешить"),
+    slot("dessert:pastry|chocolate",55,"сделать длинную сладкую паузу")
   ),
   walk35: variants(
     slot("walk",35,"пройтись и поговорить"),
@@ -68,17 +85,17 @@ const P = Object.freeze({
   view35: variants(
     slot("viewpoint",35,"поймать красивый вид"),
     slot("viewpoint:observation",35,"посмотреть на город сверху"),
-    slot("viewpoint:rooftop",35,"подняться на крышу или террасу")
+    slot("viewpoint:observation|rooftop",35,"выйти к панораме")
   ),
   view45: variants(
     slot("viewpoint",45,"сделать визуальный акцент вечера"),
     slot("viewpoint:observation",45,"посмотреть на город сверху"),
-    slot("viewpoint:rooftop",45,"выйти к панораме")
+    slot("viewpoint:observation|rooftop",45,"побыть у панорамы")
   ),
   view55: variants(
     slot("viewpoint",55,"не спешить у красивого вида"),
     slot("viewpoint:observation",55,"подольше посмотреть на город сверху"),
-    slot("viewpoint:rooftop",55,"посидеть у панорамы")
+    slot("viewpoint:observation|rooftop",55,"оставить больше времени на панораму")
   ),
   art45: variants(
     slot("art",45,"посмотреть что-то новое",{semantic:"art"}),
@@ -106,14 +123,14 @@ const P = Object.freeze({
   creative60: variants(
     slot("activity",60,"сделать что-то вместе",{semantic:"creative"}),
     slot("activity:workshop",60,"попробовать мастер-класс"),
-    slot("activity:pottery",60,"поработать с керамикой"),
+    slot("activity:painting|pottery",60,"сделать что-то руками вместе"),
     slot("activity:painting",60,"порисовать вместе"),
     slot("activity:cooking",60,"приготовить что-то вместе")
   ),
   creative75: variants(
     slot("activity",75,"сделать что-то руками вместе",{semantic:"creative"}),
     slot("activity:workshop",75,"сходить на мастер-класс"),
-    slot("activity:pottery",75,"сделать что-то из керамики"),
+    slot("activity:painting|pottery",75,"создать что-то вместе"),
     slot("activity:painting",75,"порисовать вместе"),
     slot("activity:cooking",75,"приготовить блюдо вместе"),
     slot("activity:dance",75,"попробовать танцевальный класс")
@@ -122,7 +139,7 @@ const P = Object.freeze({
     slot("activity",60,"добавить лёгкое соревнование",{semantic:"play"}),
     slot("activity:games",60,"поиграть вместе"),
     slot("activity:bowling",60,"сыграть пару партий"),
-    slot("activity:billiards",60,"сыграть в бильярд"),
+    slot("activity:games|billiards",60,"устроить игровой раунд"),
     slot("activity:vr",60,"попробовать VR"),
     slot("activity:quest",60,"пройти короткий квест")
   ),
@@ -130,40 +147,40 @@ const P = Object.freeze({
     slot("activity",75,"добавить игру в вечер",{semantic:"play"}),
     slot("activity:games",75,"поиграть без спешки"),
     slot("activity:bowling",75,"устроить мини-турнир"),
-    slot("activity:billiards",75,"поиграть в бильярд"),
+    slot("activity:games|billiards",75,"устроить полноценную игру"),
     slot("activity:vr",75,"уйти в VR на один раунд"),
     slot("activity:quest",75,"пройти квест вдвоём"),
     slot("activity:karaoke",75,"спеть несколько любимых песен")
   ),
   active70: variants(
     slot("activity",70,"немного подвигаться вместе",{semantic:"active"}),
-    slot("activity:climbing",70,"попробовать скалодром"),
+    slot("activity:water|climbing",70,"добавить активную главу"),
     slot("activity:skating",70,"покататься вместе"),
     slot("activity:karting",70,"устроить заезд"),
-    slot("activity:mini_golf",70,"сыграть в мини-гольф"),
+    slot("activity:karting|mini_golf",70,"добавить лёгкое соревнование"),
     slot("activity:dance",70,"потанцевать")
   ),
   active85: variants(
     slot("activity",85,"сделать активность центральной главой",{semantic:"active"}),
-    slot("activity:climbing",85,"провести время на скалодроме"),
+    slot("activity:water|climbing",85,"сделать активность главным впечатлением"),
     slot("activity:skating",85,"покататься подольше"),
     slot("activity:karting",85,"устроить полноценный заезд"),
-    slot("activity:mini_golf",85,"сыграть спокойный матч"),
+    slot("activity:karting|mini_golf",85,"провести время за активной игрой"),
     slot("activity:dance",85,"сходить на танцевальное занятие")
   ),
   slowActivity45: variants(
     slot("activity",45,"добавить маленькое совместное занятие",{semantic:"slow"}),
     slot("activity:bookstore",45,"побродить по книжному"),
-    slot("activity:vinyl",45,"посмотреть винил и музыку"),
+    slot("activity:bookstore|vinyl",45,"посмотреть книги и музыку"),
     slot("activity:market",45,"погулять по интересному маркету"),
-    slot("activity:games",45,"сыграть в короткую игру")
+    slot("activity:bookstore|market",45,"найти что-то новое без спешки")
   ),
   slowActivity60: variants(
     slot("activity",60,"заняться чем-то вместе без спешки",{semantic:"slow"}),
     slot("activity:bookstore",60,"выбрать друг другу книгу"),
-    slot("activity:vinyl",60,"послушать и выбрать музыку"),
+    slot("activity:bookstore|vinyl",60,"посмотреть книги и музыку"),
     slot("activity:market",60,"исследовать маркет"),
-    slot("activity:games",60,"поиграть в настольную игру")
+    slot("activity:bookstore|market",60,"медленно исследовать новое место")
   ),
   dinner80: variants(
     slot("dinner",80,"поужинать и поговорить"),
@@ -180,7 +197,7 @@ const P = Object.freeze({
   brunch75: variants(
     slot("dinner:breakfast|brunch",75,"встретиться за завтраком или бранчем"),
     slot("dinner:breakfast",75,"устроить красивый завтрак"),
-    slot("dinner:brunch",75,"встретиться за поздним бранчем")
+    slot("dinner:breakfast|brunch",75,"встретиться за поздним завтраком")
   ),
   bar55: variants(
     slot("bar",55,"продолжить ещё одним напитком"),
@@ -248,13 +265,13 @@ const recipes = [
   R("2-active-dessert",120,"active","Подвигаться и взять десерт",["active70","dessert35"],["active","fun","romantic"],2,{routeMode:"micro"}),
   R("2-slowactivity-coffee",120,"discover","Найти что-то новое и обсудить за кофе",["slowActivity60","coffee45"],["calm","unusual","fun"],2,{routeMode:"micro"}),
   R("2-coffee-slowactivity",120,"discover","Кофе и маленькое исследование",["coffee45","slowActivity60"],["calm","unusual","fun"],2,{routeMode:"micro"}),
-  R("2-event-dessert",120,"event","Короткое событие и десерт",["eventCulture","dessert35"],["unusual","fun","romantic"],2,{routeMode:"micro"}),
-  R("2-dessert-event",120,"event","Десерт перед культурным событием",["dessert35","eventCulture"],["unusual","fun","romantic"],2,{routeMode:"micro"}),
-  R("2-event-walk",120,"event","Событие и короткая прогулка",["eventCulture","walk35"],["unusual","fun","calm","active"],2,{routeMode:"micro"}),
-  R("2-walk-event",120,"event","Прогулка перед событием",["walk35","eventCulture"],["unusual","fun","calm","active"],2,{routeMode:"micro"}),
-  R("2-brunch-walk",120,"daytime","Бранч и прогулка",["brunch75","walk35"],["calm","romantic","fun"],1,{routeMode:"micro",dayparts:["morning","day"]}),
-  R("2-walk-brunch",120,"daytime","Прогулка и бранч",["walk35","brunch75"],["calm","romantic","active"],1,{routeMode:"micro",dayparts:["morning","day"]}),
-  R("2-brunch-art",120,"daytime","Бранч и искусство",["brunch75","art45"],["calm","romantic","unusual"],1,{routeMode:"micro",dayparts:["morning","day"]}),
+  R("2-event-dessert",120,"event","Короткое событие и десерт",["eventCulture","dessert25"],["unusual","fun","romantic"],2,{routeMode:"micro"}),
+  R("2-dessert-event",120,"event","Десерт перед культурным событием",["dessert25","eventCulture"],["unusual","fun","romantic"],2,{routeMode:"micro"}),
+  R("2-event-walk",120,"event","Событие и короткая прогулка",["eventCulture","walk25"],["unusual","fun","calm","active"],2,{routeMode:"micro"}),
+  R("2-walk-event",120,"event","Прогулка перед событием",["walk25","eventCulture"],["unusual","fun","calm","active"],2,{routeMode:"micro"}),
+  R("2-brunch-walk",120,"daytime","Бранч и прогулка",["brunch60","walk35"],["calm","romantic","fun"],1,{routeMode:"micro",dayparts:["morning","day"]}),
+  R("2-walk-brunch",120,"daytime","Прогулка и бранч",["walk35","brunch60"],["calm","romantic","active"],1,{routeMode:"micro",dayparts:["morning","day"]}),
+  R("2-brunch-art",120,"daytime","Бранч и искусство",["brunch60","art45"],["calm","romantic","unusual"],1,{routeMode:"micro",dayparts:["morning","day"]}),
   R("2-view-coffee",120,"romance","Красивый вид и кофе",["view45","coffee45"],["romantic","calm","unusual"],1,{routeMode:"micro"}),
 
   // --- 3 hours: a main chapter plus a meaningful beginning/aftertaste. ---
