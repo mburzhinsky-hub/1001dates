@@ -410,7 +410,7 @@ function buildPools(template, places, events, filters, anchorItem=null) {
       .filter((item) => itemFitsPreferences(item, filters))
       .filter((item) => !anchorItem || item.id !== anchorItem.id)
       .sort((a,b) => candidateScore(b, filters, template) - candidateScore(a, filters, template))
-      .slice(0, 30);
+      .slice(0, 20);
   });
 }
 
