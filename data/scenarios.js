@@ -242,11 +242,19 @@ const P = Object.freeze({
   ),
   eventStage: variants(
     slot("event:concert",null,"сходить на концерт",{useItemDuration:true}),
-    slot("event:theater|show|exhibition",null,"сходить на спектакль, шоу или выставку",{useItemDuration:true}),
-    slot("event:standup|show|concert",null,"сходить на стендап, шоу или концерт",{useItemDuration:true}),
+    slot("event:theater",null,"сходить на спектакль",{useItemDuration:true}),
+    slot("event:standup|show",null,"сходить на стендап или живое шоу",{useItemDuration:true}),
     slot("event:movie",null,"сходить на специальный кинопоказ",{useItemDuration:true}),
     slot("event:show",null,"попасть на шоу",{useItemDuration:true}),
     slot("event",null,"сделать событие центром вечера",{useItemDuration:true})
+  ),
+  eventPreDinner: variants(
+    slot("event:exhibition",null,"попасть на выставку после ужина",{useItemDuration:true}),
+    slot("event:exhibition|lecture",null,"сходить на выставку или лекцию после ужина",{useItemDuration:true}),
+    slot("event:standup|show|exhibition",null,"выбрать короткое вечернее событие",{useItemDuration:true}),
+    slot("event:movie|exhibition",null,"сходить на кинопоказ или выставку",{useItemDuration:true}),
+    slot("event:show|exhibition",null,"попасть на шоу или выставку",{useItemDuration:true}),
+    slot("event",null,"сделать событие финалом вечера",{useItemDuration:true})
   ),
   eventFun: variants(
     slot("event:standup",null,"посмеяться на стендапе",{useItemDuration:true}),
@@ -310,7 +318,7 @@ const recipes = [
   R("3-art-bar",180,"night","Искусство и бар",["art75","bar70"],["romantic","unusual","fun"],2,{dayparts:["evening","late"]}),
   R("3-play-bar",180,"night","Игра и бар",["play75","bar70"],["active","fun","unusual"],2,{dayparts:["evening","late"]}),
   R("3-event-dinner",180,"event","Событие и ужин после",["eventCulture","dinner80"],["fun","unusual","romantic"],2),
-  R("3-dinner-event",180,"event","Ужин перед событием",["dinner35","eventStage"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
+  R("3-dinner-event",180,"event","Ужин перед событием",["dinner35","eventPreDinner"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
   R("3-event-dessert",180,"event","Событие и десерт после",["eventStage","dessert35"],["fun","unusual","romantic"],2),
   R("3-art-event",180,"event","Искусство и актуальное событие",["art60","eventCulture"],["unusual","calm","fun"],2),
   R("3-event-art",180,"event","Событие и ещё немного искусства",["eventCulture","art60"],["unusual","calm","fun"],2),
