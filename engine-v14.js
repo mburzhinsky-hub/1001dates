@@ -1,4 +1,4 @@
-import * as base from "./engine.js?base=duration5&nearby=1&audit=1";
+import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
@@ -43,9 +43,14 @@ function parseRuntimeTimetable(value=""){
 }
 function repairItem(item){
   let fixed={...item};
-  const title=cleanTitle(fixed.title||"");
-  if(/(^|\s)(парк|сад)(\s|$)/i.test(title)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар)/i.test(title)&&!["walk","viewpoint"].includes(fixed.category))fixed={...fixed,category:"walk",subtype:"park",indoor:false,includesFood:false};
-  if(/аква(?:комплекс|парк)|водных развлечений|бассейн|water park/i.test(title))fixed={...fixed,category:"activity",subtype:"water",indoor:true,includesFood:false};
+  const title=cleanTitle(fixed.title||""),text=`${title} ${cleanTitle(fixed.description||"")}`;
+  if(/(^|\s)(парк|сад)(\s|$)/i.test(title)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар|кинотеатр|cinema)/i.test(title)&&!["walk","viewpoint"].includes(fixed.category))fixed={...fixed,category:"walk",subtype:"park",indoor:false,includesFood:false};
+  if(/кинотеатр|cinema/i.test(title))fixed={...fixed,category:"activity",subtype:"cinema",indoor:true,includesFood:false};
+  if(/аква(?:комплекс|парк)|водных развлечений|бассейн|bassein|water park/i.test(text))fixed={...fixed,category:"activity",subtype:"water",indoor:true,includesFood:false};
+  if(/музей.?панорам|панорам.+музей|бородинск.+битв/i.test(text))fixed={...fixed,category:"art",subtype:"museum",indoor:true,includesFood:false};
+  if(fixed.category==="activity"&&!/кинотеатр|cinema/i.test(title)&&/(^|\\s)театр(\\s|$)|музыкальн.+театр|драматическ.+театр|театр имени/i.test(title))fixed={...fixed,category:"art",subtype:"theater",indoor:true,includesFood:false};
+  if(/студия рисован|школа рисован|zuart/i.test(text))fixed={...fixed,category:"activity",subtype:"painting",indoor:true,includesFood:false};
+  if(/люмьер.?холл|мультимедийн.+выстав/i.test(text))fixed={...fixed,category:"art",subtype:"digital",indoor:true,includesFood:false};
   if(fixed.category==="art"&&/(собор|храм|церков|монастыр)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false,costForTwo:0,costEstimated:false};
   if(fixed.category==="viewpoint"&&/мост/i.test(title))fixed={...fixed,costForTwo:0,costEstimated:false,indoor:false};
   if(semanticBar(fixed)&&["dinner","cafe"].includes(fixed.category))fixed={...fixed,category:"bar",subtype:/винн|wine/i.test(fixed.title||"")?"wine":/джаз|piano|пиано/i.test(fixed.title||"")?"jazz":"cocktail",includesFood:false};

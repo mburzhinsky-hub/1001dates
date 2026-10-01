@@ -21,6 +21,7 @@ jobs:
       - run: node scripts/ui-contract-test.mjs
       - run: node scripts/preparation-test.mjs
       - run: node scripts/scenario-audit-fixes-test.mjs
+      - run: node scripts/scenario-audit-101-200-test.mjs
       - run: node scripts/scenario-map-test.mjs
       - run: node scripts/nearby-planner-test.mjs
       - run: node scripts/scenario-visuals-test.mjs
