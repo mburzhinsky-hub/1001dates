@@ -23,8 +23,8 @@ export function needsTickets(item){
   if(item?.category==="viewpoint"&&paid)return true;
   if(item?.category==="activity"&&paid){
     const subtype=String(item?.subtype||"").toLowerCase();
-    if(["climbing","skating","karting","mini_golf","water","dance","workshop","pottery","painting","cooking","games","bowling","billiards","vr","quest","karaoke"].includes(subtype))return true;
-    if(/скалодром|climb|каток|коньк|skating|картинг|karting|мини.?гольф|mini.?golf|аква(?:комплекс|парк)|бассейн|water park|танц|dance|квест|quest|bowling|боулинг|бильярд|billiard|vr|виртуал|мастер.?класс|workshop|караоке|karaoke|лазертаг|стрелков/i.test(t))return true;
+    if(["climbing","skating","karting","mini_golf","water","dance","workshop","pottery","painting","cooking","games","bowling","billiards","vr","quest","karaoke","cinema"].includes(subtype))return true;
+    if(/скалодром|climb|каток|коньк|skating|картинг|karting|мини.?гольф|mini.?golf|аква(?:комплекс|парк)|бассейн|water park|танц|dance|квест|quest|bowling|боулинг|бильярд|billiard|vr|виртуал|мастер.?класс|workshop|караоке|karaoke|кинотеатр|cinema|лазертаг|стрелков/i.test(t))return true;
   }
   return false;
 }
