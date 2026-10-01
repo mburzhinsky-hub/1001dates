@@ -164,8 +164,8 @@ function renderPreparation(){
   const left=p.total-p.completed;
   $("#preparationRemaining").textContent=p.done?"Осталось только хорошо провести вечер.":(left===1?"Остался последний шаг":"Осталось "+String(left)+" шага");
   $("#preparationList").innerHTML=tasks.map(task=>preparationTaskHTML(task,Boolean(stateForDate[task.id]))).join("");
-  $('[data-prep-toggle]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.prepToggle;const now=activePreparationContext();setPreparationDone(id,!Boolean(now&&now.state&&now.state[id]));}));
-  $('[data-prep-action]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{if(button.dataset.prepAction==="calendar")downloadCalendarInvite(plan,filters);if(button.dataset.prepAction==="invite"){renderInvite();openOverlay("#inviteOverlay");}}));
+  $$('[data-prep-toggle]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.prepToggle;const now=activePreparationContext();setPreparationDone(id,!Boolean(now&&now.state&&now.state[id]));}));
+  $$('[data-prep-action]',$('#preparationList')).forEach(button=>button.addEventListener('click',()=>{if(button.dataset.prepAction==="calendar")downloadCalendarInvite(plan,filters);if(button.dataset.prepAction==="invite"){renderInvite();openOverlay("#inviteOverlay");}}));
 }
 function openPreparation(){renderPreparation();openOverlay("#preparationOverlay");}
 function syncInviteControls(){
