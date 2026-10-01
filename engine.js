@@ -8,7 +8,7 @@ const SUBTYPE_LABELS = Object.freeze({
   park:"Парк", waterfront:"Прогулка у воды", architecture:"Городская прогулка",
   observation:"Смотровая", rooftop:"Крыша / терраса",
   workshop:"Мастер-класс", pottery:"Керамика", painting:"Рисование", cooking:"Кулинарный класс", dance:"Танцы",
-  games:"Игры", bowling:"Боулинг", billiards:"Бильярд", vr:"VR", quest:"Квест", karaoke:"Караоке",
+  games:"Игры", bowling:"Боулинг", billiards:"Бильярд", vr:"VR", quest:"Квест", karaoke:"Караоке", cinema:"Кинотеатр",
   climbing:"Скалодром", skating:"Катание", karting:"Картинг", mini_golf:"Мини-гольф", water:"Водная активность", bookstore:"Книжный", vinyl:"Винил", market:"Маркет",
   restaurant:"Ресторан", casual:"Ресторан", gastropub:"Гастробар", breakfast:"Завтрак", brunch:"Бранч",
   cocktail:"Коктейльный бар", wine:"Винный бар", jazz:"Бар с музыкой",
@@ -82,7 +82,7 @@ const SEMANTIC_SLOT_SUBTYPES=Object.freeze({
   creative:new Set(["workshop","pottery","painting","cooking","dance"]),
   play:new Set(["games","bowling","billiards","vr","quest","karaoke"]),
   active:new Set(["climbing","skating","karting","mini_golf","water","dance"]),
-  slow:new Set(["bookstore","vinyl","market","games"])
+  slow:new Set(["bookstore","market"])
 });
 function placeMatchesSlot(item,value) {
   if (!item || item.category !== slotCategory(value)) return false;
