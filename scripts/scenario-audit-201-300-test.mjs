@@ -18,6 +18,10 @@ const palace=repairScenarioItem({id:"palace",title:"Петровский пут�
 assert(!(palace.category==="activity"&&palace.subtype==="water"),"Palace still leaks into water activity");
 const dance=repairScenarioItem({id:"dance",title:"танцевальные клубы GallaDance",description:"занятия танцами",category:"activity",subtype:"cooking",costForTwo:3000});
 assert(dance.category==="activity"&&dance.subtype==="dance","Dance club still leaks into cooking activity");
+const varyag=repairScenarioItem({id:"varyag",title:"клуб стрельбы из лука «ВАРЯГ»",description:"пространство для стрельбы из лука",category:"art",subtype:"contemporary",costForTwo:3000});
+assert(varyag.category==="activity"&&varyag.subtype==="games","Shooting club still leaks into contemporary art");
+const botanica=repairScenarioItem({id:"botanica",title:"торгово-развлекательный центр BOTANICA / БОТАНИКА",description:"торговый центр с магазинами и развлечениями",category:"activity",subtype:"painting",costForTwo:3000});
+assert(botanica.category==="activity"&&botanica.subtype==="market","Shopping center still leaks into painting");
 
 const source=fs.readFileSync(new URL("../engine-v14.js",import.meta.url),"utf8");
 assert(source.includes("generateTemplateDates"),"Production blueprint audit path missing");
