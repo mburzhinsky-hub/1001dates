@@ -215,4 +215,38 @@ assert(repairScenarioItem({ id: "x3", title: "Парк Горького", catego
   // the primary action names its outcome instead of "open ideas"
   assert(html.includes("Подобрать свидание") && !html.includes("Открыть идеи на октябрь"), "hero action is unclear again");
 }
+// 16. Design pass: detail screen, compact action bar, result cards, route schematic, time of day
+{
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../app-final.js", import.meta.url), "utf8");
+  const css = readFileSync(new URL("../ui-refresh.css", import.meta.url), "utf8");
+  const sw = readFileSync(new URL("../sw.js", import.meta.url), "utf8");
+  // one primary action, two labelled icon tiles
+  const footer = html.slice(html.indexOf('<footer class="detail-bottom'), html.indexOf("</footer>", html.indexOf('<footer class="detail-bottom')));
+  assert(/id="saveDate"[^>]*detail-tile|detail-tile[^>]*id="saveDate"/.test(footer) && /id="prepareDate"/.test(footer) && /id="chooseDate"/.test(footer), "detail action bar lost a button");
+  assert(footer.includes("Подготовить") && footer.includes("Пригласить") && footer.includes("Сохранить"), "detail action bar labels are missing");
+  assert(footer.includes('id="prepareDateStatus"'), "preparation progress badge is missing");
+  // the photo overlay must not cover the title: the image box is positioned, the overlay lives inside it
+  assert(/\.detail-hero \.hero-img\{position:relative/.test(css), "detail photo box is not positioned (its overlay would dim the title)");
+  assert(/\.detail-screen\{background:var\(--paper\)/.test(css), "detail screen is not light");
+  // cards: duration and price on the photo
+  assert(/class="photo-bottom"/.test(app) && /\.photo-bottom span\{/.test(css), "cards no longer show duration and price on the photo");
+  // schematic map fallback is wired and cached
+  assert(app.includes("routeSchematic(points,{legs})") && app.includes("scenario-map.js?v=3") && sw.includes("scenario-map.js?v=3"), "route schematic is not wired");
+  assert(!app.includes("Карта временно недоступна"), "empty-box map fallback is back");
+  // time of day: four looks for the hero and for photo-less covers, and the clock logic is right
+  for (const tod of ["morning", "day", "evening", "night"]) {
+    assert(css.includes(`.date-photo.placeholder[data-tod="${tod}"]`), `cover look for ${tod} is missing`);
+  }
+  for (const tod of ["morning", "day", "night"]) assert(css.includes(`html[data-tod="${tod}"] .october-hero-shade`), `hero look for ${tod} is missing`);
+  const fn = /function todOfMinutes\(m\)\{[^\n]*\}/.exec(app);
+  assert(fn, "todOfMinutes is missing");
+  const todOf = new Function(`${fn[0]}; return todOfMinutes;`)();
+  const expected = { 0: "night", 299: "night", 300: "morning", 719: "morning", 720: "day", 1019: "day", 1020: "evening", 1319: "evening", 1320: "night", 1439: "night", 1140: "evening" };
+  for (const [minutes, tod] of Object.entries(expected)) assert(todOf(Number(minutes)) === tod, `${minutes} min should be ${tod}, got ${todOf(Number(minutes))}`);
+  // motion is opt-in
+  assert(/@media \(prefers-reduced-motion:no-preference\)\{[\s\S]*results-ready \.date-photo img/.test(css), "surprise animation is not gated by reduced motion");
+  // a broken photo becomes a tinted placeholder instead of a hole
+  assert(app.includes('box.classList.add("placeholder")'), "failed photos do not turn into placeholders");
+}
 console.log("Audit fixes OK");

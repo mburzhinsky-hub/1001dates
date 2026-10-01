@@ -3,7 +3,7 @@ import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
 import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=3";
 import {selectScenarioCover,scenarioCoverSources} from "./scenario-visuals.js?v=3";
 import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress,buildCalendarICS} from "./preparation.js?v=5&catalog=2";
-import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl} from "./scenario-map.js?v=2";
+import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl,routeSchematic} from "./scenario-map.js?v=3";
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const FILTERS_KEY="1001dates.filters.v12", PROFILE_KEY="1001dates.profile.v11", SAVED_KEY="1001dates.saved.v1";
@@ -46,16 +46,23 @@ function imgHTML(sources,{eager=false}={}){
 document.addEventListener("error",event=>{
   const img=event.target;
   if(img instanceof HTMLImageElement&&img.parentElement?.matches(".october-hero-bg")){img.style.display="none";return}
+  if(img instanceof HTMLImageElement&&img.closest(".phone-feature,.phone-idea")){img.dataset.fails=String((Number(img.dataset.fails)||0)+1);if(Number(img.dataset.fails)>=2)img.style.opacity="0";return}
   if(!(img instanceof HTMLImageElement)||img.dataset.chain===undefined)return;
   if(/\/thumbs\//.test(img.currentSrc||img.src))thumbFailures++;
   let chain=[];try{chain=JSON.parse(img.dataset.chain||"[]")}catch{}
   const next=chain.shift();
-  if(next){img.dataset.chain=JSON.stringify(chain);img.src=next}else if(img.parentElement?.matches(".saved-date,.mini-card")){const hole=document.createElement("div");hole.className="mini-placeholder";img.replaceWith(hole)}else img.classList.add("img-failed");
+  if(next){img.dataset.chain=JSON.stringify(chain);img.src=next}else if(img.parentElement?.matches(".saved-date,.mini-card")){const hole=document.createElement("div");hole.className="mini-placeholder";img.replaceWith(hole)}else{img.classList.add("img-failed");const box=img.closest(".date-photo,.hero-img");if(box&&!box.classList.contains("placeholder")){box.classList.add("placeholder");if(!box.querySelector(".ph-icon"))box.insertAdjacentHTML("afterbegin",placeholderIcon(box.dataset.tod))}}
 },true);
+document.addEventListener("load",event=>{const img=event.target;if(img instanceof HTMLImageElement&&img.closest(".phone-feature,.phone-idea")){img.dataset.fails="0";img.style.opacity=""}},true);
 document.querySelectorAll(".october-hero-bg img").forEach(i=>{if(i.complete&&!i.naturalWidth)i.style.display="none"});
 function dedupe(items){const m=new Map();for(const i of items){const k=`${i.category}:${i.title}`.toLowerCase(),p=m.get(k);if(!p||Number(i.quality||0)>Number(p.quality||0))m.set(k,i)}return[...m.values()]}
 function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function moscowParts(d=new Date()){return Object.fromEntries(new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Moscow",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(d).map(x=>[x.type,x.value]))}
+function todOfMinutes(m){const h=Math.floor((((Number(m)||0)%1440)+1440)%1440/60);return h>=5&&h<12?"morning":h>=12&&h<17?"day":h>=17&&h<22?"evening":"night"}
+const TOD_ICON={morning:"sunrise",day:"sun",evening:"sunset",night:"moon"};
+function planTod(p){const start=p?.timeline?.[0]?.start;return todOfMinutes(Number.isFinite(start)?start:1140)}
+function placeholderIcon(tod){return `<span class="ph-icon" aria-hidden="true">${ic(TOD_ICON[tod]||"sunset")}</span>`}
+function applyTimeOfDay(){const m=moscowParts(),tod=todOfMinutes(Number(m.hour)*60+Number(m.minute));document.documentElement.dataset.tod=tod;const use=document.querySelector(".october-heart use");if(use)use.setAttribute("href","#i-"+TOD_ICON[tod])}
 function localISODate(d){if(!d){const p=moscowParts();return `${p.year}-${p.month}-${p.day}`}return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
 function effectiveStart(date,time){
   if(date!==localISODate())return{time,adjusted:false};
@@ -117,8 +124,7 @@ function renderDevicePreview(plan){
   if(image&&cover){const src=scenarioCoverSources(plan)[0];image.dataset.full=cover;image.onerror=()=>{image.onerror=null;image.src=cover};image.src=thumbOf(src?.full||cover,src?.thumb)}
   $("#devicePreviewTitle")&&($("#devicePreviewTitle").textContent=plan.title);
   $("#devicePreviewStory")&&($("#devicePreviewStory").textContent=plan.story);
-  const first=activeFilters?.vibes?.[0]||state.vibes?.[0]||"romantic";
-  $("#devicePreviewVibe")&&($("#devicePreviewVibe").textContent=(VIBE_LABELS[first]||"Романтика").toLowerCase());
+  $("#devicePreviewVibe")&&($("#devicePreviewVibe").textContent=planVibeLabel(plan).toLowerCase());
   $("#devicePreviewDuration")&&($("#devicePreviewDuration").textContent=formatDuration(plan.totalMinutes));
   $("#devicePreviewBudget")&&($("#devicePreviewBudget").textContent=shortMoney(plan.totalCost));
   $("#devicePreviewDate")&&($("#devicePreviewDate").textContent=shortDate(activeFilters?.date||state.date));
@@ -181,8 +187,9 @@ function cardHTML(p,i){
   const cover=selectScenarioCover(p),img=cover?imgHTML(scenarioCoverSources(p),{eager:i<3}):"";
   const vibe=planVibeLabel(p).toLowerCase(),saved=isPlanSaved(p);
   return `<article class="date-card">
-    <div class="date-photo ${img?"":"placeholder"}">${img}
+    <div class="date-photo ${img?"":"placeholder"}" data-tod="${planTod(p)}">${img||placeholderIcon(planTod(p))}
       <div class="photo-top"><span class="serial">№ ${stableNo(p)}</span><button class="save-icon ${saved?"active":""}" data-save-plan="${i}" aria-label="${saved?"Убрать из сохранённых":"Сохранить свидание"}">${ic("heart",saved?"filled":"")}</button></div>
+      <div class="photo-bottom"><span>${ic("clock")}${esc(formatDuration(p.totalMinutes))}</span><span>${ic("wallet")}${p.items.some(x=>x.costEstimated)?"≈ ":""}${esc(formatMoney(p.totalCost))}</span></div>
     </div>
     <div class="card-body">
       ${p.nearby?`<div class="nearby-badge">${ic("map-pin")} Рядом с вами · старт ≈ ${p.nearby.startDistanceKm<1?Math.round(p.nearby.startDistanceKm*1000)+" м":p.nearby.startDistanceKm.toFixed(1)+" км"}</div>`:""}
@@ -190,8 +197,7 @@ function cardHTML(p,i){
       <p class="route-line">${esc(p.story)}</p>
       <div class="scenario-chips">
         <span>${ic("heart")}${esc(vibe)}</span>
-        <span>${ic("clock")}${esc(formatDuration(p.totalMinutes))}</span>
-        <span>${ic("wallet")}${p.items.some(x=>x.costEstimated)?"≈ ":""}${esc(formatMoney(p.totalCost))}</span>
+        <span>${ic("footprints")}${esc(chaptersLabel(p.items.length))}</span>
       </div>
       <button class="scenario-open" data-open-plan="${i}"><span>Открыть сценарий</span>${ic("arrow-right")}</button>
     </div>
@@ -207,7 +213,7 @@ const POSTER_ROWS=4;
 function posterTitles(titles){const list=titles.map(x=>String(x||"").slice(0,80));if(list.length<=POSTER_ROWS)return list;const rest=list.length-(POSTER_ROWS-1);return [...list.slice(0,POSTER_ROWS-1),`И ещё ${chaptersLabel(rest)}`]}
 function posterRole(i,count,shown){return count>POSTER_ROWS&&i===shown-1?'Дальше':chapterRole(i,count)}
 function openDetail(i){activePlanIndex=i;renderDetail();openOverlay('#detailOverlay');requestAnimationFrame(()=>mountScenarioMap())}
-function renderDetail(){const p=latestPlans[activePlanIndex];if(!p)return;const rows=planRows(p),cover=selectScenarioCover(p),img=cover?imgHTML(scenarioCoverSources(p),{eager:true}):'';$("#detailScreenTitle").textContent=`Свидание № ${stableNo(p)}`;$("#detailContent").innerHTML=`<div class="detail-hero"><div class="hero-img ${img?'':'placeholder'}">${img}</div><div class="detail-copy"><div class="eyebrow">СВИДАНИЕ № ${stableNo(p)}</div><h2>${esc(p.title)}</h2><p>${esc(p.story)}</p><div class="detail-meta"><span>${esc(formatDuration(p.totalMinutes))}</span><span>${p.items.some(x=>x.costEstimated)?'≈ ':''}${esc(formatMoney(p.totalCost))}</span><span>${chaptersLabel(p.items.length)}</span></div></div></div><div class="why-box"><b>ПОЧЕМУ ПОДОЙДЁТ</b><p>${esc(p.why)}</p></div>${scenarioMapSectionHTML(p,rows)}<section class="chapters"><h3>План вечера</h3>${rows.map((r,i)=>chapterHTML(r,i,rows.length)).join('')}</section>`;$("#chooseDate").onclick=()=>{renderInvite();openOverlay("#inviteOverlay")};const prepareButton=$("#prepareDate");if(prepareButton){prepareButton.onclick=openPreparation;syncPreparationDetailStatus()}const saveButton=$("#saveDate");if(saveButton){const sync=()=>{saveButton.innerHTML=ic("heart",isPlanSaved(p)?"filled":"")+(isPlanSaved(p)?" Сохранено":" Сохранить себе")};sync();saveButton.onclick=()=>{toggleSavedPlan(activePlanIndex);sync();refreshResults()}};$$('[data-replace]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>openReplace(+b.dataset.replace)));$$('[data-around]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>{currentAnchor=p.items[+b.dataset.around];variationSeed++;closeOverlay('#detailOverlay');nearbyOrigin?runNearbyPlanner(true):runPlanner(true)}));$$('[data-like-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>toggleItem(p.items[+b.dataset.likeItem],b)));$$('[data-dislike-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>dislikeItem(p.items[+b.dataset.dislikeItem],b)));if($("#detailOverlay")?.classList.contains("open"))requestAnimationFrame(()=>mountScenarioMap())}
+function renderDetail(){const p=latestPlans[activePlanIndex];if(!p)return;const rows=planRows(p),cover=selectScenarioCover(p),img=cover?imgHTML(scenarioCoverSources(p),{eager:true}):'';$("#detailScreenTitle").textContent=`Свидание № ${stableNo(p)}`;$("#detailContent").innerHTML=`<div class="detail-hero"><div class="hero-img ${img?'':'placeholder'}" data-tod="${planTod(p)}">${img||placeholderIcon(planTod(p))}</div><div class="detail-copy"><div class="eyebrow">СВИДАНИЕ № ${stableNo(p)}</div><h2>${esc(p.title)}</h2><p>${esc(p.story)}</p><div class="detail-meta"><span>${esc(formatDuration(p.totalMinutes))}</span><span>${p.items.some(x=>x.costEstimated)?'≈ ':''}${esc(formatMoney(p.totalCost))}</span><span>${chaptersLabel(p.items.length)}</span></div></div></div><div class="why-box"><b>ПОЧЕМУ ПОДОЙДЁТ</b><p>${esc(p.why)}</p></div>${scenarioMapSectionHTML(p,rows)}<section class="chapters"><h3>План вечера</h3>${rows.map((r,i)=>chapterHTML(r,i,rows.length)).join('')}</section>`;$("#chooseDate").onclick=()=>{renderInvite();openOverlay("#inviteOverlay")};const prepareButton=$("#prepareDate");if(prepareButton){prepareButton.onclick=openPreparation;syncPreparationDetailStatus()}const saveButton=$("#saveDate");if(saveButton){const sync=()=>{const saved=isPlanSaved(p);saveButton.innerHTML=ic("heart",saved?"filled":"")+`<span>${saved?"Сохранено":"Сохранить"}</span>`;saveButton.setAttribute("aria-pressed",saved?"true":"false");saveButton.classList.toggle("is-saved",saved)};sync();saveButton.onclick=()=>{toggleSavedPlan(activePlanIndex);sync();refreshResults()}};$$('[data-replace]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>openReplace(+b.dataset.replace)));$$('[data-around]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>{currentAnchor=p.items[+b.dataset.around];variationSeed++;closeOverlay('#detailOverlay');nearbyOrigin?runNearbyPlanner(true):runPlanner(true)}));$$('[data-like-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>toggleItem(p.items[+b.dataset.likeItem],b)));$$('[data-dislike-item]',$("#detailContent")).forEach(b=>b.addEventListener('click',()=>dislikeItem(p.items[+b.dataset.dislikeItem],b)));if($("#detailOverlay")?.classList.contains("open"))requestAnimationFrame(()=>mountScenarioMap())}
 function scenarioMapSectionHTML(plan,rows){
   const points=scenarioMapPoints(plan);
   if(points.length<2)return "";
@@ -217,7 +223,7 @@ function scenarioMapSectionHTML(plan,rows){
     const mapUrl=externalMapUrl(point);
     return `<div class="scenario-map-stop" data-map-stop="${point.index-1}"><span>${point.index}</span><div><b>${esc(row?.title||point.item.title)}</b>${next?`<small>≈ ${next.minutes} мин в пути до следующей точки</small>`:""}${mapUrl?`<a href="${esc(mapUrl)}" target="_blank" rel="noreferrer">Открыть на карте ${ic("arrow-up-right")}</a>`:""}</div></div>`;
   }).join("");
-  return `<section class="scenario-map-section"><div class="scenario-map-head"><div><div class="eyebrow">МАРШРУТ ВЕЧЕРА</div><h3>${points.length} ${pluralRu(points.length,'точка','точки','точек')} · ≈ ${summary.totalMinutes} мин в пути</h3></div><small>Линия показывает порядок точек, не точный путь по улицам</small></div><div class="scenario-map" id="scenarioMap" aria-label="Карта маршрута"><div class="scenario-map-loading">Загружаем карту…</div></div><div class="scenario-map-stops">${list}</div></section>`;
+  return `<section class="scenario-map-section"><div class="scenario-map-head"><div><div class="eyebrow">МАРШРУТ ВЕЧЕРА</div><h3>${points.length} ${pluralRu(points.length,'точка','точки','точек')} · ≈ ${summary.totalMinutes} мин в пути</h3></div><small>Линия показывает порядок точек, не точный путь по улицам</small></div><div class="scenario-map-box"><div class="scenario-map" id="scenarioMap" aria-label="Карта маршрута"></div><div class="scenario-schematic" id="scenarioSchematic">${routeSchematic(points,{legs})}<span class="sch-note sch-note-default">Схема без масштаба</span><span class="sch-note sch-note-failed">Карта не загрузилась — показана схема</span></div></div><div class="scenario-map-stops">${list}</div></section>`;
 }
 function highlightChapter(index){
   $$("[data-chapter-index]",$("#detailContent")).forEach(node=>node.classList.toggle("map-highlight",Number(node.dataset.chapterIndex)===Number(index)));
@@ -227,7 +233,7 @@ function highlightChapter(index){
 async function mountScenarioMap(){
   const plan=latestPlans[activePlanIndex],container=$("#scenarioMap");if(!plan||!container)return;
   const result=await renderScenarioMap(container,plan,{onMarker:point=>highlightChapter(point.index-1)});
-  if(!result.ok&&result.reason==="load-failed")container.innerHTML='<div class="scenario-map-fallback">Карта временно недоступна. Маршрут остаётся ниже.</div>';
+  $$("[data-schematic-stop]",$("#detailContent")).forEach(stop=>{const go=()=>highlightChapter(Number(stop.dataset.schematicStop));stop.addEventListener("click",go);stop.addEventListener("keydown",event=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();go()}})});
   $$("[data-map-stop]",$("#detailContent")).forEach(stop=>stop.addEventListener("click",event=>{if(event.target.closest("a"))return;highlightChapter(Number(stop.dataset.mapStop))}));
 }
 function chapterHTML(r,i,n){const links=[r.officialUrl&&`<a href="${esc(r.officialUrl)}" target="_blank" rel="noreferrer">Сайт ${ic("arrow-up-right")}</a>`,r.sourceUrl&&`<a href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer">Подробнее ${ic("arrow-up-right")}</a>`].filter(Boolean).join('');const liked=Boolean(profile.favoriteItems[r.itemId]),disliked=profile.dislikedItemIds.includes(r.itemId);return `<article class="chapter" data-chapter-index="${i}"><div class="chapter-no">${String(i+1).padStart(2,'0')}</div><div><span class="chapter-role">${chapterRole(i,n).toUpperCase()}</span><h4>${esc(r.title)}</h4><p>${esc(r.description)}</p><div class="chapter-meta">${esc(r.duration)} · ${r.costEstimated?'≈ ':''}${esc(r.cost)}</div><div class="chapter-actions"><button class="chapter-primary" data-replace="${i}">Заменить</button><button class="icon-action" data-around="${i}" aria-label="Собрать свидание вокруг этого места">${ic("sparkles")}</button><button class="icon-action" data-like-item="${i}" aria-label="${liked?'Убрать место из любимых':'Сохранить место'}">${ic('heart',liked?'filled':'')}</button><button class="icon-action" data-dislike-item="${i}" aria-label="${disliked?'Место уже исключено':'Больше не предлагать это место'}" ${disliked?'disabled':''}>${disliked?ic('check'):ic('ban')}</button>${links}</div></div></article>`}
@@ -478,4 +484,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly25",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly25",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();applyTimeOfDay();setInterval(applyTimeOfDay,600000);
