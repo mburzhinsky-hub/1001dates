@@ -187,6 +187,12 @@ const P = Object.freeze({
     slot("activity:market",60,"исследовать маркет"),
     slot("activity:bookstore|market",60,"медленно исследовать новое место")
   ),
+  dinner35: variants(
+    slot("dinner",35,"быстро поужинать перед событием"),
+    slot("dinner:restaurant",35,"зайти на короткий ужин перед событием"),
+    slot("dinner:restaurant|casual",35,"выбрать лёгкий ресторан перед событием"),
+    slot("dinner:restaurant|gastropub",35,"поесть без долгого застолья перед событием")
+  ),
   dinner45: variants(
     slot("dinner",45,"коротко поужинать перед событием"),
     slot("dinner:restaurant",45,"зайти на короткий ужин"),
@@ -304,7 +310,7 @@ const recipes = [
   R("3-art-bar",180,"night","Искусство и бар",["art75","bar70"],["romantic","unusual","fun"],2,{dayparts:["evening","late"]}),
   R("3-play-bar",180,"night","Игра и бар",["play75","bar70"],["active","fun","unusual"],2,{dayparts:["evening","late"]}),
   R("3-event-dinner",180,"event","Событие и ужин после",["eventCulture","dinner80"],["fun","unusual","romantic"],2),
-  R("3-dinner-event",180,"event","Ужин перед событием",["dinner45","eventStage"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
+  R("3-dinner-event",180,"event","Ужин перед событием",["dinner35","eventStage"],["fun","unusual","romantic"],2,{dayparts:["day","evening"]}),
   R("3-event-dessert",180,"event","Событие и десерт после",["eventStage","dessert35"],["fun","unusual","romantic"],2),
   R("3-art-event",180,"event","Искусство и актуальное событие",["art60","eventCulture"],["unusual","calm","fun"],2),
   R("3-event-art",180,"event","Событие и ещё немного искусства",["eventCulture","art60"],["unusual","calm","fun"],2),
