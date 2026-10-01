@@ -48,7 +48,7 @@ function repairItem(item){
   if(/кинотеатр|cinema/i.test(title))fixed={...fixed,category:"activity",subtype:"cinema",indoor:true,includesFood:false};
   if(/аква(?:комплекс|парк)|водных развлечений|бассейн|bassein|water park/i.test(text))fixed={...fixed,category:"activity",subtype:"water",indoor:true,includesFood:false};
   if(/музей.?панорам|панорам.+музей|бородинск.+битв/i.test(text))fixed={...fixed,category:"art",subtype:"museum",indoor:true,includesFood:false};
-  if(fixed.category==="activity"&&/театр/i.test(title))fixed={...fixed,category:"art",subtype:"theater",indoor:true,includesFood:false};
+  if(fixed.category==="activity"&&!/кинотеатр|cinema/i.test(title)&&/(^|\\s)театр(\\s|$)|музыкальн.+театр|драматическ.+театр|театр имени/i.test(title))fixed={...fixed,category:"art",subtype:"theater",indoor:true,includesFood:false};
   if(/студия рисован|школа рисован|zuart/i.test(text))fixed={...fixed,category:"activity",subtype:"painting",indoor:true,includesFood:false};
   if(/люмьер.?холл|мультимедийн.+выстав/i.test(text))fixed={...fixed,category:"art",subtype:"digital",indoor:true,includesFood:false};
   if(fixed.category==="art"&&/(собор|храм|церков|монастыр)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false,costForTwo:0,costEstimated:false};
