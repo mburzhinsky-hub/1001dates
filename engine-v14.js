@@ -1,4 +1,4 @@
-import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1";
+import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=1";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
@@ -8,6 +8,7 @@ const COVER_WEIGHT={art:11,viewpoint:10,activity:9,dinner:8,dessert:7,cafe:6,wal
 const VIBE_WORD={romantic:"романтичный",fun:"весёлый",unusual:"необычный",calm:"спокойный",active:"активный"};
 const CATEGORY_LABEL={art:"искусство",viewpoint:"панорама",activity:"активность",dinner:"ужин",dessert:"десерт",cafe:"кофе",walk:"прогулка",event:"событие",bar:"бар"};
 const LIVE_MIN={dinner:18,cafe:8,bar:8,dessert:6,walk:30,viewpoint:8,art:30,activity:30};
+const DEFAULT_HOURS={art:["10:00","22:00"],event:["10:00","22:00"],viewpoint:["10:00","23:00"],cafe:["08:00","23:00"],dessert:["10:00","23:00"],dinner:["12:00","00:00"],bar:["18:00","02:00"],activity:["10:00","23:00"]};
 const FIXED_EVENT_TYPES=new Set(["concert","theater","standup","show","movie","lecture","excursion","party"]);
 
 function key(value=""){const text=String(value).toLowerCase().replace(/ё/g,"е").replace(/[«»“”„"']/g,"").replace(/[.,:;!?–—/\\-]+/g," ").replace(/\s+/g," ").trim();const tokens=text.split(/\s+/).filter((x)=>x.length>1&&!GENERIC.has(x));return tokens.join(" ")||text;}
@@ -62,7 +63,11 @@ function repairItem(item){
     const parsed=parseRuntimeTimetable(fixed.timetable);
     fixed={...fixed,weeklyHours:parsed||null,scheduleConfidence:parsed?"parsed_runtime":"parse_failed"};
   } else if(fixed.weeklyHours) fixed={...fixed,scheduleConfidence:"known"};
-  else fixed={...fixed,scheduleConfidence:"unknown"};
+  else {
+    // No published schedule: assume ordinary opening hours instead of treating the place as open around the clock.
+    const hours=DEFAULT_HOURS[fixed.category],fixedStart=fixed.category==="event"&&FIXED_EVENT_TYPES.has(fixed.eventType||fixed.subtype);
+    fixed=hours&&!fixedStart?{...fixed,weeklyHours:Object.fromEntries([0,1,2,3,4,5,6].map(d=>[d,[hours]])),scheduleConfidence:"default"}:{...fixed,scheduleConfidence:"unknown"};
+  }
   return fixed;
 }
 function preparePlaces(items,filters,anchorItem=null){
@@ -75,9 +80,11 @@ function preparePlaces(items,filters,anchorItem=null){
     source.push(...liveCat);
     if(liveCat.length<(LIVE_MIN[category]||8))source.push(...fallbackCat);
   }
-  const recentIds=new Set(filters?.recentlyShownItemIds||[]),idKey=new Map(repaired.map(x=>[x.id,key(x.title)])),recentKeys=new Set([...recentIds].map(id=>idKey.get(id)).filter(Boolean));
-  const anchorKey=anchorItem?key(anchorItem.title):null;
-  source=source.filter(x=>anchorKey===key(x.title)||(!recentIds.has(x.id)&&!recentKeys.has(key(x.title))));
+  if(!filters?.allowRecentRepeats){
+    const recentIds=new Set(filters?.recentlyShownItemIds||[]),idKey=new Map(repaired.map(x=>[x.id,key(x.title)])),recentKeys=new Set([...recentIds].map(id=>idKey.get(id)).filter(Boolean));
+    const anchorKey=anchorItem?key(anchorItem.title):null;
+    source=source.filter(x=>anchorKey===key(x.title)||(!recentIds.has(x.id)&&!recentKeys.has(key(x.title))));
+  }
   const best=new Map();
   for(const item of source){const k=`${item.category}:${key(item.title)}`,prev=best.get(k);const score=(live(item)?20:0)+(item.sourceUrl||item.officialUrl?10:0)+Number(item.quality||0);const prevScore=prev?((live(prev)?20:0)+(prev.sourceUrl||prev.officialUrl?10:0)+Number(prev.quality||0)):-Infinity;if(!prev||score>prevScore)best.set(k,item);}
   return[...best.values()];
@@ -92,7 +99,7 @@ function prepareEvents(items,filters,anchorItem=null){
   const repaired=(items||[]).map(repairItem).filter(titleSane).filter(eventHasUsableTime);
   const liveValid=repaired.filter(live).filter(validLive),fallback=repaired.filter(x=>!live(x));
   const source=liveValid.length>=30?liveValid:[...liveValid,...fallback];
-  const recentIds=new Set(filters?.recentlyShownItemIds||[]),anchorKey=anchorItem?key(anchorItem.title):null,best=new Map();
+  const recentIds=filters?.allowRecentRepeats?new Set():new Set(filters?.recentlyShownItemIds||[]),anchorKey=anchorItem?key(anchorItem.title):null,best=new Map();
   for(const item of source){
     if(anchorKey!==key(item.title)&&recentIds.has(item.id))continue;
     const k=key(item.title),prev=best.get(k),score=(live(item)?20:0)+(item.sourceUrl?10:0)+Number(item.quality||0),prevScore=prev?((live(prev)?20:0)+(prev.sourceUrl?10:0)+Number(prev.quality||0)):-Infinity;
@@ -144,8 +151,8 @@ function editorialWhy(plan,filters){
   if(filters?.indoorOnly)bits.push("все главы проходят в помещении");
   if(filters?.noBars)bits.push("без баров");
   if(filters?.food===false)bits.push("без обязательной гастрономической главы");
-  if(plan.geo?.maxSpanKm!=null&&plan.geo.maxSpanKm>0)bits.push(`маршрут компактный: до ${plan.geo.maxSpanKm.toFixed(1)} км между крайними точками`);
-  return `${bits.join(". ")}.`;
+  if(plan.geo?.maxSpanKm!=null&&plan.geo.maxSpanKm>0)bits.push(`маршрут компактный: до ${plan.geo.maxSpanKm.toFixed(1).replace(".",",")} км между крайними точками`);
+  return `${bits.map(b=>b.charAt(0).toUpperCase()+b.slice(1)).join(". ")}.`;
 }
 function enrichPlan(plan,filters){if(!plan)return plan;return {...plan,title:editorialTitle(plan),coverImage:chooseCover(plan,filters),why:editorialWhy(plan,filters),story:editorialStory(plan)};}
 
@@ -154,7 +161,14 @@ export function generateTemplateDates(args){
   const guarded=guardedArgs(args),filters=guarded.filters||{};
   return base.generateTemplateDates(guarded).map((plan)=>enrichPlan(plan,filters));
 }
+function recentIdsOf(args){return args?.filters?.recentlyShownItemIds||[];}
+// Fresh venues first. Only when nothing fresh fits at all do we fall back to repeating the best earlier ideas, flagged as recycled.
 export function generateDates(args){
+  const fresh=generateFresh(args);
+  if(fresh.length||!recentIdsOf(args).length)return fresh;
+  return generateFresh({...args,filters:{...args.filters,allowRecentRepeats:true}}).map(plan=>({...plan,recycled:true}));
+}
+function generateFresh(args){
   const guarded=guardedArgs(args),filters=guarded.filters||{},used=new Set();
   return base.generateDates(guarded).map((plan)=>{
     let enriched=enrichPlan(plan,filters),title=enriched.title;
@@ -181,17 +195,26 @@ export function generateNearbyDates(args){
   if(!origin||!Number.isFinite(Number(origin.lat))||!Number.isFinite(Number(origin.lon)))return {plans:[],radiusKm:null};
   const cleanOrigin={lat:Number(origin.lat),lon:Number(origin.lon)};
   const radii=Array.isArray(args?.radii)&&args.radii.length?args.radii:[2,4,6];
-  let bestPlans=[],bestRadius=null;
-  for(const radiusKm of radii){
-    const filters={...(args.filters||{}),zone:"any",nearbyOrigin:cleanOrigin,nearbyRadiusKm:Number(radiusKm)};
-    const plans=generateDates({...args,filters,count:args.count||3,anchorItem:null})
-      .map(plan=>({...plan,nearby:nearbyDistanceSummary(plan,cleanOrigin,Number(radiusKm))}));
-    if(plans.length>bestPlans.length){bestPlans=plans;bestRadius=Number(radiusKm)}
-    if(plans.length>=(args.count||3))return {plans,radiusKm:Number(radiusKm)};
-  }
-  return {plans:bestPlans,radiusKm:bestRadius};
+  const attempt=(allowRecentRepeats)=>{
+    let bestPlans=[],bestRadius=null;
+    for(const radiusKm of radii){
+      const filters={...(args.filters||{}),zone:"any",nearbyOrigin:cleanOrigin,nearbyRadiusKm:Number(radiusKm),allowRecentRepeats};
+      const plans=generateFresh({...args,filters,count:args.count||3,anchorItem:args.anchorItem||null})
+        .map(plan=>({...plan,recycled:allowRecentRepeats||undefined,nearby:nearbyDistanceSummary(plan,cleanOrigin,Number(radiusKm))}));
+      if(plans.length>bestPlans.length){bestPlans=plans;bestRadius=Number(radiusKm)}
+      if(plans.length>=(args.count||3))return {plans,radiusKm:Number(radiusKm)};
+    }
+    return {plans:bestPlans,radiusKm:bestRadius};
+  };
+  const fresh=attempt(false);
+  if(fresh.plans.length||!recentIdsOf(args).length)return fresh;
+  return attempt(true);
 }
-export function replacePlanItem(args){const guarded=guardedArgs(args),filters=guarded.filters||{};return enrichPlan(base.replacePlanItem(guarded),filters);}
+export function replacePlanItem(args){
+  const guarded=guardedArgs(args),filters=guarded.filters||{},next=enrichPlan(base.replacePlanItem(guarded),filters);
+  if(args?.plan?.nearby&&filters.nearbyOrigin)return {...next,nearby:nearbyDistanceSummary(next,filters.nearbyOrigin,filters.nearbyRadiusKm)};
+  return next;
+}
 export const planRows=base.planRows;
 export const formatMoney=base.formatMoney;
 export const formatDuration=base.formatDuration;

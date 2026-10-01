@@ -1,4 +1,4 @@
-import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1";
+import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1&fix=1";
 
 const FOOD_CATEGORIES = new Set(["cafe", "dessert", "dinner"]);
 
@@ -378,7 +378,7 @@ function candidateScore(item, filters, template) {
   if (item.sourceUrl || item.officialUrl) score += 2;
   if (item.costEstimated) score -= 1.5;
   if (filters.likedItemIds?.includes(item.id)) score += 11;
-  if (filters.recentlyShownItemIds?.includes(item.id)) score -= 9;
+  if (filters.recentlyShownItemIds?.includes(item.id)) score -= 26;
   if (filters.visitedItemIds?.includes(item.id)) score -= 7;
   if (filters.nearbyOrigin) {
     const originDistance=haversineKm(item,filters.nearbyOrigin);
@@ -394,7 +394,7 @@ function candidateScore(item, filters, template) {
   return score;
 }
 
-function buildPools(template, places, events, filters, anchorItem=null) {
+function buildPools(template, places, events, filters, anchorItem=null, slotCache=null) {
   if(anchorItem){
     if(!itemFitsPreferences(anchorItem,filters))return null;
     if(anchorItem.category==="event"&&!eventAvailable(anchorItem,filters.date))return null;
@@ -404,32 +404,47 @@ function buildPools(template, places, events, filters, anchorItem=null) {
 
   return template.slots.map((slot, slotIndex) => {
     if (anchorItem && slotIndex === anchorSlot) return [anchorItem];
-    const source = slotCategory(slot) === "event" ? events.filter((event) => eventAvailable(event, filters.date)) : places;
-    return source
-      .filter((item) => placeMatchesSlot(item, slot))
-      .filter((item) => itemFitsPreferences(item, filters))
+    const slotKey = JSON.stringify(slotSpec(slot));
+    let eligible = slotCache?.get(slotKey);
+    if (!eligible) {
+      const source = slotCategory(slot) === "event" ? events.filter((event) => eventAvailable(event, filters.date)) : places;
+      eligible = source.filter((item) => placeMatchesSlot(item, slot)).filter((item) => itemFitsPreferences(item, filters));
+      slotCache?.set(slotKey, eligible);
+    }
+    return eligible
       .filter((item) => !anchorItem || item.id !== anchorItem.id)
       .sort((a,b) => candidateScore(b, filters, template) - candidateScore(a, filters, template))
       .slice(0, 20);
   });
 }
 
+const venueTitleCache = new Map();
 function normalizedVenueTitle(value="") {
+  const raw = String(value);
+  let cached = venueTitleCache.get(raw);
+  if (cached === undefined) { cached = normalizeVenueTitleUncached(raw); venueTitleCache.set(raw, cached); }
+  return cached;
+}
+function normalizeVenueTitleUncached(value="") {
   return String(value).toLowerCase().replace(/ё/g,"е").replace(/[«»“”„"'.,:;!?()—–−/\\-]+/g," ").replace(/\s+/g," ").trim();
 }
 
+// A search-effort cap keeps long (5-6 chapter) dates from freezing the page when few combinations fit geography.
+const MAX_SEARCH_NODES = 6000;
 function cartesianLimited(pools, filters, template, limit=180) {
   const result = [];
+  let visited = 0;
   function walk(index, acc) {
-    if (result.length >= limit) return;
+    if (result.length >= limit || visited >= MAX_SEARCH_NODES) return;
     if (index === pools.length) { result.push(acc.slice()); return; }
     for (const item of pools[index]) {
       if (acc.some((x) => x.id === item.id || normalizedVenueTitle(x.title) === normalizedVenueTitle(item.title))) continue;
+      visited++;
       acc.push(item);
       // Prune impossible geography immediately instead of wasting the candidate budget on cross-city combinations.
       if (geographicallyPlausible(acc,filters,template)) walk(index+1, acc);
       acc.pop();
-      if (result.length >= limit) break;
+      if (result.length >= limit || visited >= MAX_SEARCH_NODES) break;
     }
   }
   walk(0, []);
@@ -501,8 +516,9 @@ function moodCoverage(template, items, filters) {
   const hasActiveAnchor=items.some((item)=>item.category==="activity"&&(itemHasVibe(item,"active")||activeSubtypes.has(inferSubtype(item))));
   const hasFunAnchor=items.some((item)=>["activity","event","bar"].includes(item.category)&&itemHasVibe(item,"fun"));
   const hasUnusualAnchor=items.some((item)=>["art","activity","event","viewpoint"].includes(item.category)&&itemHasVibe(item,"unusual"));
+  const wantsActive=requested.includes("active");
   const calmConflict=items.some((item)=>
-    (item.category==="activity"&&(activeSubtypes.has(inferSubtype(item))||item.vibes?.includes("active"))) ||
+    (!wantsActive&&item.category==="activity"&&(activeSubtypes.has(inferSubtype(item))||item.vibes?.includes("active"))) ||
     (item.category==="event"&&loudEventTypes.has(inferSubtype(item))&&!item.vibes?.includes("calm"))
   );
 
@@ -550,6 +566,8 @@ function planBaseScore(template, items, schedule, filters, variationSeed) {
   const durationRatio = schedule.totalMinutes / filters.duration;
   score += clamp(1 - Math.abs(.94 - durationRatio), 0, 1) * 30;
   if (items.some((item) => item.category === "event")) score += 4;
+  const recentHits = items.filter((item) => filters.recentlyShownItemIds?.includes(item.id)).length;
+  score -= recentHits * 8; // soft repeat penalty: fresh ideas first, repeats only when nothing else fits
   if (schedule.waitingMinutes > 30) score -= 3;
   if (schedule.transferMinutes > 55) score -= 4;
   if (items.every((item) => item.sourceUrl || item.officialUrl)) score += 3;
@@ -691,12 +709,19 @@ function enrichPlan(plan, filters, index, variationSeed, titleOverride=null, arc
   };
 }
 
+function budgetFeasible(pools, filters) {
+  if (!(filters.budget < 900000)) return true;
+  const floor = pools.reduce((sum, pool) => sum + Math.min(...pool.map((item) => Number(item.costForTwo || 0) * (item.costEstimated ? 1.2 : 1))), 0);
+  return floor <= filters.budget;
+}
+
 function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null}) {
-  const candidates = [];
+  const candidates = [], slotCache = new Map();
   for (const template of TEMPLATES) {
     if (!templateEligible(template, filters)) continue;
-    const pools = buildPools(template, places, events, filters, anchorItem);
+    const pools = buildPools(template, places, events, filters, anchorItem, slotCache);
     if (!pools || pools.some((pool) => !pool.length)) continue;
+    if (!budgetFeasible(pools, filters)) continue;
     for (const items of cartesianLimited(pools,filters,template)) {
       if (!moodCoverage(template, items, filters)) continue;
       const schedule = schedulePlan(items, filters, template);

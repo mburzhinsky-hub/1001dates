@@ -34,4 +34,5 @@ jobs:
       - run: node scripts/smoke-test.mjs
       - run: node scripts/audit-filters.mjs
       - run: node scripts/audit-production-scenarios.mjs
+      - run: node scripts/audit-fixes-test.mjs
       - run: node scripts/production-integration-test.mjs

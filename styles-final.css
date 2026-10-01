@@ -34,7 +34,7 @@
   .shell{width:min(1120px,calc(100% - 40px))}.hero-card{min-height:720px}.hero-content{padding:36px}.summary-grid{grid-template-columns:repeat(5,1fr)}.summary-chip.wide{grid-column:span 1}.launch-actions{grid-template-columns:1fr .38fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.segments.five{grid-template-columns:repeat(5,minmax(0,1fr))}.moods{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(min-width:900px){
-  body{padding-bottom:0}.desktop-only{display:inline-flex}.mobile-nav{display:none}.hero{padding:24px 0 60px}.hero-card{min-height:690px}.hero-content{max-width:680px;padding:50px}.hero h1{font-size:76px}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.screen{left:50%;top:50%;inset:auto;transform:translate(-50%,-50%);width:min(900px,calc(100% - 48px));height:min(92dvh,900px);border-radius:28px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.narrow-screen{width:min(720px,calc(100% - 48px))}.sheet-panel{left:50%;right:auto;bottom:24px;transform:translateX(-50%);width:min(760px,calc(100% - 48px));border-radius:28px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.detail-hero{display:grid;grid-template-columns:1.05fr .95fr}.detail-hero .hero-img{aspect-ratio:auto;min-height:430px}.detail-copy{padding:44px 32px}.chapter{grid-template-columns:40px minmax(0,1fr)}.poster{max-width:520px;margin-inline:auto}
+  body{padding-bottom:0}.desktop-only{display:inline-flex}.mobile-nav{display:none}.hero{padding:24px 0 60px}.hero-card{min-height:690px}.hero-content{max-width:680px;padding:50px}.hero h1{font-size:76px}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.screen{inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:min(900px,calc(100% - 48px));height:min(92dvh,900px);border-radius:28px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.narrow-screen{width:min(720px,calc(100% - 48px))}.sheet-panel{left:50%;right:auto;bottom:24px;transform:translateX(-50%);width:min(760px,calc(100% - 48px));border-radius:28px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.detail-hero{display:grid;grid-template-columns:1.05fr .95fr}.detail-hero .hero-img{aspect-ratio:auto;min-height:430px}.detail-copy{padding:44px 32px}.chapter{grid-template-columns:40px minmax(0,1fr)}.poster{max-width:520px;margin-inline:auto}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
@@ -483,3 +483,12 @@ body::-webkit-scrollbar,
   .scenario-map-head{align-items:flex-start;flex-direction:column}
   .scenario-map-head>small{max-width:none;text-align:left}
 }
+
+
+/* Audit fixes: route block readable on the dark detail screen, planning indicator */
+.scenario-map-section,.scenario-map-head h3,.scenario-map-stop b{color:var(--ink)}
+.scenario-map-stop small{color:var(--muted)}
+.scenario-map-stop b{font-size:14px}
+.planning-toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));z-index:200;transform:translate(-50%,12px);padding:12px 18px;border-radius:999px;background:#24130f;color:#fff;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+.planning-toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:900px){.planning-toast{bottom:32px}}

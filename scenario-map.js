@@ -1,4 +1,4 @@
-import { itemCoordinates as engineCoordinates, distanceKm, estimateTransferMinutes } from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2";
+import { itemCoordinates as engineCoordinates, distanceKm, estimateTransferMinutes } from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=1";
 
 const LEAFLET_CSS="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css";
 const LEAFLET_JS="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js";

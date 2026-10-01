@@ -31,7 +31,7 @@ export function needsTickets(item){
 
 export function buildPreparationTasks(plan,filters={}){
   const tasks=[
-    {id:"calendar",type:"calendar",title:"Добавить в календарь",subtitle:`${filters.date||""} · ${filters.time||""}`.trim()},
+    {id:"calendar",type:"calendar",title:"Добавить в календарь",subtitle:`${formatPrepDate(filters.date)} · ${filters.time||""}`.replace(/^ · /,"").trim()},
     {id:"invite",type:"invite",title:"Отправить приглашение",subtitle:"Отправьте партнёру открытку 1001 Dates"}
   ];
   for(const item of plan?.items||[]){
@@ -64,4 +64,24 @@ export function preparationProgress(tasks,state={}){
   const total=tasks.length;
   const completed=tasks.filter(task=>Boolean(state?.[task.id])).length;
   return {completed,total,percent:total?Math.round(completed/total*100):100,done:total>0&&completed===total};
+}
+
+function formatPrepDate(date){
+  if(!date)return "";
+  try{return new Intl.DateTimeFormat("ru-RU",{weekday:"long",day:"numeric",month:"long"}).format(new Date(`${date}T12:00:00`))}catch{return date}
+}
+
+// Calendar file. Moscow has no daylight saving, so the start is pinned to +03:00 and the event lands at the same
+// real moment on any device, whatever its own time zone.
+export function buildCalendarICS(plan,filters,now=new Date()){
+  const start=new Date(`${filters.date}T${filters.time}:00+03:00`),end=new Date(start.getTime()+Number(plan.totalMinutes||0)*60000);
+  const stamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
+  const esc=v=>String(v??"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\r?\n/g,"\\n");
+  const items=plan.items||[],first=items[0];
+  const description=items.map((item,i)=>`${i+1}. ${item.title}`).join("\n");
+  const uid=`${filters.date}-${String(filters.time).replace(":","")}-${plan.template?.id||"date"}@1001dates`;
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//1001 Dates//RU","CALSCALE:GREGORIAN","METHOD:PUBLISH","BEGIN:VEVENT",
+    `UID:${esc(uid)}`,`DTSTAMP:${stamp(now)}`,`DTSTART:${stamp(start)}`,`DTEND:${stamp(end)}`,
+    `SUMMARY:${esc(plan.title)}`,`DESCRIPTION:${esc(description)}`,...(first?.address?[`LOCATION:${esc(first.address)}`]:[]),
+    "END:VEVENT","END:VCALENDAR"].join("\r\n");
 }
