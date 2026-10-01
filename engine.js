@@ -9,7 +9,7 @@ const SUBTYPE_LABELS = Object.freeze({
   observation:"Смотровая", rooftop:"Крыша / терраса",
   workshop:"Мастер-класс", pottery:"Керамика", painting:"Рисование", cooking:"Кулинарный класс", dance:"Танцы",
   games:"Игры", bowling:"Боулинг", billiards:"Бильярд", vr:"VR", quest:"Квест", karaoke:"Караоке",
-  climbing:"Скалодром", skating:"Катание", karting:"Картинг", mini_golf:"Мини-гольф", bookstore:"Книжный", vinyl:"Винил", market:"Маркет",
+  climbing:"Скалодром", skating:"Катание", karting:"Картинг", mini_golf:"Мини-гольф", water:"Водная активность", bookstore:"Книжный", vinyl:"Винил", market:"Маркет",
   restaurant:"Ресторан", casual:"Ресторан", gastropub:"Гастробар", breakfast:"Завтрак", brunch:"Бранч",
   cocktail:"Коктейльный бар", wine:"Винный бар", jazz:"Бар с музыкой",
   concert:"Концерт", theater:"Спектакль", standup:"Стендап", movie:"Кинопоказ", show:"Шоу", exhibition:"Выставка",
@@ -71,7 +71,7 @@ function inferSubtype(item) {
     if(/боулинг|bowling/.test(t))return"bowling"; if(/бильярд|billiard/.test(t))return"billiards";
     if(/караоке|karaoke/.test(t))return"karaoke"; if(/vr|виртуальн/.test(t))return"vr"; if(/квест|quest/.test(t))return"quest";
     if(/скалодром|climb/.test(t))return"climbing"; if(/каток|коньк|skating/.test(t))return"skating"; if(/картинг|karting/.test(t))return"karting";
-    if(/мини.?гольф|mini.?golf/.test(t))return"mini_golf"; if(/книж|bookstore/.test(t))return"bookstore"; if(/винил|vinyl/.test(t))return"vinyl";
+    if(/мини.?гольф|mini.?golf/.test(t))return"mini_golf"; if(/аква(?:комплекс|парк)|бассейн|water park|водных развлечений/.test(t))return"water"; if(/книж|bookstore/.test(t))return"bookstore"; if(/винил|vinyl/.test(t))return"vinyl";
     if(/маркет|рынок|market/.test(t))return"market"; if(/настоль|игр|game/.test(t))return"games"; if(/мастер.?класс|workshop/.test(t))return"workshop";
     return"activity";
   }
@@ -146,7 +146,7 @@ const BASE_VIBES = Object.freeze({
 function effectiveVibes(item){
   const base=BASE_VIBES[item?.category]||[];
   const subtype=inferSubtype(item);
-  const extra=["climbing","skating","karting","mini_golf","dance","bowling","billiards","vr","quest","games"].includes(subtype)?["active"]:[];
+  const extra=["climbing","skating","karting","mini_golf","water","dance","bowling","billiards","vr","quest","games"].includes(subtype)?["active"]:[];
   return unique([...(item?.vibes||[]),...base,...extra]);
 }
 function itemHasVibe(item,vibe){return effectiveVibes(item).includes(vibe);}
