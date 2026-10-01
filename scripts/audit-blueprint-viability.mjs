@@ -48,8 +48,10 @@ export function auditRange(start=201,end=300,{verbose=true}={}){
   for(let number=start;number<=end;number++){
     const blueprint=scenarioBlueprints[number-1];
     assert(blueprint,"Missing blueprint #"+number);
+    const usesEvents=blueprint.slots.some((slot)=>String(slot.select||"").startsWith("event"));
+    const auditDays=usesEvents?Array.from({length:maxDay},(_,index)=>index+1):[1,2,3,4,5,6,7];
     let chosen=null,chosenFilters=null;
-    outer: for(let day=1;day<=maxDay;day++){
+    outer: for(const day of auditDays){
       for(const time of times){
         const filters=baseFilters(blueprint,dateAt(day),time);
         const plans=generateTemplateDates({places,events,filters,templateId:blueprint.id,count:1,variationSeed:0});
@@ -58,7 +60,7 @@ export function auditRange(start=201,end=300,{verbose=true}={}){
     }
     if(!chosen){
       const diagnostics=[];
-      for(let day=1;day<=maxDay;day++){
+      for(const day of auditDays){
         for(const time of times){
           const filters=baseFilters(blueprint,dateAt(day),time);
           diagnostics.push(diagnoseTemplate({places,events,filters,templateId:blueprint.id}));
