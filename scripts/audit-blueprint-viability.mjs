@@ -48,18 +48,22 @@ export function auditRange(start=201,end=300,{verbose=true}={}){
   for(let number=start;number<=end;number++){
     const blueprint=scenarioBlueprints[number-1];
     assert(blueprint,"Missing blueprint #"+number);
-    const diagnostics=[];
     let chosen=null,chosenFilters=null;
     outer: for(let day=1;day<=maxDay;day++){
       for(const time of times){
         const filters=baseFilters(blueprint,dateAt(day),time);
-        const diag=diagnoseTemplate({places,events,filters,templateId:blueprint.id});
-        diagnostics.push(diag);
         const plans=generateTemplateDates({places,events,filters,templateId:blueprint.id,count:1,variationSeed:0});
         if(plans.length){chosen=plans[0];chosenFilters=filters;break outer;}
       }
     }
     if(!chosen){
+      const diagnostics=[];
+      for(let day=1;day<=maxDay;day++){
+        for(const time of times){
+          const filters=baseFilters(blueprint,dateAt(day),time);
+          diagnostics.push(diagnoseTemplate({places,events,filters,templateId:blueprint.id}));
+        }
+      }
       const failure=classifyDead(blueprint,diagnostics);
       const row={number,id:blueprint.id,concept:blueprint.concept,status:"DEAD",failure};
       rows.push(row);dead.push(row);
