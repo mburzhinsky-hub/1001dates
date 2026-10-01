@@ -1,6 +1,6 @@
 import {seedPlaces,seedEvents} from "./data/seed.js";
 import {kudagoPlaces,kudagoEvents,kudagoMeta} from "./data/kudago.generated.js";
-import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2";
+import {generateDates,generateNearbyDates,replacePlanItem,planRows,formatMoney,formatDuration} from "./engine-v14.js?v=duration5&nearby=1&audit=1&catalog=2&audit300=1";
 import {selectScenarioCover} from "./scenario-visuals.js?v=1";
 import {PREPARATION_KEY,buildPreparationTasks,preparationStateKey,preparationProgress} from "./preparation.js?v=2&catalog=2";
 import {scenarioMapPoints,scenarioRouteSummary,renderScenarioMap,destroyScenarioMap,externalMapUrl} from "./scenario-map.js?v=1";
@@ -414,4 +414,4 @@ function showSharedInviteFromHash(){
 $("#sharedInviteHome")?.addEventListener("click",()=>{history.replaceState(null,"",location.pathname+location.search);closeOverlay("#sharedInviteOverlay");window.scrollTo({top:0,behavior:"smooth"})});
 $("#sharedInviteClose")?.addEventListener("click",()=>{if(location.hash.startsWith("#invite="))history.replaceState(null,"",location.pathname+location.search)});
 window.addEventListener("hashchange",showSharedInviteFromHash);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly19",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js?v=monthly20",{updateViaCache:"none"}).catch(()=>{});saveProfile();saveSavedDates();syncUI();renderLibrary();updateHomeHero();showSharedInviteFromHash();
