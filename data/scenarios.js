@@ -192,7 +192,7 @@ const P = Object.freeze({
     slot("dinner",90,"сделать ужин центральной паузой"),
     slot("dinner:restaurant",90,"поужинать без спешки"),
     slot("dinner:casual",90,"выбрать расслабленный ресторан"),
-    slot("dinner:gastropub",90,"поесть и спокойно поговорить")
+    slot("dinner:restaurant|gastropub",90,"поесть и спокойно поговорить")
   ),
   brunch75: variants(
     slot("dinner:breakfast|brunch",75,"встретиться за завтраком или бранчем"),
@@ -208,13 +208,13 @@ const P = Object.freeze({
   bar70: variants(
     slot("bar",70,"не заканчивать вечер сразу"),
     slot("bar:cocktail",70,"перейти в коктейльный бар"),
-    slot("bar:wine",70,"продолжить в винном баре"),
+    slot("bar:cocktail|wine",70,"продолжить в хорошем баре"),
     slot("bar:jazz",70,"закончить вечер музыкой и напитком")
   ),
   eventCulture: variants(
     slot("event:exhibition",null,"попасть на актуальную выставку",{useItemDuration:true}),
-    slot("event:lecture",null,"сходить на интересную лекцию",{useItemDuration:true}),
-    slot("event:excursion",null,"попасть на необычную экскурсию",{useItemDuration:true}),
+    slot("event:exhibition|lecture",null,"сходить на интересную лекцию или выставку",{useItemDuration:true}),
+    slot("event:exhibition|excursion",null,"попасть на необычную экскурсию или выставку",{useItemDuration:true}),
     slot("event",null,"выбрать актуальное культурное событие",{useItemDuration:true})
   ),
   eventStage: variants(
