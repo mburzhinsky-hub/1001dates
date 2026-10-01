@@ -45,6 +45,9 @@ function repairItem(item){
   let fixed={...item};
   const title=cleanTitle(fixed.title||"");
   if(/(^|\s)(парк|сад)(\s|$)/i.test(title)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар)/i.test(title)&&!["walk","viewpoint"].includes(fixed.category))fixed={...fixed,category:"walk",subtype:"park",indoor:false,includesFood:false};
+  if(/аква(?:комплекс|парк)|водных развлечений|бассейн|water park/i.test(title))fixed={...fixed,category:"activity",subtype:"water",indoor:true,includesFood:false};
+  if(fixed.category==="art"&&/(собор|храм|церков|монастыр)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false,costForTwo:0,costEstimated:false};
+  if(fixed.category==="viewpoint"&&/мост/i.test(title))fixed={...fixed,costForTwo:0,costEstimated:false,indoor:false};
   if(semanticBar(fixed)&&["dinner","cafe"].includes(fixed.category))fixed={...fixed,category:"bar",subtype:/винн|wine/i.test(fixed.title||"")?"wine":/джаз|piano|пиано/i.test(fixed.title||"")?"jazz":"cocktail",includesFood:false};
   if(!fixed.weeklyHours&&String(fixed.timetable||"").trim()){
     const parsed=parseRuntimeTimetable(fixed.timetable);
