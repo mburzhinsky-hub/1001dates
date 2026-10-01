@@ -18,12 +18,14 @@ export function needsReservation(item){
 
 export function needsTickets(item){
   const t=text(item),paid=Number(item?.costForTwo||0)>0;
-  if(/бесплатн|free admission|свободный вход/i.test(t)&&!/регистрац|registration|билет|ticket/i.test(t))return false;
-  if(["concert","theater","standup","show","movie","excursion"].includes(item?.eventType))return true;
-  if(item?.category==="event")return paid||/(концерт|театр|спектак|стендап|шоу|кино|выстав|экскурс|билет|ticket)/i.test(t);
-  if(item?.category==="art"&&paid&&/(музей|museum|выстав|галере|gallery|экспозиц)/i.test(t))return true;
-  if(item?.category==="activity"&&paid&&/(квест|quest|каток|rink|bowling|боулинг|vr|виртуал|мастер-класс|workshop)/i.test(t))return true;
+  if(item?.category==="event")return true;
+  if(item?.category==="art"&&paid)return true;
   if(item?.category==="viewpoint"&&paid)return true;
+  if(item?.category==="activity"&&paid){
+    const subtype=String(item?.subtype||"").toLowerCase();
+    if(["climbing","skating","karting","mini_golf","water","dance","workshop","pottery","painting","cooking","games","bowling","billiards","vr","quest","karaoke"].includes(subtype))return true;
+    if(/скалодром|climb|каток|коньк|skating|картинг|karting|мини.?гольф|mini.?golf|аква(?:комплекс|парк)|бассейн|water park|танц|dance|квест|quest|bowling|боулинг|бильярд|billiard|vr|виртуал|мастер.?класс|workshop|караоке|karaoke|лазертаг|стрелков/i.test(t))return true;
+  }
   return false;
 }
 
@@ -34,9 +36,13 @@ export function buildPreparationTasks(plan,filters={}){
   ];
   for(const item of plan?.items||[]){
     if(needsTickets(item)){
+      const freeEvent=item.category==="event"&&Number(item.costForTwo||0)<=0;
       tasks.push({
-        id:`ticket:${item.id}`,type:"ticket",title:"Купить билеты",itemTitle:item.title,
-        subtitle:"Лучше проверить и купить заранее",url:preparationUrl(item)
+        id:`ticket:${item.id}`,type:"ticket",
+        title:freeEvent?"Проверить вход и регистрацию":"Купить билеты",
+        itemTitle:item.title,
+        subtitle:freeEvent?"Проверьте условия входа и нужна ли регистрация":"Лучше проверить и купить заранее",
+        url:preparationUrl(item)
       });
     }
     if(needsReservation(item)){

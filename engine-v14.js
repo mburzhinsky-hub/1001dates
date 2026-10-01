@@ -1,4 +1,4 @@
-import * as base from "./engine.js?base=duration5&nearby=1";
+import * as base from "./engine.js?base=duration5&nearby=1&audit=1";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
@@ -45,6 +45,9 @@ function repairItem(item){
   let fixed={...item};
   const title=cleanTitle(fixed.title||"");
   if(/(^|\s)(парк|сад)(\s|$)/i.test(title)&&!/(виртуаль|vr|развлеч|аква|зоопарк|аттрак|музей|галере|ресторан|кафе|бар)/i.test(title)&&!["walk","viewpoint"].includes(fixed.category))fixed={...fixed,category:"walk",subtype:"park",indoor:false,includesFood:false};
+  if(/аква(?:комплекс|парк)|водных развлечений|бассейн|water park/i.test(title))fixed={...fixed,category:"activity",subtype:"water",indoor:true,includesFood:false};
+  if(fixed.category==="art"&&/(собор|храм|церков|монастыр)/i.test(title))fixed={...fixed,category:"walk",subtype:"architecture",indoor:false,includesFood:false,costForTwo:0,costEstimated:false};
+  if(fixed.category==="viewpoint"&&/мост/i.test(title))fixed={...fixed,costForTwo:0,costEstimated:false,indoor:false};
   if(semanticBar(fixed)&&["dinner","cafe"].includes(fixed.category))fixed={...fixed,category:"bar",subtype:/винн|wine/i.test(fixed.title||"")?"wine":/джаз|piano|пиано/i.test(fixed.title||"")?"jazz":"cocktail",includesFood:false};
   if(!fixed.weeklyHours&&String(fixed.timetable||"").trim()){
     const parsed=parseRuntimeTimetable(fixed.timetable);
@@ -103,8 +106,21 @@ function editorialTitle(plan){
   return labels.length?labels.map((x,i)=>i?x:x.charAt(0).toUpperCase()+x.slice(1)).join(" и "):"Свидание в Москве";
 }
 function editorialStory(plan){
-  const items=plan?.items||[];
-  const parts=items.map((item,index)=>`${roleFor(plan,index)} — ${shortVenueTitle(item.title)}`);
+  const items=plan?.items||[],usedRoots=new Set();
+  const fallbackRole=(item)=>({
+    art:"посмотреть и обсудить",walk:"пройтись и поговорить",viewpoint:"поймать красивый вид",
+    cafe:"сделать паузу за кофе",dessert:"оставить сладкий финал",dinner:"поужинать и поговорить",
+    bar:"продолжить вечер",activity:"заняться чем-то вдвоём",event:"попасть на событие"
+  })[item?.category]||"продолжить маршрут";
+  const freshRole=(item,index)=>{
+    let role=roleFor(plan,index);
+    for(const [root,re] of [["спеш",/спеш/i],["вмест",/вмест/i]]){
+      if(re.test(role)&&usedRoots.has(root))role=fallbackRole(item);
+      if(re.test(role))usedRoots.add(root);
+    }
+    return role;
+  };
+  const parts=items.map((item,index)=>`${freshRole(item,index)} — ${shortVenueTitle(item.title)}`);
   if(parts.length===0)return"Маршрут собран под ваши условия.";
   if(parts.length===1)return`${parts[0]}.`;
   if(parts.length===2)return`Сначала ${parts[0]}. Затем ${parts[1]}.`;
@@ -168,3 +184,4 @@ export const formatDuration=base.formatDuration;
 export const estimateScenarioCount=base.estimateScenarioCount;
 export const auditPlanConstraints=base.auditPlanConstraints;
 export const auditPlanGeography=base.auditPlanGeography;
+export const repairScenarioItem=repairItem;
