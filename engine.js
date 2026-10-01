@@ -705,6 +705,52 @@ function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null})
   return candidates;
 }
 
+
+export function diagnoseTemplate({ places, events, filters, templateId, anchorItem=null }) {
+  const template=TEMPLATES.find((candidate)=>candidate.id===templateId);
+  if(!template)return {templateId,exists:false,eligible:false,poolSizes:[],emptySelectors:[],geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes:null};
+  const eligible=templateEligible(template,filters);
+  if(!eligible)return {templateId,exists:true,eligible:false,poolSizes:[],emptySelectors:[],geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes:null};
+  const pools=buildPools(template,places,events,filters,anchorItem);
+  if(!pools)return {templateId,exists:true,eligible:true,poolSizes:[],emptySelectors:template.slots.map(slotSelector),geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes:null};
+  const poolSizes=pools.map((pool)=>pool.length);
+  const emptySelectors=template.slots.filter((_,index)=>!poolSizes[index]).map(slotSelector);
+  const minActivityMinutes=template.slots.reduce((sum,value,index)=>{
+    const spec=slotSpec(value);
+    if(spec.useItemDuration||slotCategory(value)==="event"){
+      const durations=(pools[index]||[]).map((item)=>Number(item?.duration||spec.minutes||60)).filter(Number.isFinite);
+      return sum+(durations.length?Math.min(...durations):Number(spec.minutes||60));
+    }
+    return sum+Number(spec.minutes||60);
+  },0);
+  if(emptySelectors.length)return {templateId,exists:true,eligible:true,poolSizes,emptySelectors,geographicCombinations:0,moodPass:0,schedulePass:0,minActivityMinutes};
+  const combinations=cartesianLimited(pools,filters,template);
+  let moodPass=0,schedulePass=0;
+  for(const items of combinations){
+    if(!moodCoverage(template,items,filters))continue;
+    moodPass++;
+    if(schedulePlan(items,filters,template))schedulePass++;
+  }
+  return {templateId,exists:true,eligible:true,poolSizes,emptySelectors,geographicCombinations:combinations.length,moodPass,schedulePass,minActivityMinutes};
+}
+
+export function generateTemplateDates({ places, events, filters, templateId, count=1, variationSeed=0, anchorItem=null }) {
+  const template=TEMPLATES.find((candidate)=>candidate.id===templateId);
+  if(!template||!templateEligible(template,filters))return [];
+  const pools=buildPools(template,places,events,filters,anchorItem);
+  if(!pools||pools.some((pool)=>!pool.length))return [];
+  const candidates=[];
+  for(const items of cartesianLimited(pools,filters,template)){
+    if(!moodCoverage(template,items,filters))continue;
+    const schedule=schedulePlan(items,filters,template);
+    if(!schedule)continue;
+    const baseScore=planBaseScore(template,items,schedule,filters,variationSeed);
+    candidates.push({...schedule,template,items,baseScore,filters,geo:geographicMetrics(items,filters,template)});
+  }
+  candidates.sort((a,b)=>b.baseScore-a.baseScore);
+  return candidates.slice(0,Math.max(1,Number(count)||1)).map((plan,index)=>enrichPlan(plan,filters,index,variationSeed));
+}
+
 export function generateDates({ places, events, filters, count=3, variationSeed=0, anchorItem=null }) {
   const candidates = makeCandidates({places,events,filters,variationSeed,anchorItem});
   let chosen = chooseArchetypes(candidates,count);
