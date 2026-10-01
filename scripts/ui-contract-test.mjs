@@ -38,6 +38,9 @@ assert(app.includes("PREPARATION_KEY"),"Preparation storage key is not wired");
 assert(app.includes("function renderPreparation()"),"Preparation renderer is missing");
 assert(app.includes("function openPreparation()"),"Preparation CTA is not wired");
 assert(app.includes("downloadCalendarInvite"),"Preparation calendar action is missing");
+assert(app.includes("$(`[data-prep-toggle]`")||app.includes("$(\'[data-prep-toggle]\'"),"Preparation toggle binding must use querySelectorAll");
+assert(app.includes("$(`[data-prep-action]`")||app.includes("$(\'[data-prep-action]\'"),"Preparation action binding must use querySelectorAll");
+assert(!app.includes("$(\'[data-prep-toggle]\'")&&!app.includes("$(\'[data-prep-action]\'"),"Preparation controls regress to querySelector/forEach");
 assert(seasonCss.includes(".october-stats")&&seasonCss.includes(".phone-frame")&&seasonCss.includes(".quick-filters"),"Reference visual layer is incomplete");
 assert(!/(^|[^$])\$\("\[data-date-preset\]"\)\.forEach/m.test(app),"querySelector/forEach runtime regression returned");
 
