@@ -202,7 +202,8 @@ function targetFloor(duration) {
 // Geography is a hidden feasibility constraint, not part of the displayed date duration.
 // We keep the date compact without showing or charging travel minutes to the user.
 function normalizedCoords(item) {
-  const lat = Number(item?.coords?.lat), lon = Number(item?.coords?.lon);
+  const source=item?.coords || item;
+  const lat=Number(source?.lat), lon=Number(source?.lon ?? source?.lng);
   if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null;
   return { lat, lon };
 }
@@ -344,6 +345,12 @@ function itemFitsPreferences(item, filters) {
   if (filters.noBars && itemIsBar(item)) return false;
   if (filters.food === false && itemIncludesFood(item)) return false;
   if (filters.zone !== "any" && item.zone !== filters.zone) return false;
+  if (filters.nearbyOrigin) {
+    const distance=haversineKm(item,filters.nearbyOrigin);
+    if (distance === null) return false;
+    const radius=Number(filters.nearbyRadiusKm);
+    if (Number.isFinite(radius) && radius > 0 && distance > radius) return false;
+  }
   if (filters.dislikedItemIds?.includes(item.id)) return false;
   if (filters.avoidVisited && filters.visitedItemIds?.includes(item.id)) return false;
   return true;
@@ -360,6 +367,10 @@ function candidateScore(item, filters, template) {
   if (filters.likedItemIds?.includes(item.id)) score += 11;
   if (filters.recentlyShownItemIds?.includes(item.id)) score -= 9;
   if (filters.visitedItemIds?.includes(item.id)) score -= 7;
+  if (filters.nearbyOrigin) {
+    const originDistance=haversineKm(item,filters.nearbyOrigin);
+    if (originDistance !== null) score += clamp(30 - originDistance*7, -16, 30);
+  }
 
   const adventure = filters.adventure || "balanced";
   const unusual = itemHasVibe(item,"unusual") ? 1 : 0;
@@ -497,12 +508,21 @@ function geographicCoherence(items,filters,template) {
   return 24 - (legRatio*5 + spanRatio*6 + routeRatio*8 + detourPenalty);
 }
 
+function nearbyProximityScore(items,filters){
+  if(!filters?.nearbyOrigin)return 0;
+  const distances=items.map(item=>haversineKm(item,filters.nearbyOrigin));
+  if(distances.some(distance=>distance===null))return -1000;
+  const first=distances[0]||0,average=distances.reduce((sum,value)=>sum+value,0)/Math.max(distances.length,1),max=Math.max(...distances,0);
+  return clamp(38 - first*8 - average*2.5 - max*1.5, -24, 38);
+}
+
 function planBaseScore(template, items, schedule, filters, variationSeed) {
   let score = 52;
   const vibeHits = template.vibes.filter((v) => filters.vibes?.includes(v)).length;
   score += vibeHits * 9;
   score += items.reduce((sum,item) => sum + candidateScore(item, filters, template), 0) / Math.max(items.length,1) * .55;
   score += geographicCoherence(items,filters,template);
+  score += nearbyProximityScore(items,filters);
 
   if (filters.budget >= 900000) score += 4;
   else {
@@ -769,8 +789,12 @@ export function auditPlanConstraints(plan,filters=plan?.filters||{}) {
     bars:filters.noBars?!items.some(itemIsBar):true,
     eventTimes:items.filter((x)=>x.category==="event"&&eventRequiresFixedStart(x)).every((x)=>eventTimesForDate(x,filters.date).length>0),
     zone:filters.zone&&filters.zone!=="any"?items.every((x)=>x.zone===filters.zone):true,
-    geography:geographicMetrics(items,filters,plan?.template||null).ok
+    geography:geographicMetrics(items,filters,plan?.template||null).ok,
+    nearby:filters.nearbyOrigin?items.every((item)=>{
+      const distance=haversineKm(item,filters.nearbyOrigin),radius=Number(filters.nearbyRadiusKm);
+      return distance!==null&&(!Number.isFinite(radius)||radius<=0||distance<=radius);
+    }):true
   };
 }
 
-export { TEMPLATES, ARCHETYPES };
+export { normalizedCoords as itemCoordinates, haversineKm as distanceKm, hiddenTransferMinutes as estimateTransferMinutes, nearbyProximityScore, TEMPLATES, ARCHETYPES };

@@ -1,4 +1,4 @@
-import * as base from "./engine.js?base=duration5";
+import * as base from "./engine.js?base=duration5&nearby=1";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
@@ -135,6 +135,31 @@ export function generateDates(args){
     used.add(title);
     return {...enriched,title};
   });
+}
+function nearbyDistanceSummary(plan,origin,radiusKm){
+  const distances=(plan?.items||[]).map(item=>{const c=coords(item);return c?distanceKm(origin,c):null}).filter(Number.isFinite);
+  if(!distances.length)return null;
+  return {
+    radiusKm,
+    startDistanceKm:distances[0],
+    maxOriginDistanceKm:Math.max(...distances),
+    averageOriginDistanceKm:distances.reduce((sum,value)=>sum+value,0)/distances.length
+  };
+}
+export function generateNearbyDates(args){
+  const origin=args?.origin;
+  if(!origin||!Number.isFinite(Number(origin.lat))||!Number.isFinite(Number(origin.lon)))return {plans:[],radiusKm:null};
+  const cleanOrigin={lat:Number(origin.lat),lon:Number(origin.lon)};
+  const radii=Array.isArray(args?.radii)&&args.radii.length?args.radii:[2,4,6];
+  let bestPlans=[],bestRadius=null;
+  for(const radiusKm of radii){
+    const filters={...(args.filters||{}),zone:"any",nearbyOrigin:cleanOrigin,nearbyRadiusKm:Number(radiusKm)};
+    const plans=generateDates({...args,filters,count:args.count||3,anchorItem:null})
+      .map(plan=>({...plan,nearby:nearbyDistanceSummary(plan,cleanOrigin,Number(radiusKm))}));
+    if(plans.length>bestPlans.length){bestPlans=plans;bestRadius=Number(radiusKm)}
+    if(plans.length>=(args.count||3))return {plans,radiusKm:Number(radiusKm)};
+  }
+  return {plans:bestPlans,radiusKm:bestRadius};
 }
 export function replacePlanItem(args){const guarded=guardedArgs(args),filters=guarded.filters||{};return enrichPlan(base.replacePlanItem(guarded),filters);}
 export const planRows=base.planRows;

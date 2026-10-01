@@ -15,7 +15,7 @@ assert(!duplicates.length,`Duplicate ids in index.html: ${duplicates.join(", ")}
 const required=[
   "quickGenerate","surprise","quickDate","quickTime","quickBudget","quickDuration","quickVibe",
   "seasonPlaces","seasonEvents","seasonDays","deviceGenerate","devicePreviewDate","devicePreviewVibe",
-  "devicePreviewDuration","devicePreviewBudget","filtersOverlay","resultsGrid","moreDates","downloadInvite","sharedInviteOverlay","sharedInvitePoster","sharedInviteSave","inviteSaveOverlay","inviteSaveImage","prepareDate","prepareDateStatus","preparationOverlay","preparationProgressBar","preparationList"
+  "devicePreviewDuration","devicePreviewBudget","filtersOverlay","resultsGrid","moreDates","downloadInvite","sharedInviteOverlay","sharedInvitePoster","sharedInviteSave","inviteSaveOverlay","inviteSaveImage","prepareDate","prepareDateStatus","preparationOverlay","preparationProgressBar","preparationList","nearbyGenerate","nearbyPanel","nearbyStatus","nearbyReset","nearbyChooseZone"
 ];
 for(const id of required)assert(ids.includes(id),`Missing UI contract id #${id}`);
 
@@ -38,6 +38,11 @@ assert(app.includes("PREPARATION_KEY"),"Preparation storage key is not wired");
 assert(app.includes("function renderPreparation()"),"Preparation renderer is missing");
 assert(app.includes("function openPreparation()"),"Preparation CTA is not wired");
 assert(app.includes("downloadCalendarInvite"),"Preparation calendar action is missing");
+assert(app.includes("generateNearbyDates"),"Nearby planner is not wired");
+assert(app.includes("navigator.geolocation.getCurrentPosition"),"Nearby mode does not request geolocation on demand");
+assert(!app.includes("navigator.geolocation.watchPosition"),"Nearby mode must not track location continuously");
+assert(app.includes("scenarioMapSectionHTML")&&app.includes("mountScenarioMap"),"Scenario map UI is not wired");
+assert(app.includes("destroyScenarioMap"),"Scenario map cleanup is missing");
 assert(app.includes("$(`[data-prep-toggle]`")||app.includes("$(\'[data-prep-toggle]\'"),"Preparation toggle binding must use querySelectorAll");
 assert(app.includes("$(`[data-prep-action]`")||app.includes("$(\'[data-prep-action]\'"),"Preparation action binding must use querySelectorAll");
 assert(!/(^|[^$])\$\([\'\"]\[data-prep-(?:toggle|action)\][\'\"]/m.test(app),"Preparation controls regress to querySelector/forEach");
