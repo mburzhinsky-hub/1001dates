@@ -106,8 +106,21 @@ function editorialTitle(plan){
   return labels.length?labels.map((x,i)=>i?x:x.charAt(0).toUpperCase()+x.slice(1)).join(" и "):"Свидание в Москве";
 }
 function editorialStory(plan){
-  const items=plan?.items||[];
-  const parts=items.map((item,index)=>`${roleFor(plan,index)} — ${shortVenueTitle(item.title)}`);
+  const items=plan?.items||[],usedRoots=new Set();
+  const fallbackRole=(item)=>({
+    art:"посмотреть и обсудить",walk:"пройтись и поговорить",viewpoint:"поймать красивый вид",
+    cafe:"сделать паузу за кофе",dessert:"оставить сладкий финал",dinner:"поужинать и поговорить",
+    bar:"продолжить вечер",activity:"заняться чем-то вдвоём",event:"попасть на событие"
+  })[item?.category]||"продолжить маршрут";
+  const freshRole=(item,index)=>{
+    let role=roleFor(plan,index);
+    for(const [root,re] of [["спеш",/спеш/i],["вмест",/вмест/i]]){
+      if(re.test(role)&&usedRoots.has(root))role=fallbackRole(item);
+      if(re.test(role))usedRoots.add(root);
+    }
+    return role;
+  };
+  const parts=items.map((item,index)=>`${freshRole(item,index)} — ${shortVenueTitle(item.title)}`);
   if(parts.length===0)return"Маршрут собран под ваши условия.";
   if(parts.length===1)return`${parts[0]}.`;
   if(parts.length===2)return`Сначала ${parts[0]}. Затем ${parts[1]}.`;
