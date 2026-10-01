@@ -6,7 +6,7 @@ import { generateDates, replacePlanItem, generateNearbyDates, repairScenarioItem
 import { scenarioBlueprints } from "../data/scenarios.js";
 import { selectScenarioCover, scenarioImageUsable, scenarioCoverSources } from "../scenario-visuals.js";
 import { scenarioMapPoints } from "../scenario-map.js";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { buildCalendarICS, buildPreparationTasks, needsSlotBooking } from "../preparation.js";
 
 function assert(c, m) { if (!c) throw new Error(m); }
@@ -178,5 +178,41 @@ assert(repairScenarioItem({ id: "x3", title: "Парк Горького", catego
   const plan = { items: [{ category: "cafe", image: "https://media.kudago.com/images/place/aa/bb/cc.jpg" }, { category: "art", image: "https://media.kudago.com/images/place/dd/ee/ff.jpg", imageThumb: "https://media.kudago.com/thumbs/640x384/images/place/dd/ee/ff.jpg" }] };
   const sources = scenarioCoverSources(plan);
   assert(sources.length === 2 && sources[0].full.endsWith("ff.jpg") && sources[0].thumb && sources[0].full === selectScenarioCover(plan), "cover sources must start with the cover and keep the next chapter as a fallback");
+}
+// 15. UI refresh: filters pinned at the top, one icon family, fonts with real Cyrillic
+{
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../app-final.js", import.meta.url), "utf8");
+  const css = readFileSync(new URL("../ui-refresh.css", import.meta.url), "utf8");
+  const sw = readFileSync(new URL("../sw.js", import.meta.url), "utf8");
+  const headerAt = html.indexOf('id="siteHeader"'), heroAt = html.indexOf('class="hero shell"');
+  assert(headerAt > 0 && heroAt > headerAt, "filter bar must live in the header, above the hero");
+  const header = html.slice(headerAt, heroAt);
+  for (const key of ["date", "time", "budget", "duration", "vibe"]) {
+    assert(header.includes(`data-filter-section="${key}"`), `header chip for ${key} is missing`);
+    assert(html.includes(`class="filter-block${key === "date" ? " first" : ""}" data-section="${key}"`), `filter sheet has no block to open for ${key}`);
+  }
+  assert(header.includes('id="quickSearch"') && app.includes('#quickSearch'), "header search button is not wired");
+  assert(/\.site-header\{position:sticky;top:0/.test(css), "header is not sticky");
+  // every icon that is referenced is defined in the sprite
+  const defined = new Set([...html.matchAll(/<symbol id="i-([\w-]+)"/g)].map((m) => m[1]));
+  const used = new Set([...html.matchAll(/href="#i-([\w-]+)"/g), ...app.matchAll(/ic\((["'])([\w-]+)\1/g)].map((m) => m[2] || m[1]));
+  for (const name of used) assert(defined.has(name), `icon "${name}" is used but not defined in the sprite`);
+  assert(used.size >= 20, "icon set looks too small");
+  // no leftover glyph icons in the visible UI (share-message text may keep a heart)
+  const markup = html.replace(/<svg[\s\S]*?<\/svg>/g, "");
+  assert(!/[⌖◫□◷◎✦⌘⌕♨♫⌂⊘↗↻←↓→]/.test(markup), "glyph icon left in index.html");
+  const appUi = app.split("\n").filter((line) => !/приготовил для нас свидание/.test(line)).join("\n");
+  assert(!/[⌖◷✦⌘⌕♨♫⌂⊘↗✓]/.test(appUi) && !/["'`>]\s*[♡♥]/.test(appUi), "glyph icon left in app-final.js");
+  // fonts: the old pair had no Cyrillic; the new ones are self-hosted and cached by the service worker
+  assert(!html.includes("fonts.googleapis.com"), "Google Fonts link is back");
+  assert(/--serif:"Cormorant"/.test(css) && /--sans:"Onest"/.test(css), "font variables are not switched to Cormorant/Onest");
+  for (const file of ["onest-cyr", "onest-lat", "onest-rub", "cormorant-cyr", "cormorant-lat", "cormorant-rub", "cormorant-cyr-italic", "cormorant-lat-italic", "cormorant-rub-italic"]) {
+    assert(existsSync(new URL(`../assets/fonts/${file}.woff2`, import.meta.url)), `font file ${file} is missing`);
+    assert(css.includes(`${file}.woff2`) && sw.includes(`${file}.woff2`), `font ${file} is not declared in CSS and precached`);
+  }
+  assert(css.includes("U+0400-045F") && css.includes("U+20BD"), "Cyrillic / ruble ranges are not declared");
+  // the primary action names its outcome instead of "open ideas"
+  assert(html.includes("Подобрать свидание") && !html.includes("Открыть идеи на октябрь"), "hero action is unclear again");
 }
 console.log("Audit fixes OK");

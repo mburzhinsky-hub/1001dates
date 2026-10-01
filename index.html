@@ -9,27 +9,39 @@
   <link rel="icon" href="./assets/icon.svg?v=2" type="image/svg+xml">
   <link rel="preconnect" href="https://media.kudago.com">
   <link rel="dns-prefetch" href="https://media.kudago.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preload" href="./assets/fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/cormorant-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./styles-final.css?v=oct1&invite=3&prep=1&map=1&fix=3">
   <link rel="stylesheet" href="./motion-final.css?v=motion2">
   <link rel="stylesheet" href="./october-reference.css?v=ref2&rollback=2&portrait=1">
+  <link rel="stylesheet" href="./ui-refresh.css?v=ui1">
   <title>1001 Dates — октябрь 2026 в Москве</title>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><!-- Lucide icons (ISC licence) --><symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /> <path d="M13 5v2" /> <path d="M13 17v2" /> <path d="M13 11v2" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /> <path d="M8 13h.01" /> <path d="M12 13h.01" /> <path d="M16 13h.01" /> <path d="M8 17h.01" /> <path d="M12 17h.01" /> <path d="M16 17h.01" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" /> <path d="M20 21a8 8 0 0 0-16 0" /></symbol><symbol id="i-sliders-horizontal" viewBox="0 0 24 24"><path d="M10 5H3" /> <path d="M12 19H3" /> <path d="M14 3v4" /> <path d="M16 17v4" /> <path d="M21 12h-9" /> <path d="M21 19h-5" /> <path d="M21 5h-7" /> <path d="M8 10v4" /> <path d="M8 12H3" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3" /> <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <path d="m7 10 5 5 5-5" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-smile" viewBox="0 0 24 24"><path d="M15 10V9" /> <path d="M16.472 15a6 6 0 01-8.943 0" /> <path d="M9 10V9" /> <circle cx="12" cy="12" r="10" /></symbol><symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2" /> <path d="M14 2v2" /> <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" /> <path d="M6 2v2" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M4.929 4.929 19.07 19.071" /></symbol><symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /></symbol><symbol id="i-locate-fixed" viewBox="0 0 24 24"><line x1="2" x2="5" y1="12" y2="12" /> <line x1="19" x2="22" y1="12" y2="12" /> <line x1="12" x2="12" y1="2" y2="5" /> <line x1="12" x2="12" y1="19" y2="22" /> <circle cx="12" cy="12" r="7" /> <circle cx="12" cy="12" r="3" /></symbol><symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></symbol><symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></symbol><symbol id="i-wine-off" viewBox="0 0 24 24"><path d="M8 22h8" /> <path d="M7 10h3m7 0h-1.343" /> <path d="M12 15v7" /> <path d="M7.307 7.307A12.33 12.33 0 0 0 7 10a5 5 0 0 0 7.391 4.391M8.638 2.981C8.75 2.668 8.872 2.34 9 2h6c1.5 4 2 6 2 8 0 .407-.05.809-.145 1.198" /> <line x1="2" x2="22" y1="2" y2="22" /></symbol><symbol id="i-music-2" viewBox="0 0 24 24"><circle cx="8" cy="18" r="4" /> <path d="M12 18V2l7 4" /></symbol><symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /></symbol><symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M5 22h14" /> <path d="M5 2h14" /> <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" /> <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" /></symbol><symbol id="i-footprints" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /> <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /> <path d="M16 17h4" /> <path d="M4 13h4" /></symbol></svg>
 <div class="portrait-required" id="portraitRequired" role="status" aria-live="polite">
   <div class="portrait-required-card">
-    <div class="portrait-required-icon" aria-hidden="true">↻</div>
+    <div class="portrait-required-icon" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-rotate-cw"/></svg></div>
     <div class="portrait-required-brand">1001 Dates</div>
     <h1>Поверните телефон</h1>
     <p>1001 Dates работает в вертикальном режиме</p>
   </div>
 </div>
-<header class="topbar shell">
-  <a class="brand" href="#top" aria-label="1001 Dates"><span>1001</span> Dates</a>
-  <div class="topbar-note desktop-only"><i></i><span>Больше чем свидания</span></div>
-  <button class="top-link desktop-only" id="libraryButton" type="button">Мои свидания <b id="libraryCount" hidden>0</b></button>
+<header class="site-header" id="siteHeader">
+  <div class="site-header-inner shell">
+    <a class="brand" href="#top" aria-label="1001 Dates, на главную"><span>1001</span> Dates</a>
+    <section class="quick-filters" aria-label="Параметры свидания">
+      <div class="quick-scroll">
+        <button type="button" data-open-filter data-filter-section="date" title="Дата"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><span class="qf-label">Дата</span><b id="quickDate">Сегодня</b></button>
+        <button type="button" data-open-filter data-filter-section="time" title="Время"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="qf-label">Время</span><b id="quickTime">19:00</b></button>
+        <button type="button" data-open-filter data-filter-section="budget" title="Бюджет"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wallet"/></svg><span class="qf-label">Бюджет</span><b id="quickBudget">до 7 000 ₽</b></button>
+        <button type="button" data-open-filter data-filter-section="duration" title="Длительность"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-hourglass"/></svg><span class="qf-label">Длительность</span><b id="quickDuration">3 часа</b></button>
+        <button type="button" data-open-filter data-filter-section="vibe" title="Атмосфера"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span class="qf-label">Атмосфера</span><b id="quickVibe">Романтика</b></button>
+      </div>
+      <button class="quick-go" id="quickSearch" type="button" aria-label="Подобрать свидание по этим параметрам"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span>Подобрать</span></button>
+    </section>
+    <button class="top-link desktop-only" id="libraryButton" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span>Мои свидания</span> <b id="libraryCount" hidden>0</b></button>
+  </div>
 </header>
 
 <main id="top">
@@ -44,7 +56,7 @@
     <div class="october-layout">
       <div class="october-editorial">
         <div class="october-meta"><span>МОСКВА</span><i></i><span id="seasonMonthLabel">ОКТЯБРЬ 2026</span></div>
-        <div class="october-kicker"><span>БОЛЬШЕ ЧЕМ СВИДАНИЯ</span><i></i><span class="october-heart" aria-hidden="true">♡</span></div>
+        <div class="october-kicker"><span>БОЛЬШЕ ЧЕМ СВИДАНИЯ</span><i></i><span class="october-heart" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span></div>
 
         <h1 id="heroTitle">
           <span id="seasonMonthTitle">Октябрь</span>
@@ -55,21 +67,21 @@
         <p class="october-description" id="seasonCopy">Идеи свиданий на весь месяц: актуальные события, любимые места и готовые маршруты под ваше время, бюджет и настроение.</p>
 
         <div class="october-stats" aria-label="Октябрьская база">
-          <div class="october-stat"><span class="october-stat-icon">⌖</span><strong id="seasonPlaces">578</strong><small>мест</small></div>
-          <div class="october-stat"><span class="october-stat-icon">◫</span><strong id="seasonEvents">297</strong><small>событий</small></div>
-          <div class="october-stat"><span class="october-stat-icon">□</span><strong id="seasonDays">31</strong><small>день</small></div>
+          <div class="october-stat"><span class="october-stat-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-map-pin"/></svg></span><strong id="seasonPlaces">578</strong><small>мест</small></div>
+          <div class="october-stat"><span class="october-stat-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ticket"/></svg></span><strong id="seasonEvents">297</strong><small>событий</small></div>
+          <div class="october-stat"><span class="october-stat-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-calendar-days"/></svg></span><strong id="seasonDays">31</strong><small>день</small></div>
         </div>
 
         <div class="october-actions">
-          <button class="october-primary" id="quickGenerate" type="button"><span>Открыть идеи на октябрь</span><span aria-hidden="true">→</span></button>
-          <button class="october-surprise" id="surprise" type="button"><span aria-hidden="true">✦</span> Удиви меня</button>
-          <button class="october-nearby" id="nearbyGenerate" type="button"><span aria-hidden="true">⌖</span><span><b>Собрать вокруг нас</b><small>Найти свидание рядом с вами</small></span></button>
+          <button class="october-primary" id="quickGenerate" type="button"><span class="op-copy"><b>Подобрать свидание</b><small id="quickSummary">По параметрам вверху страницы</small></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
+          <button class="october-surprise" id="surprise" type="button"><span class="surprise-star" aria-hidden="true"><svg class="ic" focusable="false"><use href="#i-sparkles"/></svg></span><span>Удиви меня</span></button>
+          <button class="october-nearby" id="nearbyGenerate" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-locate-fixed"/></svg><span><b>Свидание рядом</b><small>Маршрут в пределах 2 км от вас</small></span></button>
         </div>
 
         <div class="october-promises" aria-label="Преимущества">
-          <div><span aria-hidden="true">◷</span><b>Под любое время</b></div>
-          <div><span aria-hidden="true">◎</span><b>На любой бюджет</b></div>
-          <div><span aria-hidden="true">♡</span><b>Под ваше настроение</b></div>
+          <div><span aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg></span><b>Под любое время</b></div>
+          <div><span aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wallet"/></svg></span><b>На любой бюджет</b></div>
+          <div><span aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><b>Под ваше настроение</b></div>
         </div>
       </div>
 
@@ -78,32 +90,32 @@
           <div class="phone-island" aria-hidden="true"></div>
 
           <header class="phone-header">
-            <div><strong>1001 Dates</strong><small>МОСКВА⌄</small></div>
-            <span aria-hidden="true">♥</span>
+            <div><strong>1001 Dates</strong><small>МОСКВА <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></small></div>
+            <span aria-hidden="true"><svg class="ic filled" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>
           </header>
 
           <div class="phone-month" aria-label="Месяц подборки">
-            <span>‹</span><span>Сен</span><b id="deviceMonth">Октябрь 2026</b><span>Ноя</span><span>›</span>
+            <span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg></span><span>Сен</span><b id="deviceMonth">Октябрь 2026</b><span>Ноя</span><span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></span>
           </div>
 
           <button class="phone-feature" id="deviceGenerate" type="button" aria-label="Открыть сценарий">
             <img loading="lazy" decoding="async" id="devicePreviewImage" src="https://media.kudago.com/thumbs/640x384/images/place/a4/d1/a4d11e1a1f20d1bbeb3f93fab5eb8aee.jpg" referrerpolicy="no-referrer" data-full="https://media.kudago.com/images/place/a4/d1/a4d11e1a1f20d1bbeb3f93fab5eb8aee.jpg" onerror="this.onerror=null;this.src=this.dataset.full" alt="">
             <span class="phone-feature-overlay"></span>
             <span class="phone-date" id="devicePreviewDate">14 октября</span>
-            <span class="phone-love" aria-hidden="true">♡</span>
+            <span class="phone-love" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>
 
             <div class="phone-feature-copy">
               <strong id="devicePreviewTitle">Ужин с видом на огни Москвы</strong>
               <p id="devicePreviewStory">Романтика, красивые места и готовый маршрут для двоих.</p>
               <div class="phone-chips">
-                <span>♥ <i id="devicePreviewVibe">романтично</i></span>
-                <span>◷ <i id="devicePreviewDuration">3 часа</i></span>
-                <span>₽ <i id="devicePreviewBudget">до 7 000 ₽</i></span>
+                <span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg> <i id="devicePreviewVibe">романтично</i></span>
+                <span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg> <i id="devicePreviewDuration">3 часа</i></span>
+                <span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wallet"/></svg> <i id="devicePreviewBudget">до 7 000 ₽</i></span>
               </div>
             </div>
           </button>
 
-          <div class="phone-section-title"><strong>Идеи на октябрь</strong><button type="button" data-open-filter>Смотреть все →</button></div>
+          <div class="phone-section-title"><strong>Идеи на октябрь</strong><button type="button" data-open-filter>Настроить <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button></div>
 
           <div class="phone-ideas">
             <button type="button" data-open-filter class="phone-idea">
@@ -133,14 +145,6 @@
   </div>
 </section>
 
-<section class="quick-filters shell" aria-label="Параметры свидания">
-  <button type="button" data-open-filter><span>Дата</span><b id="quickDate">2 окт</b></button>
-  <button type="button" data-open-filter><span>Время</span><b id="quickTime">19:00</b></button>
-  <button type="button" data-open-filter><span>Бюджет</span><b id="quickBudget">до 7 000 ₽</b></button>
-  <button type="button" data-open-filter><span>Длительность</span><b id="quickDuration">3 часа</b></button>
-  <button type="button" data-open-filter><span>Атмосфера</span><b id="quickVibe">Романтика</b></button>
-</section>
-
 <section class="nearby-panel shell" id="nearbyPanel" hidden aria-live="polite">
   <div class="nearby-panel-copy">
     <span class="nearby-dot" aria-hidden="true"></span>
@@ -158,7 +162,7 @@
         <div class="eyebrow" id="resultsEyebrow">ОКТЯБРЬСКАЯ ПОДБОРКА</div>
         <h2>Выберите не место.<br><em>Выберите вечер.</em></h2>
       </div>
-      <button class="filter-fab" id="editFilters" type="button" aria-label="Изменить параметры">⌘</button>
+      <button class="filter-fab" id="editFilters" type="button" aria-label="Изменить параметры"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sliders-horizontal"/></svg></button>
     </header>
     <div class="recap" id="filterRecap"></div>
     <div class="cards" id="resultsGrid" aria-live="polite"></div>
@@ -169,20 +173,20 @@
 </main>
 
 <nav class="mobile-nav" aria-label="Основная навигация">
-  <button class="active" id="navDiscover" type="button"><span aria-hidden="true">⌕</span>Подобрать</button>
-  <button id="navLibrary" type="button"><span aria-hidden="true">♡</span>Мои свидания</button>
-  <button id="navProfile" type="button"><span aria-hidden="true">○</span>Профиль</button>
+  <button class="active" id="navDiscover" type="button"><span aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></span>Подобрать</button>
+  <button id="navLibrary" type="button"><span aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>Мои свидания</button>
+  <button id="navProfile" type="button"><span aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg></span>Профиль</button>
 </nav>
 
 <div class="overlay" id="filtersOverlay" aria-hidden="true">
   <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="filtersTitle">
     <header class="sheet-head">
       <div><div class="eyebrow">ОКТЯБРЬСКИЙ ВЕЧЕР</div><h2 id="filtersTitle">Настроить вечер</h2></div>
-      <button class="close" type="button" data-close="#filtersOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#filtersOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
 
     <form id="filtersForm" class="sheet-scroll">
-      <div class="filter-block first">
+      <div class="filter-block first" data-section="date">
         <div class="filter-block-head"><span>Дата</span></div>
         <div class="segments three date-presets">
           <button type="button" data-date-preset="0"><span id="preset0Title">Сегодня</span><small id="todayLabel"></small></button>
@@ -191,7 +195,7 @@
         </div>
       </div>
 
-      <div class="filter-block">
+      <div class="filter-block" data-section="time">
         <div class="filter-block-head"><span>Время начала</span><b id="timeSummary">19:00</b></div>
         <div class="segments three">
           <button type="button" data-timepreset="13:00">День</button>
@@ -201,7 +205,7 @@
         <label class="exact-time"><span>Точное время</span><input id="timeInput" type="time"></label>
       </div>
 
-      <div class="filter-block">
+      <div class="filter-block" data-section="budget">
         <div class="filter-block-head"><span>Бюджет на двоих</span><b id="budgetSummary">до 7 000 ₽</b></div>
         <div class="segments five">
           <button type="button" data-budget="4000">до 4 000</button>
@@ -212,7 +216,7 @@
         </div>
       </div>
 
-      <div class="filter-block">
+      <div class="filter-block" data-section="duration">
         <div class="filter-block-head"><span>Длительность</span><b id="durationSummary">3 часа</b></div>
         <div class="segments four">
           <button type="button" data-duration="120">2 часа</button>
@@ -222,19 +226,19 @@
         </div>
       </div>
 
-      <div class="filter-block">
+      <div class="filter-block" data-section="vibe">
         <div class="filter-block-head"><span>Атмосфера</span><b id="vibeSummary">Романтично</b></div>
         <div class="moods">
-          <button type="button" data-vibe="romantic">♡ Романтика</button>
-          <button type="button" data-vibe="fun">☺ Весело</button>
-          <button type="button" data-vibe="unusual">✦ Необычно</button>
-          <button type="button" data-vibe="calm">○ Уютно</button>
-          <button type="button" data-vibe="active">↗ Активно</button>
+          <button type="button" data-vibe="romantic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg> Романтика</button>
+          <button type="button" data-vibe="fun"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-smile"/></svg> Весело</button>
+          <button type="button" data-vibe="unusual"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sparkles"/></svg> Необычно</button>
+          <button type="button" data-vibe="calm"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-coffee"/></svg> Уютно</button>
+          <button type="button" data-vibe="active"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-zap"/></svg> Активно</button>
         </div>
       </div>
 
       <label class="setting-row">
-        <span class="setting-icon">⌖</span>
+        <span class="setting-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-map-pin"/></svg></span>
         <span class="setting-copy"><b>Район</b><small>Где хочется провести вечер</small></span>
         <select id="zoneInput" aria-label="Район">
           <option value="any">Любой район</option>
@@ -248,25 +252,25 @@
       </label>
 
       <label class="setting-row">
-        <span class="setting-icon">♨</span>
+        <span class="setting-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-utensils"/></svg></span>
         <span class="setting-copy"><b>Еда</b><small>В сценарии будет гастрономическая глава</small></span>
         <input id="foodInput" type="checkbox" class="switch">
       </label>
 
       <label class="setting-row">
-        <span class="setting-icon">♫</span>
+        <span class="setting-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-music-2"/></svg></span>
         <span class="setting-copy"><b>События</b><small>Учитывать актуальные выставки, концерты и спектакли</small></span>
         <input id="eventsInput" type="checkbox" class="switch">
       </label>
 
       <label class="setting-row">
-        <span class="setting-icon">⌂</span>
+        <span class="setting-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-house"/></svg></span>
         <span class="setting-copy"><b>Только в помещении</b><small>Исключить открытые площадки</small></span>
         <input id="indoorInput" type="checkbox" class="switch">
       </label>
 
       <label class="setting-row">
-        <span class="setting-icon">⊘</span>
+        <span class="setting-icon"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wine-off"/></svg></span>
         <span class="setting-copy"><b>Без баров</b><small>Бар не будет обязательной частью вечера</small></span>
         <input id="noBarsInput" type="checkbox" class="switch">
       </label>
@@ -282,7 +286,7 @@
     </form>
 
     <footer class="sheet-footer">
-      <button class="primary" type="submit" form="filtersForm"><span>Показать варианты</span><span aria-hidden="true">→</span></button>
+      <button class="primary" type="submit" form="filtersForm"><span>Показать варианты</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
     </footer>
   </section>
 </div>
@@ -290,15 +294,15 @@
 <div class="overlay" id="detailOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen detail-screen" role="dialog" aria-modal="true" aria-labelledby="detailScreenTitle">
     <header class="screen-head detail-head">
-      <button class="back-button" type="button" data-close="#detailOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#detailOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">1001 DATES</div><h2 id="detailScreenTitle" hidden>Свидание</h2></div>
-      <button class="close" type="button" data-close="#detailOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#detailOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll" id="detailContent"></div>
     <footer class="detail-bottom detail-bottom-prep">
-      <button class="secondary" id="saveDate" type="button">♡ Сохранить себе</button>
+      <button class="secondary" id="saveDate" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg> Сохранить себе</button>
       <button class="secondary prep-detail-cta" id="prepareDate" type="button"><span>Подготовить свидание</span><span id="prepareDateStatus"></span></button>
-      <button class="primary" id="chooseDate" type="button"><span>Приглашение</span><span aria-hidden="true">→</span></button>
+      <button class="primary" id="chooseDate" type="button"><span>Приглашение</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
     </footer>
   </section>
 </div>
@@ -306,9 +310,9 @@
 <div class="overlay" id="preparationOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen preparation-screen" role="dialog" aria-modal="true" aria-labelledby="preparationTitle">
     <header class="screen-head">
-      <button class="back-button" type="button" data-close="#preparationOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#preparationOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">ПОДГОТОВКА</div><h2 id="preparationTitle">Подготовить свидание</h2></div>
-      <button class="close" type="button" data-close="#preparationOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#preparationOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll">
       <div class="preparation-wrap">
@@ -334,9 +338,9 @@
 <div class="overlay" id="replaceOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen narrow-screen" role="dialog" aria-modal="true" aria-labelledby="replaceTitle">
     <header class="screen-head">
-      <button class="back-button" type="button" data-close="#replaceOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#replaceOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">ДРУГАЯ ГЛАВА</div><h2 id="replaceTitle">Чем заменить?</h2></div>
-      <button class="close" type="button" data-close="#replaceOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#replaceOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll"><div class="replace-list" id="replaceList"></div></div>
   </section>
@@ -345,9 +349,9 @@
 <div class="overlay" id="libraryOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen narrow-screen" role="dialog" aria-modal="true" aria-labelledby="libraryTitle">
     <header class="screen-head">
-      <button class="back-button" type="button" data-close="#libraryOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#libraryOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">ВАША КОЛЛЕКЦИЯ</div><h2 id="libraryTitle">Мои свидания</h2></div>
-      <button class="close" type="button" data-close="#libraryOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#libraryOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="library-tabs" role="tablist" aria-label="Мои свидания">
       <button class="active" type="button" data-library-tab="dates">Сохранённые</button>
@@ -360,9 +364,9 @@
 <div class="overlay" id="profileOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen narrow-screen" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
     <header class="screen-head">
-      <button class="back-button" type="button" data-close="#profileOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#profileOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">1001 DATES</div><h2 id="profileTitle">Профиль</h2></div>
-      <button class="close" type="button" data-close="#profileOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#profileOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll" id="profileContent"></div>
   </section>
@@ -371,9 +375,9 @@
 <div class="overlay" id="inviteOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen invite-screen" role="dialog" aria-modal="true" aria-labelledby="inviteTitle">
     <header class="screen-head">
-      <button class="back-button" type="button" data-close="#inviteOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#inviteOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">1001 DATES</div><h2 id="inviteTitle">Приглашение</h2></div>
-      <button class="close" type="button" data-close="#inviteOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#inviteOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll">
       <div class="invite-wrap">
@@ -401,8 +405,8 @@
         <div class="invite-actions">
           <button class="secondary" id="calendarInvite" type="button">В календарь</button>
           <button class="secondary" id="copyInvite" type="button">Скопировать ссылку</button>
-          <button class="secondary invite-download" id="downloadInvite" type="button"><span>Сохранить открытку</span><span aria-hidden="true">↓</span></button>
-          <button class="primary" id="shareInvite" type="button"><span>Отправить приглашение</span><span aria-hidden="true">→</span></button>
+          <button class="secondary invite-download" id="downloadInvite" type="button"><span>Сохранить открытку</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-download"/></svg></button>
+          <button class="primary" id="shareInvite" type="button"><span>Отправить приглашение</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
         </div>
       </div>
     </div>
@@ -413,15 +417,15 @@
   <section class="screen invite-screen shared-invite-screen" role="dialog" aria-modal="true" aria-labelledby="sharedInviteTitle">
     <header class="screen-head">
       <div><div class="eyebrow">1001 DATES</div><h2 id="sharedInviteTitle">Вас пригласили</h2></div>
-      <button class="close" id="sharedInviteClose" type="button" data-close="#sharedInviteOverlay" aria-label="Закрыть">×</button>
+      <button class="close" id="sharedInviteClose" type="button" data-close="#sharedInviteOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll">
       <div class="shared-invite-wrap">
         <div class="shared-invite-lead"><div class="eyebrow">ПРИГЛАШЕНИЕ НА СВИДАНИЕ</div><p id="sharedInviteMeta"></p></div>
         <div class="poster" id="sharedInvitePoster"></div>
         <div class="shared-invite-actions">
-          <button class="secondary" id="sharedInviteSave" type="button"><span>Сохранить открытку</span><span aria-hidden="true">↓</span></button>
-          <button class="primary" id="sharedInviteHome" type="button"><span>Открыть 1001 Dates</span><span aria-hidden="true">→</span></button>
+          <button class="secondary" id="sharedInviteSave" type="button"><span>Сохранить открытку</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-download"/></svg></button>
+          <button class="primary" id="sharedInviteHome" type="button"><span>Открыть 1001 Dates</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
         </div>
       </div>
     </div>
@@ -431,9 +435,9 @@
 <div class="overlay" id="inviteSaveOverlay" aria-hidden="true" data-dismiss="false">
   <section class="screen invite-screen invite-save-screen" role="dialog" aria-modal="true" aria-labelledby="inviteSaveTitle">
     <header class="screen-head">
-      <button class="back-button" type="button" data-close="#inviteSaveOverlay" aria-label="Назад">←</button>
+      <button class="back-button" type="button" data-close="#inviteSaveOverlay" aria-label="Назад"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-left"/></svg></button>
       <div><div class="eyebrow">1001 DATES</div><h2 id="inviteSaveTitle">Открытка готова</h2></div>
-      <button class="close" type="button" data-close="#inviteSaveOverlay" aria-label="Закрыть">×</button>
+      <button class="close" type="button" data-close="#inviteSaveOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
     </header>
     <div class="screen-scroll">
       <div class="invite-save-wrap">
@@ -445,7 +449,7 @@
   </section>
 </div>
 
-<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3&audit=1&catalog=2&audit300=2&audit400=1&fix=3"></script>
+<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3&audit=1&catalog=2&audit300=2&audit400=1&fix=3&ui=1"></script>
 <script type="module" src="./motion-final.js?v=motion2"></script>
 </body>
 </html>

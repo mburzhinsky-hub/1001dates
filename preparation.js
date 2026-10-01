@@ -49,7 +49,7 @@ export function buildPreparationTasks(plan,filters={}){
         title:freeEvent?"Проверить вход и регистрацию":slot?"Записаться на время":"Купить билеты",
         itemTitle:item.title,
         subtitle:freeEvent?"Проверьте условия входа и нужна ли регистрация":slot?"Удобное время лучше занять заранее":"Лучше проверить и купить заранее",
-        linkLabel:slot?"Открыть запись ↗":"Открыть билеты ↗",
+        linkLabel:slot?"Открыть запись":"Открыть билеты",
         url:preparationUrl(item)
       });
     }
