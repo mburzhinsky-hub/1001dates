@@ -175,3 +175,13 @@ html{scroll-padding-top:calc(var(--header-h) + 54px)}
 .chapter-no{width:30px;height:30px;font-size:12px;font-weight:650}
 .chapter-role{font-size:11px;font-weight:600;letter-spacing:.07em}
 .chapter-meta{font-size:12px}
+
+/* ---------- Nothing preselected: unchosen filters read as labels, chosen ones are highlighted ---------- */
+.site-header .quick-filters .quick-scroll button.is-unset b{font-weight:500;color:#8a6b5c}
+.site-header .quick-filters .quick-scroll button.is-unset .ic{color:#a08878}
+.site-header .quick-filters .quick-scroll button:not(.is-unset){background:#fbe6da;border-color:rgba(184,70,46,.42)}
+.site-header .quick-filters .quick-scroll button.qf-reset{background:transparent;border-style:dashed;color:#8f3827;font-weight:600}
+.site-header .quick-filters .quick-scroll button.qf-reset .ic{width:15px;height:15px;color:#8f3827}
+.site-header .quick-filters .quick-scroll button.qf-reset[hidden]{display:none}
+.sheet-head-actions{display:flex;align-items:center;gap:10px}
+.sheet-reset{min-height:40px;padding:0 6px;border:0;background:transparent;color:var(--accent-dark);font-size:14px;font-weight:650;text-decoration:underline;text-underline-offset:3px}

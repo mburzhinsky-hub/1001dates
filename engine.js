@@ -702,9 +702,12 @@ function makeWhy(plan, filters) {
 }
 function coverFor(items) { return items.find((item) => item.image)?.image || null; }
 function makeTitle(filters, plan, index, variationSeed) {
-  const preferred = filters.vibes?.[index % Math.max(filters.vibes.length,1)] || filters.vibes?.[0] || "romantic";
+  const key = `${plan.template.id}|${plan.items.map((x)=>x.id).join("|")}|${variationSeed}|${index}`;
+  const requested = filters.vibes || [], own = plan.template.vibes || [];
+  // No mood chosen: the title follows the mood of the scenario itself instead of defaulting to romantic.
+  const preferred = requested.length ? requested[index % requested.length] : (own.length ? own[hashString(key) % own.length] : "romantic");
   const pool = TITLE_POOLS[preferred] || TITLE_POOLS.romantic;
-  return pool[hashString(`${plan.template.id}|${plan.items.map((x)=>x.id).join("|")}|${variationSeed}|${index}`) % pool.length];
+  return pool[hashString(key) % pool.length];
 }
 
 function enrichPlan(plan, filters, index, variationSeed, titleOverride=null, archetypeOverride=null) {

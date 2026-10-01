@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./styles-final.css?v=oct1&invite=3&prep=1&map=1&fix=3">
   <link rel="stylesheet" href="./motion-final.css?v=motion2">
   <link rel="stylesheet" href="./october-reference.css?v=ref2&rollback=2&portrait=1">
-  <link rel="stylesheet" href="./ui-refresh.css?v=ui1">
+  <link rel="stylesheet" href="./ui-refresh.css?v=ui2">
   <title>1001 Dates — октябрь 2026 в Москве</title>
 </head>
 <body>
@@ -33,10 +33,11 @@
     <section class="quick-filters" aria-label="Параметры свидания">
       <div class="quick-scroll">
         <button type="button" data-open-filter data-filter-section="date" title="Дата"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><span class="qf-label">Дата</span><b id="quickDate">Сегодня</b></button>
-        <button type="button" data-open-filter data-filter-section="time" title="Время"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="qf-label">Время</span><b id="quickTime">19:00</b></button>
-        <button type="button" data-open-filter data-filter-section="budget" title="Бюджет"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wallet"/></svg><span class="qf-label">Бюджет</span><b id="quickBudget">до 7 000 ₽</b></button>
-        <button type="button" data-open-filter data-filter-section="duration" title="Длительность"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-hourglass"/></svg><span class="qf-label">Длительность</span><b id="quickDuration">3 часа</b></button>
-        <button type="button" data-open-filter data-filter-section="vibe" title="Атмосфера"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span class="qf-label">Атмосфера</span><b id="quickVibe">Романтика</b></button>
+        <button type="button" data-open-filter data-filter-section="time" title="Время"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="qf-label">Время</span><b id="quickTime">Время</b></button>
+        <button type="button" data-open-filter data-filter-section="budget" title="Бюджет"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wallet"/></svg><span class="qf-label">Бюджет</span><b id="quickBudget">Бюджет</b></button>
+        <button type="button" data-open-filter data-filter-section="duration" title="Длительность"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-hourglass"/></svg><span class="qf-label">Длительность</span><b id="quickDuration">Длительность</b></button>
+        <button type="button" data-open-filter data-filter-section="vibe" title="Атмосфера"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span class="qf-label">Атмосфера</span><b id="quickVibe">Атмосфера</b></button>
+        <button type="button" class="qf-reset" id="quickReset" data-reset-filters hidden><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg><span>Сбросить</span></button>
       </div>
       <button class="quick-go" id="quickSearch" type="button" aria-label="Подобрать свидание по этим параметрам"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span>Подобрать</span></button>
     </section>
@@ -73,7 +74,7 @@
         </div>
 
         <div class="october-actions">
-          <button class="october-primary" id="quickGenerate" type="button"><span class="op-copy"><b>Подобрать свидание</b><small id="quickSummary">По параметрам вверху страницы</small></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
+          <button class="october-primary" id="quickGenerate" type="button"><span class="op-copy"><b>Подобрать свидание</b><small id="quickSummary">Сегодня, без ограничений</small></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button>
           <button class="october-surprise" id="surprise" type="button"><span class="surprise-star" aria-hidden="true"><svg class="ic" focusable="false"><use href="#i-sparkles"/></svg></span><span>Удиви меня</span></button>
           <button class="october-nearby" id="nearbyGenerate" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-locate-fixed"/></svg><span><b>Свидание рядом</b><small>Маршрут в пределах 2 км от вас</small></span></button>
         </div>
@@ -182,7 +183,7 @@
   <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="filtersTitle">
     <header class="sheet-head">
       <div><div class="eyebrow">ОКТЯБРЬСКИЙ ВЕЧЕР</div><h2 id="filtersTitle">Настроить вечер</h2></div>
-      <button class="close" type="button" data-close="#filtersOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
+      <div class="sheet-head-actions"><button class="sheet-reset" type="button" data-reset-filters>Сбросить</button><button class="close" type="button" data-close="#filtersOverlay" aria-label="Закрыть"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button></div>
     </header>
 
     <form id="filtersForm" class="sheet-scroll">
@@ -196,7 +197,7 @@
       </div>
 
       <div class="filter-block" data-section="time">
-        <div class="filter-block-head"><span>Время начала</span><b id="timeSummary">19:00</b></div>
+        <div class="filter-block-head"><span>Время начала</span><b id="timeSummary">Любое</b></div>
         <div class="segments three">
           <button type="button" data-timepreset="13:00">День</button>
           <button type="button" data-timepreset="19:00">Вечер</button>
@@ -206,7 +207,7 @@
       </div>
 
       <div class="filter-block" data-section="budget">
-        <div class="filter-block-head"><span>Бюджет на двоих</span><b id="budgetSummary">до 7 000 ₽</b></div>
+        <div class="filter-block-head"><span>Бюджет на двоих</span><b id="budgetSummary">Любой</b></div>
         <div class="segments five">
           <button type="button" data-budget="4000">до 4 000</button>
           <button type="button" data-budget="7000">до 7 000</button>
@@ -217,7 +218,7 @@
       </div>
 
       <div class="filter-block" data-section="duration">
-        <div class="filter-block-head"><span>Длительность</span><b id="durationSummary">3 часа</b></div>
+        <div class="filter-block-head"><span>Длительность</span><b id="durationSummary">Любая</b></div>
         <div class="segments four">
           <button type="button" data-duration="120">2 часа</button>
           <button type="button" data-duration="180">3 часа</button>
@@ -227,7 +228,7 @@
       </div>
 
       <div class="filter-block" data-section="vibe">
-        <div class="filter-block-head"><span>Атмосфера</span><b id="vibeSummary">Романтично</b></div>
+        <div class="filter-block-head"><span>Атмосфера</span><b id="vibeSummary">Любая</b></div>
         <div class="moods">
           <button type="button" data-vibe="romantic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg> Романтика</button>
           <button type="button" data-vibe="fun"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-smile"/></svg> Весело</button>
@@ -449,7 +450,7 @@
   </section>
 </div>
 
-<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3&audit=1&catalog=2&audit300=2&audit400=1&fix=3&ui=1"></script>
+<script type="module" src="./app-final.js?v=oct5&rollback=2&portrait=1&invite=3&prep=2&map=3&audit=1&catalog=2&audit300=2&audit400=1&fix=3&ui=2"></script>
 <script type="module" src="./motion-final.js?v=motion2"></script>
 </body>
 </html>

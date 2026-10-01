@@ -38,7 +38,7 @@ assert(engineV14.includes("./engine.js?base=duration5"),"engine-v14.js is not wi
 assert(indexHtml.includes("audit300=2&audit400=1"),"index.html is missing the scenario 201-300 cache-bust");
 assert(appJs.includes("audit300=2&audit400=1"),"app-final.js is missing the audited engine cache-bust");
 assert(engineV14.includes("audit300=2&audit400=1"),"engine-v14.js is missing the audited base-engine cache-bust");
-assert(serviceWorker.includes('1001-dates-reference-ui-v34'),"service worker cache version was not bumped for scenario audit fixes");
+assert(serviceWorker.includes('1001-dates-reference-ui-v35'),"service worker cache version was not bumped for scenario audit fixes");
 assert(serviceWorker.includes('SNAPSHOT_PATH="/data/kudago.generated.js"'),"service worker does not special-case the monthly snapshot");
 assert(serviceWorker.includes("networkFirst(event.request)"),"monthly snapshot is not network-first");
 assert(scenarioStats.total===1001,`Expected 1001 blueprints, got ${scenarioStats.total}`);
