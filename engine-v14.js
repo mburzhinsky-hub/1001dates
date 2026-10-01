@@ -1,5 +1,5 @@
-import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=2";
-import {pickScenarioCover} from "./scenario-visuals.js?v=2";
+import * as base from "./engine.js?base=duration5&nearby=1&audit=1&catalog=2&audit300=2&audit400=1&fix=3";
+import {pickScenarioCover} from "./scenario-visuals.js?v=3";
 
 const CENTER={lat:55.7558,lon:37.6173};
 const RADIUS_KM=30;
@@ -80,9 +80,8 @@ function cafeLike(item){
   if(!live(item)||item.category!=="dinner")return false;
   const t=cleanTitle(item.title||""),d=cleanTitle(item.description||"");
   if(/ресторан/.test(t)&&!/кофемания/.test(t))return false;
-  if(/кофейн|кофемания/.test(t))return true;
-  if(/кафе[\s-]*(книжн|библиот|литератур)|литературное кафе|поляндрия/.test(t))return true;
-  return /(^|\s)(кафе|бистро)/.test(t)&&/(капучино|кан+ел|круассан|эспрессо|кофе(?!ман)|кофейн|фильтр|десерт|выпечк)/.test(d);
+  if(/столов|семейн|пельмен/.test(`${t} ${d.slice(0,80)}`))return false;   // canteens and family cafes are not a date coffee stop
+  return /кофейн|кофемания|(^|\s)(кафе|бистро)|поляндрия/.test(t);
 }
 const VIEW_LIKE=/^(?:воробьевы горы|большой москворецкий мост|мост богдана хмельницкого|патриарший мост|парк зарядье|ростовская набережная|ммдц москва-сити|поклонная гора)/;
 function alternateRoles(item){

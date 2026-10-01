@@ -16,12 +16,23 @@ export function coverRank(item){
   return (base<0?COVER_ORDER.length:base)+(MALL.test(String(item?.title||""))?COVER_ORDER.length:0);
 }
 
-export function pickScenarioCover(items){
-  const ranked=(items||[])
+function rankedCoverItems(items){
+  return (items||[])
     .map((item,index)=>({item,index,rank:coverRank(item)}))
     .filter(entry=>scenarioImageUsable(entry.item?.image))
-    .sort((a,b)=>a.rank-b.rank||Number(b.item.quality||0)-Number(a.item.quality||0)||a.index-b.index);
-  return ranked[0]?.item.image||null;
+    .sort((a,b)=>a.rank-b.rank||Number(b.item.quality||0)-Number(a.item.quality||0)||a.index-b.index)
+    .map(entry=>entry.item);
+}
+
+export function pickScenarioCover(items){
+  return rankedCoverItems(items)[0]?.image||null;
+}
+
+// Every usable photo of the plan in cover order, so the UI can fall back to the next chapter if a photo fails to load.
+export function scenarioCoverSources(plan){
+  const sources=rankedCoverItems(plan?.items).map(item=>({full:item.image,thumb:scenarioImageUsable(item.imageThumb)?item.imageThumb:null}));
+  if(!sources.length&&scenarioImageUsable(plan?.coverImage))sources.push({full:plan.coverImage,thumb:null});
+  return sources;
 }
 
 // Index of the chapter whose photo is used (or would be used if it had one) — handy for audits and UI captions.

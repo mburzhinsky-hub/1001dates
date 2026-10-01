@@ -127,9 +127,9 @@ const P = Object.freeze({
   ),
   creative60: variants(
     slot("activity",60,"сделать что-то вместе",{semantic:"creative"}),
-    slot("activity:workshop",60,"попробовать мастер-класс"),
-    slot("activity:painting|pottery",60,"сделать что-то руками вместе"),
-    slot("activity:painting",60,"порисовать вместе"),
+    slot("activity:workshop|painting|cooking|pottery",60,"попробовать мастер-класс"),
+    slot("activity:painting|pottery|cooking",60,"сделать что-то руками вместе"),
+    slot("activity:painting|pottery",60,"порисовать вместе"),
     slot("activity:cooking",60,"приготовить что-то вместе")
   ),
   creative75: variants(
@@ -160,9 +160,9 @@ const P = Object.freeze({
   active70: variants(
     slot("activity",70,"немного подвигаться вместе",{semantic:"active"}),
     slot("activity:water|climbing",70,"добавить активную главу"),
-    slot("activity:skating",70,"покататься вместе"),
-    slot("activity:karting",70,"устроить заезд"),
-    slot("activity:karting|mini_golf",70,"добавить лёгкое соревнование"),
+    slot("activity:skating|dance",70,"покататься или потанцевать вместе"),
+    slot("activity:karting|games|bowling",70,"устроить заезд или игровой раунд"),
+    slot("activity:karting|mini_golf|games|billiards",70,"добавить лёгкое соревнование"),
     slot("activity:dance",70,"потанцевать")
   ),
   active85: variants(
@@ -225,7 +225,7 @@ const P = Object.freeze({
   bar55: variants(
     slot("bar",55,"продолжить ещё одним напитком"),
     slot("bar:cocktail",55,"зайти за одним хорошим коктейлем"),
-    slot("bar:wine",55,"закончить бокалом вина"),
+    slot("bar:cocktail|wine",55,"закончить вечер хорошим бокалом"),
     slot("bar:jazz",55,"посидеть в баре с музыкой")
   ),
   bar70: variants(
@@ -243,9 +243,9 @@ const P = Object.freeze({
   eventStage: variants(
     slot("event:concert",null,"сходить на концерт",{useItemDuration:true}),
     slot("event:theater",null,"сходить на спектакль",{useItemDuration:true}),
-    slot("event:standup|show",null,"сходить на стендап или живое шоу",{useItemDuration:true}),
+    slot("event:standup|show|party",null,"сходить на стендап, шоу или вечеринку",{useItemDuration:true}),
     slot("event:movie",null,"сходить на специальный кинопоказ",{useItemDuration:true}),
-    slot("event:show",null,"попасть на шоу",{useItemDuration:true}),
+    slot("event:show|festival",null,"попасть на шоу или фестиваль",{useItemDuration:true}),
     slot("event",null,"сделать событие центром вечера",{useItemDuration:true})
   ),
   eventPreDinner: variants(
@@ -398,7 +398,7 @@ const recipes = [
   R("6-art-event-walk-dinner-bar",360,"event","Искусство, событие, прогулка, ужин и бар",["art60","eventCulture","walk35","dinner80","bar55"],["fun","unusual","romantic","calm"],2,{routeMode:"district",dayparts:["day","evening"]}),
   R("6-walk-art-event-dinner-dessert",360,"event","Прогулка, искусство, событие, ужин и десерт",["walk35","art60","eventCulture","dinner80","dessert35"],["romantic","unusual","fun","calm"],2,{routeMode:"district"}),
   R("6-coffee-art-event-walk-dinner",360,"event","Кофе, искусство, событие, прогулка и ужин",["coffee35","art60","eventCulture","walk35","dinner80"],["calm","unusual","fun","romantic"],2,{routeMode:"district"}),
-  R("6-creative-art-event-dinner",360,"event","Мастер-класс, искусство, событие и ужин",["creative75","art60","eventStage","dinner80"],["active","fun","unusual","romantic"],3,{routeMode:"district"}),
+  R("6-creative-art-event-dinner",360,"event","Мастер-класс, искусство, событие и ужин",["creative60","art45","eventStage","dinner80"],["active","fun","unusual","romantic"],3,{routeMode:"district"}),
   R("6-walk-play-event-dinner",360,"event","Город, игра, событие и ужин",["walk45","play75","eventStage","dinner80"],["active","fun","unusual","romantic"],3,{routeMode:"district"}),
   R("6-art-view-event-dinner-dessert",360,"event","Искусство, вид, событие, ужин и десерт",["art60","view45","eventCulture","dinner80","dessert35"],["romantic","unusual","fun","calm"],2,{routeMode:"district"}),
   R("6-coffee-view-art-dinner-bar",360,"night","Кофе, панорама, искусство, ужин и бар",["coffee35","view45","art60","dinner90","bar55"],["romantic","unusual","fun","calm"],2,{routeMode:"district",dayparts:["day","evening"]}),
@@ -410,14 +410,14 @@ const recipes = [
   R("6-art-creative-walk-view-slowactivity",360,"nofd","Искусство, мастерская и большой маршрут",["art75","creative75","walk55","view45","slowActivity60"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-walk-art-active-view-slowactivity",360,"nofd","Городской день без гастрономической части",["walk55","art75","active85","view45","slowActivity60"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-creative-art-walk-active-view",360,"nofd","Делать, смотреть, гулять и двигаться",["creative75","art75","walk55","active85","view45"],["active","unusual","calm","romantic"],3,{routeMode:"district"}),
-  R("6-art-play-walk-view-slowactivity",360,"nofd","Искусство, игра и исследование города",["art75","play75","walk55","view45","slowActivity60"],["active","unusual","fun","calm"],3,{routeMode:"district"}),
+  R("6-art-play-walk-view-slowactivity",360,"nofd","Искусство, игра и исследование города",["art75","play75","walk45","view45","slowActivity60"],["active","unusual","fun","calm"],3,{routeMode:"district"}),
   R("6-walk-art-event-creative-view",360,"event-nofd","Город, искусство, событие, мастер-класс и вид",["walk45","art75","eventCulture","creative75","view45"],["active","fun","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-view-art-event-play-walk",360,"event-nofd","Панорама, искусство, событие, игра и прогулка",["view45","art75","eventCulture","play75","walk45"],["active","fun","unusual","romantic"],3,{routeMode:"district"}),
   R("6-active-walk-event-art-view",360,"event-nofd","Активность, город, событие, искусство и панорама",["active85","walk45","eventCulture","art75","view45"],["active","fun","unusual","romantic"],3,{routeMode:"district"}),
   R("6-art-creative-event-walk-view",360,"event-nofd","Искусство, мастер-класс, событие, прогулка и вид",["art75","creative75","eventCulture","walk45","view45"],["active","fun","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-brunch-art-creative-walk-view",360,"daytime","Бранч, искусство, мастер-класс, прогулка и вид",["brunch75","art75","creative75","walk55","view45"],["calm","romantic","unusual","active"],2,{routeMode:"district",dayparts:["morning","day"]}),
   R("6-brunch-walk-art-dinner-view",360,"daytime","Бранч, город, искусство, ужин и вид",["brunch75","walk55","art75","dinner80","view45"],["calm","romantic","unusual","active"],1,{routeMode:"district",dayparts:["morning","day"]}),
-  R("6-brunch-play-art-walk-dessert",360,"daytime","Бранч, игра, искусство, прогулка и десерт",["brunch75","play75","art75","walk55","dessert35"],["fun","active","unusual","romantic"],2,{routeMode:"district",dayparts:["morning","day"]}),
+  R("6-brunch-play-art-walk-dessert",360,"daytime","Бранч, игра, искусство, прогулка и десерт",["brunch75","play75","art75","walk45","dessert35"],["fun","active","unusual","romantic"],2,{routeMode:"district",dayparts:["morning","day"]}),
   R("6-coffee-slowactivity-art-creative-dinner",360,"discover","Кофе, исследование, искусство, мастер-класс и ужин",["coffee35","slowActivity60","art75","creative75","dinner90"],["calm","unusual","active","romantic"],2,{routeMode:"district"}),
   R("6-view-slowactivity-art-dinner-dessert",360,"discover","Панорама, находки, искусство, ужин и десерт",["view45","slowActivity60","art75","dinner90","dessert35"],["romantic","unusual","calm"],2,{routeMode:"district"}),
   R("6-play-art-walk-dinner-dessert",360,"play","Игра, искусство, прогулка, ужин и десерт",["play75","art60","walk45","dinner90","dessert35"],["active","fun","unusual","romantic"],2,{routeMode:"district"}),
@@ -436,7 +436,7 @@ const recipes = [
   R("6-creative-art-event-walk-slow",360,"event-nofd","Мастер-класс, искусство, событие, прогулка и исследование",["creative75","art75","eventCulture","walk55","slowActivity60"],["active","fun","unusual","calm","romantic"],3,{routeMode:"district"}),
   R("6-active-art-event-walk-slow",360,"event-nofd","Активность, искусство, событие и спокойный городской финал",["active85","art75","eventCulture","walk55","slowActivity60"],["active","fun","unusual","calm"],3,{routeMode:"district"}),
   R("6-art-event-creative-walk-slow",360,"event-nofd","Искусство, событие, мастер-класс, прогулка и маленькое открытие",["art75","eventCulture","creative75","walk55","slowActivity60"],["active","fun","unusual","calm","romantic"],3,{routeMode:"district"}),
-  R("6-walk-art-stage-play",360,"event-nofd","Прогулка, искусство, большой выход и игра после",["walk55","art75","eventStage","play75"],["active","fun","unusual","romantic"],3,{routeMode:"district",dayparts:["day","evening"]})
+  R("6-walk-art-stage-play",360,"event-nofd","Прогулка, искусство, большой выход и игра после",["walk35","art75","eventStage","play75"],["active","fun","unusual","romantic"],3,{routeMode:"district",dayparts:["day","evening"]})
 ];
 
 function cartesian(options) {

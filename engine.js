@@ -1,4 +1,4 @@
-import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1&fix=2";
+import { scenarioBlueprints } from "./data/scenarios.js?catalog=2&audit300=2&audit400=1&fix=3";
 
 const FOOD_CATEGORIES = new Set(["cafe", "dessert", "dinner"]);
 
@@ -729,6 +729,30 @@ function budgetFeasible(pools, filters) {
   return floor <= filters.budget;
 }
 
+// When the venues a flow needs are simply not close to each other this month, the flow is offered with the next wider
+// route profile (micro -> compact -> district) instead of disappearing. Only used when the declared profile finds nothing,
+// and schedulePlan still enforces that the transfers fit into the date's duration.
+const ROUTE_STEP_UP = Object.freeze({ micro:"compact", compact:"district" });
+function widenedTemplate(template) {
+  const next = ROUTE_STEP_UP[template.routeMode || "compact"];
+  return next ? { ...template, routeMode:next, widened:true } : null;
+}
+function candidatesForTemplate(template, pools, filters, variationSeed) {
+  const found = [];
+  for (const items of cartesianLimited(pools,filters,template)) {
+    if (!moodCoverage(template, items, filters)) continue;
+    const schedule = schedulePlan(items, filters, template);
+    if (!schedule) continue;
+    const baseScore = planBaseScore(template, items, schedule, filters, variationSeed);
+    found.push({ ...schedule, template, items, baseScore, filters, geo:geographicMetrics(items,filters,template) });
+  }
+  if (!found.length) {
+    const wide = widenedTemplate(template);
+    if (wide) return candidatesForTemplate(wide, pools, filters, variationSeed);
+  }
+  return found;
+}
+
 function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null}) {
   const candidates = [], slotCache = new Map();
   for (const template of TEMPLATES) {
@@ -736,13 +760,7 @@ function makeCandidates({places,events,filters,variationSeed=0,anchorItem=null})
     const pools = buildPools(template, places, events, filters, anchorItem, slotCache);
     if (!pools || pools.some((pool) => !pool.length)) continue;
     if (!budgetFeasible(pools, filters)) continue;
-    for (const items of cartesianLimited(pools,filters,template)) {
-      if (!moodCoverage(template, items, filters)) continue;
-      const schedule = schedulePlan(items, filters, template);
-      if (!schedule) continue;
-      const baseScore = planBaseScore(template, items, schedule, filters, variationSeed);
-      candidates.push({ ...schedule, template, items, baseScore, filters, geo:geographicMetrics(items,filters,template) });
-    }
+    candidates.push(...candidatesForTemplate(template, pools, filters, variationSeed));
   }
   candidates.sort((a,b) => b.baseScore-a.baseScore);
   return candidates;
@@ -782,14 +800,7 @@ export function generateTemplateDates({ places, events, filters, templateId, cou
   if(!template||!templateEligible(template,filters))return [];
   const pools=buildPools(template,places,events,filters,anchorItem);
   if(!pools||pools.some((pool)=>!pool.length))return [];
-  const candidates=[];
-  for(const items of cartesianLimited(pools,filters,template)){
-    if(!moodCoverage(template,items,filters))continue;
-    const schedule=schedulePlan(items,filters,template);
-    if(!schedule)continue;
-    const baseScore=planBaseScore(template,items,schedule,filters,variationSeed);
-    candidates.push({...schedule,template,items,baseScore,filters,geo:geographicMetrics(items,filters,template)});
-  }
+  const candidates=candidatesForTemplate(template,pools,filters,variationSeed);
   candidates.sort((a,b)=>b.baseScore-a.baseScore);
   return candidates.slice(0,Math.max(1,Number(count)||1)).map((plan,index)=>enrichPlan(plan,filters,index,variationSeed));
 }

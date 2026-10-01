@@ -4,7 +4,7 @@ import { seedPlaces, seedEvents } from "../data/seed.js";
 import { kudagoPlaces, kudagoEvents, kudagoMeta } from "../data/kudago.generated.js";
 import { generateDates, replacePlanItem, generateNearbyDates, repairScenarioItem, generateTemplateDates } from "../engine-v14.js?v=duration5";
 import { scenarioBlueprints } from "../data/scenarios.js";
-import { selectScenarioCover, scenarioImageUsable } from "../scenario-visuals.js";
+import { selectScenarioCover, scenarioImageUsable, scenarioCoverSources } from "../scenario-visuals.js";
 import { scenarioMapPoints } from "../scenario-map.js";
 import { readFileSync } from "node:fs";
 import { buildCalendarICS, buildPreparationTasks, needsSlotBooking } from "../preparation.js";
@@ -165,5 +165,18 @@ assert(repairScenarioItem({ id: "x3", title: "Парк Горького", catego
   const app = readFileSync(new URL("../app-final.js", import.meta.url), "utf8");
   assert(!/\$\{[^}]*\}\s*главы/.test(app), "hard-coded «N главы» label is back");
   assert(app.includes("chaptersLabel(") && app.includes("posterTitles("), "plural helper or poster row limiter missing");
+}
+// 14. Photos load light: no multi-megabyte originals in the page markup or in the cards, and a broken photo has a fallback.
+{
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../app-final.js", import.meta.url), "utf8");
+  const tags = html.match(/<img[^>]*media\.kudago\.com[^>]*>/g) || [];
+  assert(tags.length >= 5, "home photos disappeared from index.html");
+  for (const tag of tags) assert(/src="https:\/\/media\.kudago\.com\/thumbs\//.test(tag) && /data-full=/.test(tag) && /onerror=/.test(tag), `home photo without thumbnail + fallback: ${tag.slice(0, 80)}`);
+  assert((app.match(/<img /g) || []).length === 1 && /function imgHTML[\s\S]{0,900}<img src="\$\{esc\(chain\[0\]\)\}"/.test(app), "every photo must be rendered through imgHTML (thumbnail + fallback chain), not straight from the original URL");
+  assert(app.includes("imgHTML(") && app.includes("thumbOf("), "thumbnail helpers missing");
+  const plan = { items: [{ category: "cafe", image: "https://media.kudago.com/images/place/aa/bb/cc.jpg" }, { category: "art", image: "https://media.kudago.com/images/place/dd/ee/ff.jpg", imageThumb: "https://media.kudago.com/thumbs/640x384/images/place/dd/ee/ff.jpg" }] };
+  const sources = scenarioCoverSources(plan);
+  assert(sources.length === 2 && sources[0].full.endsWith("ff.jpg") && sources[0].thumb && sources[0].full === selectScenarioCover(plan), "cover sources must start with the cover and keep the next chapter as a fallback");
 }
 console.log("Audit fixes OK");
