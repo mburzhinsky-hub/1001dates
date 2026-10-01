@@ -410,8 +410,12 @@ function buildPools(template, places, events, filters, anchorItem=null) {
       .filter((item) => itemFitsPreferences(item, filters))
       .filter((item) => !anchorItem || item.id !== anchorItem.id)
       .sort((a,b) => candidateScore(b, filters, template) - candidateScore(a, filters, template))
-      .slice(0, 20);
+      .slice(0, 30);
   });
+}
+
+function normalizedVenueTitle(value="") {
+  return String(value).toLowerCase().replace(/ё/g,"е").replace(/[«»“”„"'.,:;!?()—–−/\\-]+/g," ").replace(/\s+/g," ").trim();
 }
 
 function cartesianLimited(pools, filters, template, limit=180) {
@@ -420,7 +424,7 @@ function cartesianLimited(pools, filters, template, limit=180) {
     if (result.length >= limit) return;
     if (index === pools.length) { result.push(acc.slice()); return; }
     for (const item of pools[index]) {
-      if (acc.some((x) => x.id === item.id)) continue;
+      if (acc.some((x) => x.id === item.id || normalizedVenueTitle(x.title) === normalizedVenueTitle(item.title))) continue;
       acc.push(item);
       // Prune impossible geography immediately instead of wasting the candidate budget on cross-city combinations.
       if (geographicallyPlausible(acc,filters,template)) walk(index+1, acc);
